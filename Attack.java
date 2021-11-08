@@ -4,7 +4,7 @@ public class Attack {
 
     // constructor created to make calls to the methods in this class
     public static void Attack() {
-
+        //might not be
     }
 
     //allows the player to attack the enemy

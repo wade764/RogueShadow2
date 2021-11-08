@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import ansi_terminal.*;
+
 public class Inventory{
     /*  keeps track of the items and keeps track of the max weight, and equipped armor/weapon
         the methods are to manipulate the arraylist 
 
      */
 
-    ArrayList<Item> items = new ArrayList<Item>();
+    ArrayList<Item> items = new ArrayList<>();
     private int maxWeight;
     private Item equippedWeapon;
     private Item equippedArmor;
@@ -41,8 +42,8 @@ public class Inventory{
     // adds all of the weights from every item in the arraylist and adds them together
     public int totalWeight(){
         int total=0;
-        for (int i=0; i<items.size(); i++){
-            total+=items.get(i).getWeight();
+        for (Item item : items) {
+            total += item.getWeight();
 
         }
         return total;
@@ -93,9 +94,9 @@ public class Inventory{
         int numLabel=1;
         index = 1;
         Scanner in = new Scanner(System.in);
-        for (int i=0; i< items.size(); i++){
+        for (Item item : items) {
             Terminal.warpCursor(index, 82);
-            System.out.print("Item " + numLabel + ":  "  + items.get(i).getName());
+            System.out.print("Item " + numLabel + ":  " + item.getName());
             index++;
             numLabel++;
 
@@ -104,7 +105,7 @@ public class Inventory{
         //gets the user to enter a number then takes the user input to remove the item at the correct index
         Terminal.warpCursor(index, 82);
         System.out.print("Type the number that corresponds to the item you want to drop: ");
-        int removeIndex=0;
+        int removeIndex;
         int userNum= in.nextInt();
         removeIndex = userNum  - 1 ;
         index++;
@@ -132,7 +133,7 @@ public class Inventory{
         Inventory.clearScreen();
         int numLabel=1;
         index = 1;
-        ArrayList<Item> weaponsList = new ArrayList<Item>();
+        ArrayList<Item> weaponsList = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         for (Item item : items){
             if (item.getType() == ItemType.Weapon){
@@ -142,10 +143,10 @@ public class Inventory{
         Terminal.setForeground(Color.CYAN);
         Terminal.warpCursor(index, 82);
         System.out.print("Type the number that corresponds to the weapon you want to equip");
-        for (int i=0; i<weaponsList.size(); i++){
+        for (Item item : weaponsList) {
             index++;
             Terminal.warpCursor(index, 85);
-            System.out.print(numLabel + ":  " + weaponsList.get(i).getName() + " ");
+            System.out.print(numLabel + ":  " + item.getName() + " ");
             numLabel++;
         }	      
 
@@ -169,7 +170,7 @@ public class Inventory{
         Inventory.clearScreen();
         int numLabel=1;
         index = 1;
-        ArrayList<Item> armorList = new ArrayList<Item>();
+        ArrayList<Item> armorList = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         //goes through the inventory and puts weapon type items into its own ArrayList
         for (Item item : items){
@@ -180,10 +181,10 @@ public class Inventory{
         Terminal.setForeground(Color.CYAN);
         Terminal.warpCursor(index, 82);
         System.out.print("Type the number that corresponds to the armor you want to equip");
-        for (int i=0; i<armorList.size(); i++){
+        for (Item item : armorList) {
             index++;
             Terminal.warpCursor(index, 85);
-            System.out.print(numLabel + ":  " + armorList.get(i).getName() + " ");
+            System.out.print(numLabel + ":  " + item.getName() + " ");
             numLabel++;
         }
 

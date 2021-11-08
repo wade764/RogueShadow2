@@ -66,6 +66,7 @@ public class Enemy {
         if (move == 0) {
             char cell = g.getCell(coordinates.get(0), (coordinates.get(1)-1));
             if (cell == '#' ) {
+                //change to if cell != #
             } else if (enemyColL != pCol && pRow != coordinates.get(0) ){
                 coordinates.set(1, coordinates.get(1) - 1); //move left
             }

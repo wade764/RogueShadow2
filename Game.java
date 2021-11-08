@@ -381,7 +381,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item1.getName() + " was added to your inventory");
                                 item1.setStatus();
                                 grid[3] = "##              ##################          ##                     ##           ";
@@ -399,7 +399,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item2.getName() + " was added to your inventory");
                                 item2.setStatus();
                                 grid[11] = "                            ##                     ##          ##  ##           ";
@@ -418,7 +418,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item3.getName() + " was added to your inventory");
                                 item3.setStatus();
                                 grid[17] = "                              ##                                       ##       ";
@@ -437,7 +437,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item4.getName() + " was added to your inventory");
                                 item4.setStatus();
                                 grid[18] = "                              ##                                       ##       ";
@@ -456,7 +456,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item5.getName() + " was added to your inventory");
                                 item5.setStatus();
                                 grid[22] = "    ##  ########################                                       ##       ";
@@ -475,7 +475,7 @@ public class Game {
                             Terminal.warpCursor(20,82);
                             System.out.print("                                                                 ");
                             Terminal.warpCursor(20, 82);
-                            if (result == true) {
+                            if (result) {
                                 System.out.print("The " + item6.getName() + " was added to your inventory");
                                 item6.setStatus();
                                 grid[33] = "######  ####                               ##            ##                     ";
@@ -547,7 +547,7 @@ public class Game {
                     }
                     break;
                 case i:
-                    if (pause == false) {
+                    if (!pause) {
                         pause = true;
                         Terminal.setForeground(Color.CYAN);
                         Terminal.warpCursor(1, 82);

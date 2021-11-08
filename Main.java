@@ -54,7 +54,7 @@ public class Main {
         System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // we must call rawMode when we start the program, or else nothing else will really work!
         Terminal.rawMode();
 
@@ -70,8 +70,6 @@ public class Main {
         while (!done) {
             if (!pause) {
                 done = theGame.game();
-            } else {
-                //pause is true so do nothing
             }
             theGame.getPause();
         }
