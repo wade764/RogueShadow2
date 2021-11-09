@@ -5,7 +5,7 @@ import ansi_terminal.*;
 
 public class Main {
     public static void main(String args[]) {
-        // put termain in raw mode
+        // put terminal in raw mode
         Terminal.rawMode();
 
         // make and run the Game

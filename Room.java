@@ -54,7 +54,7 @@ public class Room {
         };
     }
 
-    // returns the player's strting location in this room
+    // returns the player's starting location in this room
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -114,7 +114,7 @@ public class Room {
                     // a unicode block symbol
                     System.out.print('\u2588');
                 } else {
-                    // whatever else, just draw a blank (we DONT draw starting items from map)
+                    // whatever else, just draw a blank (we DON'T draw starting items from map)
                     System.out.print(' ');
                 }
             }

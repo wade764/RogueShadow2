@@ -62,7 +62,7 @@ public class Inventory {
         return total;
     }
 
-    // print all of the items in the list, that match they given type (can be null)
+    // print all of the items in the list, that match the given type (can be null)
     // returns the number of items matching they type
     private int print(ItemType filter) {
         // clear the terminal so we print over all else
@@ -168,7 +168,7 @@ public class Inventory {
         System.out.print((options + 1) + "    None\n\r");
 
         // get their choice, only allowing ints in the correct range
-        int choice = 0;
+        int choice;
         do {
             String entry = Terminal.getLine("Select an item: ");
             try {

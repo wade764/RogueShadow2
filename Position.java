@@ -28,11 +28,8 @@ public class Position {
         int rowdiff = Math.abs(this.row - other.row);
         int coldiff = Math.abs(this.col - other.col);
 
-        if (rowdiff + coldiff < 2) {
-            return true;
-        } else {
-            return false;
-        }
+        //returns a boolean whether this is true or false
+        return rowdiff + coldiff < 2;
     }
 
     public int getRow() {

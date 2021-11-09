@@ -195,7 +195,7 @@ public class Game {
             }
 
             // check for battles
-            if (checkBattles() == false) {
+            if (!checkBattles()) {
                 setStatus("You have been killed :(\n\r");
                 playing = false;
             }

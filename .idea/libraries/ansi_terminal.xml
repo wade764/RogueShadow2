@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ansi_terminal">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/240Fall2021/ansi_terminal.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

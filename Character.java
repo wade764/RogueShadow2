@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import ansi_terminal.*;
 
 public abstract class Character extends Entity {
-    // the characters health points
+    // the character's health points
     private int hp;
 
     public Character(int row, int col, char display, Color color, int hp) {
