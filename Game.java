@@ -3,12 +3,15 @@
 
 import java.util.ArrayList;
 import ansi_terminal.*;
+import java.util.Scanner;
 
 public class Game {
     private Room room;
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
+
+    private String name = "Hero";
 
     public Game() {
         room = new Room();
@@ -17,17 +20,81 @@ public class Game {
         enemies = room.getEnemies();
     }
 
+    // this method prints the games plot
+    protected void storyPlot() {
+        // clearing the terminal screen
+        for (int i = 0; i < 100; i++) {
+            Terminal.warpCursor(i, 0);
+            System.out.print("                                                                                                                               ");
+        }
+
+        // printing the games name
+        // code generated from www.coolgenerator.com/ascii-text-generator   font used: ANSI shadow
+        Terminal.warpCursor(6, 26);
+        System.out.print("██████╗  ██████╗  ██████╗ ██╗   ██╗███████╗    ███████╗██╗  ██╗ █████╗ ██████╗  ██████╗ ██╗    ██╗");
+        Terminal.warpCursor(7, 26);
+        System.out.print("██╔══██╗██╔═══██╗██╔════╝ ██║   ██║██╔════╝    ██╔════╝██║  ██║██╔══██╗██╔══██╗██╔═══██╗██║    ██║");
+        Terminal.warpCursor(8, 26);
+        System.out.print("██████╔╝██║   ██║██║  ███╗██║   ██║█████╗      ███████╗███████║███████║██║  ██║██║   ██║██║ █╗ ██║");
+        Terminal.warpCursor(9, 26);
+        System.out.print("██╔══██╗██║   ██║██║   ██║██║   ██║██╔══╝      ╚════██║██╔══██║██╔══██║██║  ██║██║   ██║██║███╗██║");
+        Terminal.warpCursor(10, 26);
+        System.out.print("██║  ██║╚██████╔╝╚██████╔╝╚██████╔╝███████╗    ███████║██║  ██║██║  ██║██████╔╝╚██████╔╝╚███╔███╔╝");
+        Terminal.warpCursor(11, 26);
+        System.out.print("╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚══╝╚══╝ ");
+
+
+        // printing the stories plot
+        Terminal.warpCursor(14, 36);
+        System.out.print("*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*");
+        Terminal.warpCursor(15, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(16, 36);//40
+        System.out.print("*   You the adventurer must set forth into the dark world of Rogue Shadow.  *");
+        Terminal.pause(1.5);
+        Terminal.warpCursor(17, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(18, 36);//38
+        System.out.print("* A land of mystical wonder and danger presents itself around every corner. *");
+        Terminal.pause(1.5);
+        Terminal.warpCursor(19, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(20, 36);//38
+        System.out.print("* The goal of the game is to survive and collect as many items as possible. *");
+        Terminal.pause(1.5);
+        Terminal.warpCursor(21, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(22, 36);//46
+        System.out.print("*         Beware of the dungeons enemies or you will surely perish!         *");
+        Terminal.warpCursor(23, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(24, 36);
+        System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
+    }
+    
+    // sets the name of the player during the title screen
+    protected void setName() {
+        boolean done = false;
+        Terminal.warpCursor(26, 58);
+        System.out.print("What is your name adventurer? ");
+        //Changed the way the program reads the player name in so that the line stays in positon
+        Scanner in = new Scanner(System.in);
+        Terminal.warpCursor(26, 88);
+        name = in.next();
+    }
+
+
     // prints a help menu to the left of the map
     private void showHelp() {
         String[] cmds = {"Commands:",
-                         "---------",
-                         "Move: Arrow Keys",
-                         "Pickup an item: p",
-                         "Drop an item: d",
-                         "List items: l",
-                         "Equip weapon: w",
-                         "Equip armor: a",
-                         "Quit: q"
+            "---------",
+            "Move: Arrow Keys",
+            "Pickup an item: p",
+            "Drop an item: d",
+            "List items: l",
+            "Equip weapon: w",
+            "Equip armor: a",
+            "Quit: q"
         };
         Terminal.setForeground(Color.GREEN);
         for (int row = 0; row < cmds.length; row++) {
@@ -107,19 +174,19 @@ public class Game {
                 redrawMapAndHelp();
                 break;
 
-            // handle movement
+                // handle movement
             case LEFT: player.move(0, -1, room);
-                break;
+                       break;
             case RIGHT: player.move(0, 1, room);
-                break;
+                        break;
             case UP: player.move(-1, 0, room);
-                break;
+                     break;
             case DOWN: player.move(1, 0, room);
-                break;
+                       break;
 
-            // and finally the quit command
+                       // and finally the quit command
             case q:
-                return false;
+                       return false;
         }
 
         return true;
@@ -208,4 +275,3 @@ public class Game {
         }
     }
 }
-
