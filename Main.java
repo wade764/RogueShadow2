@@ -6,8 +6,6 @@ import ansi_terminal.*;
 public class Main {
     public static void main(String[] args) {
         // put terminal in raw mode
-        Room2 room = new Room2();
-        System.out.println(room);
         Terminal.rawMode();
 
         // make and run the Game
