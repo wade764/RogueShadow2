@@ -4,7 +4,7 @@
 import ansi_terminal.*;
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // put terminal in raw mode
         Terminal.rawMode();
 
