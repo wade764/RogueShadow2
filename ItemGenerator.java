@@ -5,8 +5,7 @@ import java.util.Random;
 
 public class ItemGenerator {
     public static Item generate() {
-        // TODO: replace this with your own code!
-	 int num;
+	 	int num;
 		 Random rng= new Random();
 		 num = rng.nextInt(25);
 		
