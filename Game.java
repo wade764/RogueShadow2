@@ -10,6 +10,7 @@ public class Game {
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
+    private ArrayList<Warp> warps;
 
     private String name;
 
@@ -18,6 +19,7 @@ public class Game {
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
+        warps = room.getWarp();
     }
 
     // this method prints the games plot
@@ -288,6 +290,9 @@ public class Game {
             for (Enemy enemy : enemies) {
                 enemy.draw();
             }
+            for (Warp warp : warps) {
+                warp.draw();
+            }
             player.draw();
 
             // read a key from the user
@@ -308,6 +313,9 @@ public class Game {
                 setStatus("You have been killed :(\n\r");
                 playing = false;
             }
+            
+            //***SEE BELOW*** this could be changed to check if the box is an item or a warp
+            //***EDIT*** the warp is now no longer a Box but a Warp that extends Entity, still working on this step
 
             // check if we are on a box and print what's in it
             Box thingHere = checkForBox();

@@ -4,6 +4,10 @@
 import java.util.Random;
 
 public class ItemGenerator {
+
+    // generating a warp item
+    private static Item warp = new Item(ItemType.Warp, "Warp point", 1, 1, 1);
+
     public static Item generate() {
         int num;
         Random rng= new Random();
@@ -64,7 +68,12 @@ public class ItemGenerator {
 
         }
 
-
         return temp;
     }
+    
+    // getter for the warp Item
+    public static Item getWarp() {
+        return warp;
+    }
+
 }
