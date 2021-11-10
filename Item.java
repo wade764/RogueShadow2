@@ -49,8 +49,7 @@ public class Item {
     }
 
     @Override
-    public String toString() {
-        return name + " " + weight + " " + value + " " + strength;
-    }
+        public String toString() {
+            return name + " " + weight + " " + value + " " + strength;
+        }
 }
-
