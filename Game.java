@@ -312,7 +312,7 @@ public class Game {
             // check if we are on a box and print what's in it
             Box thingHere = checkForBox();
             if (thingHere != null) {
-                setStatus("Here you find: " + thingHere.getItem().getName());
+                setStatus("Here you find: " + thingHere.getItem().getName() + " Weight: " + thingHere.getItem().getWeight() + " Value: " + thingHere.getItem().getValue() + " Strength: " + thingHere.getItem().getStrength());
             }
         }
     }
