@@ -11,7 +11,7 @@ public class Game {
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
 
-    private String name = "Hero";
+    private String name;
 
     public Game() {
         room = new Room();
@@ -21,7 +21,7 @@ public class Game {
     }
 
     // this method prints the games plot
-    protected void storyPlot() {
+    protected void titleScreen() {
         // clearing the terminal screen
         for (int i = 0; i < 100; i++) {
             Terminal.warpCursor(i, 0);
@@ -70,19 +70,17 @@ public class Game {
         System.out.print("<                                                                           >");
         Terminal.warpCursor(24, 36);
         System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
-    }
-    
-    // sets the name of the player during the title screen
-    protected void setName() {
-        boolean done = false;
+
+        //setting the players name
         Terminal.warpCursor(26, 58);
         System.out.print("What is your name adventurer? ");
-        //Changed the way the program reads the player name in so that the line stays in positon
         Scanner in = new Scanner(System.in);
         Terminal.warpCursor(26, 88);
+        // initializing the name of the player
         name = in.next();
-    }
+        player.setName(name);
 
+    }
 
     // prints a help menu to the left of the map
     private void showHelp() {

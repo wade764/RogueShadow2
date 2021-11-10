@@ -11,11 +11,8 @@ public class Main {
         // make and run the Game
         Game game = new Game();
 
-        // printing the title screen
-        game.storyPlot();
-        // still on title screen, setting the players name
-        game.setName();
-
+        // printing the title screen, which also sets the players name
+        game.titleScreen();
 
         game.run();
 
@@ -23,4 +20,3 @@ public class Main {
         Terminal.cookedMode();
     }
 }
-

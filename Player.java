@@ -4,6 +4,7 @@ import ansi_terminal.*;
 
 public class Player extends Character {
     private Inventory items;
+    private String name = "Hero"; 
 
     public Player(Position start) {
         // our starting details
@@ -31,7 +32,7 @@ public class Player extends Character {
 
     @Override
     public String getName() {
-        return "Player";
+        return name;
     }
 
     @Override
@@ -48,5 +49,9 @@ public class Player extends Character {
     public Inventory getInventory() {
         return items;
     }
-}
 
+    // setter used in the Game class to set the players name
+    public void setName(String n) {
+        name = n;
+    }
+}
