@@ -84,6 +84,9 @@ public class Game {
 
     // prints a help menu to the left of the map
     private void showHelp() {
+
+        Terminal.setForeground(Color.CYAN);
+
         String[] cmds = {"Commands:",
             "---------",
             "Move: Arrow Keys",
@@ -96,11 +99,52 @@ public class Game {
         };
         Terminal.setForeground(Color.GREEN);
         for (int row = 0; row < cmds.length; row++) {
-            Terminal.warpCursor(row + 1, room.getCols());
+            Terminal.warpCursor(row + 1, room.getCols() + 1);
             System.out.print(cmds[row]);
         }
+
+        // adding the player info below the commands
+        Terminal.warpCursor(10, 61);
+        System.out.print("\nName: " + player.getName());
+        Terminal.warpCursor(11, 61);
+        System.out.print("\nHP: " + player.getHealth());
+        Terminal.warpCursor(12, 61);
+        System.out.print("\nStrength: " + player.getDamage());
+        Terminal.warpCursor(13, 61);
+        System.out.println("\nDefense: " + player.getProtection());
+
         Terminal.reset();
     }
+
+    // printing the command and additional info to the screen
+    //public void drawInfo() {
+    //Terminal.setForeground(Color.CYAN);
+    //System.out.print("Commands:");
+    //System.out.print("Move: arrow keys");
+    //System.out.print("Pickup: p");
+    //System.out.println("Attack: a");
+    //System.out.println("View inventory: i");
+    //System.out.print("Player stats:");
+
+
+    // this may make more sense to put in a different method 
+
+    //System.out.print("Enemy Health:");
+    //if (dragon.getEnemyHP() > 0) {
+    //    System.out.print("Dragon: " + dragon.getEnemyHP());
+    //} else {
+    //    System.out.print("Dragon: dead (X_X)");
+    //}
+    //Terminal.warpCursor(15, 85);
+    //if (goblin.getEnemyHP() > 0) {
+    //    System.out.print("Goblin: " + goblin.getEnemyHP());
+    //} else {
+    //    System.out.print("Goblin: dead (X_X)"); 
+    //}
+    //Terminal.warpCursor(40, 0);
+
+    //Terminal.reset();
+    //}
 
     // right under the map we keep a line for status messages
     private void setStatus(String mesg) {
