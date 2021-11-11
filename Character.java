@@ -76,4 +76,9 @@ public abstract class Character extends Entity {
         Terminal.getKey();
         return true;
     }
+
+    //used to reset the player's hp when they move to the next floor
+    public void setHP() {
+        hp = 50;
+    }
 }
