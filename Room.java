@@ -74,7 +74,8 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
-                    boxes.add(new Box(row, col, ItemGenerator.generate()));
+                    Item i = ItemGenerator.instance().generate();
+                    boxes.add(new Box(row, col, i ));
                 }
             }
         }
@@ -102,7 +103,7 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == '&') {
-                    warps.add(new Warp(row, col, ItemGenerator.getWarp()));
+                    warps.add(new Warp(row, col));
                 }
             }
         }

@@ -218,6 +218,11 @@ public class Game {
                 redrawMapAndHelp();
                 break;
 
+            //***currently working on this    
+            // used for warping
+            case ENTER:
+                break;
+
                 // handle movement
             case LEFT: player.move(0, -1, room);
                        break;

@@ -5,10 +5,24 @@ import java.util.Random;
 
 public class ItemGenerator {
 
-    // generating a warp item
-    private static Item warp = new Item(ItemType.Warp, "Warp point", 1, 1, 1);
+    private static ItemGenerator theInstance;
 
-    public static Item generate() {
+    //*** This is bad code
+    // generating a warp item
+    //private static Item warp = new Item(ItemType.Warp, "Warp point", 1, 1, 1);
+
+    public static synchronized ItemGenerator instance() {
+        if (theInstance == null) {
+            theInstance = new ItemGenerator();
+        }
+        return theInstance;
+    }
+    
+    private ItemGenerator() {
+
+    }
+
+    public Item generate() {
         int num;
         Random rng= new Random();
         num = rng.nextInt(25);
@@ -70,10 +84,10 @@ public class ItemGenerator {
 
         return temp;
     }
-    
-    // getter for the warp Item
-    public static Item getWarp() {
-        return warp;
-    }
 
+    //*** this is bad code
+    // getter for the warp Item
+    //public static Item getWarp() {
+    //    return warp;
+    //}
 }
