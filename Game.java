@@ -185,6 +185,7 @@ public class Game {
         }
     }
 
+
     // code for when the player tries to drop an item
     private void drop() {
         if (checkForBox() == null) {
@@ -198,6 +199,20 @@ public class Game {
             Terminal.pause(1.25);
         }
     }
+
+	private void roomWarp(){
+		Box thing= checkForBox();
+		if (thing==null){
+			setStatus("Cannot Warp at this moment");
+			Terminal.pause(1.25);
+		}
+		else{
+		//	int room = roomUpdate();
+		//	nextRoom(room);
+		}
+	}
+
+
 
     // handle the key which was read - return false if we quit the game
     private boolean handleKey(Key key) {
