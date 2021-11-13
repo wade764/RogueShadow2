@@ -4,6 +4,9 @@
 import java.util.ArrayList;
 import ansi_terminal.*;
 import java.util.Scanner;
+import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Game {
     private Room room;
@@ -97,6 +100,7 @@ public class Game {
             "List items: l",
             "Equip weapon: w",
             "Equip armor: a",
+            "Save: s",
             "Quit: q"
         };
         Terminal.setForeground(Color.GREEN);
@@ -106,13 +110,29 @@ public class Game {
         }
 
         // adding the player info below the commands
-        Terminal.warpCursor(10, 61);
-        System.out.print("\nName: " + player.getName());
+        String[] info = {
+            "Name: " + player.getName(),
+            "HP: " + player.getHealth(),
+            "Strength: " + player.getDamage(),
+            "Defense: " + player.getProtection()
+        };
+        int row = 11;
+        /**while (row < 16) {
+            Terminal.warpCursor(row + 1, room.getCols() + 1);
+            System.out.print(info[row]);
+            row++;
+        }*/
+        for (int i = 11; i < 15; i++) {
+            Terminal.warpCursor(i + 1, room.getCols() + 1);
+            System.out.print(info[i]);
+        }
         Terminal.warpCursor(11, 61);
-        System.out.print("\nHP: " + player.getHealth());
+        System.out.print("\nName: " + player.getName());
         Terminal.warpCursor(12, 61);
-        System.out.print("\nStrength: " + player.getDamage());
+        System.out.print("\nHP: " + player.getHealth());
         Terminal.warpCursor(13, 61);
+        System.out.print("\nStrength: " + player.getDamage());
+        Terminal.warpCursor(14, 61);
         System.out.println("\nDefense: " + player.getProtection());
 
         Terminal.reset();
@@ -217,6 +237,25 @@ public class Game {
                 player.getInventory().equipArmor();
                 redrawMapAndHelp();
                 break;
+
+            case s:
+                //saves the current game info to a file
+                try {
+                    PrintWriter pw = new PrintWriter(new File("game.txt"));
+                    pw.println(player.getName());
+                    pw.println(player.getHealth());
+                    pw.println(player.getDamage());
+                    pw.println(player.getProtection());
+                    pw.println(player.getWeapon()); //used to make sure the game knows what weapon is equipped
+                    pw.println(player.getArmor()); //used to make sure the game knows what armor is equipped
+                    //having difficulty with adding the inventory
+                    //tried making an array of strings that the items of the inventory would be added to, then
+                    //print them, but that wasnt working
+                    pw.close();
+                }
+                catch (FileNotFoundException e) {
+                    System.out.print("Could not save data");
+                }
 
             //***currently working on this    
             // used for warping

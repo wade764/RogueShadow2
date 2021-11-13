@@ -46,6 +46,16 @@ public class Player extends Character {
         }
     }
 
+    //used for saving the player's current weapon
+    public Item getWeapon() {
+        return items.getEquippedWeapon();
+    }
+
+    //used for saving the player's current armor
+    public Item getArmor() {
+        return items.getEquippedArmor();
+    }
+
     public Inventory getInventory() {
         return items;
     }
