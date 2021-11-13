@@ -116,27 +116,12 @@ public class Game {
             "Strength: " + player.getDamage(),
             "Defense: " + player.getProtection()
         };
-        int row = 11;
-        /**while (row < 16) {
-            Terminal.warpCursor(row + 1, room.getCols() + 1);
-            System.out.print(info[row]);
-            row++;
-        }*/
-        int line = 0;
+        int line = 0; //the current line of the info array
         for (int i = 11; i < 15; i++) {
             Terminal.warpCursor(i + 1, room.getCols() + 1);
             System.out.print(info[line]);
             line++;
         }
-        /**Terminal.warpCursor(11, 61);
-        System.out.print("\nName: " + player.getName());
-        Terminal.warpCursor(12, 61);
-        System.out.print("\nHP: " + player.getHealth());
-        Terminal.warpCursor(13, 61);
-        System.out.print("\nStrength: " + player.getDamage());
-        Terminal.warpCursor(14, 61);
-        System.out.println("\nDefense: " + player.getProtection());*/
-
         Terminal.reset();
     }
 
@@ -252,7 +237,8 @@ public class Game {
                     pw.println(player.getArmor()); //used to make sure the game knows what armor is equipped
                     //having difficulty with adding the inventory
                     //tried making an array of strings that the items of the inventory would be added to, then
-                    //print them, but that wasnt working
+                    //print them, but that wasnt working due to the player.getInventory method returning an inventory
+                    //maybe theres another way we can store the inventory here before adding it to the save file
                     pw.close();
                 }
                 catch (FileNotFoundException e) {
