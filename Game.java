@@ -122,8 +122,8 @@ public class Game {
             System.out.print(info[row]);
             row++;
         }*/
+        int line = 0;
         for (int i = 11; i < 15; i++) {
-            int line = 0;
             Terminal.warpCursor(i + 1, room.getCols() + 1);
             System.out.print(info[line]);
             line++;
