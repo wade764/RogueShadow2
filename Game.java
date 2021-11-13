@@ -123,17 +123,19 @@ public class Game {
             row++;
         }*/
         for (int i = 11; i < 15; i++) {
+            int line = 0;
             Terminal.warpCursor(i + 1, room.getCols() + 1);
-            System.out.print(info[i]);
+            System.out.print(info[line]);
+            line++;
         }
-        Terminal.warpCursor(11, 61);
+        /**Terminal.warpCursor(11, 61);
         System.out.print("\nName: " + player.getName());
         Terminal.warpCursor(12, 61);
         System.out.print("\nHP: " + player.getHealth());
         Terminal.warpCursor(13, 61);
         System.out.print("\nStrength: " + player.getDamage());
         Terminal.warpCursor(14, 61);
-        System.out.println("\nDefense: " + player.getProtection());
+        System.out.println("\nDefense: " + player.getProtection());*/
 
         Terminal.reset();
     }
