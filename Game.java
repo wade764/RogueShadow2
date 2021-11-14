@@ -14,6 +14,7 @@ public class Game {
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
     private ArrayList<Warp> warps;
+    private World world;
 
     private String name;
 
@@ -23,6 +24,7 @@ public class Game {
         boxes = room.getBoxes();
         enemies = room.getEnemies();
         warps = room.getWarp();
+        world = new World();
     }
 
     // this method prints the games plot
@@ -254,6 +256,7 @@ public class Game {
                     //tried making an array of strings that the items of the inventory would be added to, then
                     //print them, but that wasnt working due to the player.getInventory method returning an inventory
                     //maybe theres another way we can store the inventory here before adding it to the save file
+                    pw.println(world.getRoom());
                     pw.close();
                 }
                 catch (FileNotFoundException e) {

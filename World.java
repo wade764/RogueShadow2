@@ -1,16 +1,12 @@
-public class World{
-	private int room=1;
+public class World {
+	private int room = 1;
 
 //if warp true? or something like that
 //then print the next map	
 	
-	//room set to one rn so it can compile
-	//change later	
+	//used when the player needs to be moved to the next floor
 	public int roomUpdate(){
-		if (room==1 ){
-			room++;
-		}
-		
+		room++;
 		return room;
 	}
 
@@ -18,5 +14,9 @@ public class World{
 		//draw room from parameter
 //		room.draw();
 
+	}
+
+	public int getRoom() {
+		return room;
 	}
 }
