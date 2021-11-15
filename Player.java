@@ -2,6 +2,8 @@
 
 import ansi_terminal.*;
 
+import java.util.ArrayList;
+
 public class Player extends Character {
     private Inventory items;
     private String name = "Hero"; 

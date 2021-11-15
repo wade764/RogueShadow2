@@ -240,10 +240,13 @@ public class Game {
                     pw.println(player.getProtection());
                     pw.println(player.getWeapon()); //used to make sure the game knows what weapon is equipped
                     pw.println(player.getArmor()); //used to make sure the game knows what armor is equipped
-                    //having difficulty with adding the inventory
-                    //tried making an array of strings that the items of the inventory would be added to, then
-                    //print them, but that wasnt working due to the player.getInventory method returning an inventory
-                    //maybe theres another way we can store the inventory here before adding it to the save file
+
+                    //this needs to be tested, hopefully it works
+                    ArrayList<Item> inventory = player.getInventory().getItems();
+                    for (int i = 0; i < inventory.size(); i++) {
+                        pw.println(inventory.get(i));
+                    }
+                    pw.println(".");
                     pw.println(world.getRoom());
                     pw.close();
                 }

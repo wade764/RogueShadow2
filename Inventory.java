@@ -197,5 +197,9 @@ public class Inventory {
             return items.get(realIndex);
         }
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 }
 
