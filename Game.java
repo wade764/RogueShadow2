@@ -24,6 +24,8 @@ public class Game {
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
     private ArrayList<Warp> warps;
+    private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
+    //can fit inside it, but we may need to change this
     private World world;
 
     private String name;
@@ -353,6 +355,9 @@ public class Game {
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
+        rooms.add(room);
+        rooms.add(room2);
+        rooms.add(room3);
 
         boolean playing = true;
         while (playing) {
@@ -369,6 +374,9 @@ public class Game {
             player.draw();
 
             // read a key from the user
+            //cant do rooms.get(currentRoom.getRoom().getRows() since getRoom returns an int and getRows wants a room
+            //maybe theres a way to grab the room number and then modify room, room2, or room3, but we have to take
+            //into account that these are 3 different objects of different classes
             Terminal.warpCursor(room.getRows() + 1, 0);
             Key key = Terminal.getKey();
             playing = handleKey(key);
