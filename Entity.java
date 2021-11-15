@@ -38,7 +38,7 @@ public class Entity {
     }
 
     // translate the entity in space, unless it would hit a wall
-    public boolean move(int rowChange, int colChange, Room room) {
+    public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
         // find new position
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;

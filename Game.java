@@ -23,6 +23,8 @@ public class Game {
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
+    private ArrayList<Enemy> enemies2;
+    private ArrayList<Enemy> enemies3;
     private ArrayList<Warp> warps;
     private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
     //can fit inside it, but we may need to change this
@@ -39,6 +41,8 @@ public class Game {
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
+        enemies2 = room2.getEnemies();
+        enemies3 = room3.getEnemies();
         warps = room.getWarp();
         world = new World();
     }
@@ -243,11 +247,25 @@ public class Game {
 
                     //this needs to be tested, hopefully it works
                     ArrayList<Item> inventory = player.getInventory().getItems();
-                    for (int i = 0; i < inventory.size(); i++) {
-                        pw.println(inventory.get(i));
+                    for (Item item : inventory) {
+                        pw.println(item);
                     }
-                    pw.println(".");
+                    pw.println("."); //delimiter used to mark the end of the inventory
                     pw.println(world.getRoom());
+                    for (Enemy enemy : enemies) { //enemies from room 1
+                        pw.println(enemy);
+                    }
+                    pw.println("."); //marking end of enemies from room 1
+                    for (Enemy enemy : enemies2) {
+                        pw.println(enemy);
+                    }
+                    pw.println("."); //marking end of enemies from room 2
+                    for (Enemy enemy : enemies3) {
+                        pw.println(enemy);
+                    }
+                    for (int i = 0; i < boxes.size(); )
+
+                    pw.println("."); //marking end of enemies from room 3
                     pw.close();
                 }
                 catch (FileNotFoundException e) {
@@ -260,13 +278,13 @@ public class Game {
                 //                break;
                 //
                 // handle movement
-            case LEFT: player.move(0, -1, room);
+            case LEFT: player.move(0, -1, room, room2, room3);
                        break;
-            case RIGHT: player.move(0, 1, room);
+            case RIGHT: player.move(0, 1, room, room2, room3);
                         break;
-            case UP: player.move(-1, 0, room);
+            case UP: player.move(-1, 0, room, room2, room3);
                      break;
-            case DOWN: player.move(1, 0, room);
+            case DOWN: player.move(1, 0, room, room2, room3);
                        break;
 
                        // and finally the quit command
@@ -287,7 +305,7 @@ public class Game {
             showHelp();
         } else if (roomNumber == 2) {
             boxes = room2.getBoxes();
-            enemies = room2.getEnemies();
+            enemies2 = room2.getEnemies();
             warps = room2.getWarp();
             room2.draw();
             warpPosit = room2.getPlayerStart();
@@ -302,7 +320,7 @@ public class Game {
             roomNumber = 0;
 
             boxes = room3.getBoxes();
-            enemies = room3.getEnemies();
+            enemies3 = room3.getEnemies();
             warps = room3.getWarp();
             room3.draw();
             warpPosit = room3.getPlayerStart();
@@ -378,8 +396,20 @@ public class Game {
             for (Box box : boxes) {
                 box.draw();
             }
-            for (Enemy enemy : enemies) {
-                enemy.draw();
+            if (world.getRoom() == 1) {
+                for (Enemy enemy : enemies) {
+                    enemy.draw();
+                }
+            }
+            else if (world.getRoom() == 2) {
+                for (Enemy enemy : enemies2) {
+                    enemy.draw();
+                }
+            }
+            else if (world.getRoom() == 3) {
+                for (Enemy enemy : enemies3) {
+                    enemy.draw();
+                }
             }
             for (Warp warp : warps) {
                 warp.draw();
@@ -399,7 +429,7 @@ public class Game {
 
             // move the enemies
             for (Enemy enemy : enemies) {
-                enemy.walk(room);
+                enemy.walk(room, room2, room3);
             }
 
             // check for battles
