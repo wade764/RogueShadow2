@@ -1,22 +1,28 @@
 public class World {
-	private int room = 1;
+    private int room = 1;
 
-//if warp true? or something like that
-//then print the next map	
-	
-	//used when the player needs to be moved to the next floor
-	public int roomUpdate(){
-		room++;
-		return room;
-	}
+    //if warp true? or something like that
+    //then print the next map	
 
-	public void nextRoom(int room){
-		//draw room from parameter
-//		room.draw();
+    //used when the player needs to be moved to the next floor
+    public int roomUpdate(){
+        room++;
+        return room;
+    }
 
-	}
+    //used to return to the previous room
+    public int roomReturn(){
+        room--;
+        return room;
+    }
 
-	public int getRoom() {
-		return room;
-	}
+    public void nextRoom(int room){
+        //draw room from parameter
+        //room.draw();
+
+    }
+
+    public int getRoom() {
+        return room;
+    }
 }

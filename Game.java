@@ -9,7 +9,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Game {
+
+    //creating an int field that is used to call the appropriate room
+    //starts at room 1
+    private int roomNumber = 1;
+
     private Room room;
+    // new room objects below and Position used for warp
+    private Room2 room2;
+    private Room3 room3;
+    private Position warpPosit;
+
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
@@ -20,6 +30,10 @@ public class Game {
 
     public Game() {
         room = new Room();
+        // added new room2/3 objects and a position used for warping
+        room2 = new Room2();
+        room3 = new Room3();
+        warpPosit = new Position();
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
@@ -127,36 +141,6 @@ public class Game {
         Terminal.reset();
     }
 
-    // printing the command and additional info to the screen
-    //public void drawInfo() {
-    //Terminal.setForeground(Color.CYAN);
-    //System.out.print("Commands:");
-    //System.out.print("Move: arrow keys");
-    //System.out.print("Pickup: p");
-    //System.out.println("Attack: a");
-    //System.out.println("View inventory: i");
-    //System.out.print("Player stats:");
-
-
-    // this may make more sense to put in a different method 
-
-    //System.out.print("Enemy Health:");
-    //if (dragon.getEnemyHP() > 0) {
-    //    System.out.print("Dragon: " + dragon.getEnemyHP());
-    //} else {
-    //    System.out.print("Dragon: dead (X_X)");
-    //}
-    //Terminal.warpCursor(15, 85);
-    //if (goblin.getEnemyHP() > 0) {
-    //    System.out.print("Goblin: " + goblin.getEnemyHP());
-    //} else {
-    //    System.out.print("Goblin: dead (X_X)"); 
-    //}
-    //Terminal.warpCursor(40, 0);
-
-    //Terminal.reset();
-    //}
-
     // right under the map we keep a line for status messages
     private void setStatus(String mesg) {
         // clear anything old first
@@ -202,17 +186,19 @@ public class Game {
         }
     }
 
-	private void roomWarp(){
-		Box thing= checkForBox();
-		if (thing==null){
-			setStatus("Cannot Warp at this moment");
-			Terminal.pause(1.25);
-		}
-		else{
-		//	int room = roomUpdate();
-		//	nextRoom(room);
-		}
-	}
+    //*** I cant remember if I did this or someone else -Wade
+    //*** BROKE needs to be redone
+    //private void roomWarp(){
+    //	Box thing= checkForBox();
+    //	if (thing==null){
+    //		setStatus("Cannot Warp at this moment");
+    //		Terminal.pause(1.25);
+    //	}
+    //	else{
+    //	//	int room = roomUpdate();
+    //	//	nextRoom(room);
+    //	}
+    //}
 
 
 
@@ -263,8 +249,8 @@ public class Game {
                     System.out.print("Could not save data");
                 }
 
-            //***currently working on this    
-            // used for warping
+                //***currently working on this    
+                // used for warping
             case ENTER:
                 break;
 
@@ -286,11 +272,35 @@ public class Game {
         return true;
     }
 
+    //*** THIS NEEDS WORK because it will allow you to warp to multiple rooms from the same warp
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
+    //*** MODIFYING THIS checks the room number and prints the appropriate room
     private void redrawMapAndHelp() {
-        room.draw();
-        showHelp();
+        if (roomNumber == 1) {
+            room.draw();
+            showHelp();
+        } else if (roomNumber == 2) {
+            room2.draw();
+            warpPosit = room2.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row,col);
+            showHelp();
+
+        } else if (roomNumber == 3) {
+            room3.draw();
+            warpPosit = room3.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row,col);
+            showHelp();
+
+        } else {
+            //defaults to room 1 at the moment
+            room.draw();
+            showHelp();
+        }
     }
 
     // returns a Box if the player is on it -- otherwise null
@@ -300,6 +310,19 @@ public class Game {
         for (Box box : boxes) {
             if (playerLocation.equals(box.getPosition())) {
                 return box;
+            }
+        }
+
+        return null;
+    }
+
+    // returns a Warp if the player is on it -- otherwise null
+    private Warp checkForWarp() {
+        Position playerLocation = player.getPosition();
+
+        for (Warp warp : warps) {
+            if (playerLocation.equals(warp.getPosition())) {
+                return warp;
             }
         }
 
@@ -363,14 +386,28 @@ public class Game {
                 setStatus("You have been killed :(\n\r");
                 playing = false;
             }
-            
-            //***SEE BELOW*** this could be changed to check if the box is an item or a warp
-            //***EDIT*** the warp is now no longer a Box but a Warp that extends Entity, still working on this step
 
             // check if we are on a box and print what's in it
             Box thingHere = checkForBox();
             if (thingHere != null) {
                 setStatus("Here you find: " + thingHere.getItem().getName() + " Weight: " + thingHere.getItem().getWeight() + " Value: " + thingHere.getItem().getValue() + " Strength: " + thingHere.getItem().getStrength());
+            }
+
+            // copied the same idea as above however it may make sense to make this bit below its own method
+            // check if we are on a warp, print question, and store return response from user
+            Warp aWarp = checkForWarp();
+            if (aWarp != null) {
+                setStatus("Would you like to go to the next room? Y or N: ");
+                // asking for the response
+                Scanner response = new Scanner(System.in);
+                String answer = response.next();
+                if (answer.equalsIgnoreCase("Y")) {
+                    roomNumber++;
+                    //System.out.println("Test sat");
+                    redrawMapAndHelp();
+                }
+                // else do nothing
+
             }
         }
     }
