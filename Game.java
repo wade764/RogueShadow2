@@ -28,7 +28,7 @@ public class Game {
     private ArrayList<Warp> warps;
     private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
     //can fit inside it, but we may need to change this
-    private World world;
+    private static World world;
 
     private String name;
 
@@ -382,6 +382,10 @@ public class Game {
         }
 
         return true;
+    }
+
+    public static World getWorld() {
+        return world;
     }
 
     public void run() {

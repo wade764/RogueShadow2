@@ -15,7 +15,7 @@ public class Entity {
 
     // adding the current map/room integer
     private int whatMap = 1;
-    private World world = new World();
+    private World world = Game.getWorld();
 
     public Entity(int row, int col, char display, Color color) {
         position = new Position(row, col);
