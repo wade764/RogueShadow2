@@ -93,6 +93,20 @@ public class Room2 extends World{
         return enemies;
     }
 
+    // returns the warp point
+    public ArrayList<Warp> getWarp() {
+        ArrayList<Warp> warps = new ArrayList<>();
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (grid[row].charAt(col) == '&') {
+                    warps.add(new Warp(row, col));
+                }
+            }
+        }
+
+        return warps;
+    }
+
     public int getRows() {
         return rows;
     }

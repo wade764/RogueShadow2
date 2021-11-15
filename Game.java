@@ -283,6 +283,9 @@ public class Game {
             room.draw();
             showHelp();
         } else if (roomNumber == 2) {
+            boxes = room2.getBoxes();
+            enemies = room2.getEnemies();
+            warps = room2.getWarp();
             room2.draw();
             warpPosit = room2.getPlayerStart();
             int row = warpPosit.getRow();
@@ -291,6 +294,9 @@ public class Game {
             showHelp();
 
         } else if (roomNumber == 3) {
+            boxes = room3.getBoxes();
+            enemies = room3.getEnemies();
+            warps = room3.getWarp();
             room3.draw();
             warpPosit = room3.getPlayerStart();
             int row = warpPosit.getRow();
