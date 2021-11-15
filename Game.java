@@ -454,6 +454,7 @@ public class Game {
                 Scanner response = new Scanner(System.in);
                 String answer = response.next();
                 if (answer.equalsIgnoreCase("Y")) {
+                    roomNumber = world.roomUpdate();
                     world.roomUpdate();
                     redrawMapAndHelp();
                 }
