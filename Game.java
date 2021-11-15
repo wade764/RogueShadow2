@@ -250,12 +250,12 @@ public class Game {
                 catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
-
-                //***currently working on this    
-                // used for warping
-            case ENTER:
-                break;
-
+                //***THIS MAY NOT BE NEEDED
+                //                //***currently working on this    
+                //                // used for warping
+                //            case ENTER:
+                //                break;
+                //
                 // handle movement
             case LEFT: player.move(0, -1, room);
                        break;
@@ -274,10 +274,10 @@ public class Game {
         return true;
     }
 
-    //*** THIS NEEDS WORK because it will allow you to warp to multiple rooms from the same warp
+    //*** ATM this will allow you to advance rooms no matter what warp you go thru
+    //*** MODIFYING THIS checks the room number and prints the appropriate room
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
-    //*** MODIFYING THIS checks the room number and prints the appropriate room
     private void redrawMapAndHelp() {
         if (roomNumber == 1) {
             room.draw();
@@ -294,6 +294,10 @@ public class Game {
             showHelp();
 
         } else if (roomNumber == 3) {
+            // here we reset roomNumber to 0 because there are only 3 rooms so the next time the player goes to a warp
+            // they will go back to room 1
+            roomNumber = 0;
+
             boxes = room3.getBoxes();
             enemies = room3.getEnemies();
             warps = room3.getWarp();
@@ -417,7 +421,6 @@ public class Game {
                 String answer = response.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     roomNumber++;
-                    //System.out.println("Test sat");
                     redrawMapAndHelp();
                 }
                 // else do nothing
