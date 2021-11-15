@@ -300,6 +300,7 @@ public class Game {
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
+        roomNumber = world.getRoom();
         if (roomNumber == 1) {
             room.draw();
             showHelp();
@@ -453,7 +454,7 @@ public class Game {
                 Scanner response = new Scanner(System.in);
                 String answer = response.next();
                 if (answer.equalsIgnoreCase("Y")) {
-                    roomNumber++;
+                    world.roomUpdate();
                     redrawMapAndHelp();
                 }
                 // else do nothing

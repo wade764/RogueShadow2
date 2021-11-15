@@ -13,6 +13,10 @@ public class Entity {
     // the color used for drawing
     private Color color;
 
+    // adding the current map/room integer
+    private int whatMap = 1;
+    private World world = new World();
+
     public Entity(int row, int col, char display, Color color) {
         position = new Position(row, col);
         this.display = display;
@@ -40,20 +44,48 @@ public class Entity {
     // translate the entity in space, unless it would hit a wall
     public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
         // find new position
+        whatMap = world.getRoom();
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;
 
-        if (room.canGo(newRow, newCol)) {
-            // draw a space where it currently is
-            Terminal.warpCursor(position.getRow(), position.getCol());
-            System.out.print(" ");
+        if (whatMap == 1){
+            if (room.canGo(newRow, newCol)) {
+                // draw a space where it currently is
+                Terminal.warpCursor(position.getRow(), position.getCol());
+                System.out.print(" ");
 
-            // and then move it
-            position = new Position(newRow, newCol);
-            return true;
-        } else {
-            return false;
+                // and then move it
+                position = new Position(newRow, newCol);
+                return true;
+            } else {
+                return false;
+            }
+        } else if (whatMap == 2) {
+            if (room2.canGo(newRow, newCol)) {
+                // draw a space where it currently is
+                Terminal.warpCursor(position.getRow(), position.getCol());
+                System.out.print(" ");
+
+                // and then move it
+                position = new Position(newRow, newCol);
+                return true;
+            } else {
+                return false;
+            }
+        } else if (whatMap == 3) {
+            if (room3.canGo(newRow, newCol)) {
+                // draw a space where it currently is
+                Terminal.warpCursor(position.getRow(), position.getCol());
+                System.out.print(" ");
+
+                // and then move it
+                position = new Position(newRow, newCol);
+                return true;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
 
     // draw this entity to the screen
