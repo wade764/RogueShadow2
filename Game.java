@@ -438,8 +438,13 @@ public class Game {
                     Scanner response = new Scanner(System.in);
                     String answer = response.next();
                     if (answer.equalsIgnoreCase("Y")) {
-                        roomNumber = World.instance().roomUpdate();
-                        redrawMapAndHelp();
+                        if (roomNumber < 3) {
+                            roomNumber = World.instance().roomUpdate();
+                            redrawMapAndHelp();
+                        }
+                        else {
+                            playing = false;
+                        }
                     }
                 } else if (enemies.size() > 0 ) {
                     setStatus("Door is locked! Rip and Tear!");
