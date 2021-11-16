@@ -30,7 +30,7 @@ public class Game {
     //**** THIS LINE **** where in the **** is warps being instantiated im very lost, but the program runs!!!
 
     private ArrayList<Warp> warps;
-    private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
+    //private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
     //can fit inside it, but we may need to change this
     //private static World world;
 
@@ -400,9 +400,9 @@ public class Game {
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
-        rooms.add(room);
-        rooms.add(room2);
-        rooms.add(room3);
+        //rooms.add(room);
+        //rooms.add(room2);
+        //rooms.add(room3);
 
         boolean playing = true;
         while (playing) {
