@@ -441,9 +441,8 @@ public class Game {
                         roomNumber = World.instance().roomUpdate();
                         redrawMapAndHelp();
                     }
-                } else {
+                } else if (enemies.size() < 0 ) {
                     setStatus("Door is locked! Rip and Tear!");
-                    // else do nothing
                 }
             }
         }
