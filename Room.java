@@ -13,9 +13,7 @@ public class Room {
     // the size of the room
     private int rows;
     private int cols;
-    
-    //***QUESTION*** because the World constructor is private that means all subclasses must be private?
-    // I ran into an issue with the Room() throwing an error becuase World() is private
+
     public Room() {
         // this initializes the room to one specific space
         rows = 30;

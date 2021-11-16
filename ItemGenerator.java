@@ -7,10 +7,6 @@ public class ItemGenerator {
 
     private static ItemGenerator theInstance;
 
-    //*** This is bad code
-    // generating a warp item
-    //private static Item warp = new Item(ItemType.Warp, "Warp point", 1, 1, 1);
-
     public static synchronized ItemGenerator instance() {
         if (theInstance == null) {
             theInstance = new ItemGenerator();
@@ -81,13 +77,6 @@ public class ItemGenerator {
             case 23 : temp = new Item(ItemType.Other, "Book of Spells", 2, 13, 0);
 
         }
-
         return temp;
     }
-
-    //*** this is bad code
-    // getter for the warp Item
-    //public static Item getWarp() {
-    //    return warp;
-    //}
 }

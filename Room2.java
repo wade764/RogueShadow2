@@ -16,7 +16,7 @@ public class Room2 {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        //& symbol is for the staircase, will work on it later
+        //& symbol is for the staircase
         grid  = new String[] {
                 "##################                ######################    ",
                 "##   i          ##                ##                  ##    ",

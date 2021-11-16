@@ -29,7 +29,6 @@ public class Game {
 
     public Game() {
         room = new Room();
-        // added new room2/3 objects and a position used for warping
         room2 = new Room2();
         room3 = new Room3();
         warpPosit = new Position();
@@ -106,6 +105,7 @@ public class Game {
 
     }
 
+    //prints when the player wins the game
     private void playerWon() {
         Terminal.clear();
         for (int i = 0; i < 40; i++) {
@@ -130,6 +130,7 @@ public class Game {
         Terminal.pause(5);
     }
 
+    //prints when the player loses the game
     private void gameOver() {
         Terminal.clear();
         for (int i = 0; i < 40; i++) {
@@ -317,15 +318,6 @@ public class Game {
                     }
                     pw.println("."); //marking end of enemies from room 1
 
-                    //commenting out below for testing using just one enemy arraylist
-                    //for (Enemy enemy : enemies2) {
-                    //    pw.println(enemy);
-                    //}
-                    //pw.println("."); //marking end of enemies from room 2
-                    //for (Enemy enemy : enemies3) {
-                    //    pw.println(enemy);
-                    //}
-
                     for (int i = 0; i < boxes.size(); )
 
                         pw.println("."); //marking end of enemies from room 3
@@ -357,8 +349,6 @@ public class Game {
         return true;
     }
 
-    //*** ATM this will allow you to advance rooms no matter what warp you go thru
-    //*** MODIFYING THIS checks the room number and prints the appropriate room
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
@@ -405,7 +395,6 @@ public class Game {
                 return box;
             }
         }
-
         return null;
     }
 
@@ -497,7 +486,7 @@ public class Game {
                         if (answer.equalsIgnoreCase("Y")) {
                             if (roomNumber < 3) {
                                 roomNumber = World.instance().roomUpdate();
-                                player.setHP();
+                                player.setHP(); //resets player's hp when they go to the next floor
                                 redrawMapAndHelp();
                             }
                             else {
@@ -510,7 +499,7 @@ public class Game {
                         playing = false;
 
                     }
-                } else if (enemies.size() > 0 ) {
+                } else if (enemies.size() > 0 ) { //if not all of the enemies in the room are dead yet
                     setStatus("Door is locked! Rip and Tear!");
                 }
             }

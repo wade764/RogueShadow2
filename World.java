@@ -19,18 +19,6 @@ public class World {
         return room;
     }
 
-    //used to return to the previous room
-    public int roomReturn(){
-        room--;
-        return room;
-    }
-
-    public void nextRoom(int room){
-        //draw room from parameter
-        //room.draw();
-
-    }
-
     public int getRoom() {
         return room;
     }

@@ -14,14 +14,12 @@ public class Entity {
     private Color color;
 
     // adding the current map/room integer
-    private int whatMap = 1;
-    //private World world;
+    private int whatMap;
 
     public Entity(int row, int col, char display, Color color) {
         position = new Position(row, col);
         this.display = display;
         this.color = color;
-        //world = Game.getWorld();
     }
 
     // move the entity to a new location
@@ -45,9 +43,7 @@ public class Entity {
     // translate the entity in space, unless it would hit a wall
     public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
         // find new position
-        //world = Game.getWorld();
-
-        whatMap = World.instance().getRoom(); //currently having issues with this line
+        whatMap = World.instance().getRoom();
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;
 
