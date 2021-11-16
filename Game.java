@@ -368,6 +368,8 @@ public class Game {
 
         boolean playing = true;
         while (playing) {
+            Terminal.warpCursor(45, 0);
+            System.out.print("");
             // draw the entities
             for (Box box : boxes) {
                 box.draw();
