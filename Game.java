@@ -10,30 +10,22 @@ import java.io.FileNotFoundException;
 
 public class Game {
 
-    //creating an int field that is used to call the appropriate room
-    //starts at room 1
-    private int roomNumber = 1;
-
+    // creating an int field that is used to call the appropriate room
+    // starts at room 1
+    private int roomNumber = World.instance().getRoom();
     private Room room;
     // new room objects below and Position used for warp
     private Room2 room2;
     private Room3 room3;
     private Position warpPosit;
-
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
-    //****the two enemy arraylists below may not be needed see line 310/326 we could probably just store the info in one enemy arraylist
-    //private ArrayList<Enemy> enemies2;
-    //private ArrayList<Enemy> enemies3;
-
-    //**** THIS LINE **** where in the **** is warps being instantiated im very lost, but the program runs!!!
-
+    // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
-    private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
-    //can fit inside it, but we may need to change this
-    //private static World world;
-
+    // made this a World arraylist so that all 3 room classes
+    // can fit inside it, but we may need to change this
+    private ArrayList<World> rooms = new ArrayList<>();
     private String name;
 
     public Game() {
@@ -45,11 +37,7 @@ public class Game {
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
-        // below may not be needed if we store the enemies in one arraylist
-        //enemies2 = room2.getEnemies();
-        //enemies3 = room3.getEnemies();
         warps = room.getWarp();
-        //world = new World();
     }
 
     // this method prints the games plot
@@ -197,22 +185,6 @@ public class Game {
         }
     }
 
-    //*** I cant remember if I did this or someone else -Wade
-    //*** BROKE needs to be redone
-    //private void roomWarp(){
-    //	Box thing= checkForBox();
-    //	if (thing==null){
-    //		setStatus("Cannot Warp at this moment");
-    //		Terminal.pause(1.25);
-    //	}
-    //	else{
-    //	//	int room = roomUpdate();
-    //	//	nextRoom(room);
-    //	}
-    //}
-
-
-
     // handle the key which was read - return false if we quit the game
     private boolean handleKey(Key key) {
         switch (key) {
@@ -261,6 +233,7 @@ public class Game {
                         pw.println(enemy);
                     }
                     pw.println("."); //marking end of enemies from room 1
+
                     //commenting out below for testing using just one enemy arraylist
                     //for (Enemy enemy : enemies2) {
                     //    pw.println(enemy);
@@ -269,6 +242,7 @@ public class Game {
                     //for (Enemy enemy : enemies3) {
                     //    pw.println(enemy);
                     //}
+
                     for (int i = 0; i < boxes.size(); )
 
                         pw.println("."); //marking end of enemies from room 3
@@ -277,12 +251,6 @@ public class Game {
                 catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
-                //***THIS MAY NOT BE NEEDED
-                //                //***currently working on this    
-                //                // used for warping
-                //            case ENTER:
-                //                break;
-                //
                 // handle movement
             case LEFT: player.move(0, -1, room, room2, room3);
                        break;
@@ -312,7 +280,6 @@ public class Game {
             showHelp();
         } else if (roomNumber == 2) {
             boxes = room2.getBoxes();
-            //enemies2 = room2.getEnemies();
             enemies = room2.getEnemies();
             warps = room2.getWarp();
             room2.draw();
@@ -329,7 +296,6 @@ public class Game {
             //***I THINK WE ARE MISSING something here, maybe it will need to set the getRoom() method of World to zero, could
             // be done via returnRoom() three times but need to resolve other issues before testing this.
             boxes = room3.getBoxes();
-            //enemies3 = room3.getEnemies();
             enemies = room3.getEnemies();
             warps = room3.getWarp();
             room3.draw();
@@ -393,10 +359,6 @@ public class Game {
         return true;
     }
 
-    //public static World getWorld() {
-    //    return world;
-    //}
-
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
@@ -410,30 +372,18 @@ public class Game {
             for (Box box : boxes) {
                 box.draw();
             }
-            //if (World.instance().getRoom() == 1) {
-                for (Enemy enemy : enemies) {
-                    enemy.draw();
-               }
-            //}
-            //else if (World.instance().getRoom() == 2) {
-            //    for (Enemy enemy : enemies2) {
-            //        enemy.draw();
-            //    }
-            //}
-            //else if (World.instance().getRoom() == 3) {
-            //    for (Enemy enemy : enemies3) {
-            //        enemy.draw();
-            //    }
-            //}
+            for (Enemy enemy : enemies) {
+                enemy.draw();
+            }
             for (Warp warp : warps) {
                 warp.draw();
             }
             player.draw();
 
             // read a key from the user
-            //cant do rooms.get(currentRoom.getRoom().getRows() since getRoom returns an int and getRows wants a room
-            //maybe theres a way to grab the room number and then modify room, room2, or room3, but we have to take
-            //into account that these are 3 different objects of different classes
+            // cant do rooms.get(currentRoom.getRoom().getRows() since getRoom returns an int and getRows wants a room
+            // maybe theres a way to grab the room number and then modify room, room2, or room3, but we have to take
+            // into account that these are 3 different objects of different classes
             Terminal.warpCursor(room.getRows() + 1, 0);
             Key key = Terminal.getKey();
             playing = handleKey(key);
