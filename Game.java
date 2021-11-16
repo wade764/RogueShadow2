@@ -142,8 +142,6 @@ public class Game {
             System.out.print(info[line]);
             line++;
         }
-        Terminal.warpCursor(43, 0);
-        System.out.print(enemies.size());
         Terminal.reset();
     }
 
