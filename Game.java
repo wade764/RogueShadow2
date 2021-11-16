@@ -423,6 +423,8 @@ public class Game {
                 // else do nothing
 
             }
+            Terminal.warpCursor(45, 0);
+            System.out.print(enemies.size());
         }
     }
 }
