@@ -133,6 +133,30 @@ public class Game {
         Terminal.pause(5);
     }
 
+    private void gameOver() {
+        Terminal.clear();
+        for (int i = 0; i < 40; i++) {
+            Terminal.warpCursor(i, 82);
+            System.out.print("                                                                                               ");
+        }
+        Terminal.warpCursor(12, 30);
+        System.out.print("");
+        Terminal.warpCursor(13, 30);
+
+        System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ ");
+        Terminal.warpCursor(14, 30);
+        System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗");
+        Terminal.warpCursor(15, 30);
+        System.out.print(" ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║");
+        Terminal.warpCursor(16, 30);
+        System.out.print("  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║");
+        Terminal.warpCursor(17, 30);
+        System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝");
+        Terminal.warpCursor(18, 30);
+        System.out.print("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝ ");
+        Terminal.pause(5);
+    }
+
     // prints a help menu to the left of the map
     private void showHelp() {
 
@@ -441,6 +465,7 @@ public class Game {
             // check for battles
             if (!checkBattles()) {
                 setStatus("You have been killed :(\n\r");
+                gameOver();
                 playing = false;
             }
 
