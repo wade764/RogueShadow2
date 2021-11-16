@@ -210,7 +210,7 @@ public class Game {
                 System.out.printf("Welcome to the debug menu XuX");
                 Terminal.reset();
                 //put test statement below this line
-
+                System.out.print("These are the current enemies\n\r"+enemies.size());
                 System.out.printf("\n\rPress any key to return...\n\r");
                 Terminal.getKey();
 

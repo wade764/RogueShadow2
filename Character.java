@@ -53,7 +53,7 @@ public abstract class Character extends Entity {
     }
 
     // this method performs one round of battle between two characters
-    // return false if the player has died aas a result
+    // return false if the player has died as a result
     public boolean fight(Character other, Room room, ArrayList<Enemy> enemies) {
         // do damage to them first
         boolean killed = dealDamage(other, room);
