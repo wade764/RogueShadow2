@@ -70,6 +70,7 @@ public abstract class Character extends Entity {
 
         // now take damage from them
         if (other.dealDamage(this, room)) {
+
             return false;
         }
         System.out.printf("Press any key to return...\n\r");
