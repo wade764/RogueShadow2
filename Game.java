@@ -109,6 +109,30 @@ public class Game {
 
     }
 
+    private void playerWon() {
+        Terminal.clear();
+        for (int i = 0; i < 40; i++) {
+            Terminal.warpCursor(i, 82);
+            System.out.print("                                                                                               ");
+        }
+        Terminal.warpCursor(12, 30);
+        System.out.print("");
+        Terminal.warpCursor(13, 30);
+
+        System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗██╗");
+        Terminal.warpCursor(14, 30);
+        System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██╔═══██╗████╗  ██║██║");
+        Terminal.warpCursor(15, 30);
+        System.out.print(" ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║   ██║██╔██╗ ██║██║");
+        Terminal.warpCursor(16, 30);
+        System.out.print("  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║   ██║██║╚██╗██║╚═╝");
+        Terminal.warpCursor(17, 30);
+        System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║██╗");
+        Terminal.warpCursor(18, 30);
+        System.out.print("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝");
+        Terminal.pause(5);
+    }
+
     // prints a help menu to the left of the map
     private void showHelp() {
 
@@ -448,6 +472,8 @@ public class Game {
                         }
                     } else if (endOfDungeon) {
                         // the game is over the player has won!
+                        playerWon();
+                        playing = false;
 
                     }
                 } else if (enemies.size() > 0 ) {
