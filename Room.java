@@ -5,7 +5,7 @@
 import java.util.ArrayList;
 import ansi_terminal.*;
 
-public class Room extends World {
+public class Room {
 
     // the grid holds the room geometry
     private String[] grid;

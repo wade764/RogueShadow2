@@ -362,9 +362,9 @@ public class Game {
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
-        rooms.add(room);
-        rooms.add(room2);
-        rooms.add(room3);
+        //rooms.add(room);
+        //rooms.add(room2);
+        //rooms.add(room3);
 
         boolean playing = true;
         while (playing) {
