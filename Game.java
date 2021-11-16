@@ -156,6 +156,32 @@ public class Game {
         System.out.print("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝ ");
         Terminal.pause(5);
     }
+    
+    private void debugMenu() {
+    	Terminal.clear();
+        Terminal.setForeground(Color.RED);
+        //title prompt for information
+        Terminal.warpCursor(1, 1);
+        System.out.print("");
+        Terminal.warpCursor(2, 1);
+        System.out.print("  ██╗ ██╗          ██████╗ ███████╗██████╗ ██╗   ██╗ ██████╗     ███╗   ███╗███████╗███╗   ██╗██╗   ██╗          ██╗ ██╗ ");
+        Terminal.warpCursor(3, 1);
+        System.out.print(" ██╔╝██╔╝▄ ██╗▄    ██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝     ████╗ ████║██╔════╝████╗  ██║██║   ██║    ▄ ██╗▄╚██╗╚██╗ ");
+        Terminal.warpCursor(4, 1);
+        System.out.print("██╔╝██╔╝  ████╗    ██║  ██║█████╗  ██████╔╝██║   ██║██║  ███╗    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║     ████╗ ╚██╗╚██╗");
+        Terminal.warpCursor(5, 1);
+        System.out.print("╚██╗╚██╗ ▀╚██╔▀    ██║  ██║██╔══╝  ██╔══██╗██║   ██║██║   ██║    ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║    ▀╚██╔▀ ██╔╝██╔╝");
+        Terminal.warpCursor(6, 1);
+        System.out.print(" ╚██╗╚██╗  ╚═╝     ██████╔╝███████╗██████╔╝╚██████╔╝╚██████╔╝    ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝      ╚═╝ ██╔╝██╔╝ ");
+        Terminal.warpCursor(7, 1);
+        System.out.print("  ╚═╝ ╚═╝          ╚═════╝ ╚══════╝╚═════╝  ╚═════╝  ╚═════╝     ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝           ╚═╝ ╚═╝  ");
+        Terminal.warpCursor(8, 1);
+        Terminal.reset();
+        //put test statement below this line
+        System.out.print("\n\rThese are the current enemies\n\r" + enemies.size());
+        System.out.printf("\n\rPress any key to return...\n\r");
+        Terminal.getKey();
+    }
 
     // prints a help menu to the left of the map
     private void showHelp() {
@@ -254,20 +280,9 @@ public class Game {
                 break;
                 //debug menu used for printing
             case b:
-                Terminal.clear();
-                Terminal.setForeground(Color.RED);
-                //title prompt for information
-                System.out.printf("Welcome to the debug menu XuX");
-                Terminal.reset();
-                //put test statement below this line
-                System.out.print("\n\rThese are the current enemies\n\r" + enemies.size());
-                System.out.printf("\n\rPress any key to return...\n\r");
-                Terminal.getKey();
-
-
+                debugMenu();
                 redrawMapAndHelp();
                 break;
-
             case d:
                 drop();
                 break;
