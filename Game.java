@@ -201,6 +201,21 @@ public class Game {
                 player.getInventory().print();
                 redrawMapAndHelp();
                 break;
+                //debug menu used for printing
+            case b:
+                Terminal.clear();
+                Terminal.setForeground(Color.RED);
+                //title prompt for information
+                System.out.printf("Welcome to the debug menu XuX");
+                Terminal.reset();
+                //put test statement below this line
+
+                System.out.printf("\n\rPress any key to return...\n\r");
+                Terminal.getKey();
+
+
+                redrawMapAndHelp();
+                break;
 
             case d:
                 drop();
