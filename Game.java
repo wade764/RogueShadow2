@@ -142,6 +142,8 @@ public class Game {
             System.out.print(info[line]);
             line++;
         }
+        Terminal.warpCursor(43, 0);
+        System.out.print(enemies.size());
         Terminal.reset();
     }
 
@@ -282,8 +284,6 @@ public class Game {
         roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
             room.draw();
-            Terminal.warpCursor(43, 0);
-            System.out.print(enemies.size());
             showHelp();
         } else if (roomNumber == 2) {
             boxes = room2.getBoxes();
