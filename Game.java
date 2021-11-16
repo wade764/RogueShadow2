@@ -138,7 +138,7 @@ public class Game {
             "Defense: " + player.getProtection()
         };
         int line = 0; //the current line of the info array
-        for (int i = 11; i < 15; i++) {
+        for (int i = 12; i < 16; i++) {
             Terminal.warpCursor(i + 1, room.getCols() + 1);
             System.out.print(info[line]);
             line++;
