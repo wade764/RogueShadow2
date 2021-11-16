@@ -318,7 +318,6 @@ public class Game {
         } else if (roomNumber == 3) {
             // here we reset roomNumber to 0 because there are only 3 rooms so the next time the player goes to a warp
             // they will go back to room 1
-            roomNumber = 0;
             //***I THINK WE ARE MISSING something here, maybe it will need to set the getRoom() method of World to zero, could
             // be done via returnRoom() three times but need to resolve other issues before testing this.
             boxes = room3.getBoxes();
