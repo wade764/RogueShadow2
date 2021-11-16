@@ -121,6 +121,7 @@ public class Game {
             "Equip weapon: w",
             "Equip armor: a",
             "Save: s",
+            "Restore: r",
             "Quit: q"
         };
         Terminal.setForeground(Color.GREEN);
@@ -219,7 +220,7 @@ public class Game {
             case s:
                 //saves the current game info to a file
                 try {
-                    PrintWriter pw = new PrintWriter(new File("game.txt"));
+                    PrintWriter pw = new PrintWriter(new File("save.txt"));
                     pw.println(player.getName());
                     pw.println(player.getHealth());
                     pw.println(player.getDamage());
@@ -257,6 +258,8 @@ public class Game {
                     System.out.print("Could not save data");
                 }
                 // handle movement
+            case r:
+                //restore save data from file
             case LEFT: player.move(0, -1, room, room2, room3);
                        break;
             case RIGHT: player.move(0, 1, room, room2, room3);
