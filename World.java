@@ -1,8 +1,17 @@
 public class World {
     private int room = 1;
+    //We need a signleton since there is only one world
+    private static World theInstance;
 
-    //if warp true? or something like that
-    //then print the next map	
+    public static synchronized World instance() {
+        if (theInstance == null) {
+            theInstance = new World();
+        }
+        return theInstance;
+    }
+    
+    public World() {
+    }
 
     //used when the player needs to be moved to the next floor
     public int roomUpdate(){
