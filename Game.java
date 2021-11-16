@@ -23,9 +23,6 @@ public class Game {
     private ArrayList<Enemy> enemies;
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
-    // made this a World arraylist so that all 3 room classes
-    // can fit inside it, but we may need to change this
-    private ArrayList<World> rooms = new ArrayList<>();
     private String name;
     // used if the player is on the final &
     private Boolean endOfDungeon = false;
@@ -462,9 +459,6 @@ public class Game {
             player.draw();
 
             // read a key from the user
-            // cant do rooms.get(currentRoom.getRoom().getRows() since getRoom returns an int and getRows wants a room
-            // maybe theres a way to grab the room number and then modify room, room2, or room3, but we have to take
-            // into account that these are 3 different objects of different classes
             Terminal.warpCursor(room.getRows() + 1, 0);
             Key key = Terminal.getKey();
             playing = handleKey(key);
