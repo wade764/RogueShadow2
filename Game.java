@@ -210,7 +210,7 @@ public class Game {
                 System.out.printf("Welcome to the debug menu XuX");
                 Terminal.reset();
                 //put test statement below this line
-                System.out.print("These are the current enemies\n\r"+enemies.size());
+                System.out.print("\n\rThese are the current enemies\n\r"+enemies.size());
                 System.out.printf("\n\rPress any key to return...\n\r");
                 Terminal.getKey();
 
@@ -352,9 +352,11 @@ public class Game {
     private Warp checkForWarp() {
         Position playerLocation = player.getPosition();
 
-        for (Warp warp : warps) {
-            if (playerLocation.equals(warp.getPosition())) {
-                return warp;
+        if (enemies.size() == 0 ) {
+            for (Warp warp : warps) {
+                if (playerLocation.equals(warp.getPosition())) {
+                    return warp;
+                }
             }
         }
 
@@ -372,22 +374,17 @@ public class Game {
                 opponent = enemy;
             }
         }
-
         // now do the battle
         if (opponent != null) {
             opponent.setBattleActive();
             return player.fight(opponent, room, enemies);
         }
-
         return true;
     }
 
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
-        //rooms.add(room);
-        //rooms.add(room2);
-        //rooms.add(room3);
 
         boolean playing = true;
         while (playing) {
@@ -435,17 +432,19 @@ public class Game {
             // check if we are on a warp, print question, and store return response from user
             Warp aWarp = checkForWarp();
             if (aWarp != null) {
-                setStatus("Would you like to go to the next room? Y or N: ");
-                // asking for the response
-                Scanner response = new Scanner(System.in);
-                String answer = response.next();
-                if (answer.equalsIgnoreCase("Y")) {
-                    roomNumber = World.instance().roomUpdate();
-                    redrawMapAndHelp();
+                if (enemies.size() == 0) {
+                    setStatus("Would you like to go to the next room? Y or N: ");
+                    // asking for the response
+                    Scanner response = new Scanner(System.in);
+                    String answer = response.next();
+                    if (answer.equalsIgnoreCase("Y")) {
+                        roomNumber = World.instance().roomUpdate();
+                        redrawMapAndHelp();
+                    }
+                } else {
+                    setStatus("Door is locked! Rip and Tear!");
+                    // else do nothing
                 }
-                // else do nothing
-
             }
         }
     }
-}
