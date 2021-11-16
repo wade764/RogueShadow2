@@ -27,6 +27,8 @@ public class Game {
     // can fit inside it, but we may need to change this
     private ArrayList<World> rooms = new ArrayList<>();
     private String name;
+    // used if the player is on the final &
+    private Boolean endOfDungeon = false;
 
     public Game() {
         room = new Room();
@@ -316,10 +318,7 @@ public class Game {
             showHelp();
 
         } else if (roomNumber == 3) {
-            // here we reset roomNumber to 0 because there are only 3 rooms so the next time the player goes to a warp
-            // they will go back to room 1
-            //***I THINK WE ARE MISSING something here, maybe it will need to set the getRoom() method of World to zero, could
-            // be done via returnRoom() three times but need to resolve other issues before testing this.
+            endOfDungeon = true;
             boxes = room3.getBoxes();
             enemies = room3.getEnemies();
             warps = room3.getWarp();
@@ -359,7 +358,7 @@ public class Game {
                 return warp;
             }
         }
-            return null;
+        return null;
     }
 
     // check for battles and return false if player has died
@@ -432,19 +431,24 @@ public class Game {
             Warp aWarp = checkForWarp();
             if (aWarp != null) {
                 if (enemies.size() == 0) {
-                    setStatus("Would you like to go to the next room? Y or N: ");
-                    // asking for the response
-                    Scanner response = new Scanner(System.in);
-                    String answer = response.next();
-                    if (answer.equalsIgnoreCase("Y")) {
-                        if (roomNumber < 3) {
-                            roomNumber = World.instance().roomUpdate();
-                            player.setHP();
-                            redrawMapAndHelp();
+                    if (!endOfDungeon) {
+                        setStatus("Would you like to go to the next room? Y or N: ");
+                        // asking for the response
+                        Scanner response = new Scanner(System.in);
+                        String answer = response.next();
+                        if (answer.equalsIgnoreCase("Y")) {
+                            if (roomNumber < 3) {
+                                roomNumber = World.instance().roomUpdate();
+                                player.setHP();
+                                redrawMapAndHelp();
+                            }
+                            else {
+                                playing = false;
+                            }
                         }
-                        else {
-                            playing = false;
-                        }
+                    } else if (endOfDungeon) {
+                        // the game is over the player has won!
+
                     }
                 } else if (enemies.size() > 0 ) {
                     setStatus("Door is locked! Rip and Tear!");
