@@ -10,31 +10,22 @@ import java.io.FileNotFoundException;
 
 public class Game {
 
-    //creating an int field that is used to call the appropriate room
-    //starts at room 1
-    private int roomNumber = 1;
-
+    // creating an int field that is used to call the appropriate room
+    // starts at room 1
+    private int roomNumber = World.instance().getRoom();
     private Room room;
     // new room objects below and Position used for warp
     private Room2 room2;
     private Room3 room3;
     private Position warpPosit;
-
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
-    //****the two enemy arraylists below may not be needed see line 310/326 we could probably just store the info in one enemy arraylist
-    //private ArrayList<Enemy> enemies2;
-    //private ArrayList<Enemy> enemies3;
-
-    //**** THIS LINE **** where in the **** is warps being instantiated im very lost, but the program runs!!!
-
+    // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
-    private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
-    //can fit inside it, but we may need to change this
-    //private static World world;
-
     private String name;
+    // used if the player is on the final &
+    private Boolean endOfDungeon = false;
 
     public Game() {
         room = new Room();
@@ -45,11 +36,7 @@ public class Game {
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
-        // below may not be needed if we store the enemies in one arraylist
-        //enemies2 = room2.getEnemies();
-        //enemies3 = room3.getEnemies();
         warps = room.getWarp();
-        //world = new World();
     }
 
     // this method prints the games plot
@@ -83,35 +70,114 @@ public class Game {
         System.out.print("<                                                                           >");
         Terminal.warpCursor(16, 36);//40
         System.out.print("*   You the adventurer must set forth into the dark world of Rogue Shadow.  *");
-        Terminal.pause(1.5);
+        //Terminal.pause(1.5);
         Terminal.warpCursor(17, 36);
         System.out.print("<                                                                           >");
         Terminal.warpCursor(18, 36);//38
         System.out.print("* A land of mystical wonder and danger presents itself around every corner. *");
-        Terminal.pause(1.5);
+        //Terminal.pause(1.5);
         Terminal.warpCursor(19, 36);
         System.out.print("<                                                                           >");
         Terminal.warpCursor(20, 36);//38
         System.out.print("* The goal of the game is to survive and collect as many items as possible. *");
-        Terminal.pause(1.5);
+        //Terminal.pause(1.5);
         Terminal.warpCursor(21, 36);
         System.out.print("<                                                                           >");
         Terminal.warpCursor(22, 36);//46
-        System.out.print("*         Beware of the dungeons enemies or you will surely perish!         *");
+        System.out.print("*         To advance to the next floor you must kill all the enemies.       *");
+        //Terminal.pause(1.5);
         Terminal.warpCursor(23, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(24, 36);
+        Terminal.warpCursor(24, 36);//46
+        System.out.print("*         Beware of the dungeons enemies or you will surely perish!         *");
+        Terminal.warpCursor(25, 36);
+        System.out.print("<                                                                           >");
+        Terminal.warpCursor(26, 36);
         System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
 
         //setting the players name
-        Terminal.warpCursor(26, 58);
+        Terminal.warpCursor(28, 58);
         System.out.print("What is your name adventurer? ");
         Scanner in = new Scanner(System.in);
-        Terminal.warpCursor(26, 88);
+        Terminal.warpCursor(28, 88);
         // initializing the name of the player
         name = in.next();
         player.setName(name);
 
+    }
+
+    private void playerWon() {
+        Terminal.clear();
+        for (int i = 0; i < 40; i++) {
+            Terminal.warpCursor(i, 82);
+            System.out.print("                                                                                               ");
+        }
+        Terminal.warpCursor(12, 30);
+        System.out.print("");
+        Terminal.warpCursor(13, 30);
+
+        System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗██╗");
+        Terminal.warpCursor(14, 30);
+        System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██╔═══██╗████╗  ██║██║");
+        Terminal.warpCursor(15, 30);
+        System.out.print(" ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║   ██║██╔██╗ ██║██║");
+        Terminal.warpCursor(16, 30);
+        System.out.print("  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║   ██║██║╚██╗██║╚═╝");
+        Terminal.warpCursor(17, 30);
+        System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║██╗");
+        Terminal.warpCursor(18, 30);
+        System.out.print("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝");
+        Terminal.pause(5);
+    }
+
+    private void gameOver() {
+        Terminal.clear();
+        for (int i = 0; i < 40; i++) {
+            Terminal.warpCursor(i, 82);
+            System.out.print("                                                                                               ");
+        }
+        Terminal.warpCursor(12, 30);
+        System.out.print("");
+        Terminal.warpCursor(13, 30);
+
+        System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ ");
+        Terminal.warpCursor(14, 30);
+        System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗");
+        Terminal.warpCursor(15, 30);
+        System.out.print(" ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║");
+        Terminal.warpCursor(16, 30);
+        System.out.print("  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║");
+        Terminal.warpCursor(17, 30);
+        System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝");
+        Terminal.warpCursor(18, 30);
+        System.out.print("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝ ");
+        Terminal.pause(5);
+    }
+    
+    private void debugMenu() {
+    	Terminal.clear();
+        Terminal.setForeground(Color.RED);
+        //title prompt for information
+        Terminal.warpCursor(1, 1);
+        System.out.print("");
+        Terminal.warpCursor(2, 1);
+        System.out.print("  ██╗ ██╗          ██████╗ ███████╗██████╗ ██╗   ██╗ ██████╗     ███╗   ███╗███████╗███╗   ██╗██╗   ██╗          ██╗ ██╗ ");
+        Terminal.warpCursor(3, 1);
+        System.out.print(" ██╔╝██╔╝▄ ██╗▄    ██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝     ████╗ ████║██╔════╝████╗  ██║██║   ██║    ▄ ██╗▄╚██╗╚██╗ ");
+        Terminal.warpCursor(4, 1);
+        System.out.print("██╔╝██╔╝  ████╗    ██║  ██║█████╗  ██████╔╝██║   ██║██║  ███╗    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║     ████╗ ╚██╗╚██╗");
+        Terminal.warpCursor(5, 1);
+        System.out.print("╚██╗╚██╗ ▀╚██╔▀    ██║  ██║██╔══╝  ██╔══██╗██║   ██║██║   ██║    ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║    ▀╚██╔▀ ██╔╝██╔╝");
+        Terminal.warpCursor(6, 1);
+        System.out.print(" ╚██╗╚██╗  ╚═╝     ██████╔╝███████╗██████╔╝╚██████╔╝╚██████╔╝    ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝      ╚═╝ ██╔╝██╔╝ ");
+        Terminal.warpCursor(7, 1);
+        System.out.print("  ╚═╝ ╚═╝          ╚═════╝ ╚══════╝╚═════╝  ╚═════╝  ╚═════╝     ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝           ╚═╝ ╚═╝  ");
+        Terminal.warpCursor(8, 1);
+        Terminal.reset();
+        //put test statement below this line
+        System.out.print("\n\rThese are the current enemies\n\r" + enemies.size());
+        System.out.printf("\n\rPress any key to return...\n\r");
+        Terminal.getKey();
     }
 
     // prints a help menu to the left of the map
@@ -128,6 +194,7 @@ public class Game {
             "Equip weapon: w",
             "Equip armor: a",
             "Save: s",
+            "Restore: r",
             "Quit: q"
         };
         Terminal.setForeground(Color.GREEN);
@@ -144,7 +211,7 @@ public class Game {
             "Defense: " + player.getProtection()
         };
         int line = 0; //the current line of the info array
-        for (int i = 11; i < 15; i++) {
+        for (int i = 12; i < 16; i++) {
             Terminal.warpCursor(i + 1, room.getCols() + 1);
             System.out.print(info[line]);
             line++;
@@ -197,22 +264,6 @@ public class Game {
         }
     }
 
-    //*** I cant remember if I did this or someone else -Wade
-    //*** BROKE needs to be redone
-    //private void roomWarp(){
-    //	Box thing= checkForBox();
-    //	if (thing==null){
-    //		setStatus("Cannot Warp at this moment");
-    //		Terminal.pause(1.25);
-    //	}
-    //	else{
-    //	//	int room = roomUpdate();
-    //	//	nextRoom(room);
-    //	}
-    //}
-
-
-
     // handle the key which was read - return false if we quit the game
     private boolean handleKey(Key key) {
         switch (key) {
@@ -224,7 +275,11 @@ public class Game {
                 player.getInventory().print();
                 redrawMapAndHelp();
                 break;
-
+                //debug menu used for printing
+            case b:
+                debugMenu();
+                redrawMapAndHelp();
+                break;
             case d:
                 drop();
                 break;
@@ -242,7 +297,7 @@ public class Game {
             case s:
                 //saves the current game info to a file
                 try {
-                    PrintWriter pw = new PrintWriter(new File("game.txt"));
+                    PrintWriter pw = new PrintWriter(new File("save.txt"));
                     pw.println(player.getName());
                     pw.println(player.getHealth());
                     pw.println(player.getDamage());
@@ -261,6 +316,7 @@ public class Game {
                         pw.println(enemy);
                     }
                     pw.println("."); //marking end of enemies from room 1
+
                     //commenting out below for testing using just one enemy arraylist
                     //for (Enemy enemy : enemies2) {
                     //    pw.println(enemy);
@@ -269,33 +325,33 @@ public class Game {
                     //for (Enemy enemy : enemies3) {
                     //    pw.println(enemy);
                     //}
+
                     for (int i = 0; i < boxes.size(); )
 
                         pw.println("."); //marking end of enemies from room 3
                     pw.close();
-                }
-                catch (FileNotFoundException e) {
+                } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
-                //***THIS MAY NOT BE NEEDED
-                //                //***currently working on this    
-                //                // used for warping
-                //            case ENTER:
-                //                break;
-                //
                 // handle movement
-            case LEFT: player.move(0, -1, room, room2, room3);
-                       break;
-            case RIGHT: player.move(0, 1, room, room2, room3);
-                        break;
-            case UP: player.move(-1, 0, room, room2, room3);
-                     break;
-            case DOWN: player.move(1, 0, room, room2, room3);
-                       break;
+            case r:
+                //restore save data from file
+            case LEFT:
+                player.move(0, -1, room, room2, room3);
+                break;
+            case RIGHT:
+                player.move(0, 1, room, room2, room3);
+                break;
+            case UP:
+                player.move(-1, 0, room, room2, room3);
+                break;
+            case DOWN:
+                player.move(1, 0, room, room2, room3);
+                break;
 
-                       // and finally the quit command
+                // and finally the quit command
             case q:
-                       return false;
+                return false;
         }
 
         return true;
@@ -312,31 +368,25 @@ public class Game {
             showHelp();
         } else if (roomNumber == 2) {
             boxes = room2.getBoxes();
-            //enemies2 = room2.getEnemies();
             enemies = room2.getEnemies();
             warps = room2.getWarp();
             room2.draw();
             warpPosit = room2.getPlayerStart();
             int row = warpPosit.getRow();
             int col = warpPosit.getCol();
-            player.setPosition(row,col);
+            player.setPosition(row, col);
             showHelp();
 
         } else if (roomNumber == 3) {
-            // here we reset roomNumber to 0 because there are only 3 rooms so the next time the player goes to a warp
-            // they will go back to room 1
-            roomNumber = 0;
-            //***I THINK WE ARE MISSING something here, maybe it will need to set the getRoom() method of World to zero, could
-            // be done via returnRoom() three times but need to resolve other issues before testing this.
+            endOfDungeon = true;
             boxes = room3.getBoxes();
-            //enemies3 = room3.getEnemies();
             enemies = room3.getEnemies();
             warps = room3.getWarp();
             room3.draw();
             warpPosit = room3.getPlayerStart();
             int row = warpPosit.getRow();
             int col = warpPosit.getCol();
-            player.setPosition(row,col);
+            player.setPosition(row, col);
             showHelp();
 
         } else {
@@ -368,7 +418,6 @@ public class Game {
                 return warp;
             }
         }
-
         return null;
     }
 
@@ -383,26 +432,17 @@ public class Game {
                 opponent = enemy;
             }
         }
-
         // now do the battle
         if (opponent != null) {
             opponent.setBattleActive();
             return player.fight(opponent, room, enemies);
         }
-
         return true;
     }
-
-    //public static World getWorld() {
-    //    return world;
-    //}
 
     public void run() {
         // draw these for the first time now
         redrawMapAndHelp();
-        rooms.add(room);
-        rooms.add(room2);
-        rooms.add(room3);
 
         boolean playing = true;
         while (playing) {
@@ -410,30 +450,15 @@ public class Game {
             for (Box box : boxes) {
                 box.draw();
             }
-            //if (World.instance().getRoom() == 1) {
-                for (Enemy enemy : enemies) {
-                    enemy.draw();
-               }
-            //}
-            //else if (World.instance().getRoom() == 2) {
-            //    for (Enemy enemy : enemies2) {
-            //        enemy.draw();
-            //    }
-            //}
-            //else if (World.instance().getRoom() == 3) {
-            //    for (Enemy enemy : enemies3) {
-            //        enemy.draw();
-            //    }
-            //}
+            for (Enemy enemy : enemies) {
+                enemy.draw();
+            }
             for (Warp warp : warps) {
                 warp.draw();
             }
             player.draw();
 
             // read a key from the user
-            //cant do rooms.get(currentRoom.getRoom().getRows() since getRoom returns an int and getRows wants a room
-            //maybe theres a way to grab the room number and then modify room, room2, or room3, but we have to take
-            //into account that these are 3 different objects of different classes
             Terminal.warpCursor(room.getRows() + 1, 0);
             Key key = Terminal.getKey();
             playing = handleKey(key);
@@ -449,6 +474,7 @@ public class Game {
             // check for battles
             if (!checkBattles()) {
                 setStatus("You have been killed :(\n\r");
+                gameOver();
                 playing = false;
             }
 
@@ -462,16 +488,31 @@ public class Game {
             // check if we are on a warp, print question, and store return response from user
             Warp aWarp = checkForWarp();
             if (aWarp != null) {
-                setStatus("Would you like to go to the next room? Y or N: ");
-                // asking for the response
-                Scanner response = new Scanner(System.in);
-                String answer = response.next();
-                if (answer.equalsIgnoreCase("Y")) {
-                    roomNumber = World.instance().roomUpdate();
-                    redrawMapAndHelp();
-                }
-                // else do nothing
+                if (enemies.size() == 0) {
+                    if (!endOfDungeon) {
+                        setStatus("Would you like to go to the next room? Y or N: ");
+                        // asking for the response
+                        Scanner response = new Scanner(System.in);
+                        String answer = response.next();
+                        if (answer.equalsIgnoreCase("Y")) {
+                            if (roomNumber < 3) {
+                                roomNumber = World.instance().roomUpdate();
+                                player.setHP();
+                                redrawMapAndHelp();
+                            }
+                            else {
+                                playing = false;
+                            }
+                        }
+                    } else if (endOfDungeon) {
+                        // the game is over the player has won!
+                        playerWon();
+                        playing = false;
 
+                    }
+                } else if (enemies.size() > 0 ) {
+                    setStatus("Door is locked! Rip and Tear!");
+                }
             }
         }
     }
