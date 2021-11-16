@@ -113,16 +113,16 @@ public class Game {
         Terminal.setForeground(Color.CYAN);
 
         String[] cmds = {"Commands:",
-                "---------",
-                "Move: Arrow Keys",
-                "Pickup an item: p",
-                "Drop an item: d",
-                "List items: l",
-                "Equip weapon: w",
-                "Equip armor: a",
-                "Save: s",
-                "Restore: r",
-                "Quit: q"
+            "---------",
+            "Move: Arrow Keys",
+            "Pickup an item: p",
+            "Drop an item: d",
+            "List items: l",
+            "Equip weapon: w",
+            "Equip armor: a",
+            "Save: s",
+            "Restore: r",
+            "Quit: q"
         };
         Terminal.setForeground(Color.GREEN);
         for (int row = 0; row < cmds.length; row++) {
@@ -132,10 +132,10 @@ public class Game {
 
         // adding the player info below the commands
         String[] info = {
-                "Name: " + player.getName(),
-                "HP: " + player.getHealth(),
-                "Strength: " + player.getDamage(),
-                "Defense: " + player.getProtection()
+            "Name: " + player.getName(),
+            "HP: " + player.getHealth(),
+            "Strength: " + player.getDamage(),
+            "Defense: " + player.getProtection()
         };
         int line = 0; //the current line of the info array
         for (int i = 12; i < 16; i++) {
@@ -202,7 +202,7 @@ public class Game {
                 player.getInventory().print();
                 redrawMapAndHelp();
                 break;
-            //debug menu used for printing
+                //debug menu used for printing
             case b:
                 Terminal.clear();
                 Terminal.setForeground(Color.RED);
@@ -287,7 +287,7 @@ public class Game {
                 player.move(1, 0, room, room2, room3);
                 break;
 
-            // and finally the quit command
+                // and finally the quit command
             case q:
                 return false;
         }
@@ -355,15 +355,12 @@ public class Game {
     private Warp checkForWarp() {
         Position playerLocation = player.getPosition();
 
-        if (enemies.size() == 0) {
-            for (Warp warp : warps) {
-                if (playerLocation.equals(warp.getPosition())) {
-                    return warp;
-                }
+        for (Warp warp : warps) {
+            if (playerLocation.equals(warp.getPosition())) {
+                return warp;
             }
         }
-
-        return null;
+            return null;
     }
 
     // check for battles and return false if player has died
@@ -444,7 +441,7 @@ public class Game {
                         roomNumber = World.instance().roomUpdate();
                         redrawMapAndHelp();
                     }
-                } else if (enemies.size() < 0 ) {
+                } else if (enemies.size() > 0 ) {
                     setStatus("Door is locked! Rip and Tear!");
                 }
             }
