@@ -282,6 +282,8 @@ public class Game {
         roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
             room.draw();
+            Terminal.warpCursor(43, 0);
+            System.out.print(enemies.size());
             showHelp();
         } else if (roomNumber == 2) {
             boxes = room2.getBoxes();
@@ -373,8 +375,6 @@ public class Game {
 
         boolean playing = true;
         while (playing) {
-            Terminal.warpCursor(45, 0);
-            System.out.print("");
             // draw the entities
             for (Box box : boxes) {
                 box.draw();
@@ -430,8 +430,6 @@ public class Game {
                 // else do nothing
 
             }
-            Terminal.warpCursor(45, 0);
-            System.out.print(enemies.size());
         }
     }
 }
