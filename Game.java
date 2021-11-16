@@ -28,7 +28,7 @@ public class Game {
     private ArrayList<Warp> warps;
     private ArrayList<World> rooms = new ArrayList<>(); //made this a World arraylist so that all 3 room classes
     //can fit inside it, but we may need to change this
-    private static World world;
+    //private static World world;
 
     private String name;
 
@@ -44,7 +44,7 @@ public class Game {
         enemies2 = room2.getEnemies();
         enemies3 = room3.getEnemies();
         warps = room.getWarp();
-        world = new World();
+        //world = new World();
     }
 
     // this method prints the games plot
@@ -251,7 +251,7 @@ public class Game {
                         pw.println(item);
                     }
                     pw.println("."); //delimiter used to mark the end of the inventory
-                    pw.println(world.getRoom());
+                    pw.println(World.instance().getRoom());
                     for (Enemy enemy : enemies) { //enemies from room 1
                         pw.println(enemy);
                     }
@@ -265,7 +265,7 @@ public class Game {
                     }
                     for (int i = 0; i < boxes.size(); )
 
-                    pw.println("."); //marking end of enemies from room 3
+                        pw.println("."); //marking end of enemies from room 3
                     pw.close();
                 }
                 catch (FileNotFoundException e) {
@@ -300,7 +300,7 @@ public class Game {
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
-        roomNumber = world.getRoom();
+        roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
             room.draw();
             showHelp();
@@ -319,7 +319,6 @@ public class Game {
             // here we reset roomNumber to 0 because there are only 3 rooms so the next time the player goes to a warp
             // they will go back to room 1
             roomNumber = 0;
-
             boxes = room3.getBoxes();
             enemies3 = room3.getEnemies();
             warps = room3.getWarp();
@@ -384,9 +383,9 @@ public class Game {
         return true;
     }
 
-    public static World getWorld() {
-        return world;
-    }
+    //public static World getWorld() {
+    //    return world;
+    //}
 
     public void run() {
         // draw these for the first time now
@@ -401,17 +400,17 @@ public class Game {
             for (Box box : boxes) {
                 box.draw();
             }
-            if (world.getRoom() == 1) {
+            if (World.instance().getRoom() == 1) {
                 for (Enemy enemy : enemies) {
                     enemy.draw();
                 }
             }
-            else if (world.getRoom() == 2) {
+            else if (World.instance().getRoom() == 2) {
                 for (Enemy enemy : enemies2) {
                     enemy.draw();
                 }
             }
-            else if (world.getRoom() == 3) {
+            else if (World.instance().getRoom() == 3) {
                 for (Enemy enemy : enemies3) {
                     enemy.draw();
                 }
@@ -458,8 +457,7 @@ public class Game {
                 Scanner response = new Scanner(System.in);
                 String answer = response.next();
                 if (answer.equalsIgnoreCase("Y")) {
-                    roomNumber = world.roomUpdate();
-                    world.roomUpdate();
+                    roomNumber = World.instance().roomUpdate();
                     redrawMapAndHelp();
                 }
                 // else do nothing
