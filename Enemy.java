@@ -2,6 +2,8 @@
 
 import java.util.Random;
 import ansi_terminal.*;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Enemy extends Character {
     private String name;
@@ -61,10 +63,34 @@ public class Enemy extends Character {
                     break;
                 case 3:
                     if (move(-1, 0, room, room2, room3)) return;
-                    break;
+		    break;
             }
-        }
+
+	}
     }
+
+    public void save(PrintWriter out){
+	    out.println(name);
+//	    out.println(row);
+//	    out.println(col);
+//	    out.println(hp);
+	    out.println(damage);
+	    out.println(protection);
+
+    }
+/*
+    public Enemy(Scanner in){
+	name = in.nextLine();
+	row = in.nextInt();
+	col = in.nextInt();
+	hp= in.nextInt();
+	damage = in.nextInt();
+	protection = in.nextInt();
+
+    }
+ */
 }
+
+
 
 
