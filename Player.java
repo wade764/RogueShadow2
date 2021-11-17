@@ -88,8 +88,11 @@ public class Player extends Character {
             out.println(items.getItems().get(i).getWeight());
             out.println(items.getItems().get(i).getValue());
             out.println(items.getItems().get(i).getStrength());
-            out.println("...");
+            if (i < items.getItems().size() - 1) {
+                out.println("...");
+            }
         }
+        out.println("*");
     }
 
     public void load(Scanner in, File file) {
@@ -102,15 +105,16 @@ public class Player extends Character {
         //strength
         //defense
         String line = in.nextLine();
-        while (in.hasNext()) {
+        while (!line.equals("*")) {
             String name = in.nextLine();
-            ItemType type = (ItemType) in.next
+            Object tempType = in.nextLine(); //used for converting this line to ItemType
+            ItemType type = (ItemType) tempType;
             int weight = in.nextInt();
             int value = in.nextInt();
             int strength = in.nextInt();
             Item item = new Item(type, name, weight, value, strength);
             items.add(item);
-            in.nextLine(); //skips the delimeter between items
+            line = in.nextLine(); //skips the delimeter between items
         }
     }
 }
