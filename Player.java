@@ -5,6 +5,7 @@ import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.io.File;
+import java.util.Scanner;
 
 public class Player extends Character {
     private Inventory items;
@@ -84,14 +85,32 @@ public class Player extends Character {
         for (int i = 0; i < items.getItems().size(); i++) {
             out.println(items.getItems().get(i).getName());
             out.println(items.getItems().get(i).getType());
-            out.println(items.getItems().get(i).getStrength());
-            out.println(items.getItems().get(i).getValue());
             out.println(items.getItems().get(i).getWeight());
+            out.println(items.getItems().get(i).getValue());
+            out.println(items.getItems().get(i).getStrength());
             out.println("...");
         }
     }
 
-    public Object load(File file) {
-        
+    public void load(Scanner in, File file) {
+        name = in.nextLine();
+        //row
+        //column
+        //hp
+        //weapon
+        //armor
+        //strength
+        //defense
+        String line = in.nextLine();
+        while (in.hasNext()) {
+            String name = in.nextLine();
+            ItemType type = (ItemType) in.next
+            int weight = in.nextInt();
+            int value = in.nextInt();
+            int strength = in.nextInt();
+            Item item = new Item(type, name, weight, value, strength);
+            items.add(item);
+            in.nextLine(); //skips the delimeter between items
+        }
     }
 }
