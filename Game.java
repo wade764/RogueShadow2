@@ -207,7 +207,7 @@ public class Game {
         // adding the player info below the commands
         String[] info = {
             "Name: " + player.getName(),
-            "HP: " + player.getHealth(),
+            "HP: " + player.getHealth(), //for some reason this isnt being updated throughout the game
             "Strength: " + player.getDamage(),
             "Defense: " + player.getProtection()
         };
