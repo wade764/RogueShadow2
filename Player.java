@@ -21,6 +21,11 @@ public class Player extends Character {
     }
 
     @Override
+    public int getHealth() {
+        return super.getHealth();
+    }
+
+    @Override
     public int getDamage() {
         Item weapon = items.getEquippedWeapon();
         if (weapon != null) {
