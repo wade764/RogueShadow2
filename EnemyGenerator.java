@@ -21,12 +21,12 @@ public class EnemyGenerator {
 
     public static Enemy generate(int row, int col) {
         Random rng = new Random();
-        int num = rng.nextInt(4);
-        Enemy enemy;
+        int num = rng.nextInt(1);
+        Enemy enemy = null;
         if (num == 0) {
-            enemy = new Enemy("Goblin", row, col, 20, 18, 10);
+            enemy = new Enemy("Goblin", row, col, 20, 30, 10);
         }
-        else if (num == 1) {
+        /**else if (num == 1) {
             enemy = new Enemy("Dragon", row, col, 40, 25, 18);
         }
         else if (num == 2) {
@@ -34,7 +34,7 @@ public class EnemyGenerator {
         }
         else {
             enemy = new Enemy("Wolf", row, col, 25, 23, 15);
-        }
+        }*/
         return enemy;
     }
 }

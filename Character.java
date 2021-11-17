@@ -70,7 +70,6 @@ public abstract class Character extends Entity {
 
         // now take damage from them
         if (other.dealDamage(this, room)) {
-
             return false;
         }
         System.out.printf("Press any key to return...\n\r");
@@ -79,7 +78,7 @@ public abstract class Character extends Entity {
     }
 
     //used to reset the player's hp when they move to the next floor
-    public void setHP() {
+    public void resetHP() {
         hp = 50;
     }
 }

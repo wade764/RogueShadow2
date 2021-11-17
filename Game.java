@@ -486,7 +486,7 @@ public class Game {
                         if (answer.equalsIgnoreCase("Y")) {
                             if (roomNumber < 3) {
                                 roomNumber = World.instance().roomUpdate();
-                                //player.setHP(); //resets player's hp when they go to the next floor
+                                player.resetHP(); //resets player's hp when they go to the next floor
                                 redrawMapAndHelp();
                             }
                             else {
