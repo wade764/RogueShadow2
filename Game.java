@@ -466,6 +466,7 @@ public class Game {
                 gameOver();
                 playing = false;
             }
+            redrawMapAndHelp();
 
             // check if we are on a box and print what's in it
             Box thingHere = checkForBox();
