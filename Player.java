@@ -2,7 +2,9 @@
 
 import ansi_terminal.*;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.io.File;
 
 public class Player extends Character {
     private Inventory items;
@@ -68,5 +70,28 @@ public class Player extends Character {
     // setter used in the Game class to set the players name
     public void setName(String n) {
         name = n;
+    }
+
+    public void save(PrintWriter out) {
+        out.println(name);
+        out.println(getRow());
+        out.println(getCol());
+        out.println(getHealth());
+        out.println(getWeapon());
+        out.println(getArmor());
+        out.println(getDamage());
+        out.println(getProtection());
+        for (int i = 0; i < items.getItems().size(); i++) {
+            out.println(items.getItems().get(i).getName());
+            out.println(items.getItems().get(i).getType());
+            out.println(items.getItems().get(i).getStrength());
+            out.println(items.getItems().get(i).getValue());
+            out.println(items.getItems().get(i).getWeight());
+            out.println("...");
+        }
+    }
+
+    public Object load(File file) {
+        
     }
 }
