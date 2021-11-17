@@ -108,7 +108,7 @@ public class Player extends Character {
         while (!line.equals("*")) {
             String name = in.nextLine();
             Object tempType = in.nextLine(); //used for converting this line to ItemType
-            ItemType type = (ItemType) tempType;
+            ItemType type = (ItemType) tempType; //how do we catch ClassCastException here?
             int weight = in.nextInt();
             int value = in.nextInt();
             int strength = in.nextInt();
