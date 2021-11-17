@@ -52,6 +52,7 @@ public class Entity {
                 // draw a space where it currently is
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
+                //eliminating flash
                 Terminal.warpCursor(40,0);
 
                 // and then move it
@@ -65,6 +66,7 @@ public class Entity {
                 // draw a space where it currently is
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
+                //eliminating flash
                 Terminal.warpCursor(40,0);
 
                 // and then move it
@@ -78,6 +80,7 @@ public class Entity {
                 // draw a space where it currently is
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
+                //eliminating flash
                 Terminal.warpCursor(40,0);
 
                 // and then move it
