@@ -4,6 +4,8 @@ import java.util.Random;
 import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.io.File;
+import java.util.ArrayList;
 
 public class Enemy extends Character {
     private String name;
@@ -69,26 +71,27 @@ public class Enemy extends Character {
 	}
     }
 
-    public void save(PrintWriter out){
+    public void save(PrintWriter out, ArrayList<Enemy> enemies){
+	for (Enemy e : enemies){
 	    out.println(name);
 	    out.println(getRow());
 	    out.println(getCol());
 	    out.println(getHealth());
 	    out.println(damage);
 	    out.println(protection);
-
+	    out.println("*");
+	}
     }
-/*
-    public Enemy(Scanner in){
-	name = in.nextLine();
-	row = in.nextInt();
-	col = in.nextInt();
-	hp= in.nextInt();
-	damage = in.nextInt();
-	protection = in.nextInt();
 
+    public void load(Scanner in, File file){
+	    
+	    name = in.nextLine();
+	    String line= in.nextLine();
+	    while(!line.equals("*")){
+		
+	    }
     }
- */
+
 }
 
 
