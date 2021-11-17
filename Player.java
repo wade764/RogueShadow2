@@ -22,36 +22,36 @@ public class Player extends Character {
     }
 
     @Override
-    public int getHealth() {
-        return super.getHealth();
-    }
-
-    @Override
-    public int getDamage() {
-        Item weapon = items.getEquippedWeapon();
-        if (weapon != null) {
-            return weapon.getStrength();
-        } else {
-            // if we have no weapon, our fists are pretty weak...
-            return 1;
+        public int getHealth() {
+            return super.getHealth();
         }
-    }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int getProtection() {
-        Item armor = items.getEquippedArmor();
-        if (armor != null) {
-            return armor.getStrength();
-        } else {
-            // without armor, we have no protection
-            return 0;
+        public int getDamage() {
+            Item weapon = items.getEquippedWeapon();
+            if (weapon != null) {
+                return weapon.getStrength();
+            } else {
+                // if we have no weapon, our fists are pretty weak...
+                return 1;
+            }
         }
-    }
+
+    @Override
+        public String getName() {
+            return name;
+        }
+
+    @Override
+        public int getProtection() {
+            Item armor = items.getEquippedArmor();
+            if (armor != null) {
+                return armor.getStrength();
+            } else {
+                // without armor, we have no protection
+                return 0;
+            }
+        }
 
     //used for saving the player's current weapon
     public Item getWeapon() {
@@ -91,7 +91,7 @@ public class Player extends Character {
         }
     }
 
-    public Object load(File file) {
-        
-    }
+    //public Object load(File file) {
+
+    //}
 }
