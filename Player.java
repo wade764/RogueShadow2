@@ -100,11 +100,12 @@ public class Player extends Character {
         //row
         //column
         //hp
+        super.hp = in.nextInt();
         //weapon
         //armor
         //strength
         //defense
-        String line = in.nextLine();
+        String line = in.nextLine(); //skips
         while (!line.equals("*")) {
             String name = in.nextLine();
             Object tempType = in.nextLine(); //used for converting this line to ItemType
@@ -114,6 +115,7 @@ public class Player extends Character {
             int strength = in.nextInt();
             Item item = new Item(type, name, weight, value, strength);
             items.add(item);
+            in.nextLine(); //avoid issues with scanning in different types
             line = in.nextLine(); //skips the delimeter between items
         }
     }
