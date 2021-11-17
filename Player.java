@@ -24,7 +24,7 @@ public class Player extends Character {
 
     @Override
     public int getHealth() {
-        return super.getHealth();
+        return super.hp;
     }
 
     @Override
