@@ -301,28 +301,10 @@ public class Game {
                 //saves the current game info to a file
                 try {
                     PrintWriter pw = new PrintWriter(new File("save.txt"));
-                    pw.println(player.getName());
-                    pw.println(player.getHealth());
-                    pw.println(player.getDamage());
-                    pw.println(player.getProtection());
-                    pw.println(player.getWeapon()); //used to make sure the game knows what weapon is equipped
-                    pw.println(player.getArmor()); //used to make sure the game knows what armor is equipped
-
-                    //this needs to be tested, hopefully it works
-                    ArrayList<Item> inventory = player.getInventory().getItems();
-                    for (Item item : inventory) {
-                        pw.println(item);
-                    }
-                    pw.println("."); //delimiter used to mark the end of the inventory
-                    pw.println(World.instance().getRoom());
-                    for (Enemy enemy : enemies) { //enemies from room 1
-                        pw.println(enemy);
-                    }
-                    pw.println("."); //marking end of enemies from room 1
-
-                    for (int i = 0; i < boxes.size(); )
-
-                        pw.println("."); //marking end of enemies from room 3
+                    pw.println(roomNumber);
+                    //player info
+                    //info about enemies on the floor
+                    //info about items on the floor
                     pw.close();
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");

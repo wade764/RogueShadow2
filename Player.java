@@ -96,7 +96,7 @@ public class Player extends Character {
     }
 
     public void load(Scanner in, File file) {
-        name = in.nextLine();
+        name = in.nextLine(); //player's name
         //row
         //column
         //hp
@@ -106,7 +106,7 @@ public class Player extends Character {
         //defense
         String line = in.nextLine();
         while (!line.equals("*")) {
-            String name = in.nextLine();
+            String name = in.nextLine(); //item's name
             Object tempType = in.nextLine(); //used for converting this line to ItemType
             ItemType type = (ItemType) tempType;
             int weight = in.nextInt();
