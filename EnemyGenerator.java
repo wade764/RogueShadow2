@@ -24,7 +24,7 @@ public class EnemyGenerator {
         int num = rng.nextInt(1);
         Enemy enemy = null;
         if (num == 0) {
-            enemy = new Enemy("Goblin", row, col, 20, 30, 10);
+            enemy = new Enemy("Goblin", row, col, 100, 30, 10);
         }
         /**else if (num == 1) {
             enemy = new Enemy("Dragon", row, col, 40, 25, 18);
