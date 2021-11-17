@@ -15,6 +15,8 @@ public class Main {
         game.titleScreen();
 
         game.run();
+        
+        Terminal.warpCursor(40,1);
 
         // put terminal back into cooked mode
         Terminal.cookedMode();
