@@ -435,6 +435,7 @@ public class Game {
         // draw these for the first time now
         redrawMapAndHelp();
 
+        boolean alive = true;
         boolean playing = true;
         while (playing) {
             // draw the entities
@@ -466,9 +467,10 @@ public class Game {
             if (!checkBattles()) {
                 setStatus("You have been killed :(\n\r");
                 gameOver();
+                alive = false;
                 playing = false;
             }
-            if (playing) {
+            if (alive) {
                 showHelp();
             }
 
