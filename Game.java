@@ -127,6 +127,7 @@ public class Game {
         System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║██╗");
         Terminal.warpCursor(18, 30);
         System.out.print("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝");
+        Terminal.warpCursor(40, 1);
         Terminal.pause(5);
     }
 
@@ -152,6 +153,7 @@ public class Game {
         System.out.print("   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝");
         Terminal.warpCursor(18, 30);
         System.out.print("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝ ");
+        Terminal.warpCursor(40, 1);
         Terminal.pause(5);
     }
     
@@ -466,7 +468,7 @@ public class Game {
                 gameOver();
                 playing = false;
             }
-            redrawMapAndHelp();
+            showHelp();
 
             // check if we are on a box and print what's in it
             Box thingHere = checkForBox();
