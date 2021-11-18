@@ -309,6 +309,9 @@ public class Game {
                         enemy.save(pw);
                     }
                     //info about items on the floor
+                    for (Box box : boxes) {
+                        box.save(pw);
+                    }
                     pw.close(); //closes the printwriter
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
