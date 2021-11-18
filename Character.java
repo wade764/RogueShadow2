@@ -85,7 +85,7 @@ public abstract class Character extends Entity {
     }
 
     public void save(PrintWriter out) {
-        //super.save(out);
+        super.save(out);
         out.println(hp);
     }
 

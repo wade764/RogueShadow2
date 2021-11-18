@@ -74,6 +74,7 @@ public class Player extends Character {
     }
 
     public void save(PrintWriter out) {
+        super.save(out);
         out.println(name);
     }
 
