@@ -327,18 +327,25 @@ public class Game {
                 // handle movement
             case r:
                 //restore save data from file
-                Scanner in = new Scanner(System.in);
-                roomNumber = in.nextInt();
-                enemySize = in.nextInt();
-                boxSize = in.nextInt();
-                in.nextLine();
-                player = new Player(in);
-                for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
-                    enemies.set(i, new Enemy(in));
+                File file = new File("save.txt");
+                try {
+                    Scanner in = new Scanner(file);
+                    roomNumber = in.nextInt();
+                    enemySize = in.nextInt();
+                    boxSize = in.nextInt();
+                    in.nextLine();
+                    player = new Player(in);
+                    for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
+                        enemies.set(i, new Enemy(in));
+                    }
+                    for (int i = 0; i < boxSize; i++) { //read in items on current floor
+                        boxes.set(i, new Box(in));
+                    }
+                    in.close();
+                } catch (FileNotFoundException e) {
+                    System.out.print("Save data does not exist"); //needs to be formatted
                 }
-                for (int i = 0; i < boxSize; i++) { //read in items on current floor
-                    boxes.set(i, new Box(in));
-                }
+
                 break;
             case LEFT:
                 player.move(0, -1, room, room2, room3);
@@ -352,7 +359,6 @@ public class Game {
             case DOWN:
                 player.move(1, 0, room, room2, room3);
                 break;
-
                 // and finally the quit command
             case q:
                 return false;
