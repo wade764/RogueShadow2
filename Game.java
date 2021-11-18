@@ -323,6 +323,7 @@ public class Game {
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
+                break;
                 // handle movement
             case r:
                 //restore save data from file
@@ -338,6 +339,7 @@ public class Game {
                 for (int i = 0; i < boxSize; i++) { //read in items on current floor
                     boxes.set(i, new Box(in));
                 }
+                break;
             case LEFT:
                 player.move(0, -1, room, room2, room3);
                 break;
