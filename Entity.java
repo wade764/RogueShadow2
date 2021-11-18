@@ -119,7 +119,15 @@ public class Entity {
         setPosition(row, col);
         display = in.next().charAt(0);
         String c = in.next();
-        if (c.equals("RED"));
-
+        switch (c) {
+            case "RED" -> color = Color.RED;
+            case "CYAN" -> color = Color.CYAN;
+            case "YELLOW" -> color = Color.YELLOW;
+            case "GREEN" -> color = Color.GREEN;
+            case "MAGENTA" -> color = Color.MAGENTA;
+            case "BLUE" -> color = Color.BLUE;
+            case "BLACK" -> color = Color.BLACK;
+            default -> color = Color.WHITE;
+        }
     }
 }

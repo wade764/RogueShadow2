@@ -1,4 +1,4 @@
-import ansi_terminal.Terminal
+import ansi_terminal.Terminal;
 
 public class Menu {
 
