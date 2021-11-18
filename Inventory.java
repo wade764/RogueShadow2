@@ -221,9 +221,9 @@ public class Inventory {
                 out.println(item.getWeight());
                 out.println(item.getValue());
                 out.println(item.getStrength());
-                out.println(".");
             }
         }
+        out.println(".");
     }
 
     public Inventory(Scanner in) {
@@ -236,6 +236,7 @@ public class Inventory {
         int strength = in.nextInt();
         equippedWeapon = new Item(type, name, weight, value, strength);
         items.add(equippedWeapon);
+        in.nextLine();
 
         type = ItemType.Armor;
         name = in.nextLine();
@@ -244,8 +245,9 @@ public class Inventory {
         strength = in.nextInt();
         equippedArmor = new Item(type, name, weight, value, strength);
         items.add(equippedArmor);
+        String line = in.nextLine();
 
-        while (in.hasNext()) {
+        while (!line.equals(".")) {
             name = in.nextLine(); //item's name
             String t = in.next();
             if (t.equals("Weapon")) {
@@ -262,7 +264,7 @@ public class Inventory {
             strength = in.nextInt();
             Item item = new Item(type, name, weight, value, strength);
             items.add(item);
-            in.nextLine(); //ready to read in the next item
+            line = in.nextLine(); //ready to read in the next item
         }
     }
 }

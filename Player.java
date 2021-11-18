@@ -80,5 +80,6 @@ public class Player extends Character {
     public Player(Scanner in) {
         super(in);
         name = in.nextLine();
+        items = new Inventory(in);
     }
 }
