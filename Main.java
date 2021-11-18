@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         // put terminal in raw mode
         Terminal.rawMode();
-
+        
+        Menu.titleScreen();
         // make and run the Game
         Game game = new Game();
 
