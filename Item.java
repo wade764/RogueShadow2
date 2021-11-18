@@ -2,6 +2,9 @@
 // this class represents a single item, it could be an equippable
 // thing like weapon or ring, or something generic
 
+import java.util.Scanner;
+import java.io.PrintWriter;
+
 public class Item {
     // what sort of item it is
     private ItemType type;
@@ -52,4 +55,32 @@ public class Item {
         public String toString() {
             return name + " " + weight + " " + value + " " + strength;
         }
+
+    public void save(PrintWriter out) {
+        out.println("Item");
+        out.println(name);
+        out.println(type);
+        out.println(weight);
+        out.println(value);
+        out.println(strength);
+    }
+
+    public Item(Scanner in) {
+        in.nextLine();
+        name = in.nextLine();
+        String t = in.nextLine();
+        if (t.equals("Weapon")) {
+            type = ItemType.Weapon;
+        }
+        else if (t.equals("Armor")) {
+            type = ItemType.Armor;
+        }
+        else {
+            type = ItemType.Other;
+        }
+        weight = in.nextInt();
+        value = in.nextInt();
+        strength = in.nextInt();
+        in.nextLine(); //sets up the scanner for the next line
+    }
 }

@@ -21,30 +21,11 @@ public class Box extends Entity {
     }
 
     public void save(PrintWriter out) {
-        out.println(item.getName());
-        out.println(item.getType());
-        out.println(item.getWeight());
-        out.println(item.getValue());
-        out.println(item.getStrength());
+        item.save(out);
     }
 
     public Box(Scanner in) {
         super(in);
-        String name = in.nextLine();
-        String t = in.next();
-        ItemType type;
-        if (t.equals("Weapon")) {
-            type = ItemType.Weapon;
-        }
-        else if (t.equals("Armor")) {
-            type = ItemType.Armor;
-        }
-        else {
-            type = ItemType.Other;
-        }
-        int weight = in.nextInt();
-        int value = in.nextInt();
-        int strength = in.nextInt();
-        item = new Item(type, name, weight, value, strength);
+        item = new Item(in);
     }
 }

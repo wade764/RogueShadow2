@@ -106,17 +106,14 @@ public class Entity {
 
     public void save(PrintWriter out) {
         out.println("Entity");
-        out.println(getRow());
-        out.println(getCol());
+        position.save(out);
         out.println(display);
         out.println(color);
     }
 
     public Entity (Scanner in) {
         in.nextLine();
-        int row = in.nextInt();
-        int col = in.nextInt();
-        setPosition(row, col);
+        position = new Position(in);
         display = in.next().charAt(0);
         String c = in.next();
         switch (c) {
@@ -127,7 +124,7 @@ public class Entity {
             case "MAGENTA" -> color = Color.MAGENTA;
             case "BLUE" -> color = Color.BLUE;
             case "BLACK" -> color = Color.BLACK;
-            default -> color = Color.WHITE;
+            case "WHITE" -> color = Color.WHITE;
         }
     }
 }

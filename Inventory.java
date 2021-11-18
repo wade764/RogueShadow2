@@ -19,7 +19,7 @@ public class Inventory {
     private int maxWeight;
 
     public Inventory(int maxWeight) {
-        items = new ArrayList<Item>();
+        items = new ArrayList<>();
         this.maxWeight = maxWeight;
     }
 
@@ -204,68 +204,30 @@ public class Inventory {
     }
 
     public void save(PrintWriter out) {
-        out.println(equippedWeapon.getName());
-        out.println(equippedWeapon.getWeight());
-        out.println(equippedWeapon.getValue());
-        out.println(equippedWeapon.getStrength());
-
-        out.println(equippedArmor.getName());
-        out.println(equippedArmor.getWeight());
-        out.println(equippedArmor.getValue());
-        out.println(equippedArmor.getStrength());
-
+        equippedWeapon.save(out);
+        equippedArmor.save(out);
+        out.println("*"); //used for scanner to differentiate between equipped and non-equipped items
         for (Item item : items) {
             if (item != equippedWeapon && item != equippedArmor) {
-                out.println(item.getName());
-                out.println(item.getType());
-                out.println(item.getWeight());
-                out.println(item.getValue());
-                out.println(item.getStrength());
+                item.save(out);
             }
         }
         out.println(".");
     }
 
     public Inventory(Scanner in) {
-        items = new ArrayList<Item>();
-
-        ItemType type = ItemType.Weapon;
-        String name = in.nextLine();
-        int weight = in.nextInt();
-        int value = in.nextInt();
-        int strength = in.nextInt();
-        equippedWeapon = new Item(type, name, weight, value, strength);
+        items = new ArrayList<>();
+        equippedWeapon = new Item(in);
+        equippedArmor = new Item(in);
         items.add(equippedWeapon);
-        in.nextLine();
-
-        type = ItemType.Armor;
-        name = in.nextLine();
-        weight = in.nextInt();
-        value = in.nextInt();
-        strength = in.nextInt();
-        equippedArmor = new Item(type, name, weight, value, strength);
         items.add(equippedArmor);
-        String line = in.nextLine();
 
+        String line = in.nextLine();
         while (!line.equals(".")) {
-            name = in.nextLine(); //item's name
-            String t = in.next();
-            if (t.equals("Weapon")) {
-                type = ItemType.Weapon;
-            }
-            else if (t.equals("Armor")) {
-                type = ItemType.Armor;
-            }
-            else {
-                type = ItemType.Other;
-            }
-            weight = in.nextInt();
-            value = in.nextInt();
-            strength = in.nextInt();
-            Item item = new Item(type, name, weight, value, strength);
+            Item item = new Item(in);
             items.add(item);
-            line = in.nextLine(); //ready to read in the next item
         }
+        in.nextLine(); //skips the delimiter at the end of the list of inventory items
     }
 }
 

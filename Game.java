@@ -300,7 +300,7 @@ public class Game {
             case s:
                 //saves the current game info to a file
                 try {
-                    PrintWriter pw = new PrintWriter(new File("save.txt"));
+                    PrintWriter pw = new PrintWriter("save.txt");
                     pw.println(roomNumber);
                     player.save(pw);
                     player.getInventory().save(pw);

@@ -1,6 +1,9 @@
 // Position.java
 // represents a simple row/col position in the world
 
+import java.util.Scanner;
+import java.io.PrintWriter;
+
 public class Position {
     private int row;
     private int col;
@@ -38,6 +41,16 @@ public class Position {
 
     public int getCol() {
         return col;
+    }
+
+    public void save(PrintWriter out) {
+        out.println(row);
+        out.println(col);
+    }
+
+    public Position(Scanner in) {
+        row = in.nextInt();
+        col = in.nextInt();
     }
 }
 
