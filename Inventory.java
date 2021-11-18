@@ -1,6 +1,7 @@
 // Inventory.java
 // allows for storing some number of items for the player
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -200,6 +201,69 @@ public class Inventory {
 
     public ArrayList<Item> getItems() {
         return items;
+    }
+
+    public void save(PrintWriter out) {
+        out.println(equippedWeapon.getName());
+        out.println(equippedWeapon.getWeight());
+        out.println(equippedWeapon.getValue());
+        out.println(equippedWeapon.getStrength());
+
+        out.println(equippedArmor.getName());
+        out.println(equippedArmor.getWeight());
+        out.println(equippedArmor.getValue());
+        out.println(equippedArmor.getStrength());
+
+        for (Item item : items) {
+            if (item != equippedWeapon && item != equippedArmor) {
+                out.println(item.getName());
+                out.println(item.getType());
+                out.println(item.getWeight());
+                out.println(item.getValue());
+                out.println(item.getStrength());
+                out.println(".");
+            }
+        }
+    }
+
+    public Inventory(Scanner in) {
+        items = new ArrayList<Item>();
+
+        ItemType type = ItemType.Weapon;
+        String name = in.nextLine();
+        int weight = in.nextInt();
+        int value = in.nextInt();
+        int strength = in.nextInt();
+        equippedWeapon = new Item(type, name, weight, value, strength);
+        items.add(equippedWeapon);
+
+        type = ItemType.Armor;
+        name = in.nextLine();
+        weight = in.nextInt();
+        value = in.nextInt();
+        strength = in.nextInt();
+        equippedArmor = new Item(type, name, weight, value, strength);
+        items.add(equippedArmor);
+
+        while (in.hasNext()) {
+            name = in.nextLine(); //item's name
+            String t = in.next();
+            if (t.equals("Weapon")) {
+                type = ItemType.Weapon;
+            }
+            else if (t.equals("Armor")) {
+                type = ItemType.Armor;
+            }
+            else {
+                type = ItemType.Other;
+            }
+            weight = in.nextInt();
+            value = in.nextInt();
+            strength = in.nextInt();
+            Item item = new Item(type, name, weight, value, strength);
+            items.add(item);
+            in.nextLine(); //ready to read in the next item
+        }
     }
 }
 

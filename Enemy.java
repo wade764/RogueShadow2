@@ -78,23 +78,6 @@ public class Enemy extends Character {
 		out.println(protection);
 	}
 
-	/*public Enemy load(Scanner in, File file){
-		Enemy enemy = null;
-		String line = " ";
-		while(!line.equals("*")) {
-			String name = in.nextLine();
-			int row = in.nextInt();
-			int col = in.nextInt();
-			int HP = in.nextInt();
-			int strength = in.nextInt();
-			int defense = in.nextInt();
-			enemy = new Enemy(name, row, col, HP, strength, defense);
-			in.nextLine(); //avoid issues with scanning in different types
-			line = in.nextLine(); //skips the delimiter between enemies
-		}
-		return enemy; //should we return an enemy or have it be a void method?
-	}*/
-
 	public Enemy(Scanner in) {
 		super(in);
 		name = in.nextLine();

@@ -75,80 +75,10 @@ public class Player extends Character {
 
     public void save(PrintWriter out) {
         out.println(name);
-
-        //info for the equipped weapon
-        out.println(getWeapon().getName()); //we dont need to store type since it'll be equipped when loaded
-        out.println(getWeapon().getWeight());
-        out.println(getWeapon().getValue());
-        out.println(getWeapon().getStrength());
-        out.println("#");
-
-        //info for the equipped armor
-        out.println(getArmor().getName()); //we dont need to store type since itll be equipped when loaded
-        out.println(getArmor().getWeight());
-        out.println(getArmor().getValue());
-        out.println(getArmor().getStrength());
-
-        for (int i = 0; i < items.getItems().size(); i++) {
-            out.println(items.getItems().get(i).getName());
-            out.println(items.getItems().get(i).getType());
-            out.println(items.getItems().get(i).getWeight());
-            out.println(items.getItems().get(i).getValue());
-            out.println(items.getItems().get(i).getStrength());
-            if (i < items.getItems().size() - 1) {
-                out.println("...");
-            }
-        }
-        out.println("*");
     }
 
-    public void load(Scanner in, File file) {
-        name = in.nextLine(); //player's name
-        in.nextLine();
-
-        //equipped weapon
-        String name = in.nextLine(); //item's name
-        ItemType type = ItemType.Weapon; //how do we catch ClassCastException here?
-        int weight = in.nextInt();
-        int value = in.nextInt();
-        int strength = in.nextInt();
-        Item weapon = new Item(type, name, weight, value, strength);
-        items.addAndEquip(weapon);
-        in.nextLine();
-
-        //equipped armor
-        name = in.nextLine(); //item's name
-        type = ItemType.Armor; //how do we catch ClassCastException here?
-        weight = in.nextInt();
-        value = in.nextInt();
-        strength = in.nextInt();
-        Item armor = new Item(type, name, weight, value, strength);
-        items.addAndEquip(armor);
-
-        //inventory
-        String line = in.nextLine();
-        while (!line.equals("*")) {
-            name = in.nextLine(); //item's name
-            String t = in.next();
-            if (t.equals("Weapon")) {
-                type = ItemType.Weapon;
-            }
-            else if (t.equals("Armor")) {
-                type = ItemType.Armor;
-            }
-            else {
-                type = ItemType.Other;
-            }
-            weight = in.nextInt();
-            value = in.nextInt();
-            strength = in.nextInt();
-            Item item = new Item(type, name, weight, value, strength);
-            if (!item.equals(weapon) && !item.equals(armor)) { //adds items to inventory if they are not equipped
-                //since those have already been added
-                items.add(item);
-            }
-            in.nextLine(); //avoid issues with scanning in different types
-            line = in.nextLine(); //skips the delimiter between items
-        }
+    public Player(Scanner in) {
+        super(in);
+        name = in.nextLine();
     }
 }

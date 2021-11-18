@@ -303,6 +303,7 @@ public class Game {
                     PrintWriter pw = new PrintWriter(new File("save.txt"));
                     pw.println(roomNumber);
                     player.save(pw);
+                    player.getInventory().save(pw);
                     //info about enemies on the floor
                     for (Enemy enemy : enemies) {
                         enemy.save(pw);
@@ -315,6 +316,10 @@ public class Game {
                 // handle movement
             case r:
                 //restore save data from file
+                Scanner in = new Scanner(System.in);
+                player = new Player(in);
+                //read in enemies on current floor
+                //read in items on current floor
             case LEFT:
                 player.move(0, -1, room, room2, room3);
                 break;
