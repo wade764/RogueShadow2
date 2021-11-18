@@ -68,7 +68,7 @@ public class Room3 {
     // returns a set of item boxes for this map, this is here because it depends on
     // the room geometry for where the boxes make sense to be
     public ArrayList<Box> getBoxes() {
-        ArrayList<Box> boxes = new ArrayList<Box>();
+        ArrayList<Box> boxes = new ArrayList<>();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
@@ -82,7 +82,7 @@ public class Room3 {
 
     // returns a set of enemies from this map, similarly to the boxes above
     public ArrayList<Enemy> getEnemies() {
-        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+        ArrayList<Enemy> enemies = new ArrayList<>();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == '*') {

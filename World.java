@@ -1,6 +1,6 @@
 public class World {
     private int room = 1;
-    //We need a signleton since there is only one world
+    //We need a singleton since there is only one world
     private static World theInstance;
 
     public static synchronized World instance() {

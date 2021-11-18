@@ -21,6 +21,8 @@ public class Game {
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
+    private int boxSize; //used to save the size of boxes
+    private int enemySize; //used to save the size of enemies
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
     private String name;
@@ -302,6 +304,10 @@ public class Game {
                 try {
                     PrintWriter pw = new PrintWriter("save.txt");
                     pw.println(roomNumber);
+                    enemySize = enemies.size(); //helps with loading in save data
+                    boxSize = boxes.size();
+                    pw.println(enemySize);
+                    pw.println(boxSize);
                     player.save(pw);
                     player.getInventory().save(pw);
                     //info about enemies on the floor
@@ -314,7 +320,6 @@ public class Game {
                     }
                     pw.close(); //closes the printwriter
                     setStatus("Your game was saved");
-                    redrawMapAndHelp();
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
@@ -322,9 +327,17 @@ public class Game {
             case r:
                 //restore save data from file
                 Scanner in = new Scanner(System.in);
+                roomNumber = in.nextInt();
+                enemySize = in.nextInt();
+                boxSize = in.nextInt();
+                in.nextLine();
                 player = new Player(in);
-                //read in enemies on current floor
-                //read in items on current floor
+                for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
+                    enemies.set(i, new Enemy(in));
+                }
+                for (int i = 0; i < boxSize; i++) { //read in items on current floor
+                    boxes.set(i, new Box(in));
+                }
             case LEFT:
                 player.move(0, -1, room, room2, room3);
                 break;
