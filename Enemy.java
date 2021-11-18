@@ -71,32 +71,31 @@ public class Enemy extends Character {
 		}
 	}
 
-	public void save(PrintWriter out, ArrayList<Enemy> enemies){
-		for (Enemy e : enemies){
-			out.println(name);
-			out.println(getRow());
-			out.println(getCol());
-			out.println(getHealth());
-			out.println(damage);
-			out.println(protection);
-			out.println("*");
-		}
+	public void save(PrintWriter out){
+		out.println(name);
+		out.println(getRow());
+		out.println(getCol());
+		out.println(getHealth());
+		out.println(damage);
+		out.println(protection);
+		out.println("*");
 	}
 
-	public void load(Scanner in, File file){
-
-		name = in.nextLine();
-		String line= in.nextLine();
-		while(!line.equals("*")){
-			name= in.nextLine();
-			in.nextLine();
-		//	super row= in.nextInt();
-		//	super col=in.nextInt();
-			hp= in.nextInt();
-			damage= in.nextInt();
-			protection=in.nextInt();
-
+	public Enemy load(Scanner in, File file){
+		Enemy enemy = null;
+		String line = null;
+		while(!line.equals("*")) {
+			String name = in.nextLine();
+			int row = in.nextInt();
+			int col = in.nextInt();
+			int HP = in.nextInt();
+			int strength = in.nextInt();
+			int defense = in.nextInt();
+			enemy = new Enemy(name, row, col, HP, strength, defense);
+			in.nextLine(); //avoid issues with scanning in different types
+			line = in.nextLine(); //skips the delimiter between enemies
 		}
+		return enemy; //should we return an enemy or have it be a void method?
 	}
 
 }

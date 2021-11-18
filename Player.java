@@ -78,10 +78,21 @@ public class Player extends Character {
         out.println(getRow());
         out.println(getCol());
         out.println(getHealth());
-        out.println(getWeapon());
-        out.println(getArmor());
-        out.println(getDamage());
-        out.println(getProtection());
+        //info for the equipped weapon
+        out.println(getWeapon().getName());
+        out.println(getWeapon().getType());
+        out.println(getWeapon().getWeight());
+        out.println(getWeapon().getValue());
+        out.println(getWeapon().getStrength());
+        out.println("#");
+        //info for the equipped armor
+        out.println(getArmor().getName());
+        out.println(getArmor().getType());
+        out.println(getArmor().getWeight());
+        out.println(getArmor().getValue());
+        out.println(getArmor().getStrength());
+        //out.println(getDamage());
+        //out.println(getProtection());
         for (int i = 0; i < items.getItems().size(); i++) {
             out.println(items.getItems().get(i).getName());
             out.println(items.getItems().get(i).getType());
@@ -97,24 +108,48 @@ public class Player extends Character {
 
     public void load(Scanner in, File file) {
         name = in.nextLine(); //player's name
-        //row
-        //column
-        //hp
+        int row = in.nextInt();
+        int column = in.nextInt();
+        setPosition(row, column);
+        super.hp = in.nextInt();
+        in.nextLine();
         //weapon
+        String name = in.nextLine(); //item's name
+        Object tempType = in.nextLine(); //used for converting this line to ItemType
+        ItemType type = (ItemType) tempType; //how do we catch ClassCastException here?
+        int weight = in.nextInt();
+        int value = in.nextInt();
+        int strength = in.nextInt();
+        Item weapon = new Item(type, name, weight, value, strength);
+        items.addAndEquip(weapon);
+        in.nextLine();
         //armor
+        name = in.nextLine(); //item's name
+        tempType = in.nextLine(); //used for converting this line to ItemType
+        type = (ItemType) tempType; //how do we catch ClassCastException here?
+        weight = in.nextInt();
+        value = in.nextInt();
+        strength = in.nextInt();
+        Item armor = new Item(type, name, weight, value, strength);
+        items.addAndEquip(armor);
         //strength
         //defense
+
         String line = in.nextLine();
         while (!line.equals("*")) {
-            String name = in.nextLine(); //item's name
-            Object tempType = in.nextLine(); //used for converting this line to ItemType
-            ItemType type = (ItemType) tempType;
-            int weight = in.nextInt();
-            int value = in.nextInt();
-            int strength = in.nextInt();
+            name = in.nextLine(); //item's name
+            tempType = in.nextLine(); //used for converting this line to ItemType
+            type = (ItemType) tempType; //how do we catch ClassCastException here?
+            weight = in.nextInt();
+            value = in.nextInt();
+            strength = in.nextInt();
             Item item = new Item(type, name, weight, value, strength);
-            items.add(item);
-            line = in.nextLine(); //skips the delimeter between items
+            if (!item.equals(weapon) && !item.equals(armor)) { //adds items to inventory if they are not equipped
+                //since those have already been added
+                items.add(item);
+            }
+            in.nextLine(); //avoid issues with scanning in different types
+            line = in.nextLine(); //skips the delimiter between items
         }
     }
 }

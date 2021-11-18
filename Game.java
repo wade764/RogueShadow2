@@ -302,8 +302,11 @@ public class Game {
                 try {
                     PrintWriter pw = new PrintWriter(new File("save.txt"));
                     pw.println(roomNumber);
-                    //player info
+                    player.save(pw);
                     //info about enemies on the floor
+                    for (int i = 0; i < enemies.size(); i++) {
+                        enemies.get(i).save(pw);
+                    }
                     //info about items on the floor
                     pw.close();
                 } catch (FileNotFoundException e) {
@@ -417,7 +420,6 @@ public class Game {
         // draw these for the first time now
         redrawMapAndHelp();
 
-        boolean alive = true;
         boolean playing = true;
         while (playing) {
             // draw the entities
@@ -449,10 +451,9 @@ public class Game {
             if (!checkBattles()) {
                 setStatus("You have been killed :(\n\r");
                 gameOver();
-                alive = false;
                 playing = false;
             }
-            if (alive) {
+            if (playing) {
                 showHelp();
             }
 
