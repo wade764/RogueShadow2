@@ -57,7 +57,7 @@ public class Item {
         }
 
     public void save(PrintWriter out) {
-        out.println("Item");
+        //out.println("Item");
         out.println(name);
         out.println(type);
         out.println(weight);
@@ -66,7 +66,7 @@ public class Item {
     }
 
     public Item(Scanner in) {
-        in.nextLine();
+        //in.nextLine();
         name = in.nextLine();
         String t = in.nextLine();
         if (t.equals("Weapon")) {
@@ -78,7 +78,7 @@ public class Item {
         else {
             type = ItemType.Other;
         }
-        weight = in.nextInt();
+        weight = in.nextInt(); //have issues reading this in
         value = in.nextInt();
         strength = in.nextInt();
         in.nextLine(); //sets up the scanner for the next line
