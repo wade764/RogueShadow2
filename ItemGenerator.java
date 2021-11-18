@@ -21,7 +21,7 @@ public class ItemGenerator {
     public Item generate() {
         int num;
         Random rng= new Random();
-        num = rng.nextInt(25);
+        num = rng.nextInt(24);
 
         //creates a place to store the Item and return at the end
 
@@ -75,7 +75,6 @@ public class ItemGenerator {
             case 22 : temp = new Item(ItemType.Armor, "Super Strength Armor", 20, 35, 32);
                       break;
             case 23 : temp = new Item(ItemType.Other, "Book of Spells", 2, 13, 0);
-
         }
         return temp;
     }

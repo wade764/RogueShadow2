@@ -83,7 +83,7 @@ public class Enemy extends Character {
 
 	public Enemy load(Scanner in, File file){
 		Enemy enemy = null;
-		String line = null;
+		String line = " ";
 		while(!line.equals("*")) {
 			String name = in.nextLine();
 			int row = in.nextInt();
