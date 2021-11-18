@@ -313,6 +313,8 @@ public class Game {
                         box.save(pw);
                     }
                     pw.close(); //closes the printwriter
+                    setStatus("Your game was saved");
+                    redrawMapAndHelp();
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
