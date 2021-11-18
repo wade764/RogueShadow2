@@ -51,6 +51,7 @@ public class Position {
     public Position(Scanner in) {
         row = in.nextInt();
         col = in.nextInt();
+        po
     }
 }
 

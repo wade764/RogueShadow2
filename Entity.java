@@ -113,7 +113,9 @@ public class Entity {
 
     public Entity (Scanner in) {
         in.nextLine();
-        position = new Position(in);
+        int row = in.nextInt();
+        int col = in.nextInt();
+        position = new Position(row, col);
         display = in.next().charAt(0);
         String c = in.next();
         switch (c) {
