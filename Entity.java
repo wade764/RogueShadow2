@@ -3,6 +3,9 @@
 
 import ansi_terminal.*;
 
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class Entity {
     // the location of the entity in space
     private Position position;
@@ -99,5 +102,24 @@ public class Entity {
         Terminal.setForeground(color);
         System.out.print(display);
         Terminal.reset();
+    }
+
+    public void save(PrintWriter out) {
+        out.println("Entity");
+        out.println(getRow());
+        out.println(getCol());
+        out.println(display);
+        out.println(color);
+    }
+
+    public Entity (Scanner in) {
+        in.nextLine();
+        int row = in.nextInt();
+        int col = in.nextInt();
+        setPosition(row, col);
+        display = in.next().charAt(0);
+        String c = in.next();
+        if (c.equals("RED"));
+
     }
 }

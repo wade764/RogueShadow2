@@ -304,11 +304,11 @@ public class Game {
                     pw.println(roomNumber);
                     player.save(pw);
                     //info about enemies on the floor
-                    for (int i = 0; i < enemies.size(); i++) {
-                        enemies.get(i).save(pw);
+                    for (Enemy enemy : enemies) {
+                        enemy.save(pw);
                     }
                     //info about items on the floor
-                    pw.close();
+                    pw.close(); //closes the printwriter
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }

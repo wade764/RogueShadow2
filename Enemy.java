@@ -71,17 +71,14 @@ public class Enemy extends Character {
 		}
 	}
 
-	public void save(PrintWriter out){
+	public void save(PrintWriter out) {
+		super.save(out);
 		out.println(name);
-		out.println(getRow());
-		out.println(getCol());
-		out.println(getHealth());
 		out.println(damage);
 		out.println(protection);
-		out.println("*");
 	}
 
-	public Enemy load(Scanner in, File file){
+	/*public Enemy load(Scanner in, File file){
 		Enemy enemy = null;
 		String line = " ";
 		while(!line.equals("*")) {
@@ -96,6 +93,13 @@ public class Enemy extends Character {
 			line = in.nextLine(); //skips the delimiter between enemies
 		}
 		return enemy; //should we return an enemy or have it be a void method?
+	}*/
+
+	public Enemy(Scanner in) {
+		super(in);
+		name = in.nextLine();
+		damage = in.nextInt();
+		protection = in.nextInt();
 	}
 
 }

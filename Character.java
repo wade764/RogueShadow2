@@ -1,5 +1,7 @@
 // Character.java
 
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 import ansi_terminal.*;
@@ -80,5 +82,15 @@ public abstract class Character extends Entity {
     //used to reset the player's hp when they move to the next floor
     public void resetHP() {
         hp = 50;
+    }
+
+    public void save(PrintWriter out) {
+        super.save(out);
+        out.println(hp);
+    }
+
+    public Character(Scanner in) {
+        super(in);
+        hp = in.nextInt();
     }
 }
