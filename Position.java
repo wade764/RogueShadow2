@@ -4,6 +4,9 @@
 import java.util.Scanner;
 import java.io.PrintWriter;
 
+// added for testing
+import ansi_terminal.Terminal;
+
 public class Position {
     private int row;
     private int col;
@@ -14,6 +17,10 @@ public class Position {
     }
 
     public Position(int row, int col) {
+        
+        //***testing print statements
+        Terminal.warpCursor(38,0);
+        System.out.print("Position overridden constructor parameters row col "+row+" "+col);
         this.row = row;
         this.col = col;
     }
