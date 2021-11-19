@@ -92,10 +92,12 @@ public abstract class Character extends Entity {
 
     public Character(Scanner in) {
         super(in);
-        try {
+        /*try {
             hp = in.nextInt(); //have issues reading this in
         } catch (InputMismatchException e) {
             //e.printStackTrace();
-        }
+        }*/
+        hp = in.nextInt();
+        in.nextLine();
     }
 }

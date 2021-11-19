@@ -140,5 +140,6 @@ public class Entity {
             case "BLACK" -> color = Color.BLACK;
             case "WHITE" -> color = Color.WHITE;
         }
+        in.nextLine();
     }
 }
