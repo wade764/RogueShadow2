@@ -88,7 +88,7 @@ public class Player extends Character {
         items = new Inventory(in);
     }
 
-    public void setCharacter(char c){
+    public void getCharacter(char c){
 	  c= in.nextLine();
 	  playerSymbol= c;
     }
