@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Player extends Character {
     private Inventory items;
     private String name = "Hero";
-    private String playerSymbol = '@';
+    private String playerSymbol = "@";
 
     public Player(Position start) {
         // our starting details
