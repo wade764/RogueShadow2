@@ -337,9 +337,6 @@ public class Game {
                     boxSize = in.nextInt();
                     in.nextLine();
                     player = new Player(in);
-                    System.out.print("Room number: " + roomNumber + " Enemies size: " + enemySize);
-                    System.out.print(" Boxes size: " + boxSize + " Player: " + player.toString());
-
                     for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
                         enemies.set(i, new Enemy(in));
                         System.out.print(i);
