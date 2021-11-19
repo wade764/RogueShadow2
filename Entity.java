@@ -121,6 +121,7 @@ public class Entity {
         //in.nextLine();
         int row = 0;
         int col = 0;
+        //DONT FORGET TO COMPLETE THIS
         try {
             row = in.nextInt(); //have issues reading this in
             col = in.nextInt();

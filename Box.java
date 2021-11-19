@@ -1,8 +1,7 @@
 // Box.java
 // represents a pickup-able item
 
-import ansi_terminal.*;
-
+import ansi_terminal.Color;
 import java.io.PrintWriter;
 import java.util.Scanner;
 

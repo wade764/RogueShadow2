@@ -82,7 +82,8 @@ public class Enemy extends Character {
 	public Enemy(Scanner in) {
 		super(in);
 		name = in.nextLine();
-		try {
+		//*** DONT FORGET TO COMPLETE THIS PART
+        try {
 			damage = in.nextInt(); //have issues reading this in
 			protection = in.nextInt();
 		} catch (InputMismatchException e) {
@@ -92,7 +93,3 @@ public class Enemy extends Character {
 	}
 
 }
-
-
-
-

@@ -4,6 +4,7 @@
 import java.util.Random;
 
 public class EnemyGenerator {
+    //DONT FORGET TO COMPLETE THIS
     /**private static EnemyGenerator theInstance;
     private static int num;
 
@@ -38,4 +39,3 @@ public class EnemyGenerator {
         return enemy;
     }
 }
-

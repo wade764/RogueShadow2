@@ -70,8 +70,12 @@ public class Item {
 
     public Item(Scanner in) {
         name = in.nextLine();
+        
+        //*** test print
         Terminal.warpCursor(37, 0);
         System.out.print("Item's name is: " + name);
+        Terminal.pause(2);
+
         String t = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
@@ -82,8 +86,12 @@ public class Item {
         else {
             type = ItemType.Other;
         }
+        
+        //*** test print
         Terminal.warpCursor(38, 0);
         System.out.print("Item's type is: " + type);
+        Terminal.pause(2);
+
         /*try {
             weight = in.nextInt(); //have issues reading this in
             value = in.nextInt();
@@ -92,14 +100,26 @@ public class Item {
             //e.printStackTrace();
         }*/
         String temp = in.next(); //have issues reading this in
+        
+        //*** test print
+        //***CHECK ME!!! I THINK THIS IS SUPPOSED TO BE WEIGHT
         Terminal.warpCursor(39, 0);
-        System.out.print(temp);
+        System.out.print("Weight: "+temp);
+        Terminal.pause(2);
+
         value = in.nextInt();
+        
+        //*** test print
         Terminal.warpCursor(40, 0);
         System.out.print("Value: " + value);
+        Terminal.pause(2);
+
         strength = in.nextInt();
+        
+        //*** test print
         Terminal.warpCursor(41, 0);
         System.out.print("Strength: " + strength);
+        Terminal.pause(2);
 
     }
 }
