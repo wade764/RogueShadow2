@@ -227,7 +227,6 @@ public class Inventory {
             Item item = new Item(in);
             items.add(item);
             line = in.nextLine();
-            System.out.print(line);
         }
         //in.nextLine(); //skips the delimiter at the end of the list of inventory items
         //in.nextLine();
