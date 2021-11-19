@@ -142,6 +142,9 @@ public class Room {
 
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
+        //***print statement for testing
+        Terminal.warpCursor(40,0);
+        System.out.println("This is Room cango() row and col: "+row+" "+col);
         return grid[row].charAt(col) != '#';
     }
 }

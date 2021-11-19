@@ -50,6 +50,10 @@ public class Entity {
         whatMap = World.instance().getRoom();
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;
+        
+        //***printing below for testing
+        //Terminal.warpCursor(40,0);
+        //System.out.print("This is Entity move newRow newCol "+newRow+" "+newCol);
 
         if (whatMap == 1){
             if (room.canGo(newRow, newCol)) {
