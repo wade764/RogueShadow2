@@ -14,6 +14,9 @@ public class Room {
     private int rows;
     private int cols;
 
+    // Each room needs a method that sets the players icon
+    private static char playerSymbol;
+
     public Room() {
         // this initializes the room to one specific space
         rows = 30;
@@ -22,36 +25,36 @@ public class Room {
         // the actual room geometry
         // the i cells refer to where an item should be placed at
         grid  = new String[] {
-            "##################                ######################    ",
-            "##              ##                ##      i           ##    ",
-            "##  @           ###########       ##        *         ##    ",
-            "##                       ##       ##                  ##    ",
-            "##              #######  ##       ##################  ##    ",
-            "##              ##   ##  ##                       ##  ##    ",
-            "##################   ##  ##################       ##  ##    ",
-            "                     ##                  ##       ##  ##    ",
-            "                     ##   *  i           ##       ##  ##    ",
-            "                     ##                  ##       ##  ##    ",
-            "                     ##############  ######       ##  ##    ",
-            "                                 ##  ##           ##  ##    ",
-            "                                 ##  ##           ##  ##    ",
-            "                       ############  ###############  ######",
-            "                       ##                                 ##",
-            "                       ##                                 ##",
-            "    #####################                  *              ##",
-            "    ##                                                    ##",
-            "    ##  #################                                 ##",
-            "    ##  ##             ##                                 ##",
-            "    ##  ##             #################  ##################",
-            "    ##  ##                            ##  ##                ",
-            "    ##  ##                            ##  ##                ",
-            "    ##  ##                       #######  #######           ",
-            "    ##  ##                       ##            ##           ",
-            "######  ####                     ##  i  *      ##           ",
-            "##        ##                     ##         &  ##           ",
-            "## i  *   ##                     ################           ",
-            "##        ##                                                ",
-            "############                                                "
+                "##################                ######################    ",
+                "##              ##                ##      i           ##    ",
+                "##  @           ###########       ##        *         ##    ",
+                "##                       ##       ##                  ##    ",
+                "##              #######  ##       ##################  ##    ",
+                "##              ##   ##  ##                       ##  ##    ",
+                "##################   ##  ##################       ##  ##    ",
+                "                     ##                  ##       ##  ##    ",
+                "                     ##   *  i           ##       ##  ##    ",
+                "                     ##                  ##       ##  ##    ",
+                "                     ##############  ######       ##  ##    ",
+                "                                 ##  ##           ##  ##    ",
+                "                                 ##  ##           ##  ##    ",
+                "                       ############  ###############  ######",
+                "                       ##                                 ##",
+                "                       ##                                 ##",
+                "    #####################                  *              ##",
+                "    ##                                                    ##",
+                "    ##  #################                                 ##",
+                "    ##  ##             ##                                 ##",
+                "    ##  ##             #################  ##################",
+                "    ##  ##                            ##  ##                ",
+                "    ##  ##                            ##  ##                ",
+                "    ##  ##                       #######  #######           ",
+                "    ##  ##                       ##            ##           ",
+                "######  ####                     ##  i  *      ##           ",
+                "##        ##                     ##         &  ##           ",
+                "## i  *   ##                     ################           ",
+                "##        ##                                                ",
+                "############                                                "
         };
     }
 
@@ -59,7 +62,7 @@ public class Room {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (grid[row].charAt(col) == '@') {
+                if ( grid[row].charAt(col) == '@' || grid[row].charAt(col) == playerSymbol ) {
                     return new Position(row, col);
                 }
             }
@@ -97,7 +100,7 @@ public class Room {
 
         return enemies;
     }
-    
+
     // returns the warp point
     public ArrayList<Warp> getWarp() {
         ArrayList<Warp> warps = new ArrayList<>();
@@ -147,7 +150,10 @@ public class Room {
         //System.out.println("This is Room cango() row and col: "+row+" "+col);
         return grid[row].charAt(col) != '#';
     }
+
+    // used to print the correct symbol for player
+    public static void setCharacter(char c){
+        playerSymbol = c;
+    }
+
 }
-
-
-

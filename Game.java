@@ -34,14 +34,17 @@ public class Game {
     private Boolean endOfDungeon = false;
 
     public Game() {
+        // setting the players icon in the needed classes
+        Player.setCharacter(playerIcon);
+        Room.setCharacter(playerIcon);
+        Room2.setCharacter(playerIcon);
+        Room3.setCharacter(playerIcon);
+        
         room = new Room();
         room2 = new Room2();
         room3 = new Room3();
         warpPosit = new Position();
 
-        // setting the players icon
-        Player.setCharacter(playerIcon);
-        
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
