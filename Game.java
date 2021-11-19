@@ -200,8 +200,11 @@ public class Game {
         System.out.print("  ╚═╝ ╚═╝          ╚═════╝ ╚══════╝╚═════╝  ╚═════╝  ╚═════╝     ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝           ╚═╝ ╚═╝  ");
         Terminal.warpCursor(8, 1);
         Terminal.reset();
+
         //put test statement below this line
-        System.out.print("\n\rThese are the current enemies\n\r" + enemies.size());
+        System.out.print("\n\rThese are the current enemies "+enemies.size()+"\n\r");
+        System.out.print("This is the players icon "+playerIcon);
+
         System.out.printf("\n\rPress any key to return...\n\r");
         Terminal.getKey();
     }
