@@ -26,6 +26,10 @@ public class Game {
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
     private String name;
+
+    // adding a player class
+    private String playerClass;
+
     // used if the player is on the final &
     private Boolean endOfDungeon = false;
 
@@ -99,13 +103,22 @@ public class Game {
         //setting the players name
         Terminal.warpCursor(28, 58);
         System.out.print("What is your name adventurer? ");
-        //***CHANGED SCANNER NAME HERE, VERIFY THAT WE ARE GOOD WITH THIS - note to self Wade
-        Scanner inName = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         Terminal.warpCursor(28, 88);
         // initializing the name of the player
-        name = inName.next();
+        name = in.next();
         player.setName(name);
+        
+        //***ISSUES HERE!!!
+        //printing an empty string to clear the terminal on the current line
+        //System.out.print("                                                                                    ");  
+        Terminal.clear();
+        // Asking the player for their class
+        Terminal.warpCursor(28, 58);
+        System.out.print("What class are you "+name+"?");
+        playerClass = in.next();
 
+        //*** COULD CREATE A setClass() in player here
     }
 
     //prints when the player wins the game
@@ -159,9 +172,9 @@ public class Game {
         Terminal.warpCursor(40, 1);
         Terminal.pause(5);
     }
-    
+
     private void debugMenu() {
-    	Terminal.clear();
+        Terminal.clear();
         Terminal.setForeground(Color.RED);
         //title prompt for information
         Terminal.warpCursor(1, 1);
@@ -269,7 +282,7 @@ public class Game {
             Terminal.pause(1.25);
         }
     }
-    
+
     // Changed to protected because this method is called in the Menu class
     // handle the key which was read - return false if we quit the game
     protected boolean handleKey(Key key) {
@@ -336,10 +349,10 @@ public class Game {
                     roomNumber = in.nextInt();
                     enemySize = in.nextInt();
                     boxSize = in.nextInt();
-                    
-                    //***WHAT IS THIS LINE BELOW FOR?
+
+                    // needed because calling nextInt() skips a line
                     in.nextLine();
-                    
+
                     //***QUESTION doesnt Player() take a Position as its parameter
                     player = new Player(in);
 
