@@ -2,6 +2,8 @@
 // this class represents a single item, it could be an equippable
 // thing like weapon or ring, or something generic
 
+import ansi_terminal.Terminal;
+
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.util.InputMismatchException;
@@ -86,6 +88,7 @@ public class Item {
             //e.printStackTrace();
         }*/
         String temp = in.next(); //have issues reading this in
+        Terminal.warpCursor(37, 0);
         System.out.print(temp);
         value = in.nextInt();
         strength = in.nextInt();
