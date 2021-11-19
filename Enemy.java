@@ -98,7 +98,7 @@ public class Enemy extends Character {
 		} catch (InputMismatchException e) {
 			//e.printStackTrace();
 		}
-		in.nextLine();
+		//in.nextLine();
 	}
 
 }
