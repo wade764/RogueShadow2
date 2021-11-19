@@ -337,8 +337,8 @@ public class Game {
                     boxSize = in.nextInt();
                     in.nextLine();
                     player = new Player(in);
-                    /*in.nextLine();
                     in.nextLine();
+                    /*in.nextLine();
                     in.nextLine();
                     in.nextLine();*/
                     for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
