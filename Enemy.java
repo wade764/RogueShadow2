@@ -1,5 +1,6 @@
 // Enemy.java
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import ansi_terminal.*;
 import java.io.PrintWriter;
@@ -81,8 +82,14 @@ public class Enemy extends Character {
 	public Enemy(Scanner in) {
 		super(in);
 		name = in.nextLine();
-		damage = in.nextInt();
-		protection = in.nextInt();
+		try {
+			damage = in.nextInt(); //have issues reading this in
+			protection = in.nextInt();
+		} catch (InputMismatchException e) {
+			//e.printStackTrace();
+		}
+		//damage = in.nextInt();
+		//protection = in.nextInt();
 	}
 
 }
