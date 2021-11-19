@@ -345,6 +345,7 @@ public class Game {
                 //restore save data from file
                 File file = new File("save.txt");
                 try {
+                    Terminal.clear();
                     Scanner in = new Scanner(file);
                     roomNumber = in.nextInt();
                     enemySize = in.nextInt();

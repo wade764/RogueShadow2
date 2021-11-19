@@ -82,17 +82,17 @@ public class Enemy extends Character {
 	public Enemy(Scanner in) {
 		super(in);
 		name = in.nextLine();
-		Terminal.warpCursor(43, 0);
+		Terminal.warpCursor(20, 0);
 		System.out.print("Enemy's name: " + name);
 		Terminal.pause(2);
 		//*** DONT FORGET TO COMPLETE THIS PART
         try {
 			damage = in.nextInt(); //have issues reading this in
-			Terminal.warpCursor(44, 0);
+			Terminal.warpCursor(21, 0);
 			System.out.print("Enemy's strength: " + damage);
 			Terminal.pause(2);
 			protection = in.nextInt();
-			Terminal.warpCursor(45, 0);
+			Terminal.warpCursor(22, 0);
 			System.out.print("Enemy's defense: " + protection);
 			Terminal.pause(2);
 		} catch (InputMismatchException e) {

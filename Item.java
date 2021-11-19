@@ -72,7 +72,7 @@ public class Item {
         name = in.nextLine();
         
         //*** test print
-        Terminal.warpCursor(37, 0);
+        Terminal.warpCursor(10, 0);
         System.out.print("Item's name is: " + name);
         Terminal.pause(2);
 
@@ -88,37 +88,30 @@ public class Item {
         }
         
         //*** test print
-        Terminal.warpCursor(38, 0);
+        Terminal.warpCursor(11, 0);
         System.out.print("Item's type is: " + type);
         Terminal.pause(2);
 
-        /*try {
-            weight = in.nextInt(); //have issues reading this in
-            value = in.nextInt();
-            strength = in.nextInt();
-        //} catch (InputMismatchException e) {
-            //e.printStackTrace();
-        }*/
         String temp = in.next(); //have issues reading this in
         weight = Integer.parseInt(temp);
         
         //*** test print
         //***CHECK ME!!! I THINK THIS IS SUPPOSED TO BE WEIGHT
-        Terminal.warpCursor(39, 0);
+        Terminal.warpCursor(12, 0);
         System.out.print("Weight: " + weight);
         Terminal.pause(2);
 
         value = in.nextInt();
         
         //*** test print
-        Terminal.warpCursor(40, 0);
+        Terminal.warpCursor(13, 0);
         System.out.print("Value: " + value);
         Terminal.pause(2);
 
         strength = in.nextInt();
         
         //*** test print
-        Terminal.warpCursor(41, 0);
+        Terminal.warpCursor(14, 0);
         System.out.print("Strength: " + strength);
         Terminal.pause(2);
 
