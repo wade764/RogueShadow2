@@ -71,7 +71,7 @@ public class Item {
     public Item(Scanner in) {
         name = in.nextLine();
         Terminal.warpCursor(37, 0);
-        System.out.print(name);
+        System.out.print("Item's name is: " + name);
         String t = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
@@ -83,7 +83,7 @@ public class Item {
             type = ItemType.Other;
         }
         Terminal.warpCursor(38, 0);
-        System.out.print(type);
+        System.out.print("Item's type is: " + type);
         /*try {
             weight = in.nextInt(); //have issues reading this in
             value = in.nextInt();
