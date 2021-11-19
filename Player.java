@@ -10,12 +10,12 @@ import java.util.Scanner;
 public class Player extends Character {
     private Inventory items;
     private String name = "Hero";
-    private String playerSymbol = "@";
+    private char playerSymbol = '@';
 
     public Player(Position start) {
         // our starting details
         //super(start.getRow(), start.getCol(), playerSymbol , Color.CYAN, 50);
-        super(start.getRow(), start.getCol(), '@', Color.CYAN, 50);
+        super(start.getRow(), start.getCol(), playerSymbol, Color.CYAN, 50);
         // we can carry 100 pounds of items
         items = new Inventory(100);
 
@@ -25,9 +25,9 @@ public class Player extends Character {
     }
 
     @Override
-    public int getHealth() {
-        return super.hp;
-    }
+        public int getHealth() {
+            return super.hp;
+        }
 
     @Override
         public int getDamage() {
@@ -84,18 +84,12 @@ public class Player extends Character {
         super(in);
         name = in.nextLine();
         /*Terminal.warpCursor(8, 0);
-        System.out.print("Player's name: " + name);
-        Terminal.pause(1);*/
+          System.out.print("Player's name: " + name);
+          Terminal.pause(1);*/
         items = new Inventory(in);
     }
 
-   /* public getCharacter(String c){
-	  c= in.nextLine();
-	  playerSymbol= c;
-	    return c;
-
+    public static void setCharacter(char c){
+        playerSymbol = c;
     }
-*/
-
-
 }

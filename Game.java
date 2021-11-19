@@ -48,8 +48,6 @@ public class Game {
     // this method prints the games plot
     protected void titleScreen() {
         
-        char playerIcon = '@';
-
         // clearing the terminal screen
         for (int i = 0; i < 100; i++) {
             Terminal.warpCursor(i, 0);
@@ -124,6 +122,7 @@ public class Game {
         System.out.print("Who are you? ");
         Terminal.warpCursor(28, 71);
         playerIcon = in.next().charAt(0);
+        Player.setCharacter(playerIcon);
         
     }
 
