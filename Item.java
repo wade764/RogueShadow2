@@ -100,11 +100,12 @@ public class Item {
             //e.printStackTrace();
         }*/
         String temp = in.next(); //have issues reading this in
+        weight = Integer.parseInt(temp);
         
         //*** test print
         //***CHECK ME!!! I THINK THIS IS SUPPOSED TO BE WEIGHT
         Terminal.warpCursor(39, 0);
-        System.out.print("Weight: "+temp);
+        System.out.print("Weight: " + weight);
         Terminal.pause(2);
 
         value = in.nextInt();
