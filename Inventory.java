@@ -223,7 +223,7 @@ public class Inventory {
         items.add(equippedArmor);
 
         String line = in.nextLine();
-        while (!line.equals(".")) {
+        while (!line.equals("*")) {
             Item item = new Item(in);
             items.add(item);
         }

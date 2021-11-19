@@ -68,7 +68,7 @@ public class Item {
 
     public Item(Scanner in) {
         //used for testing below
-        System.out.println("Weight"+weight+"value"+value+"Strength"+strength);
+        System.out.print("Weight"+weight+"value"+value+"Strength"+strength);
 
         //in.nextLine();
         name = in.nextLine();
