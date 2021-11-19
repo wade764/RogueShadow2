@@ -335,8 +335,13 @@ public class Game {
                     roomNumber = in.nextInt();
                     enemySize = in.nextInt();
                     boxSize = in.nextInt();
+                    
+                    //***WHAT IS THIS LINE BELOW FOR?
                     in.nextLine();
+                    
+                    //***QUESTION doesnt Player() take a Position as its parameter
                     player = new Player(in);
+
                     for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
                         Enemy enemy = new Enemy(in);
                         enemies.set(i, enemy);
