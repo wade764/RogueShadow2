@@ -269,9 +269,10 @@ public class Game {
             Terminal.pause(1.25);
         }
     }
-
+    
+    // Changed to protected because this method is called in the Menu class
     // handle the key which was read - return false if we quit the game
-    private boolean handleKey(Key key) {
+    protected boolean handleKey(Key key) {
         switch (key) {
             case p:
                 pickup();

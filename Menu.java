@@ -1,4 +1,5 @@
 import ansi_terminal.Terminal;
+import ansi_terminal.Key;
 import java.util.Scanner;
 
 public class Menu {
@@ -111,6 +112,11 @@ public class Menu {
             } else if (response.equalsIgnoreCase("L")) {
                 correctAnswer = true;
                 playGame = true;
+                
+                //***I believe below will load the info
+                Game g = new Game();
+                g.handleKey(Key.r);
+
             } else {
                 System.out.print("Please enter N or L: ");
             }
