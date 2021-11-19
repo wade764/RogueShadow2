@@ -70,6 +70,8 @@ public class Item {
 
     public Item(Scanner in) {
         name = in.nextLine();
+        Terminal.warpCursor(37, 0);
+        System.out.print(name);
         String t = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
@@ -80,6 +82,8 @@ public class Item {
         else {
             type = ItemType.Other;
         }
+        Terminal.warpCursor(38, 0);
+        System.out.print(type);
         /*try {
             weight = in.nextInt(); //have issues reading this in
             value = in.nextInt();
@@ -88,7 +92,7 @@ public class Item {
             //e.printStackTrace();
         }*/
         String temp = in.next(); //have issues reading this in
-        Terminal.warpCursor(37, 0);
+        Terminal.warpCursor(39, 0);
         System.out.print(temp);
         value = in.nextInt();
         strength = in.nextInt();
