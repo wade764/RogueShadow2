@@ -119,18 +119,18 @@ public class Entity {
     public Entity (Scanner in) {
         in.nextLine(); //skips line in file that says Entity
         int row = in.nextInt(); //have issues reading this in
-        Terminal.warpCursor(2, 0);
+        /*Terminal.warpCursor(2, 0);
         System.out.print("Row: " + row);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         int col = in.nextInt();
-        Terminal.warpCursor(3, 0);
+        /*Terminal.warpCursor(3, 0);
         System.out.print("Column: " + col);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         position = new Position(row, col);
         display = in.next().charAt(0);
-        Terminal.warpCursor(4, 0);
+        /*Terminal.warpCursor(4, 0);
         System.out.print("Display: " + display);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         String c = in.next();
         switch (c) {
             case "RED" -> color = Color.RED;
@@ -142,9 +142,9 @@ public class Entity {
             case "BLACK" -> color = Color.BLACK;
             case "WHITE" -> color = Color.WHITE;
         }
-        Terminal.warpCursor(5, 0);
+        /*Terminal.warpCursor(5, 0);
         System.out.print("Color: " + color);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
 
         in.nextLine(); //may or may not be needed
     }

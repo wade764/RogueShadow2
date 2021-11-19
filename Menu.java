@@ -102,7 +102,7 @@ public class Menu {
 
         Terminal.warpCursor(15,75);
         Scanner menu = new Scanner(System.in);
-        Boolean correctAnswer = false;
+        boolean correctAnswer = false;
         while (!correctAnswer) {
             String response = menu.next();
             Terminal.warpCursor(15,65);

@@ -218,13 +218,13 @@ public class Inventory {
     public Inventory(Scanner in) {
         items = new ArrayList<>();
         equippedWeapon = new Item(in);
-        Terminal.warpCursor(16, 0);
+        /*Terminal.warpCursor(16, 0);
         System.out.print("Equipped weapon: " + equippedWeapon.toString());
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         equippedArmor = new Item(in);
-        Terminal.warpCursor(17, 0);
+        /*Terminal.warpCursor(17, 0);
         System.out.print("Equipped armor: " + equippedArmor.toString());
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         items.add(equippedWeapon);
         items.add(equippedArmor);
 
