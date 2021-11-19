@@ -67,10 +67,6 @@ public class Item {
     }
 
     public Item(Scanner in) {
-        //used for testing below
-        //System.out.print("Weight"+weight+"value"+value+"Strength"+strength);
-
-        //in.nextLine();
         name = in.nextLine();
         String t = in.nextLine();
         if (t.equals("Weapon")) {
@@ -89,6 +85,5 @@ public class Item {
         } catch (InputMismatchException e) {
             //e.printStackTrace();
         }
-        //in.nextLine(); //sets up the scanner for the next line
     }
 }

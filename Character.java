@@ -97,6 +97,5 @@ public abstract class Character extends Entity {
         } catch (InputMismatchException e) {
             //e.printStackTrace();
         }
-        //hp = in.nextInt();
     }
 }

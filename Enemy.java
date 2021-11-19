@@ -89,8 +89,6 @@ public class Enemy extends Character {
 			//e.printStackTrace();
 		}
 		in.nextLine();
-		//damage = in.nextInt();
-		//protection = in.nextInt();
 	}
 
 }

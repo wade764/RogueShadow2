@@ -123,8 +123,6 @@ public class Entity {
         } catch (InputMismatchException e) {
             //e.printStackTrace();
         }
-        //int row = in.nextInt();
-        //int col = in.nextInt();
         position = new Position(row, col);
         display = in.next().charAt(0);
         String c = in.next();
