@@ -1,6 +1,7 @@
 // Character.java
 
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -91,6 +92,11 @@ public abstract class Character extends Entity {
 
     public Character(Scanner in) {
         super(in);
-        hp = in.nextInt();
+        try {
+            hp = in.nextInt(); //have issues reading this in
+        } catch (InputMismatchException e) {
+            //e.printStackTrace();
+        }
+        //hp = in.nextInt();
     }
 }
