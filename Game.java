@@ -28,7 +28,7 @@ public class Game {
     private String name;
 
     // adding a player class
-    private String playerClass;
+    private char playerIcon;
 
     // used if the player is on the final &
     private Boolean endOfDungeon = false;
@@ -44,8 +44,12 @@ public class Game {
         warps = room.getWarp();
     }
 
+    // This is also used to supply the game with the users specified icon
     // this method prints the games plot
     protected void titleScreen() {
+        
+        char playerIcon = '@';
+
         // clearing the terminal screen
         for (int i = 0; i < 100; i++) {
             Terminal.warpCursor(i, 0);
@@ -105,20 +109,23 @@ public class Game {
         System.out.print("What is your name adventurer? ");
         Scanner in = new Scanner(System.in);
         Terminal.warpCursor(28, 88);
+
         // initializing the name of the player
         name = in.next();
         player.setName(name);
         
-        //***ISSUES HERE!!!
         //printing an empty string to clear the terminal on the current line
-        //System.out.print("                                                                                    ");  
-        Terminal.clear();
+        Terminal.warpCursor(28, 58);
+        System.out.print("                                                                                    ");  
+        //Terminal.clear();
+
         // Asking the player for their class
         Terminal.warpCursor(28, 58);
-        System.out.print("What class are you "+name+"?");
-        playerClass = in.next();
-
-        //*** COULD CREATE A setClass() in player here
+        System.out.print("Who are you? ");
+        Terminal.warpCursor(28, 71);
+        String playerIconString = in.next();
+        playerIcon = playerIconString.charAt(0);
+        
     }
 
     //prints when the player wins the game

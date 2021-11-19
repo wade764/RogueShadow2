@@ -7,4 +7,3 @@ public enum ItemType {
     Armor,
     Other,
 }
-
