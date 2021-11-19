@@ -339,9 +339,7 @@ public class Game {
                     player = new Player(in);
                     for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
                         enemies.set(i, new Enemy(in));
-                        //System.out.print(i);
-                        //in.nextLine();
-                        //in.nextLine();
+                        System.out.print(i);
                     }
                     for (int i = 0; i < boxSize; i++) { //read in items on current floor
                         boxes.set(i, new Box(in));
