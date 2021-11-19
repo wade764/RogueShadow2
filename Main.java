@@ -7,19 +7,24 @@ public class Main {
     public static void main(String[] args) {
         // put terminal in raw mode
         Terminal.rawMode();
+
+        //prints the title screen and if returns true the game runs
+        Boolean playGame = Menu.titleScreen();
         
-        Menu.titleScreen();
-        // make and run the Game
-        Game game = new Game();
+        if (playGame) {
+            
+            // make and run the Game
+            Game game = new Game();
 
-        // printing the title screen, which also sets the players name
-        game.titleScreen();
+            // printing the title screen, which also sets the players name
+            game.titleScreen();
 
-        game.run();
-        
-        Terminal.warpCursor(40,1);
+            game.run();
 
-        // put terminal back into cooked mode
-        Terminal.cookedMode();
+            Terminal.warpCursor(40,1);
+
+            // put terminal back into cooked mode
+            Terminal.cookedMode();
+        }
     }
 }
