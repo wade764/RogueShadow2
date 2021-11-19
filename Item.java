@@ -89,6 +89,6 @@ public class Item {
         } catch (InputMismatchException e) {
             //e.printStackTrace();
         }
-        in.nextLine(); //sets up the scanner for the next line
+        //in.nextLine(); //sets up the scanner for the next line
     }
 }
