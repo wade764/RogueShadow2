@@ -14,7 +14,8 @@ public class Player extends Character {
 
     public Player(Position start) {
         // our starting details
-        super(start.getRow(), start.getCol(), playerSymbol , Color.CYAN, 50);
+        //super(start.getRow(), start.getCol(), playerSymbol , Color.CYAN, 50);
+        super(start.getRow(), start.getCol(), '@', Color.CYAN, 50);
         // we can carry 100 pounds of items
         items = new Inventory(100);
 
