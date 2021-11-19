@@ -206,13 +206,13 @@ public class Inventory {
     public void save(PrintWriter out) {
         equippedWeapon.save(out);
         equippedArmor.save(out);
-        out.println("*"); //used for scanner to differentiate between equipped and non-equipped items
+        //out.println("*"); //used for scanner to differentiate between equipped and non-equipped items
         for (Item item : items) {
             if (item != equippedWeapon && item != equippedArmor) {
                 item.save(out);
             }
         }
-        //out.println(".");
+        out.println(".");
     }
 
     public Inventory(Scanner in) {
@@ -223,7 +223,7 @@ public class Inventory {
         items.add(equippedArmor);
 
         String line = in.nextLine();
-        while (!line.equals("*")) {
+        while (!line.equals(".")) {
             Item item = new Item(in);
             items.add(item);
         }
