@@ -123,8 +123,7 @@ public class Game {
         Terminal.warpCursor(28, 58);
         System.out.print("Who are you? ");
         Terminal.warpCursor(28, 71);
-        String playerIconString = in.next();
-        playerIcon = playerIconString.charAt(0);
+        playerIcon = in.next().charAt(0);
         
     }
 
