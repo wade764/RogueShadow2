@@ -81,6 +81,8 @@ public class Player extends Character {
     public Player(Scanner in) {
         super(in);
         name = in.nextLine();
+        Terminal.warpCursor(36, 0);
+        System.out.print(name);
         items = new Inventory(in);
     }
 }
