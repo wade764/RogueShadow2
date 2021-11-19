@@ -83,7 +83,7 @@ public class Item {
         else if (t.equals("Armor")) {
             type = ItemType.Armor;
         }
-        else {
+        else if (t.equals("Other")) {
             type = ItemType.Other;
         }
         
