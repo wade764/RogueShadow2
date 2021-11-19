@@ -4,6 +4,7 @@
 import ansi_terminal.*;
 
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Entity {
@@ -114,8 +115,16 @@ public class Entity {
     public Entity (Scanner in) {
         //in.nextLine();
         //in.nextLine();
-        int row = in.nextInt();
-        int col = in.nextInt();
+        int row = 0;
+        int col = 0;
+        try {
+            row = in.nextInt(); //have issues reading this in
+            col = in.nextInt();
+        } catch (InputMismatchException e) {
+            //e.printStackTrace();
+        }
+        //int row = in.nextInt();
+        //int col = in.nextInt();
         position = new Position(row, col);
         display = in.next().charAt(0);
         String c = in.next();
