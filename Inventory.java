@@ -212,7 +212,7 @@ public class Inventory {
                 item.save(out);
             }
         }
-        out.println(".");
+        //out.println(".");
     }
 
     public Inventory(Scanner in) {
