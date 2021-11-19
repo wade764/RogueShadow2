@@ -319,6 +319,7 @@ public class Game {
                     for (Box box : boxes) {
                         box.save(pw);
                     }
+                    pw.println(".");
                     pw.close(); //closes the printwriter
                     setStatus("Your game was saved");
                 } catch (FileNotFoundException e) {
