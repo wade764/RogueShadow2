@@ -99,10 +99,11 @@ public class Game {
         //setting the players name
         Terminal.warpCursor(28, 58);
         System.out.print("What is your name adventurer? ");
-        Scanner in = new Scanner(System.in);
+        //***CHANGED SCANNER NAME HERE, VERIFY THAT WE ARE GOOD WITH THIS - note to self Wade
+        Scanner inName = new Scanner(System.in);
         Terminal.warpCursor(28, 88);
         // initializing the name of the player
-        name = in.next();
+        name = inName.next();
         player.setName(name);
 
     }

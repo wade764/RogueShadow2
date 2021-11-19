@@ -4,6 +4,7 @@
 
 import java.util.Scanner;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 
 public class Item {
     // what sort of item it is
@@ -66,6 +67,9 @@ public class Item {
     }
 
     public Item(Scanner in) {
+        //used for testing below
+        System.out.println("Weight"+weight+"value"+value+"Strength"+strength);
+
         //in.nextLine();
         name = in.nextLine();
         String t = in.nextLine();
@@ -78,9 +82,13 @@ public class Item {
         else {
             type = ItemType.Other;
         }
-        weight = in.nextInt(); //have issues reading this in
-        value = in.nextInt();
-        strength = in.nextInt();
+        try {
+            weight = in.nextInt(); //have issues reading this in
+            value = in.nextInt();
+            strength = in.nextInt();
+        } catch (InputMismatchException e) {
+            //e.printStackTrace();
+        }
         in.nextLine(); //sets up the scanner for the next line
     }
 }
