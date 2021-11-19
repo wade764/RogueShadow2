@@ -105,14 +105,14 @@ public class Entity {
     }
 
     public void save(PrintWriter out) {
-        out.println("Entity");
+        //out.println("Entity");
         position.save(out);
         out.println(display);
         out.println(color);
     }
 
     public Entity (Scanner in) {
-        in.nextLine();
+        //in.nextLine();
         int row = in.nextInt();
         int col = in.nextInt();
         position = new Position(row, col);
