@@ -95,6 +95,11 @@ public class Item {
         Terminal.warpCursor(39, 0);
         System.out.print(temp);
         value = in.nextInt();
+        Terminal.warpCursor(40, 0);
+        System.out.print("Value: " + value);
         strength = in.nextInt();
+        Terminal.warpCursor(41, 0);
+        System.out.print("Strength: " + strength);
+
     }
 }
