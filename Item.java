@@ -115,5 +115,6 @@ public class Item {
         System.out.print("Strength: " + strength);
         Terminal.pause(2);
 
+        in.nextLine();
     }
 }
