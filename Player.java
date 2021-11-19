@@ -10,11 +10,9 @@ import java.util.Scanner;
 public class Player extends Character {
     private Inventory items;
     private String name = "Hero";
-    private static char playerSymbol = '@';
+    private static char playerSymbol;
 
     public Player(Position start) {
-        // our starting details
-        //super(start.getRow(), start.getCol(), playerSymbol , Color.CYAN, 50);
         super(start.getRow(), start.getCol(), playerSymbol, Color.CYAN, 50);
         // we can carry 100 pounds of items
         items = new Inventory(100);

@@ -38,6 +38,10 @@ public class Game {
         room2 = new Room2();
         room3 = new Room3();
         warpPosit = new Position();
+
+        // setting the players icon
+        Player.setCharacter(playerIcon);
+        
         player = new Player(room.getPlayerStart());
         boxes = room.getBoxes();
         enemies = room.getEnemies();
@@ -122,7 +126,6 @@ public class Game {
         System.out.print("Who are you? ");
         Terminal.warpCursor(28, 71);
         playerIcon = in.next().charAt(0);
-        Player.setCharacter(playerIcon);
         
     }
 
@@ -479,6 +482,7 @@ public class Game {
     }
 
     public void run() {
+        
         // draw these for the first time now
         redrawMapAndHelp();
 
