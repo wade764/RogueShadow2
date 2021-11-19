@@ -229,7 +229,7 @@ public class Inventory {
             line = in.nextLine();
         }
         in.nextLine(); //skips the delimiter at the end of the list of inventory items
-        in.nextLine();
+        //in.nextLine();
     }
 }
 
