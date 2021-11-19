@@ -14,6 +14,7 @@ public class Enemy extends Character {
 	private int protection;
 	private static Random rng;
 	private boolean battleActive;
+	private int test = 0;
 
 	public Enemy(String name, int row, int col, int hp, int damage, int protection) {
 		super(row, col, '*', Color.RED, hp);
@@ -88,6 +89,8 @@ public class Enemy extends Character {
 		} catch (InputMismatchException e) {
 			//e.printStackTrace();
 		}
+		test++;
+		System.out.print(test);
 		//damage = in.nextInt();
 		//protection = in.nextInt();
 	}
