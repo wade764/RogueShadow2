@@ -78,12 +78,15 @@ public class Item {
         else {
             type = ItemType.Other;
         }
-        try {
+        /*try {
             weight = in.nextInt(); //have issues reading this in
             value = in.nextInt();
             strength = in.nextInt();
-        } catch (InputMismatchException e) {
+        //} catch (InputMismatchException e) {
             //e.printStackTrace();
-        }
+        }*/
+        weight = in.nextInt(); //have issues reading this in
+        value = in.nextInt();
+        strength = in.nextInt();
     }
 }
