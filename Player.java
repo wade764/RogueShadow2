@@ -88,10 +88,12 @@ public class Player extends Character {
         items = new Inventory(in);
     }
 
-    public void getCharacter(char c){
+    /*public getCharacter(char c){
 	  c= in.nextLine();
 	  playerSymbol= c;
-    }
+	    return c;
+
+    }*/
 
 
 
