@@ -337,7 +337,7 @@ public class Game {
                     boxSize = in.nextInt();
                     in.nextLine();
                     player = new Player(in);
-                    //in.nextLine();
+                    in.nextLine();
                     /*in.nextLine();
                     in.nextLine();
                     in.nextLine();*/
