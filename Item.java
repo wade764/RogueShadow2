@@ -85,7 +85,8 @@ public class Item {
         //} catch (InputMismatchException e) {
             //e.printStackTrace();
         }*/
-        weight = in.nextInt(); //have issues reading this in
+        String temp = in.next(); //have issues reading this in
+        System.out.print(temp);
         value = in.nextInt();
         strength = in.nextInt();
     }
