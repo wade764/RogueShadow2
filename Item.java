@@ -27,7 +27,7 @@ public class Item {
     private int strength;
 
     // TESTING FOR LOAD
-    protected int counter = 0;
+    protected static int counter = 0;
 
     public Item(ItemType type, String name, int weight, int value, int strength) {
         this.type = type;

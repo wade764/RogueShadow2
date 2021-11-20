@@ -227,14 +227,27 @@ public class Inventory {
           Terminal.pause(2);*/
         items.add(equippedWeapon);
         items.add(equippedArmor);
+        
+        // WORKING ON CODE BELOW HERE
 
+        // POSSIBLE JUNK leaving for ts
         //in.nextLine();
+        //String line = "";
+        
         String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
         while (!line.equals(".")) {
             Item item = new Item(in);
             items.add(item);
+            
+            // POSSIBLE JUNK leaving for ts
             //this is screwing it up partially
             //line = in.hasNext();//changed from in.nextLine()
+            
+            // Megan 4 lines below
+            line = in.nextLine();
+            Terminal.warpCursor(17, 0);
+            System.out.print("Extra Line: " + line);
+            Terminal.pause(2);
         }
     }
 }
