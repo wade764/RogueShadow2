@@ -219,21 +219,22 @@ public class Inventory {
         items = new ArrayList<>();
         equippedWeapon = new Item(in);
         /*Terminal.warpCursor(16, 0);
-        System.out.print("Equipped weapon: " + equippedWeapon.toString());
-        Terminal.pause(2);*/
+          System.out.print("Equipped weapon: " + equippedWeapon.toString());
+          Terminal.pause(2);*/
         equippedArmor = new Item(in);
         /*Terminal.warpCursor(17, 0);
-        System.out.print("Equipped armor: " + equippedArmor.toString());
-        Terminal.pause(2);*/
+          System.out.print("Equipped armor: " + equippedArmor.toString());
+          Terminal.pause(2);*/
         items.add(equippedWeapon);
         items.add(equippedArmor);
 
-        String line = "";//in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
+        //in.nextLine();
+        String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
         while (!line.equals(".")) {
             Item item = new Item(in);
             items.add(item);
-            in.nextLine();
-            line = in.nextLine();
+            //this is screwing it up partially
+            //line = in.hasNext();//changed from in.nextLine()
         }
     }
 }
