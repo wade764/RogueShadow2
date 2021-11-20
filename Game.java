@@ -273,7 +273,9 @@ public class Game {
                 //restore save data from file
                 File file = new File("save.txt");
                 try {
-                    Terminal.clear();
+
+                    //Terminal.clear();
+                    
                     Scanner in = new Scanner(file);
                     roomNumber = in.nextInt();
                     enemySize = in.nextInt();
@@ -293,7 +295,10 @@ public class Game {
                     for (int i = 0; i < boxSize; i++) { 
                         boxes.set(i, new Box(in));
                     }
-                    in.close();
+                    redrawMapAndHelp();
+                    
+                    //in.close();
+                
                 } catch (FileNotFoundException e) {
                     System.out.print("Save data does not exist"); //needs to be formatted
                 }
