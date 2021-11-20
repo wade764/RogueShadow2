@@ -10,9 +10,10 @@ import java.util.InputMismatchException;
 public class Item {
     // what sort of item it is
     private ItemType type;
-
+    
+    // modified to have a temp name
     // the name of the item as shown to the user
-    private String name;
+    private String name = "temp";
 
     // how much it weighs (player can only carry so much)
     private int weight;
@@ -86,20 +87,20 @@ public class Item {
         
         // changed from String t to temp
         temp = in.nextLine();
-        if (t.equals("Weapon")) {
+        if (temp.equals("Weapon")) {
             type = ItemType.Weapon;
         }
-        else if (t.equals("Armor")) {
+        else if (temp.equals("Armor")) {
             type = ItemType.Armor;
         }
-        else if (t.equals("Other")) {
+        else if (temp.equals("Other")) {
             type = ItemType.Other;
         }
         Terminal.warpCursor(11, 0);
-        System.out.print("Item's type is: " + t); // changed to t from type
+        System.out.print("Item's type is: " + temp); // changed to t from type
         Terminal.pause(2);
         
-        String temp = in.nextLine();
+        temp = in.nextLine();
         weight = Integer.parseInt(temp);
         Terminal.warpCursor(12, 0);
         System.out.print("Weight: " + temp);
