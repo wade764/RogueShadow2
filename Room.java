@@ -15,7 +15,7 @@ public class Room {
     private int cols;
 
     // Each room needs a method that sets the players icon
-    private static char playerSymbol;
+    //private static char playerSymbol;
 
     public Room() {
         // this initializes the room to one specific space
@@ -62,7 +62,7 @@ public class Room {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if ( grid[row].charAt(col) == '@' || grid[row].charAt(col) == playerSymbol ) {
+                if ( grid[row].charAt(col) == '@' /*|| grid[row].charAt(col) == playerSymbol*/ ) {
                     return new Position(row, col);
                 }
             }
@@ -150,10 +150,4 @@ public class Room {
         //System.out.println("This is Room cango() row and col: "+row+" "+col);
         return grid[row].charAt(col) != '#';
     }
-
-    // used to print the correct symbol for player
-    public static void setCharacter(char c){
-        playerSymbol = c;
-    }
-
 }

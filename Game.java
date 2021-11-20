@@ -21,25 +21,20 @@ public class Game {
     private Player player;
     private ArrayList<Box> boxes;
     private ArrayList<Enemy> enemies;
-    private int boxSize; //used to save the size of boxes
-    private int enemySize; //used to save the size of enemies
+    // used to save the size of boxes
+    private int boxSize; 
+    // used to save the size of enemies
+    private int enemySize; 
+
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
     private String name;
-
-    // adding a player class
-    private char playerIcon;
 
     // used if the player is on the final &
     private Boolean endOfDungeon = false;
 
     public Game() {
-        // setting the players icon in the needed classes
-        Player.setCharacter(playerIcon);
-        Room.setCharacter(playerIcon);
-        Room2.setCharacter(playerIcon);
-        Room3.setCharacter(playerIcon);
-        
+
         room = new Room();
         room2 = new Room2();
         room3 = new Room3();
@@ -49,87 +44,6 @@ public class Game {
         boxes = room.getBoxes();
         enemies = room.getEnemies();
         warps = room.getWarp();
-    }
-
-    // This is also used to supply the game with the users specified icon
-    // this method prints the games plot
-    protected void titleScreen() {
-        
-        // clearing the terminal screen
-        for (int i = 0; i < 100; i++) {
-            Terminal.warpCursor(i, 0);
-            System.out.print("                                                                                                                               ");
-        }
-
-        // printing the games name
-        // code generated from www.coolgenerator.com/ascii-text-generator   font used: ANSI shadow
-        Terminal.warpCursor(6, 26);
-        System.out.print("██████╗  ██████╗  ██████╗ ██╗   ██╗███████╗    ███████╗██╗  ██╗ █████╗ ██████╗  ██████╗ ██╗    ██╗");
-        Terminal.warpCursor(7, 26);
-        System.out.print("██╔══██╗██╔═══██╗██╔════╝ ██║   ██║██╔════╝    ██╔════╝██║  ██║██╔══██╗██╔══██╗██╔═══██╗██║    ██║");
-        Terminal.warpCursor(8, 26);
-        System.out.print("██████╔╝██║   ██║██║  ███╗██║   ██║█████╗      ███████╗███████║███████║██║  ██║██║   ██║██║ █╗ ██║");
-        Terminal.warpCursor(9, 26);
-        System.out.print("██╔══██╗██║   ██║██║   ██║██║   ██║██╔══╝      ╚════██║██╔══██║██╔══██║██║  ██║██║   ██║██║███╗██║");
-        Terminal.warpCursor(10, 26);
-        System.out.print("██║  ██║╚██████╔╝╚██████╔╝╚██████╔╝███████╗    ███████║██║  ██║██║  ██║██████╔╝╚██████╔╝╚███╔███╔╝");
-        Terminal.warpCursor(11, 26);
-        System.out.print("╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚══╝╚══╝ ");
-
-
-        // printing the stories plot
-        Terminal.warpCursor(14, 36);
-        System.out.print("*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*");
-        Terminal.warpCursor(15, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(16, 36);//40
-        System.out.print("*   You the adventurer must set forth into the dark world of Rogue Shadow.  *");
-        //Terminal.pause(1.5);
-        Terminal.warpCursor(17, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(18, 36);//38
-        System.out.print("* A land of mystical wonder and danger presents itself around every corner. *");
-        //Terminal.pause(1.5);
-        Terminal.warpCursor(19, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(20, 36);//38
-        System.out.print("* The goal of the game is to survive and collect as many items as possible. *");
-        //Terminal.pause(1.5);
-        Terminal.warpCursor(21, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(22, 36);//46
-        System.out.print("*         To advance to the next floor you must kill all the enemies.       *");
-        //Terminal.pause(1.5);
-        Terminal.warpCursor(23, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(24, 36);//46
-        System.out.print("*         Beware of the dungeons enemies or you will surely perish!         *");
-        Terminal.warpCursor(25, 36);
-        System.out.print("<                                                                           >");
-        Terminal.warpCursor(26, 36);
-        System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
-
-        //setting the players name
-        Terminal.warpCursor(28, 58);
-        System.out.print("What is your name adventurer? ");
-        Scanner in = new Scanner(System.in);
-        Terminal.warpCursor(28, 88);
-
-        // initializing the name of the player
-        name = in.next();
-        player.setName(name);
-        
-        //printing an empty string to clear the terminal on the current line
-        Terminal.warpCursor(28, 58);
-        System.out.print("                                                                                    ");  
-        //Terminal.clear();
-
-        // Asking the player for their class
-        Terminal.warpCursor(28, 58);
-        System.out.print("Who are you? ");
-        Terminal.warpCursor(28, 71);
-        playerIcon = in.next().charAt(0);
-        
     }
 
     //prints when the player wins the game
@@ -207,7 +121,7 @@ public class Game {
 
         //put test statement below this line
         System.out.print("\n\rThese are the current enemies "+enemies.size()+"\n\r");
-        System.out.print("This is the players icon "+playerIcon);
+        //System.out.print("This is the players icon "+playerIcon);
 
         System.out.printf("\n\rPress any key to return...\n\r");
         Terminal.getKey();
@@ -368,14 +282,15 @@ public class Game {
                     // needed because calling nextInt() skips a line
                     in.nextLine();
 
-                    //***QUESTION doesnt Player() take a Position as its parameter
                     player = new Player(in);
 
-                    for (int i = 0; i < enemySize; i++) { //read in enemies on current floor
+                    //read in enemies on current floor
+                    for (int i = 0; i < enemySize; i++) { 
                         Enemy enemy = new Enemy(in);
                         enemies.set(i, enemy);
                     }
-                    for (int i = 0; i < boxSize; i++) { //read in items on current floor
+                    //read in items on current floor
+                    for (int i = 0; i < boxSize; i++) { 
                         boxes.set(i, new Box(in));
                     }
                     in.close();
@@ -485,7 +400,7 @@ public class Game {
     }
 
     public void run() {
-        
+
         // draw these for the first time now
         redrawMapAndHelp();
 

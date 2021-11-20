@@ -4,10 +4,12 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.ArrayList;
 import ansi_terminal.*;
+
 // used for try catch may not be needed
 import java.util.InputMismatchException;
 
 public abstract class Character extends Entity {
+    
     // the character's health points
     protected int hp;
 

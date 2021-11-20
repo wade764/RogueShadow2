@@ -10,7 +10,7 @@ public class Room2 {
     private int cols;
 
     // Each room needs a method that sets the players icon
-    private static char playerSymbol;
+    //private static char playerSymbol;
 
     public Room2() {
         // this initializes the room to one specific space
@@ -58,7 +58,7 @@ public class Room2 {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if ( grid[row].charAt(col) == '@' || grid[row].charAt(col) == playerSymbol ) {
+                if ( grid[row].charAt(col) == '@' /*|| grid[row].charAt(col) == playerSymbol*/ ) {
                     return new Position(row, col);
                 }
             }
@@ -140,10 +140,5 @@ public class Room2 {
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
         return grid[row].charAt(col) != '#';
-    }
-
-    // used to print the correct symbol for player
-    public static void setCharacter(char c){
-        playerSymbol = c;
     }
 }

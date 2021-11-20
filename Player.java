@@ -1,7 +1,6 @@
 // Player.java
 
 import ansi_terminal.*;
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.io.File;
@@ -9,13 +8,38 @@ import java.util.Scanner;
 
 public class Player extends Character {
     private Inventory items;
-    private String name = "Hero";
-    private static char playerSymbol;
+
+    // default values for the player
+    private static String name = "Hero";
+    private static char playerIcon = '@';
+
+    // Creating a static method that stores the name and icon of the player, it needs to be called before instantiating a player
+    public static void setPlayerInfo() {
+        //setting the players name
+        Terminal.warpCursor(28, 58);
+        System.out.print("What is your name adventurer? ");
+        Scanner in = new Scanner(System.in);
+        Terminal.warpCursor(28, 88);
+
+        // initializing the name of the player
+        // I HAD NO IDEA THIS WAS A THING BELOW!
+        Player.name = in.next();
+
+        //printing an empty string to clear the terminal on the current line
+        Terminal.warpCursor(28, 58);
+        System.out.print("                                                                                    ");
+
+        // Asking the player for their class
+        Terminal.warpCursor(28, 58);
+        System.out.print("Who are you? ");
+        Terminal.warpCursor(28, 71);
+        Player.playerIcon = in.next().charAt(0);
+    }
 
     public Player(Position start) {
 
-        // STUCK HERE on setting the players Icon
-        super(start.getRow(), start.getCol(), /*playerSymbol*/ '@', Color.CYAN, 50);
+        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 50);
+
         // we can carry 100 pounds of items
         items = new Inventory(100);
 
@@ -70,11 +94,6 @@ public class Player extends Character {
         return items;
     }
 
-    // setter used in the Game class to set the players name
-    public void setName(String n) {
-        name = n;
-    }
-
     public void save(PrintWriter out) {
         super.save(out);
         out.println(name);
@@ -83,13 +102,6 @@ public class Player extends Character {
     public Player(Scanner in) {
         super(in);
         name = in.nextLine();
-        /*Terminal.warpCursor(8, 0);
-          System.out.print("Player's name: " + name);
-          Terminal.pause(1);*/
         items = new Inventory(in);
-    }
-
-    public static void setCharacter(char c){
-        playerSymbol = c;
     }
 }

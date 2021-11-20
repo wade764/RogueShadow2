@@ -60,7 +60,7 @@ public class Room3 {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if ( grid[row].charAt(col) == '@' || grid[row].charAt(col) == playerSymbol ) {
+                if ( grid[row].charAt(col) == '@' /*|| grid[row].charAt(col) == playerSymbol*/ ) {
                     return new Position(row, col);
                 }
             }
@@ -142,10 +142,5 @@ public class Room3 {
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
         return grid[row].charAt(col) != '#';
-    }
-
-    // used to print the correct symbol for player
-    public static void setCharacter(char c){
-        playerSymbol = c;
     }
 }
