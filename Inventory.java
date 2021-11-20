@@ -232,8 +232,10 @@ public class Inventory {
         while (!line.equals(".")) {
             Item item = new Item(in);
             items.add(item);
-            in.nextLine();
             line = in.nextLine();
+            Terminal.warpCursor(17, 0);
+            System.out.print("Extra Line: " + line);
+            Terminal.pause(2);
         }
     }
 }
