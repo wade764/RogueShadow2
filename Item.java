@@ -144,13 +144,13 @@ public class Item {
         // I think we can ignore this stuff below leave for now until we can fix the load crap
         
         //Testing stuff
-        if (counter == 3) {
+        /*if (counter == 3) {
         String myNameEmpty = in.nextLine();
         Terminal.warpCursor(17, 0);
         System.out.print("counterNow3SoWeSkipThis: " + myNameEmpty);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
     
         //TESTING
-        }
+        //}
     }
 }
