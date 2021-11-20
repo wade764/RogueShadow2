@@ -77,9 +77,9 @@ public class Item {
         Terminal.clear();
         
         String temp = "";
-
-        while (!name.equals(".") || !temp.equals(".")) {
-
+        
+        //THIS WORKS the following condition reads the delimeter properly
+        while (!in.hasNext(".")) {
         name = in.nextLine();
         Terminal.warpCursor(10, 0);
         System.out.print("Item's name is: " + name);

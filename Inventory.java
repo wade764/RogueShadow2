@@ -236,7 +236,10 @@ public class Inventory {
         
         // Wade - @ 1640 11_20_21 COMMENTING THIS OUT lets me read the file however it stops in the Item(scanner) method and reads the 4th item name as EXTRA LINE
         //String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
-        while (!line.equals(".")) {
+        // Wade - @ 1655 It now reads but goes past the delimeter
+        // I think we need to change the condition below from !line.equals(".")) to !in.hasNext("."))
+        while (!in.hasNext(".")) {
+            //**** Im lost here because calling this does not return anything so arnt all the Item item null?
             Item item = new Item(in);
             items.add(item);
             
