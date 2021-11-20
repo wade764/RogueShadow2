@@ -228,7 +228,8 @@ public class Inventory {
         items.add(equippedWeapon);
         items.add(equippedArmor);
 
-        String line = "";//in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
+        //String line = "";
+        String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
         while (!line.equals(".")) {
             Item item = new Item(in);
             items.add(item);
