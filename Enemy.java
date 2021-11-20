@@ -81,18 +81,32 @@ public class Enemy extends Character {
 
 	public Enemy(Scanner in) {
 		super(in);
-		name = in.nextLine();
-		/*Terminal.warpCursor(20, 0);
+
+        //TESTING
+		Terminal.clear();
+
+        name = in.nextLine();
+		
+        //TESTING
+        Terminal.warpCursor(20, 0);
 		System.out.print("Enemy's name: " + name);
-		Terminal.pause(2);*/
+		Terminal.pause(2);
+
 		damage = in.nextInt(); //have issues reading this in
-		/*Terminal.warpCursor(21, 0);
+		// added to read the rest of the line
+        in.nextLine();
+
+        //TESTING
+        Terminal.warpCursor(21, 0);
 		System.out.print("Enemy's strength: " + damage);
-		Terminal.pause(2);*/
+		Terminal.pause(2);
+
 		protection = in.nextInt();
-		/*Terminal.warpCursor(22, 0);
+		
+        //TESTING
+        Terminal.warpCursor(22, 0);
 		System.out.print("Enemy's defense: " + protection);
-		Terminal.pause(2);*/
+		Terminal.pause(2);
 
 		in.nextLine();
 	}

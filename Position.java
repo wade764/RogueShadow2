@@ -17,7 +17,7 @@ public class Position {
     }
 
     public Position(int row, int col) {
-        
+
         //***testing print statements
         //Terminal.warpCursor(38,0);
         //System.out.print("Position overridden constructor parameters row col "+row+" "+col);
@@ -26,12 +26,12 @@ public class Position {
     }
 
     @Override
-    public boolean equals(Object other) {
-        Position op = (Position) other;
+        public boolean equals(Object other) {
+            Position op = (Position) other;
 
-        // they are equal when both coordinates match
-        return this.row == op.row && this.col == op.col;
-    }
+            // they are equal when both coordinates match
+            return this.row == op.row && this.col == op.col;
+        }
 
     // returns whether a position is adjacent to another (or equal)
     public boolean isAdjacent(Position other) {
@@ -57,7 +57,11 @@ public class Position {
 
     public Position(Scanner in) {
         row = in.nextInt();
+        //skipping the rest of the line
+        in.nextLine();
         col = in.nextInt();
+        //skipping the rest of the line
+        in.nextLine();
     }
 }
 

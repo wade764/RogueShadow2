@@ -81,9 +81,10 @@ public class Item {
         //THIS WORKS the following condition reads the delimeter properly
         while (!in.hasNext(".")) {
         name = in.nextLine();
-        Terminal.warpCursor(10, 0);
+
+        /*Terminal.warpCursor(10, 0);
         System.out.print("Item's name is: " + name);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         
         // changed from String t to temp
         temp = in.nextLine();
@@ -96,27 +97,31 @@ public class Item {
         else if (temp.equals("Other")) {
             type = ItemType.Other;
         }
-        Terminal.warpCursor(11, 0);
+
+        /*Terminal.warpCursor(11, 0);
         System.out.print("Item's type is: " + temp); // changed to t from type
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         
         temp = in.nextLine();
         weight = Integer.parseInt(temp);
-        Terminal.warpCursor(12, 0);
+        
+        /*Terminal.warpCursor(12, 0);
         System.out.print("Weight: " + temp);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         
         temp = in.nextLine();
         value = Integer.parseInt(temp);
-        Terminal.warpCursor(13, 0);
+        
+        /*Terminal.warpCursor(13, 0);
         System.out.print("Value: " + temp);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         
         temp = in.nextLine();
         strength = Integer.parseInt(temp);
-        Terminal.warpCursor(14, 0);
+        
+        /*Terminal.warpCursor(14, 0);
         System.out.print("Strength: " + temp);
-        Terminal.pause(2);
+        Terminal.pause(2);*/
         
         } 
         // first method of doing this
