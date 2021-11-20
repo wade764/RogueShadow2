@@ -72,12 +72,11 @@ public class Item {
     }
 
     public Item(Scanner in) {
-        
+        Terminal.clear();
         // storing the name in a different variable for testing
         String name2 = in.nextLine();
         
         //*** test print
-        Terminal.clear();
         Terminal.warpCursor(10, 0);
         System.out.print("Item's name is: " + name2);
         Terminal.pause(2);
@@ -118,7 +117,7 @@ public class Item {
         //strength = in.nextInt();
         String temp3 = in.nextLine();
         strength = Integer.parseInt(temp3);
-        in.nextLine();
+        //in.nextLine();
 
         
         //*** test print
