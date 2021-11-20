@@ -263,7 +263,12 @@ public class Game {
                     }
                     pw.println(".");
                     pw.close(); //closes the printwriter
+                    
+                    //Prints message to display
+                    Terminal.warpCursor(40,0);
                     setStatus("Your game was saved");
+                    Terminal.pause(2);
+
                 } catch (FileNotFoundException e) {
                     System.out.print("Could not save data");
                 }
@@ -281,7 +286,7 @@ public class Game {
                     enemySize = in.nextInt();
                     boxSize = in.nextInt();
 
-                    // needed because calling nextInt() skips a line
+                    // needed because calling nextInt() leaves the cursor on the same line
                     in.nextLine();
 
                     player = new Player(in);
