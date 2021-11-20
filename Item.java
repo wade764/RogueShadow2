@@ -3,7 +3,6 @@
 // thing like weapon or ring, or something generic
 
 import ansi_terminal.Terminal;
-
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.util.InputMismatchException;
@@ -75,13 +74,18 @@ public class Item {
 
         //Wades attempt
         Terminal.clear();
+        
+        String temp = "";
 
-        //while (!in.hasNext().equals(".")) {
+        while (!name.equals(".") || !temp.equals(".")) {
+
         name = in.nextLine();
         Terminal.warpCursor(10, 0);
         System.out.print("Item's name is: " + name);
         Terminal.pause(2);
-        String t = in.nextLine();
+        
+        // changed from String t to temp
+        temp = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
         }
@@ -94,19 +98,26 @@ public class Item {
         Terminal.warpCursor(11, 0);
         System.out.print("Item's type is: " + t); // changed to t from type
         Terminal.pause(2);
-        weight = in.nextInt();
+        
+        String temp = in.nextLine();
+        weight = Integer.parseInt(temp);
         Terminal.warpCursor(12, 0);
-        System.out.print("Weight: " + weight);
+        System.out.print("Weight: " + temp);
         Terminal.pause(2);
-        value = in.nextInt();
+        
+        temp = in.nextLine();
+        value = Integer.parseInt(temp);
         Terminal.warpCursor(13, 0);
-        System.out.print("Value: " + value);
+        System.out.print("Value: " + temp);
         Terminal.pause(2);
-        strength = in.nextInt();
+        
+        temp = in.nextLine();
+        strength = Integer.parseInt(temp);
         Terminal.warpCursor(14, 0);
-        System.out.print("Strength: " + strength);
+        System.out.print("Strength: " + temp);
         Terminal.pause(2);
-        //} 
+        
+        } 
         // first method of doing this
 
         //        Terminal.clear();
