@@ -117,7 +117,7 @@ public class Item {
         //strength = in.nextInt();
         String temp3 = in.nextLine();
         strength = Integer.parseInt(temp3);
-        //in.nextLine();
+        in.nextLine();
 
         
         //*** test print
