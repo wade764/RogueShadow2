@@ -264,7 +264,7 @@ public class Game {
                     }
                     pw.println(".");
                     pw.close(); //closes the printwriter
-                    
+
                     //Prints message to display
                     Terminal.warpCursor(40,0);
                     setStatus("Your game was saved");
@@ -280,7 +280,7 @@ public class Game {
                 try {
 
                     //Terminal.clear();
-                    
+
                     Scanner in = new Scanner(file);
                     roomNumber = in.nextInt();
                     enemySize = in.nextInt();
@@ -301,9 +301,9 @@ public class Game {
                         boxes.set(i, new Box(in));
                     }
                     redrawMapAndHelp();
-                    
+
                     //in.close();
-                
+
                 } catch (FileNotFoundException e) {
                     System.out.print("Save data does not exist"); //needs to be formatted
                 }
@@ -334,6 +334,10 @@ public class Game {
     private void redrawMapAndHelp() {
         roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
+
+            // Playing around with the colors
+            //Terminal.setBackground(Color.YELLOW);
+            //Terminal.setForeground(Color.MAGENTA);
             room.draw();
             showHelp();
         } else if (roomNumber == 2) {
@@ -462,6 +466,8 @@ public class Game {
             Warp aWarp = checkForWarp();
             if (aWarp != null) {
                 if (enemies.size() == 0) {
+                    setStatus("The door unlocked");
+                    Terminal.pause(2);
                     if (!endOfDungeon) {
                         setStatus("Would you like to go to the next room? Y or N: ");
                         // asking for the response

@@ -22,6 +22,8 @@ public class Room3 {
         // the actual room geometry
         // the i cells refer to where an item should be placed at
         //& symbol is for the staircase
+        
+        // modifying the rooms to have the same amount of items and enemies
         grid  = new String[] {
                 "         ########################    ###################    ",
                 "         ##           *        ##    ##               ##    ",
@@ -48,10 +50,10 @@ public class Room3 {
                 "        ##                     ##      ##       *     ##    ",
                 "        ##                     ##      ##             ##    ",
                 "        ##         i           ##      ##             ##    ",
-                "        ##             *       ##      ##             ##    ",
+                "        ##                     ##      ##             ##    ",
                 "        ##                     ##      ##             ##    ",
                 "        ##                     ##      ##  i          ##    ",
-                "        ##  i                  ##      ##             ##    ",
+                "        ##                     ##      ##             ##    ",
                 "        #########################      #################    "
         };
     }
