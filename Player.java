@@ -104,10 +104,10 @@ public class Player extends Character {
         name = in.nextLine();
 
         //TESTING
-        Terminal.clear();
+        /*Terminal.clear();
         Terminal.warpCursor(34,0);
         System.out.print("I am in Player(scanner) This is name: "+name);
-        Terminal.pause(3);
+        Terminal.pause(3);*/
 
         items = new Inventory(in);
     }
