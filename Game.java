@@ -251,6 +251,7 @@ public class Game {
                     boxSize = boxes.size();
                     pw.println(enemySize);
                     pw.println(boxSize);
+                    // Saves the player as an Entity
                     player.save(pw);
                     player.getInventory().save(pw);
                     //info about enemies on the floor
@@ -273,7 +274,6 @@ public class Game {
                     System.out.print("Could not save data");
                 }
                 break;
-                // handle movement
             case r:
                 //restore save data from file
                 File file = new File("save.txt");

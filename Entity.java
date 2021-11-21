@@ -2,7 +2,6 @@
 // this class represents one moveable, drawable thing in the game
 
 import ansi_terminal.*;
-
 import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -50,7 +49,7 @@ public class Entity {
         whatMap = World.instance().getRoom();
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;
-        
+
         //***printing below for testing
         //Terminal.warpCursor(39,0);
         //System.out.print("This is Entity move newRow newCol "+newRow+" "+newCol);
@@ -117,28 +116,32 @@ public class Entity {
     }
 
     public Entity (Scanner in) {
-        
+
         in.nextLine(); //skips line in file that says Entity
         int row = in.nextInt(); // have issues reading this in
         in.nextLine();//this is needed to consume the remaining white space on the current line
-        
+
         Terminal.warpCursor(2, 0);
         System.out.print("Row: " + row);
         Terminal.pause(2);
-        
+
         int col = in.nextInt();
         in.nextLine();//this is needed to consume the remaining white space on the current line
-        
-        Terminal.warpCursor(3, 0);
-        System.out.print("Column: " + col);
-        Terminal.pause(2);
-        
+
+        /*Terminal.warpCursor(3, 0);
+          System.out.print("Column: " + col);
+          Terminal.pause(2);*/
+
         position = new Position(row, col);
         display = in.next().charAt(0);
+
         /*Terminal.warpCursor(4, 0);
-        System.out.print("Display: " + display);
-        Terminal.pause(2);*/
-        String c = in.next();
+          System.out.print("Display: " + display);
+          Terminal.pause(2);*/
+
+        // changed from in.next() to in.nextLine()
+        String c = in.nextLine();
+
         switch (c) {
             case "RED" -> color = Color.RED;
             case "CYAN" -> color = Color.CYAN;
@@ -149,10 +152,12 @@ public class Entity {
             case "BLACK" -> color = Color.BLACK;
             case "WHITE" -> color = Color.WHITE;
         }
-        /*Terminal.warpCursor(5, 0);
-        System.out.print("Color: " + color);
-        Terminal.pause(2);*/
 
-        in.nextLine(); //may or may not be needed
+        /*Terminal.warpCursor(5, 0);
+          System.out.print("Color: " + color);
+          Terminal.pause(2);*/
+
+        // I dont think this is needed
+        //in.nextLine(); //may or may not be needed
     }
 }

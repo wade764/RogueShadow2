@@ -94,10 +94,21 @@ public abstract class Character extends Entity {
 
     public Character(Scanner in) {
         super(in);
-        hp = in.nextInt();
-        /*Terminal.warpCursor(6, 0);
-        System.out.print("HP: " + hp);
-        Terminal.pause(2);*/
-        in.nextLine();
+        String temp = in.nextLine();
+
+        //TESTING
+        Terminal.clear();
+        Terminal.warpCursor(25,0);
+        System.out.print("Hey I am in line 102 of Character(Scanner) The line you are reading in is: "+temp);
+        Terminal.pause(4);
+        hp = Integer.parseInt(temp);
+        // adding to read the extra line
+        //in.nextLine();
+        
+        //TESTING
+        /*Terminal.clear();
+        Terminal.warpCursor(6, 0);
+        System.out.print("COMING FROM CHARACTER(SCANNER) HP: " + hp);
+        Terminal.pause(3);*/
     }
 }
