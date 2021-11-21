@@ -232,27 +232,24 @@ public class Inventory {
 
         // POSSIBLE JUNK leaving for ts
         //in.nextLine();
-        String line = "";
+        
+        //String line = "";
         
         // Wade - @ 1640 11_20_21 COMMENTING THIS OUT lets me read the file however it stops in the Item(scanner) method and reads the 4th item name as EXTRA LINE
         //String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
         // Wade - @ 1655 It now reads but goes past the delimeter
         // I think we need to change the condition below from !line.equals(".")) to !in.hasNext("."))
         while (!in.hasNext(".")) {
-            //**** Im lost here because calling this does not return anything so arnt all the Item item null?
             Item item = new Item(in);
             items.add(item);
-            
-            // POSSIBLE JUNK leaving for ts
-            //this is screwing it up partially
-            //line = in.hasNext();//changed from in.nextLine()
-            
-            // Megan 4 lines below
-            line = in.nextLine();
+        }
+        
+        //THIS HAS TO BE OUTSIDE THE WHILE LOOP
+        //reads the delimeter and stores it in a lonesome String, BE GONE!    
+        String line = in.nextLine();
             Terminal.warpCursor(17, 0);
             System.out.print("Extra Line: " + line);
             Terminal.pause(2);
-        }
     }
 }
 

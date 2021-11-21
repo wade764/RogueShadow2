@@ -121,42 +121,42 @@ public class Entity {
         int row = in.nextInt(); // have issues reading this in
 
         //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(25,0);
-        //System.out.print("Hey I am in line 126 of Entity(Scanner) The line you are reading in is: "+row);
-        //Terminal.pause(4);
+        Terminal.clear();
+        Terminal.warpCursor(25,0);
+        System.out.print("Hey I am in line 126 of Entity(Scanner) The line you are reading in is: "+row);
+        Terminal.pause(4);
 
 
         in.nextLine();//this is needed to consume the remaining white space on the current line
 
         //TESTING
-        /*Terminal.warpCursor(2, 0);
+        Terminal.warpCursor(2, 0);
           System.out.print("Row: " + row);
-          Terminal.pause(2);*/
+          Terminal.pause(2);
 
         int col = in.nextInt();
         in.nextLine();//this is needed to consume the remaining white space on the current line
 
-        /*Terminal.warpCursor(3, 0);
-          System.out.print("Column: " + col);
-          Terminal.pause(2);*/
+        Terminal.warpCursor(3, 0);
+        System.out.print("Column: " + col);
+        Terminal.pause(2);
 
         position = new Position(row, col);
         //this was changed to nextLine() from next()
         display = in.nextLine().charAt(0);
 
-        /*Terminal.warpCursor(4, 0);
-          System.out.print("Display: " + display);
-          Terminal.pause(2);*/
+        Terminal.warpCursor(4, 0);
+        System.out.print("Display: " + display);
+        Terminal.pause(2);
 
         // changed from in.next() to in.nextLine()
         String c = in.nextLine();
 
         //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(12,0);
-        //System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
-        //Terminal.pause(4);
+        Terminal.clear();
+        Terminal.warpCursor(12,0);
+        System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
+        Terminal.pause(4);
 
         switch (c) {
             case "RED" -> color = Color.RED;
@@ -168,12 +168,5 @@ public class Entity {
             case "BLACK" -> color = Color.BLACK;
             case "WHITE" -> color = Color.WHITE;
         }
-
-        /*Terminal.warpCursor(5, 0);
-          System.out.print("Color: " + color);
-          Terminal.pause(2);*/
-
-        // I dont think this is needed
-        //in.nextLine(); //may or may not be needed
     }
 }
