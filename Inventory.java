@@ -71,7 +71,9 @@ public class Inventory {
 
         // print a heading row
         // the numbers and junk are to make it print in nice columns
-        Terminal.setForeground(Color.RED);
+
+        //Terminal.setForeground(Color.RED);
+
         System.out.printf("%-4s %-40s %-8s %-8s %-8s\n\r", "No.", "Name", "Weight", "Value", "Strength");
         Terminal.reset();
 
@@ -254,7 +256,7 @@ public class Inventory {
         //THIS HAS TO BE OUTSIDE THE WHILE LOOP
         //reads the delimeter and stores it in a lonesome String, BE GONE!    
         String line = in.nextLine();
-        
+
         //TESTING
         //Terminal.warpCursor(17, 0);
         //System.out.print("Extra Line: " + line);

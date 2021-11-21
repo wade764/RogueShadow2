@@ -1,5 +1,6 @@
 import ansi_terminal.*;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Menu {
     // returned in Main class to start the game
@@ -12,9 +13,27 @@ public class Menu {
             Terminal.warpCursor(i, 0);
             System.out.print("                                                                                                                                   ");
         }
-        
-        // setting the color
-        Terminal.setForeground(Color.RED);
+
+        // setting the color randomly
+        Random rng = new Random();
+        int fg = rng.nextInt(7);
+        switch (fg) {
+            case 0: Terminal.setForeground(Color.BLUE);
+                    break;
+            case 1: Terminal.setForeground(Color.CYAN);
+                    break;
+            case 2: Terminal.setForeground(Color.GREEN);
+                    break;
+            case 3: Terminal.setForeground(Color.MAGENTA);
+                    break;
+            case 4: Terminal.setForeground(Color.RED);
+                    break;
+            case 5: Terminal.setForeground(Color.WHITE);
+                    break;
+            case 6: Terminal.setForeground(Color.YELLOW);
+                    break;
+            default: Terminal.setForeground(Color.RED);
+        }
 
         Terminal.warpCursor(0,40);
         System.out.print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\r");
@@ -117,7 +136,7 @@ public class Menu {
                 // CANNOT Instantiate a new game here it has not asked for the players name or icon yet!
                 //Game g = new Game();
 
-                //This is further proor game needs to be a singleton, I need to call handle key from here but need a game object that can be manipulated
+                //This is further proof that  game needs to be a singleton, I need to call handle key from here but need a game object that can be manipulated
                 // and not just call new games
 
                 //g.handleKey(Key.r);
@@ -128,7 +147,7 @@ public class Menu {
         }
         return playGame;
     }
-    
+
     // Printing the games story to the screen
     // important that this comes before new Game() in main method
     public static void storyPlot() {

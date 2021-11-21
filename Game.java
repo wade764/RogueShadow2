@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 
 public class Game {
 
@@ -32,6 +33,14 @@ public class Game {
 
     // used if the player is on the final &
     private Boolean endOfDungeon = false;
+
+    // used in showHelp() to set the color randomly only once
+    private int justOnceHelp = 0;
+    private int helpForeground = 0;
+    
+    // used in redrawMapAndHelp() to set the color randomly only once
+    private int justOnce = 0;
+    private int Foreground = 0;
 
     public Game() {
 
@@ -100,7 +109,7 @@ public class Game {
 
     private void debugMenu() {
         Terminal.clear();
-        Terminal.setForeground(Color.RED);
+
         //title prompt for information
         Terminal.warpCursor(1, 1);
         System.out.print("");
@@ -130,7 +139,31 @@ public class Game {
     // prints a help menu to the left of the map
     private void showHelp() {
 
-        Terminal.setForeground(Color.CYAN);
+        //setting the color for help once per game
+        if (justOnceHelp == 0) {
+            justOnceHelp++;
+
+            // setting the color randomly
+            Random rng = new Random();
+            helpForeground = rng.nextInt(7);
+        }
+        switch (helpForeground) {
+            case 0: Terminal.setForeground(Color.BLUE);
+                    break;
+            case 1: Terminal.setForeground(Color.CYAN);
+                    break;
+            case 2: Terminal.setForeground(Color.GREEN);
+                    break;
+            case 3: Terminal.setForeground(Color.MAGENTA);
+                    break;
+            case 4: Terminal.setForeground(Color.RED);
+                    break;
+            case 5: Terminal.setForeground(Color.WHITE);
+                    break;
+            case 6: Terminal.setForeground(Color.YELLOW);
+                    break;
+            default: Terminal.setForeground(Color.RED);
+        }
 
         String[] cmds = {"Commands:",
             "---------",
@@ -144,7 +177,7 @@ public class Game {
             "Restore: r",
             "Quit: q"
         };
-        Terminal.setForeground(Color.GREEN);
+
         for (int row = 0; row < cmds.length; row++) {
             Terminal.warpCursor(row + 1, room.getCols() + 1);
             System.out.print(cmds[row]);
@@ -332,12 +365,35 @@ public class Game {
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
+        
+        //setting the color for the game once
+        if (justOnce == 0) {
+            justOnce++;
+
+            // setting the color randomly
+            Random rng = new Random();
+            Foreground = rng.nextInt(7);
+        }
+        switch (Foreground) {
+            case 0: Terminal.setForeground(Color.BLUE);
+                    break;
+            case 1: Terminal.setForeground(Color.CYAN);
+                    break;
+            case 2: Terminal.setForeground(Color.GREEN);
+                    break;
+            case 3: Terminal.setForeground(Color.MAGENTA);
+                    break;
+            case 4: Terminal.setForeground(Color.RED);
+                    break;
+            case 5: Terminal.setForeground(Color.WHITE);
+                    break;
+            case 6: Terminal.setForeground(Color.YELLOW);
+                    break;
+            default: Terminal.setForeground(Color.RED);
+        }
         roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
 
-            // Playing around with the colors
-            //Terminal.setBackground(Color.YELLOW);
-            //Terminal.setForeground(Color.MAGENTA);
             room.draw();
             showHelp();
         } else if (roomNumber == 2) {
