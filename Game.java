@@ -57,7 +57,11 @@ public class Game {
 
     //prints when the player wins the game
     private void playerWon() {
+        
         Terminal.clear();
+        
+        Terminal.setForeground(Color.YELLOW);
+
         for (int i = 0; i < 40; i++) {
             Terminal.warpCursor(i, 82);
             System.out.print("                                                                                               ");
@@ -83,7 +87,11 @@ public class Game {
 
     //prints when the player loses the game
     private void gameOver() {
+        
         Terminal.clear();
+        
+        Terminal.setForeground(Color.RED);
+
         for (int i = 0; i < 40; i++) {
             Terminal.warpCursor(i, 82);
             System.out.print("                                                                                               ");
