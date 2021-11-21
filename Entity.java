@@ -119,20 +119,20 @@ public class Entity {
 
         in.nextLine(); //skips line in file that says Entity
         int row = in.nextInt(); // have issues reading this in
-        
+
         //TESTING
-         Terminal.clear();
-         Terminal.warpCursor(25,0);
-         System.out.print("Hey I am in line 126 of Entity(Scanner) The line you are reading in is: "+row);
-         Terminal.pause(4);
+        //Terminal.clear();
+        //Terminal.warpCursor(25,0);
+        //System.out.print("Hey I am in line 126 of Entity(Scanner) The line you are reading in is: "+row);
+        //Terminal.pause(4);
 
 
         in.nextLine();//this is needed to consume the remaining white space on the current line
-        
+
         //TESTING
         /*Terminal.warpCursor(2, 0);
-        System.out.print("Row: " + row);
-        Terminal.pause(2);*/
+          System.out.print("Row: " + row);
+          Terminal.pause(2);*/
 
         int col = in.nextInt();
         in.nextLine();//this is needed to consume the remaining white space on the current line
@@ -153,12 +153,12 @@ public class Entity {
         String c = in.nextLine();
 
         //TESTING
-         Terminal.clear();
-         Terminal.warpCursor(12,0);
-         System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
-         Terminal.pause(4);
-        
-         switch (c) {
+        //Terminal.clear();
+        //Terminal.warpCursor(12,0);
+        //System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
+        //Terminal.pause(4);
+
+        switch (c) {
             case "RED" -> color = Color.RED;
             case "CYAN" -> color = Color.CYAN;
             case "YELLOW" -> color = Color.YELLOW;

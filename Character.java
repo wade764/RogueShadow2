@@ -9,7 +9,7 @@ import ansi_terminal.*;
 import java.util.InputMismatchException;
 
 public abstract class Character extends Entity {
-    
+
     // the character's health points
     protected int hp;
 
@@ -48,11 +48,11 @@ public abstract class Character extends Entity {
         Terminal.warpCursor(room.getRows(), 0);
         if (other.hp > 0) {
             System.out.print(getName() + " does " + damageDone + " damage to " + other.getName()
-                + ", leaving " + other.hp + " health.\n\r");
+                    + ", leaving " + other.hp + " health.\n\r");
             return false;
         } else {
             System.out.print(getName() + " does " + damageDone + " damage to " + other.getName()
-                + ", killing them.\n\r");
+                    + ", killing them.\n\r");
             return true;
         }
     }
@@ -95,20 +95,20 @@ public abstract class Character extends Entity {
     public Character(Scanner in) {
         super(in);
         String temp = in.nextLine();
+        hp = Integer.parseInt(temp);
 
         //TESTING
-        Terminal.clear();
-        Terminal.warpCursor(25,0);
-        System.out.print("Hey I am in line 102 of Character(Scanner) The line you are reading in is: "+temp);
-        Terminal.pause(4);
-        hp = Integer.parseInt(temp);
+        //Terminal.clear();
+        //Terminal.warpCursor(25,0);
+        //System.out.print("Hey I am in line 102 of Character(Scanner) The line you are reading in is: "+temp);
+        //Terminal.pause(4);
         // adding to read the extra line
         //in.nextLine();
-        
+
         //TESTING
         /*Terminal.clear();
-        Terminal.warpCursor(6, 0);
-        System.out.print("COMING FROM CHARACTER(SCANNER) HP: " + hp);
-        Terminal.pause(3);*/
+          Terminal.warpCursor(6, 0);
+          System.out.print("COMING FROM CHARACTER(SCANNER) HP: " + hp);
+          Terminal.pause(3);*/
     }
 }
