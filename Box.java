@@ -22,6 +22,7 @@ public class Box extends Entity {
     public void save(PrintWriter out) {
         super.save(out);
         item.save(out);
+        out.println(".");
     }
 
     public Box(Scanner in) {

@@ -80,55 +80,55 @@ public class Item {
         
         //THIS WORKS the following condition reads the delimeter properly
         while (!in.hasNext(".")) {
-        name = in.nextLine();
+            name = in.nextLine();
 
-        Terminal.warpCursor(10, 0);
-        System.out.print("Item's name is: " + name);
-        Terminal.pause(2);
+            Terminal.warpCursor(10, 0);
+            System.out.print("Item's name is: " + name);
+            Terminal.pause(2);
         
-        // changed from String t to temp
-        temp = in.nextLine();
-        if (temp.equals("Weapon")) {
-            type = ItemType.Weapon;
-        }
-        else if (temp.equals("Armor")) {
-            type = ItemType.Armor;
-        }
-        else if (temp.equals("Other")) {
-            type = ItemType.Other;
-        }
+            // changed from String t to temp
+            temp = in.nextLine();
+            if (temp.equals("Weapon")) {
+                type = ItemType.Weapon;
+            }
+            else if (temp.equals("Armor")) {
+                type = ItemType.Armor;
+            }
+            else if (temp.equals("Other")) {
+                type = ItemType.Other;
+            }
 
-        Terminal.warpCursor(11, 0);
-        System.out.print("Item's type is: " + temp); // changed to t from type
-        Terminal.pause(2);
+            Terminal.warpCursor(11, 0);
+            System.out.print("Item's type is: " + temp); // changed to t from type
+            Terminal.pause(2);
         
-        temp = in.nextLine();
-        weight = Integer.parseInt(temp);
+            temp = in.nextLine();
+            weight = Integer.parseInt(temp);
         
-        Terminal.warpCursor(12, 0);
-        System.out.print("Weight: " + temp);
-        Terminal.pause(2);
+            Terminal.warpCursor(12, 0);
+            System.out.print("Weight: " + temp);
+            Terminal.pause(2);
         
-        // PUTTING the try catch in here screwed up the order
-        // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
-        //try {
-        temp = in.nextLine();
-        value = Integer.parseInt(temp);
-        //} catch (java.lang.NumberFormatException e) {
-            //for now do nothing we may need to change code
-        //}
+            // PUTTING the try catch in here screwed up the order
+            // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
+            //try {
+            temp = in.nextLine();
+            value = Integer.parseInt(temp);
+            //} catch (java.lang.NumberFormatException e) {
+                //for now do nothing we may need to change code
+            //}
         
-        Terminal.warpCursor(13, 0);
-        System.out.print("Value: " + temp);
-        Terminal.pause(2);
+            Terminal.warpCursor(13, 0);
+            System.out.print("Value: " + temp);
+            Terminal.pause(2);
         
-        temp = in.nextLine();
-        strength = Integer.parseInt(temp);
+            temp = in.nextLine();
+            strength = Integer.parseInt(temp);
         
-        Terminal.warpCursor(14, 0);
-        System.out.print("Strength: " + temp);
-        Terminal.pause(2);
-        
+            Terminal.warpCursor(14, 0);
+            System.out.print("Strength: " + temp);
+            Terminal.pause(2);
+
         } 
         // first method of doing this
 
