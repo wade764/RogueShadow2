@@ -142,7 +142,8 @@ public class Entity {
           Terminal.pause(2);*/
 
         position = new Position(row, col);
-        display = in.next().charAt(0);
+        //this was changed to nextLine() from next()
+        display = in.nextLine().charAt(0);
 
         /*Terminal.warpCursor(4, 0);
           System.out.print("Display: " + display);
@@ -151,7 +152,13 @@ public class Entity {
         // changed from in.next() to in.nextLine()
         String c = in.nextLine();
 
-        switch (c) {
+        //TESTING
+         Terminal.clear();
+         Terminal.warpCursor(12,0);
+         System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
+         Terminal.pause(4);
+        
+         switch (c) {
             case "RED" -> color = Color.RED;
             case "CYAN" -> color = Color.CYAN;
             case "YELLOW" -> color = Color.YELLOW;
@@ -161,11 +168,6 @@ public class Entity {
             case "BLACK" -> color = Color.BLACK;
             case "WHITE" -> color = Color.WHITE;
         }
-        //TESTING
-         Terminal.clear();
-         Terminal.warpCursor(12,0);
-         System.out.print("Hi me again, I am in line 167 of Entity(Scanner) The line you are reading in is: "+c);
-         Terminal.pause(4);
 
         /*Terminal.warpCursor(5, 0);
           System.out.print("Color: " + color);
