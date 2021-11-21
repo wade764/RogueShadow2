@@ -144,6 +144,7 @@ public class Entity {
         position = new Position(row, col);
         //this was changed to nextLine() from next()
         display = in.nextLine().charAt(0);
+        //in.nextLine();
 
         Terminal.warpCursor(4, 0);
         System.out.print("Display: " + display);

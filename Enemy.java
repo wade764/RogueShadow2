@@ -82,39 +82,36 @@ public class Enemy extends Character {
     public Enemy(Scanner in) {
         super(in);
         
-        // THIS DOESNT PRINT YET
         //TESTING
-        Terminal.clear();
-        Terminal.warpCursor(23,0);
-        System.out.print("Will This print?");
-        Terminal.pause(4);
+        //Terminal.clear();
+        //Terminal.warpCursor(23,0);
+        //System.out.print("Will This print?");
+        //Terminal.pause(4);
 
-        // Wade - @ 2000 11_20_21 RIGHT NOW I THINK SOMETHING IS GETTING HUNGUP READING THIS
         name = in.nextLine();
 
         //TESTING
         //Terminal.clear();
-        Terminal.warpCursor(20, 0);
-        System.out.print("Enemy's name: " + name);
-        Terminal.pause(2);
+        //Terminal.warpCursor(20, 0);
+        //System.out.print("Enemy's name: " + name);
+        //Terminal.pause(2);
 
-        damage = in.nextInt(); //have issues reading this in
+        damage = in.nextInt(); 
         // added to read the rest of the line
         in.nextLine();
-
+        
         //TESTING
-        Terminal.warpCursor(21, 0);
-        System.out.print("Enemy's strength: " + damage);
-        Terminal.pause(2);
+        //Terminal.warpCursor(21, 0);
+        //System.out.print("Enemy's strength: " + damage);
+        //Terminal.pause(2);
 
         protection = in.nextInt();
+        in.nextLine();
 
         //TESTING
-        Terminal.warpCursor(22, 0);
-        System.out.print("Enemy's defense: " + protection);
-        Terminal.pause(2);
-
-        in.nextLine();
+        //Terminal.warpCursor(22, 0);
+        //System.out.print("Enemy's defense: " + protection);
+        //Terminal.pause(2);
     }
 
 }

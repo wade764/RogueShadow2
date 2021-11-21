@@ -27,5 +27,10 @@ public class Box extends Entity {
     public Box(Scanner in) {
         super(in);
         item = new Item(in);
+        
+        // left off here @ 2140 11_20_21
+        //Wade - I am not sure if this is needed however, I will comment out for now I did not notice a change when testing with this
+        //reading in an emptyline
+        //in.nextLine();
     }
 }

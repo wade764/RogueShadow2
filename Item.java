@@ -109,8 +109,14 @@ public class Item {
         System.out.print("Weight: " + temp);
         Terminal.pause(2);
         
+        // PUTTING the try catch in here screwed up the order
+        // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
+        //try {
         temp = in.nextLine();
         value = Integer.parseInt(temp);
+        //} catch (java.lang.NumberFormatException e) {
+            //for now do nothing we may need to change code
+        //}
         
         Terminal.warpCursor(13, 0);
         System.out.print("Value: " + temp);
