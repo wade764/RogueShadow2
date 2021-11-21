@@ -29,7 +29,7 @@ public class Box extends Entity {
         super(in);
         item = new Item(in);
 
-        //reading in an emptyline for the delimeter
+        //reading in an emptyline for the delimiter
         in.nextLine();
     }
 }

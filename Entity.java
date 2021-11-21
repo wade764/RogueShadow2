@@ -118,7 +118,6 @@ public class Entity {
     public Entity(Scanner in) {
 
         in.nextLine(); //skips line in file that says Entity
-        int row = in.nextInt(); // have issues reading this in
 
         //TESTING
         //Terminal.clear();
@@ -127,21 +126,20 @@ public class Entity {
         //Terminal.pause(4);
 
 
-        in.nextLine();//this is needed to consume the remaining white space on the current line
+        //in.nextLine();//this is needed to consume the remaining white space on the current line
 
         //TESTING
         //Terminal.warpCursor(2, 0);
         //  System.out.print("Row: " + row);
         //  Terminal.pause(2);
 
-        int col = in.nextInt();
-        in.nextLine();//this is needed to consume the remaining white space on the current line
+        //in.nextLine();//this is needed to consume the remaining white space on the current line
 
         //Terminal.warpCursor(3, 0);
         //System.out.print("Column: " + col);
         //Terminal.pause(2);
 
-        position = new Position(row, col);
+        position = new Position(in);
         //this was changed to nextLine() from next()
         display = in.nextLine().charAt(0);
         //in.nextLine();
