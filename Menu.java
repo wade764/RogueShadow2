@@ -99,7 +99,7 @@ public class Menu {
         Terminal.warpCursor(40,40);
         System.out.print("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\n\r");
 
-        Terminal.warpCursor(14,75);
+        Terminal.warpCursor(20,75);
         Scanner menu = new Scanner(System.in);
         boolean correctAnswer = false;
         while (!correctAnswer) {
