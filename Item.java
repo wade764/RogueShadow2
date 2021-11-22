@@ -82,9 +82,9 @@ public class Item {
         while (!in.hasNext(".")) {
             name = in.nextLine();
 
-            Terminal.warpCursor(10, 0);
+            /*Terminal.warpCursor(10, 0);
             System.out.print("Item's name is: " + name);
-            Terminal.pause(2);
+            Terminal.pause(2);*/
         
             // changed from String t to temp
             String t = in.nextLine();
@@ -98,16 +98,16 @@ public class Item {
                 type = ItemType.Other;
             }
 
-            Terminal.warpCursor(11, 0);
+            /*Terminal.warpCursor(11, 0);
             System.out.print("Item's type is: " + type); // changed to t from type
-            Terminal.pause(2);
+            Terminal.pause(2);*/
         
             temp = in.nextLine();
             weight = Integer.parseInt(temp);
         
-            Terminal.warpCursor(12, 0);
+            /*Terminal.warpCursor(12, 0);
             System.out.print("Weight: " + weight);
-            Terminal.pause(2);
+            Terminal.pause(2);*/
         
             // PUTTING the try catch in here screwed up the order
             // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
@@ -118,16 +118,16 @@ public class Item {
                 //for now do nothing we may need to change code
             //}
         
-            Terminal.warpCursor(13, 0);
+            /*Terminal.warpCursor(13, 0);
             System.out.print("Value: " + value);
-            Terminal.pause(2);
+            Terminal.pause(2);*/
         
             temp = in.nextLine();
             strength = Integer.parseInt(temp);
         
-            Terminal.warpCursor(14, 0);
+            /*Terminal.warpCursor(14, 0);
             System.out.print("Strength: " + strength);
-            Terminal.pause(2);
+            Terminal.pause(2);*/
 
         } 
         // first method of doing this
