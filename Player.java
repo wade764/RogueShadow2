@@ -22,7 +22,6 @@ public class Player extends Character {
         Terminal.warpCursor(28, 88);
 
         // initializing the name of the player
-        // I HAD NO IDEA THIS WAS A THING BELOW!
         Player.name = in.next();
 
         //printing an empty string to clear the terminal on the current line
@@ -103,12 +102,6 @@ public class Player extends Character {
     public Player(Scanner in) {
         super(in);
         name = in.nextLine();
-
-        //TESTING
-        /*Terminal.clear();
-        Terminal.warpCursor(34, 0);
-        System.out.print("I am in Player(scanner) This is name: "+name);
-        Terminal.pause(3);*/
 
         items = new Inventory(in);
 
