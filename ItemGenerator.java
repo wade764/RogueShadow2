@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class ItemGenerator {
 
-    private static ItemGenerator theInstance;
+    /*private static ItemGenerator theInstance;
 
     // creating a singleton used for generating items
     public static synchronized ItemGenerator instance() {
@@ -15,9 +15,13 @@ public class ItemGenerator {
         return theInstance;
     }
 
+<<<<<<< Updated upstream
     // used to set the constructor to private 
     private ItemGenerator() {
     }
+=======
+    }*/
+>>>>>>> Stashed changes
 
     public Item generate() {
         int num;

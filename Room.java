@@ -79,6 +79,7 @@ public class Room {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
                     Item i = ItemGenerator.instance().generate();
+                    Item i =
                     boxes.add(new Box(row, col, i ));
                 }
             }
