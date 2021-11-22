@@ -6,7 +6,7 @@ public class Menu {
     // returned in Main class to start the game
     private static Boolean playGame = false;
 
-    //Used for printing the Title screen and creating a new game or loading
+    // Used for printing the Title screen and creating a new game or loading
     public static Boolean titleScreen() {
 
         for (int i = 0; i < 100; i++) {
@@ -72,7 +72,8 @@ public class Menu {
         Terminal.warpCursor(17,40);
         System.out.print("<*|          _.._                                                       |*>\n\r");
         Terminal.warpCursor(18,40);
-        System.out.print("<*|        .' .-'`            L: Load Game                              |*>\n\r");
+        System.out.print("<*|        .' .-'`                                                      |*>\n\r");
+        //This line above would have the Load game print
         Terminal.warpCursor(19,40);
         System.out.print("<*|       /  /                                                          |*>\n\r");
         Terminal.warpCursor(20,40);
@@ -127,23 +128,23 @@ public class Menu {
             if (response.equalsIgnoreCase("N")) {
                 correctAnswer = true;
                 playGame = true;
-            } else if (response.equalsIgnoreCase("L")) {
-                correctAnswer = true;
-                playGame = true;
+            } 
+            // DO NOT DELETE ME WORK IN PROGRESS
+            /*else if (response.equalsIgnoreCase("L")) {
+              correctAnswer = true;
+              playGame = true;*/
 
-                //***BROKE NEEDS WORK
+            // CANNOT Instantiate a new game here it has not asked for the players name or icon yet!
+            // Game g = new Game();
+            // This is further proof that  game needs to be a singleton, I need to call handleKey from here but
+            // need a game object that can be manipulated
+            // and not just call new games
+            //g.handleKey(Key.r);
 
-                // CANNOT Instantiate a new game here it has not asked for the players name or icon yet!
-                //Game g = new Game();
-
-                //This is further proof that  game needs to be a singleton, I need to call handle key from here but need a game object that can be manipulated
-                // and not just call new games
-
-                //g.handleKey(Key.r);
-
-            } else {
-                System.out.print("Please enter N or L: ");
-            }
+        } else {
+            //System.out.print("Please enter N or L: ");
+            System.out.print("Press N to start a new game: ");
+        }
         }
         return playGame;
     }
@@ -157,6 +158,7 @@ public class Menu {
             Terminal.warpCursor(i, 0);
             System.out.print("                                                                                                                               ");
         }
+
         // DO NOT CLEAR TERMINAL UNTIL AFTER Player.setPlayerInfo has been called in main method
 
         // printing the games name
@@ -180,27 +182,27 @@ public class Menu {
         System.out.print("*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*");
         Terminal.warpCursor(15, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(16, 36);//40
+        Terminal.warpCursor(16, 36);
         System.out.print("*   You the adventurer must set forth into the dark world of Rogue Shadow.  *");
         //Terminal.pause(1.5);
         Terminal.warpCursor(17, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(18, 36);//38
+        Terminal.warpCursor(18, 36);
         System.out.print("* A land of mystical wonder and danger presents itself around every corner. *");
         //Terminal.pause(1.5);
         Terminal.warpCursor(19, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(20, 36);//38
+        Terminal.warpCursor(20, 36);
         System.out.print("* The goal of the game is to survive and collect as many items as possible. *");
         //Terminal.pause(1.5);
         Terminal.warpCursor(21, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(22, 36);//46
+        Terminal.warpCursor(22, 36);
         System.out.print("*         To advance to the next floor you must kill all the enemies.       *");
         //Terminal.pause(1.5);
         Terminal.warpCursor(23, 36);
         System.out.print("<                                                                           >");
-        Terminal.warpCursor(24, 36);//46
+        Terminal.warpCursor(24, 36);
         System.out.print("*         Beware of the dungeons enemies or you will surely perish!         *");
         Terminal.warpCursor(25, 36);
         System.out.print("<                                                                           >");
