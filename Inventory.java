@@ -256,7 +256,7 @@ public class Inventory {
             Terminal.clear();
             Terminal.warpCursor(10, 0);
             for (int i = 0; i < 3; i++) {
-                items.get(i).toString();
+                System.out.print(items.get(i).toString());
             }
             Terminal.pause(2);
         }
