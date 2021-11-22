@@ -205,13 +205,11 @@ public class Inventory {
     public void save(PrintWriter out) {
         equippedWeapon.save(out);
         equippedArmor.save(out);
-
         for (Item item : items) {
             if (item != equippedWeapon && item != equippedArmor) {
                 item.save(out);
             }
         }
-
         out.println(".");
     }
 
@@ -227,7 +225,6 @@ public class Inventory {
             Item item = new Item(in);
             items.add(item);
         }
-
         in.nextLine();
     }
 }
