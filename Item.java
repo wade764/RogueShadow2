@@ -102,9 +102,8 @@ public class Item {
             System.out.print("Item's type is: " + type); // changed to t from type
             Terminal.pause(2);
         
-            //temp = in.nextLine();
-            //weight = Integer.parseInt(temp);
-            weight = in.nextInt();
+            temp = in.nextLine();
+            weight = Integer.parseInt(temp);
         
             Terminal.warpCursor(12, 0);
             System.out.print("Weight: " + weight);
@@ -113,9 +112,8 @@ public class Item {
             // PUTTING the try catch in here screwed up the order
             // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
             //try {
-            //temp = in.nextLine();
-            //value = Integer.parseInt(temp);
-            value = in.nextInt();
+            temp = in.nextLine();
+            value = Integer.parseInt(temp);
             //} catch (java.lang.NumberFormatException e) {
                 //for now do nothing we may need to change code
             //}
@@ -124,9 +122,8 @@ public class Item {
             System.out.print("Value: " + value);
             Terminal.pause(2);
         
-            //temp = in.nextLine();
-            //strength = Integer.parseInt(temp);
-            strength = in.nextInt();
+            temp = in.nextLine();
+            strength = Integer.parseInt(temp);
         
             Terminal.warpCursor(14, 0);
             System.out.print("Strength: " + strength);
