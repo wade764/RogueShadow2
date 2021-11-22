@@ -1,6 +1,9 @@
 public class World {
+
     private int room = 1;
+
     //We need a singleton since there is only one world
+
     private static World theInstance;
 
     public static synchronized World instance() {
@@ -9,7 +12,7 @@ public class World {
         }
         return theInstance;
     }
-    
+
     public World() {
     }
 
