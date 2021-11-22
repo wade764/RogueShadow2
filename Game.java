@@ -543,7 +543,7 @@ public class Game {
             pw.println(boxSize);
             // Saves the player as an Entity
             player.save(pw);
-            player.getInventory().save(pw);
+            //player.getInventory().save(pw);
             //info about enemies on the floor
             for (Enemy enemy : enemies) {
                 enemy.save(pw);
