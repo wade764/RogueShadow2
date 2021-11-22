@@ -110,5 +110,7 @@ public class Player extends Character {
         Terminal.pause(3);*/
 
         items = new Inventory(in);
+        items.equipWeapon();
+        items.equipArmor();
     }
 }
