@@ -108,9 +108,9 @@ public class Player extends Character {
         Terminal.warpCursor(34,0);
         System.out.print("I am in Player(scanner) This is name: "+name);
         Terminal.pause(3);*/
-        
+
         items = new Inventory(in);
-        items.equipWeapon();
-        items.equipArmor();
+        //items.equipWeapon();
+        //items.equipArmor();
     }
 }

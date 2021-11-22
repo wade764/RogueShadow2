@@ -206,20 +206,20 @@ public class Inventory {
     }
 
     public void save(PrintWriter out) {
-        //equippedWeapon.save(out);
-        //equippedArmor.save(out);
+        equippedWeapon.save(out);
+        equippedArmor.save(out);
 
         //out.println("*"); //used for scanner to differentiate between equipped and non-equipped items
 
-        /*for (Item item : items) {
+        for (Item item : items) {
             if (item != equippedWeapon && item != equippedArmor) {
                 item.save(out);
             }
-        }*/
-
-        for (Item item : items) {
-            item.save(out);
         }
+
+        /*for (Item item : items) {
+            item.save(out);
+        }*/
 
         out.println(".");
     }
@@ -227,15 +227,15 @@ public class Inventory {
     public Inventory(Scanner in) {
         items = new ArrayList<>();
         maxWeight = 100;
-        //equippedWeapon = new Item(in);
-        //addAndEquip(weapon);
+        equippedWeapon = new Item(in);
+        addAndEquip(equippedWeapon);
 
         /*Terminal.warpCursor(16, 0);
           System.out.print("Equipped weapon: " + equippedWeapon.toString());
           Terminal.pause(2);*/
 
-        //equippedArmor = new Item(in);
-        //addAndEquip(armor);
+        equippedArmor = new Item(in);
+        addAndEquip(equippedArmor);
 
         /*Terminal.warpCursor(17, 0);
           System.out.print("Equipped armor: " + equippedArmor.toString());
