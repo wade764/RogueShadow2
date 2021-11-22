@@ -97,6 +97,7 @@ public class Player extends Character {
     public void save(PrintWriter out) {
         super.save(out);
         out.println(name);
+        items.save(out);
     }
 
     public Player(Scanner in) {
@@ -112,12 +113,5 @@ public class Player extends Character {
         items = new Inventory(in);
 
         Terminal.clear();
-        for (int i = 0; i < items.getItems().size(); i++) {
-            Terminal.warpCursor(i, 0);
-            System.out.print(items.getItems().get(i).toString());
-            Terminal.pause(2);
-        }
-        //items.equipWeapon();
-        //items.equipArmor();
     }
 }
