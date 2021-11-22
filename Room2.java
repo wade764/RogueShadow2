@@ -150,6 +150,7 @@ public class Room2 {
         rows = 30;
         cols = 60;
         grid = new String[rows];
+        Terminal.clear();
         while (in.hasNext()) {
             for (int i = 0; i < rows; i++) {
                 grid[i] = in.nextLine();
