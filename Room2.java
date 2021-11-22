@@ -147,7 +147,7 @@ public class Room2 {
     }
 
     public Room2(Scanner in) {
-        rows = 31;
+        rows = 30;
         cols = 60;
         grid = new String[rows];
         Terminal.clear();

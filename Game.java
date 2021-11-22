@@ -311,6 +311,7 @@ public class Game {
                     for (int i = 0; i < boxSize; i++) { 
                         boxes.set(i, new Box(in));
                     }
+                    in.nextLine();
 
                     for (int i = 0; i < 30; i++) {
                         Terminal.warpCursor(i, 0);
