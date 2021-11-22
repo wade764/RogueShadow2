@@ -259,9 +259,9 @@ public class Inventory {
         while (!in.hasNext(".")) {
             Item item = new Item(in);
             items.add(item);
-            addAndEquip(items.get(0));
-            addAndEquip(items.get(1));
         }
+        addAndEquip(items.get(0));
+        addAndEquip(items.get(1));
         /*equippedWeapon = items.get(0);
         equippedArmor = items.get(1);*/
 
