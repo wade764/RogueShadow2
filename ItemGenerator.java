@@ -7,15 +7,16 @@ public class ItemGenerator {
 
     private static ItemGenerator theInstance;
 
+    // creating a singleton used for generating items
     public static synchronized ItemGenerator instance() {
         if (theInstance == null) {
             theInstance = new ItemGenerator();
         }
         return theInstance;
     }
-    
-    private ItemGenerator() {
 
+    // used to set the constructor to private 
+    private ItemGenerator() {
     }
 
     public Item generate() {
@@ -52,7 +53,7 @@ public class ItemGenerator {
             case 21 -> new Item(ItemType.Other, "Deja Vu Potion", 2, 15, 0);
             case 22 -> new Item(ItemType.Armor, "Super Strength Armor", 20, 35, 32);
             case 23 -> new Item(ItemType.Other, "Book of Spells", 2, 13, 0);
-            default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
+                default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
         };
     }
 }
