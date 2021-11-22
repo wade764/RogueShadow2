@@ -110,6 +110,9 @@ public class Player extends Character {
         Terminal.pause(3);*/
 
         items = new Inventory(in);
+        for (int i = 0; i < items.getItems().size(); i++) {
+            System.out.print(items.getItems().get(i).toString());
+        }
         //items.equipWeapon();
         //items.equipArmor();
     }
