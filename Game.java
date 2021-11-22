@@ -292,7 +292,7 @@ public class Game {
                 File file = new File("save.txt");
                 try {
 
-                    //Terminal.clear();
+                    Terminal.clear();
 
                     Scanner in = new Scanner(file);
                     roomNumber = in.nextInt();
@@ -545,7 +545,7 @@ public class Game {
             pw.println(boxSize);
             // Saves the player as an Entity
             player.save(pw);
-            //player.getInventory().save(pw);
+            player.getInventory().save(pw);
             //info about enemies on the floor
             for (Enemy enemy : enemies) {
                 enemy.save(pw);
