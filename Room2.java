@@ -9,13 +9,13 @@ public class Room2 {
     private String[] grid;
 
     // the size of the room
-    private int rows;
-    private int cols;
+    private int rows = 30;
+    private int cols = 60;
 
     public Room2() {
         // this initializes the room to one specific space
-        rows = 30;
-        cols = 60;
+        //rows = 30;
+        //cols = 60;
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
@@ -147,8 +147,8 @@ public class Room2 {
     }
 
     public Room2(Scanner in) {
-        rows = 30;
-        cols = 60;
+        //rows = 30;
+        //cols = 60;
         grid = new String[rows];
         Terminal.clear();
         while (in.hasNext()) {
