@@ -152,7 +152,7 @@ public class Room2 {
         grid = new String[rows];
         Terminal.clear();
         while (in.hasNext()) {
-            for (int i = 0; i < rows; i++) {
+            for (int i = 0; i < 31; i++) {
                 grid[i] = in.nextLine();
                 Terminal.warpCursor(i, 0);
                 System.out.print(grid[i]);
