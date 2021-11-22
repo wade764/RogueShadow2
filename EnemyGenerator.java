@@ -4,21 +4,23 @@
 import java.util.Random;
 
 public class EnemyGenerator {
-    //DONT FORGET TO COMPLETE THIS
-    /**private static EnemyGenerator theInstance;
-    private static int num;
 
-    public static synchronized EnemyGenerator instance() {
-        if (theInstance == null) {
-            theInstance = new EnemyGenerator();
-        }
-        return theInstance;
-    }
+    // DO NOT DELETE WORKING FOR NEXT PART
 
-    private EnemyGenerator() {
-        Random rng = new Random();
-        num = rng.nextInt(4);
-    }*/
+    // private static EnemyGenerator theInstance;
+    // private static int num;
+
+    // public static synchronized EnemyGenerator instance() {
+    //     if (theInstance == null) {
+    //         theInstance = new EnemyGenerator();
+    //     }
+    //     return theInstance;
+    // }
+
+    // private EnemyGenerator() {
+    //     Random rng = new Random();
+    //     num = rng.nextInt(4);
+    // }
 
     public static Enemy generate(int row, int col) {
         Random rng = new Random();

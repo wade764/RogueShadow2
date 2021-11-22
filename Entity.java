@@ -3,10 +3,10 @@
 
 import ansi_terminal.*;
 import java.io.PrintWriter;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Entity {
+
     // the location of the entity in space
     private Position position;
 
@@ -50,16 +50,12 @@ public class Entity {
         int newRow = position.getRow() + rowChange;
         int newCol = position.getCol() + colChange;
 
-        //***printing below for testing
-        //Terminal.warpCursor(39,0);
-        //System.out.print("This is Entity move newRow newCol "+newRow+" "+newCol);
-
         if (whatMap == 1){
             if (room.canGo(newRow, newCol)) {
                 // draw a space where it currently is
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
-                //eliminating flash
+                // eliminating flash
                 Terminal.warpCursor(40,0);
 
                 // and then move it
@@ -119,43 +115,9 @@ public class Entity {
 
         in.nextLine(); //skips line in file that says Entity
 
-        //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(25,0);
-        //System.out.print("Hey I am in line 126 of Entity(Scanner) The line you are reading in is: "+row);
-        //Terminal.pause(4);
-
-
-        //in.nextLine();//this is needed to consume the remaining white space on the current line
-
-        //TESTING
-        //Terminal.warpCursor(2, 0);
-        //  System.out.print("Row: " + row);
-        //  Terminal.pause(2);
-
-        //in.nextLine();//this is needed to consume the remaining white space on the current line
-
-        //Terminal.warpCursor(3, 0);
-        //System.out.print("Column: " + col);
-        //Terminal.pause(2);
-
         position = new Position(in);
-        //this was changed to nextLine() from next()
         display = in.nextLine().charAt(0);
-        //in.nextLine();
-
-        //Terminal.warpCursor(4, 0);
-        //System.out.print("Display: " + display);
-        //Terminal.pause(2);
-
-        // changed from in.next() to in.nextLine()
         String c = in.nextLine();
-
-        //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(12,0);
-        //System.out.print("Hi me again, I am in line 157 of Entity(Scanner) The line you are reading in is: "+c);
-        //Terminal.pause(4);
 
         switch (c) {
             case "RED" -> color = Color.RED;

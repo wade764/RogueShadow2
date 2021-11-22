@@ -5,9 +5,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import ansi_terminal.*;
 
-// used for try catch may not be needed
-import java.util.InputMismatchException;
-
 public abstract class Character extends Entity {
 
     // the character's health points
@@ -22,6 +19,7 @@ public abstract class Character extends Entity {
     public int getHealth() {
         return hp;
     }
+
     public abstract int getDamage();
     public abstract int getProtection();
     public abstract String getName();
@@ -87,30 +85,16 @@ public abstract class Character extends Entity {
         hp = 50;
     }
 
+    // part of the save method
     public void save(PrintWriter out) {
         super.save(out);
         out.println(hp);
     }
 
+    // part of the load method
     public Character(Scanner in) {
         super(in);
         String temp = in.nextLine();
         hp = Integer.parseInt(temp);
-
-        //TESTING
-        /*Terminal.clear();
-        Terminal.warpCursor(25,0);
-        System.out.print("Hey I am in line 102 of Character(Scanner) The line you are reading in is: "+temp);
-        Terminal.pause(4);*/
-        
-        //This should not be needed
-        // adding to read the extra line
-        //in.nextLine();
-
-        //TESTING
-        /*Terminal.clear();
-          Terminal.warpCursor(6, 0);
-          System.out.print("COMING FROM CHARACTER(SCANNER) HP: " + hp);
-          Terminal.pause(3);*/
     }
 }

@@ -72,6 +72,7 @@ public class Enemy extends Character {
         }
     }
 
+    // part of the save method
     public void save(PrintWriter out) {
         super.save(out);
         out.println(name);
@@ -79,39 +80,15 @@ public class Enemy extends Character {
         out.println(protection);
     }
 
+    // used for loading the enemy data
     public Enemy(Scanner in) {
         super(in);
-        
-        //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(23,0);
-        //System.out.print("Will This print?");
-        //Terminal.pause(4);
-
         name = in.nextLine();
-
-        //TESTING
-        //Terminal.clear();
-        //Terminal.warpCursor(20, 0);
-        //System.out.print("Enemy's name: " + name);
-        //Terminal.pause(2);
-
         damage = in.nextInt(); 
         // added to read the rest of the line
         in.nextLine();
-        
-        //TESTING
-        //Terminal.warpCursor(21, 0);
-        //System.out.print("Enemy's strength: " + damage);
-        //Terminal.pause(2);
-
         protection = in.nextInt();
         in.nextLine();
-
-        //TESTING
-        //Terminal.warpCursor(22, 0);
-        //System.out.print("Enemy's defense: " + protection);
-        //Terminal.pause(2);
     }
 
 }

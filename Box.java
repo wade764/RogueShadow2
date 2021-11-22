@@ -18,14 +18,15 @@ public class Box extends Entity {
     public Item getItem() {
         return item;
     }
-    
-    // 
+
+    // part of the save method 
     public void save(PrintWriter out) {
         super.save(out);
         item.save(out);
         out.println(".");
     }
 
+    // part of the item loading method
     public Box(Scanner in) {
         super(in);
         item = new Item(in);
