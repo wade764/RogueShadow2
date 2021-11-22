@@ -9,7 +9,7 @@ import ansi_terminal.*;
 
 public class Inventory {
     // the actual list of items
-    private ArrayList<Item> items;
+    private ArrayList<Item> items = new ArrayList<>();
 
     // which item is equipped, if any
     private Item equippedArmor;
@@ -19,7 +19,7 @@ public class Inventory {
     private int maxWeight;
 
     public Inventory(int maxWeight) {
-        items = new ArrayList<>();
+        //items = new ArrayList<>();
         this.maxWeight = maxWeight;
     }
 
@@ -219,7 +219,7 @@ public class Inventory {
     }
 
     public Inventory(Scanner in) {
-        items = new ArrayList<>();
+        //items = new ArrayList<>();
         maxWeight = 100;
         Item weapon = new Item(in);
         addAndEquip(weapon);
