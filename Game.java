@@ -153,22 +153,22 @@ public class Game {
 
             // setting the color randomly
             Random rng = new Random();
-            helpForeground = rng.nextInt(7);
+            helpForeground = rng.nextInt(6);
         }
         switch (helpForeground) {
-            case 0: Terminal.setForeground(Color.BLUE);
+            //case 0: Terminal.setForeground(Color.BLUE);
+                    //break;
+            case 0: Terminal.setForeground(Color.CYAN);
                     break;
-            case 1: Terminal.setForeground(Color.CYAN);
+            case 1: Terminal.setForeground(Color.GREEN);
                     break;
-            case 2: Terminal.setForeground(Color.GREEN);
+            case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.MAGENTA);
+            case 3: Terminal.setForeground(Color.RED);
                     break;
-            case 4: Terminal.setForeground(Color.RED);
+            case 4: Terminal.setForeground(Color.WHITE);
                     break;
-            case 5: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 6: Terminal.setForeground(Color.YELLOW);
+            case 5: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }
@@ -318,7 +318,9 @@ public class Game {
                     //in.close();
 
                 } catch (FileNotFoundException e) {
+                    Terminal.warpCursor(40,0);
                     System.out.print("Save data does not exist"); //needs to be formatted
+                    Terminal.pause(2);
                 }
 
                 break;
@@ -352,22 +354,22 @@ public class Game {
 
             // setting the color randomly
             Random rng = new Random();
-            Foreground = rng.nextInt(7);
+            Foreground = rng.nextInt(6);
         }
         switch (Foreground) {
-            case 0: Terminal.setForeground(Color.BLUE);
+            //case 0: Terminal.setForeground(Color.BLUE);
+                    //break;
+            case 0: Terminal.setForeground(Color.CYAN);
                     break;
-            case 1: Terminal.setForeground(Color.CYAN);
+            case 1: Terminal.setForeground(Color.GREEN);
                     break;
-            case 2: Terminal.setForeground(Color.GREEN);
+            case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.MAGENTA);
+            case 3: Terminal.setForeground(Color.RED);
                     break;
-            case 4: Terminal.setForeground(Color.RED);
+            case 4: Terminal.setForeground(Color.WHITE);
                     break;
-            case 5: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 6: Terminal.setForeground(Color.YELLOW);
+            case 5: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }
@@ -561,7 +563,9 @@ public class Game {
             Terminal.pause(2);
 
         } catch (FileNotFoundException e) {
+            Terminal.warpCursor(40,0);
             System.out.print("Could not save data");
+            Terminal.pause(2);
         }
     }
 }

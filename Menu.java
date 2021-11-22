@@ -16,21 +16,21 @@ public class Menu {
 
         // setting the color randomly
         Random rng = new Random();
-        int fg = rng.nextInt(7);
+        int fg = rng.nextInt(6);
         switch (fg) {
-            case 0: Terminal.setForeground(Color.BLUE);
+            //case 0: Terminal.setForeground(Color.BLUE);
+                    //break;
+            case 0: Terminal.setForeground(Color.CYAN);
                     break;
-            case 1: Terminal.setForeground(Color.CYAN);
+            case 1: Terminal.setForeground(Color.GREEN);
                     break;
-            case 2: Terminal.setForeground(Color.GREEN);
+            case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.MAGENTA);
+            case 3: Terminal.setForeground(Color.RED);
                     break;
-            case 4: Terminal.setForeground(Color.RED);
+            case 4: Terminal.setForeground(Color.WHITE);
                     break;
-            case 5: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 6: Terminal.setForeground(Color.YELLOW);
+            case 5: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }
