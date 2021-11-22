@@ -15,15 +15,11 @@ public class ItemGenerator {
         return theInstance;
     }
 
-<<<<<<< Updated upstream
     // used to set the constructor to private 
     private ItemGenerator() {
-    }
-=======
     }*/
->>>>>>> Stashed changes
 
-    public Item generate() {
+    public static Item generate() {
         int num;
         Random rng= new Random();
         num = rng.nextInt(24);
