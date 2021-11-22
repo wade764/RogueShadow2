@@ -224,16 +224,17 @@ public class Inventory {
         out.println(".");
     }
 
-    public Inventory(Scanner in, int maxWeight) {
+    public Inventory(Scanner in) {
         items = new ArrayList<>();
-        equippedWeapon = new Item(in);
+        maxWeight = 100;
+        //equippedWeapon = new Item(in);
         //addAndEquip(weapon);
 
         /*Terminal.warpCursor(16, 0);
           System.out.print("Equipped weapon: " + equippedWeapon.toString());
           Terminal.pause(2);*/
 
-        equippedArmor = new Item(in);
+        //equippedArmor = new Item(in);
         //addAndEquip(armor);
 
         /*Terminal.warpCursor(17, 0);
