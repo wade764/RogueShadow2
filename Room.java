@@ -156,8 +156,9 @@ public class Room {
     public Room(Scanner in) {
         rows = 30;
         cols = 60;
+        grid = new String[rows];
         for (int i = 0; i < rows; i++) {
-            in.nextLine();
+            grid[i] = in.nextLine();
         }
     }
 }
