@@ -9,9 +9,6 @@ public class Room2 {
     private int rows;
     private int cols;
 
-    // Each room needs a method that sets the players icon
-    //private static char playerSymbol;
-
     public Room2() {
         // this initializes the room to one specific space
         rows = 30;
@@ -19,7 +16,7 @@ public class Room2 {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        //& symbol is for the staircase
+        // & symbol is for the staircase
 
         // modifying the rooms to have the same amount of items and enemies
         grid  = new String[] {
@@ -65,7 +62,6 @@ public class Room2 {
                 }
             }
         }
-
         return null;
     }
 
@@ -81,7 +77,6 @@ public class Room2 {
                 }
             }
         }
-
         return boxes;
     }
 
@@ -95,7 +90,6 @@ public class Room2 {
                 }
             }
         }
-
         return enemies;
     }
 
@@ -109,7 +103,6 @@ public class Room2 {
                 }
             }
         }
-
         return warps;
     }
 
@@ -135,7 +128,6 @@ public class Room2 {
                     System.out.print(' ');
                 }
             }
-
             System.out.print("\n\r");
         }
     }
