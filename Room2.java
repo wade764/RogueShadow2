@@ -1,4 +1,7 @@
 import ansi_terminal.Terminal;
+
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Room2 {
@@ -135,5 +138,17 @@ public class Room2 {
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
         return grid[row].charAt(col) != '#';
+    }
+
+    public void save(PrintWriter out) {
+        for (String s : grid) {
+            out.println(s);
+        }
+    }
+
+    public Room2(Scanner in) {
+        for (int i = 0; i < 30; i++) {
+            in.nextLine();
+        }
     }
 }

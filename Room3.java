@@ -1,5 +1,8 @@
 import ansi_terminal.Terminal;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Room3 {
     // the grid holds the room geometry
@@ -138,5 +141,17 @@ public class Room3 {
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
         return grid[row].charAt(col) != '#';
+    }
+
+    public void save(PrintWriter out) {
+        for (String s : grid) {
+            out.println(s);
+        }
+    }
+
+    public Room3(Scanner in) {
+        for (int i = 0; i < 30; i++) {
+            in.nextLine();
+        }
     }
 }

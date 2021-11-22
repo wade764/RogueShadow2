@@ -2,7 +2,10 @@
 // provides code for the drawing of a room
 // also provides starting locations for the player, boxes, and enemies
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import ansi_terminal.Terminal;
 
 public class Room {
@@ -142,5 +145,17 @@ public class Room {
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
         return grid[row].charAt(col) != '#';
+    }
+
+    public void save(PrintWriter out) {
+        for (String s : grid) {
+            out.println(s);
+        }
+    }
+
+    public Room(Scanner in) {
+        for (int i = 0; i < 30; i++) {
+            in.nextLine();
+        }
     }
 }

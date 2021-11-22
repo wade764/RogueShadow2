@@ -311,6 +311,22 @@ public class Game {
                     for (int i = 0; i < boxSize; i++) { 
                         boxes.set(i, new Box(in));
                     }
+
+                    for (int i = 0; i < 30; i++) {
+                        Terminal.warpCursor(i, 0);
+                        if (roomNumber == 1) {
+                            room = new Room(in);
+                            room.draw();
+                        }
+                        else if (roomNumber == 2) {
+                            room2 = new Room2(in);
+                            room2.draw();
+                        }
+                        else if (roomNumber == 3) {
+                            room3 = new Room3(in);
+                            room3.draw();
+                        }
+                    }
                     redrawMapAndHelp();
 
                 } catch (FileNotFoundException e) {
@@ -548,6 +564,15 @@ public class Game {
                 box.save(pw);
             }
             pw.println(".");
+            if (roomNumber == 1) {
+                room.save(pw);
+            }
+            else if (roomNumber == 2) {
+                room2.save(pw);
+            }
+            else {
+                room3.save(pw);
+            }
             pw.close(); //closes the printwriter
 
             //Prints message to display
