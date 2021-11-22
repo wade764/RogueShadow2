@@ -514,6 +514,7 @@ public class Game {
                                 roomNumber = World.instance().roomUpdate();
                                 player.resetHP(); //resets player's hp when they go to the next floor
                                 redrawMapAndHelp();
+                                save();
                             }
                             else {
                                 playing = false;

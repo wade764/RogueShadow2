@@ -226,13 +226,15 @@ public class Inventory {
 
     public Inventory(Scanner in) {
         items = new ArrayList<>();
-        // = new Item(in);
+        Item weapon = new Item(in);
+        addAndEquip(weapon);
 
         /*Terminal.warpCursor(16, 0);
           System.out.print("Equipped weapon: " + equippedWeapon.toString());
           Terminal.pause(2);*/
 
-        //equippedArmor = new Item(in);
+        Item armor = new Item(in);
+        addAndEquip(armor);
 
         /*Terminal.warpCursor(17, 0);
           System.out.print("Equipped armor: " + equippedArmor.toString());
@@ -257,8 +259,8 @@ public class Inventory {
             Item item = new Item(in);
             items.add(item);
         }
-        equippedWeapon = items.get(0);
-        equippedArmor = items.get(1);
+        /*equippedWeapon = items.get(0);
+        equippedArmor = items.get(1);*/
 
         //THIS HAS TO BE OUTSIDE THE WHILE LOOP
         //reads the delimeter and stores it in a lonesome String, BE GONE!    
