@@ -12,9 +12,6 @@ public class Room3 {
     private int rows = 30;
     private int cols = 60;
 
-    // Each room needs a method that sets the players icon
-    private static char playerSymbol;
-
     public Room3() {
         // this initializes the room to one specific space
         //rows = 30;
@@ -63,7 +60,7 @@ public class Room3 {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if ( grid[row].charAt(col) == '@' /*|| grid[row].charAt(col) == playerSymbol*/ ) {
+                if ( grid[row].charAt(col) == '@') {
                     return new Position(row, col);
                 }
             }

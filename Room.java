@@ -62,7 +62,7 @@ public class Room {
     public Position getPlayerStart() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if ( grid[row].charAt(col) == '@' /*|| grid[row].charAt(col) == playerSymbol*/ ) {
+                if ( grid[row].charAt(col) == '@') {
                     return new Position(row, col);
                 }
             }
