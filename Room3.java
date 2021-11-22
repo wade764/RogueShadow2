@@ -9,16 +9,16 @@ public class Room3 {
     private String[] grid;
 
     // the size of the room
-    private int rows;
-    private int cols;
+    private int rows = 30;
+    private int cols = 60;
 
     // Each room needs a method that sets the players icon
     private static char playerSymbol;
 
     public Room3() {
         // this initializes the room to one specific space
-        rows = 30;
-        cols = 60;
+        //rows = 30;
+        //cols = 60;
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
@@ -150,8 +150,6 @@ public class Room3 {
     }
 
     public Room3(Scanner in) {
-        rows = 30;
-        cols = 60;
         grid = new String[rows];
         while (in.hasNext()) {
             for (int i = 0; i < rows; i++) {

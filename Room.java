@@ -14,13 +14,13 @@ public class Room {
     private String[] grid;
 
     // the size of the room
-    private int rows;
-    private int cols;
+    private int rows = 30;
+    private int cols = 60;
 
     public Room() {
         // this initializes the room to one specific space
-        rows = 30;
-        cols = 60;
+        //rows = 30;
+        //cols = 60;
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
@@ -154,8 +154,6 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        rows = 30;
-        cols = 60;
         grid = new String[rows];
         while (in.hasNext()) {
             for (int i = 0; i < rows; i++) {
