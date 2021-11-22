@@ -227,15 +227,15 @@ public class Inventory {
     public Inventory(Scanner in) {
         items = new ArrayList<>();
         maxWeight = 100;
-        Item weapon = new Item(in);
-        addAndEquip(weapon);
+        //Item weapon = new Item(in);
+        //addAndEquip(weapon);
 
         /*Terminal.warpCursor(16, 0);
           System.out.print("Equipped weapon: " + equippedWeapon.toString());
           Terminal.pause(2);*/
 
-        Item armor = new Item(in);
-        addAndEquip(armor);
+        //Item armor = new Item(in);
+        //addAndEquip(armor);
 
         /*Terminal.warpCursor(17, 0);
           System.out.print("Equipped armor: " + equippedArmor.toString());
@@ -259,6 +259,8 @@ public class Inventory {
         while (!in.hasNext(".")) {
             Item item = new Item(in);
             items.add(item);
+            addAndEquip(items.get(0));
+            addAndEquip(items.get(1));
         }
         /*equippedWeapon = items.get(0);
         equippedArmor = items.get(1);*/
