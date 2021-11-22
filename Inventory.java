@@ -4,8 +4,7 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import ansi_terminal.*;
+import ansi_terminal.Terminal;
 
 public class Inventory {
     // the actual list of items
@@ -71,8 +70,6 @@ public class Inventory {
 
         // print a heading row
         // the numbers and junk are to make it print in nice columns
-
-        //Terminal.setForeground(Color.RED);
 
         System.out.printf("%-4s %-40s %-8s %-8s %-8s\n\r", "No.", "Name", "Weight", "Value", "Strength");
         Terminal.reset();
@@ -223,50 +220,15 @@ public class Inventory {
         maxWeight = 100;
         Item weapon = new Item(in);
         addAndEquip(weapon);
-
-        /*Terminal.warpCursor(16, 0);
-          System.out.print("Equipped weapon: " + equippedWeapon.toString());
-          Terminal.pause(2);*/
-
         Item armor = new Item(in);
-        //addAndEquip(armor);
-
-        /*Terminal.warpCursor(17, 0);
-          System.out.print("Equipped armor: " + equippedArmor.toString());
-          Terminal.pause(2);*/
-
-        //items.add(equippedWeapon);
-        //items.add(equippedArmor);
-
-        // WORKING ON CODE BELOW HERE
-
-        // POSSIBLE JUNK leaving for ts
-        //in.nextLine();
-
-        //String line = "";
-
-        // Wade - @ 1640 11_20_21 COMMENTING THIS OUT lets me read the file however it stops in the Item(scanner) method and reads the 4th item name as EXTRA LINE
-        //String line = in.nextLine(); // CHANGING THIS Allowed the scanner to read the 3rd item name in my inventory!
-        // Wade - @ 1655 It now reads but goes past the delimeter
-        // I think we need to change the condition below from !line.equals(".")) to !in.hasNext("."))
+        addAndEquip(armor);
 
         while (!in.hasNext(".")) {
             Item item = new Item(in);
             items.add(items.size() + 2, item);
         }
-        //addAndEquip(items.get(0));
-        //addAndEquip(items.get(1));
-        /*equippedWeapon = items.get(0);
-        equippedArmor = items.get(1);*/
 
-        //THIS HAS TO BE OUTSIDE THE WHILE LOOP
-        //reads the delimeter and stores it in a lonesome String, BE GONE!    
-        String line = in.nextLine();
-
-        //TESTING
-        //Terminal.warpCursor(17, 0);
-        //System.out.print("Extra Line: " + line);
-        //Terminal.pause(2);
+        in.nextLine();
     }
 }
 

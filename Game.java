@@ -37,7 +37,7 @@ public class Game {
     // used in showHelp() to set the color randomly only once
     private int justOnceHelp = 0;
     private int helpForeground = 0;
-    
+
     // used in redrawMapAndHelp() to set the color randomly only once
     private int justOnce = 0;
     private int Foreground = 0;
@@ -57,9 +57,9 @@ public class Game {
 
     //prints when the player wins the game
     private void playerWon() {
-        
+
         Terminal.clear();
-        
+
         Terminal.setForeground(Color.YELLOW);
 
         for (int i = 0; i < 40; i++) {
@@ -87,9 +87,9 @@ public class Game {
 
     //prints when the player loses the game
     private void gameOver() {
-        
+
         Terminal.clear();
-        
+
         Terminal.setForeground(Color.RED);
 
         for (int i = 0; i < 40; i++) {
@@ -156,8 +156,6 @@ public class Game {
             helpForeground = rng.nextInt(6);
         }
         switch (helpForeground) {
-            //case 0: Terminal.setForeground(Color.BLUE);
-                    //break;
             case 0: Terminal.setForeground(Color.CYAN);
                     break;
             case 1: Terminal.setForeground(Color.GREEN);
@@ -194,7 +192,7 @@ public class Game {
         // adding the player info below the commands
         String[] info = {
             "Name: " + player.getName(),
-            "HP: " + player.getHealth(), //for some reason this isnt being updated throughout the game
+            "HP: " + player.getHealth(),
             "Strength: " + player.getDamage(),
             "Defense: " + player.getProtection()
         };
@@ -315,8 +313,6 @@ public class Game {
                     }
                     redrawMapAndHelp();
 
-                    //in.close();
-
                 } catch (FileNotFoundException e) {
                     Terminal.warpCursor(40,0);
                     System.out.print("Save data does not exist"); //needs to be formatted
@@ -347,7 +343,7 @@ public class Game {
     // this is called when we need to redraw the room and help menu
     // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
-        
+
         //setting the color for the game once
         if (justOnce == 0) {
             justOnce++;
@@ -357,8 +353,6 @@ public class Game {
             Foreground = rng.nextInt(6);
         }
         switch (Foreground) {
-            //case 0: Terminal.setForeground(Color.BLUE);
-                    //break;
             case 0: Terminal.setForeground(Color.CYAN);
                     break;
             case 1: Terminal.setForeground(Color.GREEN);
