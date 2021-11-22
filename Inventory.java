@@ -206,35 +206,40 @@ public class Inventory {
     }
 
     public void save(PrintWriter out) {
-        equippedWeapon.save(out);
-        equippedArmor.save(out);
+        //equippedWeapon.save(out);
+        //equippedArmor.save(out);
 
         //out.println("*"); //used for scanner to differentiate between equipped and non-equipped items
 
-        for (Item item : items) {
+        /*for (Item item : items) {
             if (item != equippedWeapon && item != equippedArmor) {
                 item.save(out);
             }
+        }*/
+
+        for (Item item : items) {
+            item.save(out);
         }
+
         out.println(".");
     }
 
     public Inventory(Scanner in) {
         items = new ArrayList<>();
-        equippedWeapon = new Item(in);
+        // = new Item(in);
 
         /*Terminal.warpCursor(16, 0);
           System.out.print("Equipped weapon: " + equippedWeapon.toString());
           Terminal.pause(2);*/
 
-        equippedArmor = new Item(in);
+        //equippedArmor = new Item(in);
 
         /*Terminal.warpCursor(17, 0);
           System.out.print("Equipped armor: " + equippedArmor.toString());
           Terminal.pause(2);*/
 
-        items.add(equippedWeapon);
-        items.add(equippedArmor);
+        //items.add(equippedWeapon);
+        //items.add(equippedArmor);
 
         // WORKING ON CODE BELOW HERE
 
@@ -252,6 +257,8 @@ public class Inventory {
             Item item = new Item(in);
             items.add(item);
         }
+        equippedWeapon = items.get(0);
+        equippedArmor = items.get(1);
 
         //THIS HAS TO BE OUTSIDE THE WHILE LOOP
         //reads the delimeter and stores it in a lonesome String, BE GONE!    

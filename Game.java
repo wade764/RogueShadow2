@@ -285,35 +285,7 @@ public class Game {
 
             case s:
                 //saves the current game info to a file
-                try {
-                    PrintWriter pw = new PrintWriter("save.txt");
-                    pw.println(roomNumber);
-                    enemySize = enemies.size(); //helps with loading in save data
-                    boxSize = boxes.size();
-                    pw.println(enemySize);
-                    pw.println(boxSize);
-                    // Saves the player as an Entity
-                    player.save(pw);
-                    player.getInventory().save(pw);
-                    //info about enemies on the floor
-                    for (Enemy enemy : enemies) {
-                        enemy.save(pw);
-                    }
-                    //info about items on the floor
-                    for (Box box : boxes) {
-                        box.save(pw);
-                    }
-                    pw.println(".");
-                    pw.close(); //closes the printwriter
-
-                    //Prints message to display
-                    Terminal.warpCursor(40,0);
-                    setStatus("Your game was saved");
-                    Terminal.pause(2);
-
-                } catch (FileNotFoundException e) {
-                    System.out.print("Could not save data");
-                }
+                save();
                 break;
             case r:
                 //restore save data from file
@@ -557,6 +529,38 @@ public class Game {
                     setStatus("Door is locked! Rip and Tear!");
                 }
             }
+        }
+    }
+
+    public void save() {
+        try {
+            PrintWriter pw = new PrintWriter("save.txt");
+            pw.println(roomNumber);
+            enemySize = enemies.size(); //helps with loading in save data
+            boxSize = boxes.size();
+            pw.println(enemySize);
+            pw.println(boxSize);
+            // Saves the player as an Entity
+            player.save(pw);
+            player.getInventory().save(pw);
+            //info about enemies on the floor
+            for (Enemy enemy : enemies) {
+                enemy.save(pw);
+            }
+            //info about items on the floor
+            for (Box box : boxes) {
+                box.save(pw);
+            }
+            pw.println(".");
+            pw.close(); //closes the printwriter
+
+            //Prints message to display
+            Terminal.warpCursor(40,0);
+            setStatus("Your game was saved");
+            Terminal.pause(2);
+
+        } catch (FileNotFoundException e) {
+            System.out.print("Could not save data");
         }
     }
 }
