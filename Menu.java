@@ -19,7 +19,7 @@ public class Menu {
         int fg = rng.nextInt(6);
         switch (fg) {
             //case 0: Terminal.setForeground(Color.BLUE);
-                    //break;
+            //break;
             case 0: Terminal.setForeground(Color.CYAN);
                     break;
             case 1: Terminal.setForeground(Color.GREEN);
