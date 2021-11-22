@@ -224,7 +224,7 @@ public class Inventory {
         out.println(".");
     }
 
-    public Inventory(Scanner in) {
+    public Inventory(Scanner in, int maxWeight) {
         items = new ArrayList<>();
         equippedWeapon = new Item(in);
         //addAndEquip(weapon);
