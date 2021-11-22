@@ -14,11 +14,12 @@ public class Box extends Entity {
         super(row, col, 'i', Color.MAGENTA);
         this.item = item;
     }
-
+    // returns the field item
     public Item getItem() {
         return item;
     }
-
+    
+    // 
     public void save(PrintWriter out) {
         super.save(out);
         item.save(out);

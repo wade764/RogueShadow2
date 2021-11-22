@@ -140,8 +140,8 @@ public class Menu {
             // need a game object that can be manipulated
             // and not just call new games
             //g.handleKey(Key.r);
-
-        } else {
+            //}
+         else {
             //System.out.print("Please enter N or L: ");
             System.out.print("Press N to start a new game: ");
         }
