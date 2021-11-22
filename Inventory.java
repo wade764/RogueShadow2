@@ -229,7 +229,7 @@ public class Inventory {
           Terminal.pause(2);*/
 
         Item armor = new Item(in);
-        addAndEquip(armor);
+        //addAndEquip(armor);
 
         /*Terminal.warpCursor(17, 0);
           System.out.print("Equipped armor: " + equippedArmor.toString());
@@ -252,13 +252,7 @@ public class Inventory {
 
         while (!in.hasNext(".")) {
             Item item = new Item(in);
-            items.add(item);
-            /*Terminal.clear();
-            Terminal.warpCursor(10, 0);
-            for (int i = 0; i < 3; i++) {
-                System.out.print(items.get(i).toString());
-            }
-            Terminal.pause(2);*/
+            items.add(items.size() + 2, item);
         }
         //addAndEquip(items.get(0));
         //addAndEquip(items.get(1));
