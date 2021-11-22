@@ -3,7 +3,7 @@
 // also provides starting locations for the player, boxes, and enemies
 
 import java.util.ArrayList;
-import ansi_terminal.*;
+import ansi_terminal.Terminal;
 
 public class Room {
 
@@ -13,9 +13,6 @@ public class Room {
     // the size of the room
     private int rows;
     private int cols;
-
-    // Each room needs a method that sets the players icon
-    //private static char playerSymbol;
 
     public Room() {
         // this initializes the room to one specific space
@@ -97,7 +94,6 @@ public class Room {
                 }
             }
         }
-
         return enemies;
     }
 
@@ -111,7 +107,6 @@ public class Room {
                 }
             }
         }
-
         return warps;
     }
 
@@ -145,9 +140,6 @@ public class Room {
 
     // returns if a given cell in the map is walkable or not
     public boolean canGo(int row, int col) {
-        //***print statement for testing
-        //Terminal.warpCursor(40,0);
-        //System.out.println("This is Room cango() row and col: "+row+" "+col);
         return grid[row].charAt(col) != '#';
     }
 }

@@ -1,5 +1,4 @@
 import ansi_terminal.Terminal;
-
 import java.util.ArrayList;
 
 public class Room3 {
@@ -13,7 +12,6 @@ public class Room3 {
     // Each room needs a method that sets the players icon
     private static char playerSymbol;
 
-
     public Room3() {
         // this initializes the room to one specific space
         rows = 30;
@@ -21,7 +19,7 @@ public class Room3 {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        //& symbol is for the staircase
+        // & symbol is for the staircase
         
         // modifying the rooms to have the same amount of items and enemies
         grid  = new String[] {
@@ -67,7 +65,6 @@ public class Room3 {
                 }
             }
         }
-
         return null;
     }
 
@@ -82,7 +79,6 @@ public class Room3 {
                 }
             }
         }
-
         return boxes;
     }
 
@@ -96,7 +92,6 @@ public class Room3 {
                 }
             }
         }
-
         return enemies;
     }
 
@@ -110,7 +105,6 @@ public class Room3 {
                 }
             }
         }
-
         return warps;
     }
 
@@ -136,7 +130,6 @@ public class Room3 {
                     System.out.print(' ');
                 }
             }
-
             System.out.print("\n\r");
         }
     }
