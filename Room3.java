@@ -150,7 +150,9 @@ public class Room3 {
     }
 
     public Room3(Scanner in) {
-        for (int i = 0; i < 30; i++) {
+        rows = 30;
+        cols = 60;
+        for (int i = 0; i < rows; i++) {
             in.nextLine();
         }
     }
