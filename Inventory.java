@@ -225,7 +225,7 @@ public class Inventory {
 
         while (!in.hasNext(".")) {
             Item item = new Item(in);
-            items.add(items.size() + 2, item);
+            items.add(item);
         }
 
         in.nextLine();
