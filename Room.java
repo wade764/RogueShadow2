@@ -15,8 +15,8 @@ import java.lang.reflect.Array;
 public class Room {
 
     // the grid holds the room geometry
-    private String grid[];
-    //private String grid[] = new String[30];
+    //private String grid[];
+    private String grid[] = new String[30];
 
     // the size of the room
     private int rows = 30;
@@ -30,38 +30,38 @@ public class Room {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        String grid[] = new String[] {
-                "##################                ######################    ",
-                "##              ##                ##      i           ##    ",
-                "##  @           ###########       ##        *         ##    ",
-                "##                       ##       ##                  ##    ",
-                "##              #######  ##       ##################  ##    ",
-                "##              ##   ##  ##                       ##  ##    ",
-                "##################   ##  ##################       ##  ##    ",
-                "                     ##                  ##       ##  ##    ",
-                "                     ##   *  i           ##       ##  ##    ",
-                "                     ##                  ##       ##  ##    ",
-                "                     ##############  ######       ##  ##    ",
-                "                                 ##  ##           ##  ##    ",
-                "                                 ##  ##           ##  ##    ",
-                "                       ############  ###############  ######",
-                "                       ##                                 ##",
-                "                       ##     *                           ##",
-                "    #####################                  *              ##",
-                "    ##                                                    ##",
-                "    ##  #################                          i      ##",
-                "    ##  ##             ##                                 ##",
-                "    ##  ##             #################  ##################",
-                "    ##  ##                            ##  ##                ",
-                "    ##  ##                            ##  ##                ",
-                "    ##  ##                       #######  #######           ",
-                "    ##  ##                       ##            ##           ",
-                "######  ####                     ##  i  *      ##           ",
-                "##        ##                     ##         &  ##           ",
-                "## i  *   ##                     ################           ",
-                "##        ##                                                ",
-                "############                                                "
-        };
+        //String grid[] = /*new String[]*/ {
+               grid[0] = "##################                ######################    ";//,
+               grid[1] = "##              ##                ##      i           ##    ";//,
+               grid[2] = "##  @           ###########       ##        *         ##    ";//,
+               grid[3] = "##                       ##       ##                  ##    ";//,
+               grid[4] = "##              #######  ##       ##################  ##    ";//,
+               grid[5] = "##              ##   ##  ##                       ##  ##    ";//,
+               grid[6] = "##################   ##  ##################       ##  ##    ";//,
+               grid[7] = "                     ##                  ##       ##  ##    ";//,
+               grid[8] = "                     ##   *  i           ##       ##  ##    ";//,
+               grid[9] = "                     ##                  ##       ##  ##    ";//,
+               grid[10] = "                     ##############  ######       ##  ##    ";//,
+               grid[11] = "                                 ##  ##           ##  ##    ";//,
+               grid[12] = "                                 ##  ##           ##  ##    ";//,
+               grid[13] = "                       ############  ###############  ######";//,
+               grid[14] = "                       ##                                 ##";//,
+               grid[15] = "                       ##     *                           ##";//,
+               grid[16] = "    #####################                  *              ##";//,
+               grid[17] = "    ##                                                    ##";//,
+               grid[18] = "    ##  #################                          i      ##";//,
+               grid[19] = "    ##  ##             ##                                 ##";//,
+               grid[20] = "    ##  ##             #################  ##################";//,
+               grid[21] = "    ##  ##                            ##  ##                ";//,
+               grid[22] = "    ##  ##                            ##  ##                ";//,
+               grid[23] = "    ##  ##                       #######  #######           ";//,
+               grid[24] = "    ##  ##                       ##            ##           ";//,
+               grid[25] = "######  ####                     ##  i  *      ##           ";//,
+               grid[26] = "##        ##                     ##         &  ##           ";//,
+               grid[27] = "## i  *   ##                     ################           ";//,
+               grid[28] = "##        ##                                                ";//,
+               grid[29] = "############                                                ";//,
+        //};
 
         //TESTING
         //Terminal.warpCursor(40,0);
@@ -73,9 +73,9 @@ public class Room {
     public Position getPlayerStart() {
         
         //TESTING
-        Terminal.warpCursor(40,0);
-        System.out.print(Arrays.toString(grid));
-        Terminal.pause(5);
+        //Terminal.warpCursor(40,0);
+        //System.out.print(Arrays.toString(grid));
+        //Terminal.pause(5);
         
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -190,7 +190,7 @@ public class Room {
             }
             // more testing
                 Terminal.warpCursor(40,0);
-                System.out.print("The field grid in Room.java "+grid.toString()+"\n\r");
+                System.out.print("The field grid in Room.java "+Arrays.toString(grid)+"\n\r");
                 Terminal.pause(2);
             
         }
