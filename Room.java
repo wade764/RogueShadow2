@@ -61,6 +61,11 @@ public class Room {
                 "##        ##                                                ",
                 "############                                                "
         };
+
+        //TESTING
+        Terminal.warpCursor(40,0);
+        System.out.print(grid.toString());
+        Terminal.pause(5);
     }
 
     // returns the player's starting location in this room
@@ -189,7 +194,7 @@ public class Room {
     public String toString() {
         for (int i = 0; i < grid.length; i++) {
             Terminal.warpCursor(40,0);
-            System.out.print(grid[i]);
+            System.out.print(grid[i]+"\n\r");
         }
         String placeHolder = "";
         return placeHolder;
