@@ -16,7 +16,7 @@ public class Room {
 
     // the grid holds the room geometry
     //private String grid[];
-    private String grid[] = new String[30];
+    private String[] grid = new String[30];
 
     // the size of the room
     private int rows = 30;
@@ -30,7 +30,7 @@ public class Room {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        //String grid[] = /*new String[]*/ {
+        //String[] grid = new String[30]; {
                grid[0] = "##################                ######################    ";//,
                grid[1] = "##              ##                ##      i           ##    ";//,
                grid[2] = "##  @           ###########       ##        *         ##    ";//,
@@ -143,9 +143,9 @@ public class Room {
     // draws the map to the screen
     public void draw() {
         Terminal.clear();
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                char cell = this.grid[row].charAt(col);
+        for (int row = 0; row < 30; row++) {//changed rows to 30
+            for (int col = 0; col < 60; col++) {//changed cols to 60
+                char cell = grid[row].charAt(col);
                 if (cell == '#') {
                     // a unicode block symbol
                     System.out.print('\u2588');
@@ -171,26 +171,20 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        //grid = new String[30];
+        //String[] grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) { // changed from i < rows
                 
-                //Test
-                // bad test will cause an infinite loop
-                //Terminal.warpCursor(40,0);
-                //System.out.print("The field grid in Room.java "+this.grid.toString()+"\n\r");
-                //Terminal.pause(2);
-                
-                //grid[i] = in.nextLine();
-                String temp = in.nextLine();
-                Array.set(grid,i,temp);
+                grid[i] = in.nextLine();
+                //String temp = in.nextLine();
+                //Array.set(grid,i,temp);
 
                 //This way wont work because it is only for a range or all elements but not idividual
                 //Arrays.fill(grid,temp);
             }
             // more testing
                 Terminal.warpCursor(40,0);
-                System.out.print("The field grid in Room.java "+Arrays.toString(grid)+"\n\r");
+                System.out.print("The field grid in Room.java "+Arrays.toString(this.grid)+"\n\r");
                 Terminal.pause(2);
             
         }
