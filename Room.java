@@ -9,7 +9,7 @@ import java.util.Scanner;
 import ansi_terminal.Terminal;
 
 //Testing
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.lang.reflect.Array;
 
 public class Room {
@@ -64,7 +64,7 @@ public class Room {
 
         //TESTING
         Terminal.warpCursor(40,0);
-        System.out.print(grid.toString());
+        System.out.print(Arrays.toString(grid));
         Terminal.pause(5);
     }
 
@@ -191,12 +191,12 @@ public class Room {
     
     //**** used for testing
     // REMOVE BEFORE SUBMITTING
-    public String toString() {
-        for (int i = 0; i < grid.length; i++) {
-            Terminal.warpCursor(40,0);
-            System.out.print(grid[i]+"\n\r");
-        }
-        String placeHolder = "";
-        return placeHolder;
-    }
+    //public String toString() {
+    //    for (int i = 0; i < grid.length; i++) {
+    //        Terminal.warpCursor(40,0);
+    //        System.out.print(grid[i]+"\n\r");
+    //    }
+    //    String placeHolder = "";
+    //    return placeHolder;
+    //}
 }
