@@ -15,8 +15,8 @@ import java.lang.reflect.Array;
 public class Room {
 
     // the grid holds the room geometry
-    private String[] grid;
-    //private String[] grid = new String[30];
+    private String grid[];
+    //private String grid[] = new String[30];
 
     // the size of the room
     private int rows = 30;
@@ -24,12 +24,12 @@ public class Room {
 
     public Room() {
         // this initializes the room to one specific space
-        rows = 30;
-        cols = 60;
+        //rows = 30;
+        //cols = 60;
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        this.grid  = new String[] {
+        String grid[] = new String[] {
                 "##################                ######################    ",
                 "##              ##                ##      i           ##    ",
                 "##  @           ###########       ##        *         ##    ",
@@ -133,7 +133,7 @@ public class Room {
         Terminal.clear();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                char cell = grid[row].charAt(col);
+                char cell = this.grid[row].charAt(col);
                 if (cell == '#') {
                     // a unicode block symbol
                     System.out.print('\u2588');
@@ -159,7 +159,7 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        this.grid = new String[30];
+        //grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) { // changed from i < rows
                 
