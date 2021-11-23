@@ -19,8 +19,8 @@ public class Room {
     //private String[] grid = new String[30];
 
     // the size of the room
-    private int rows;// = 30;
-    private int cols;// = 60;
+    private int rows = 30;
+    private int cols = 60;
 
     public Room() {
         // this initializes the room to one specific space
@@ -159,7 +159,7 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        //grid = new String[];
+        grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) { // changed from i < rows
                 
