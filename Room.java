@@ -10,7 +10,7 @@ import ansi_terminal.Terminal;
 
 //Testing
 import java.util.Arrays;
-import java.lang.reflect.Array;
+//import java.lang.reflect.Array;
 
 public class Room {
 
@@ -63,19 +63,10 @@ public class Room {
                grid[29] = "############                                                ";//,
         //};
 
-        //TESTING
-        //Terminal.warpCursor(40,0);
-        //System.out.print(Arrays.toString(grid));
-        //Terminal.pause(5);
     }
 
     // returns the player's starting location in this room
     public Position getPlayerStart() {
-        
-        //TESTING
-        //Terminal.warpCursor(40,0);
-        //System.out.print(Arrays.toString(grid));
-        //Terminal.pause(5);
         
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -183,21 +174,10 @@ public class Room {
                 //Arrays.fill(grid,temp);
             }
             // more testing
-                Terminal.warpCursor(40,0);
-                System.out.print("The field grid in Room.java "+Arrays.toString(this.grid)+"\n\r");
-                Terminal.pause(2);
+                //Terminal.warpCursor(40,0);
+                //System.out.print("The field grid in Room.java "+Arrays.toString(this.grid)+"\n\r");
+                //Terminal.pause(2);
             
         }
     }
-    
-    //**** used for testing
-    // REMOVE BEFORE SUBMITTING
-    //public String toString() {
-    //    for (int i = 0; i < grid.length; i++) {
-    //        Terminal.warpCursor(40,0);
-    //        System.out.print(grid[i]+"\n\r");
-    //    }
-    //    String placeHolder = "";
-    //    return placeHolder;
-    //}
 }
