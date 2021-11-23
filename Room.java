@@ -29,7 +29,7 @@ public class Room {
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
-        grid  = new String[] {
+        this.grid  = new String[] {
                 "##################                ######################    ",
                 "##              ##                ##      i           ##    ",
                 "##  @           ###########       ##        *         ##    ",
@@ -159,7 +159,7 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        grid = new String[30];
+        this.grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) { // changed from i < rows
                 
