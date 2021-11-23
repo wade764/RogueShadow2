@@ -9,22 +9,23 @@ import java.util.Scanner;
 import ansi_terminal.Terminal;
 
 //Testing
-import java.util.Arrays;
+//import java.util.Arrays;
+import java.lang.reflect.Array;
 
 public class Room {
 
     // the grid holds the room geometry
-    //private String[] grid;
-    private String[] grid = new String[30];
+    private String[] grid;
+    //private String[] grid = new String[30];
 
     // the size of the room
-    private int rows = 30;
-    private int cols = 60;
+    private int rows;// = 30;
+    private int cols;// = 60;
 
     public Room() {
         // this initializes the room to one specific space
-        //rows = 30;
-        //cols = 60;
+        rows = 30;
+        cols = 60;
 
         // the actual room geometry
         // the i cells refer to where an item should be placed at
@@ -158,7 +159,7 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        grid = new String[rows];
+        //grid = new String[];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) { // changed from i < rows
                 
@@ -168,11 +169,18 @@ public class Room {
                 //System.out.print("The field grid in Room.java "+this.grid.toString()+"\n\r");
                 //Terminal.pause(2);
                 
-                grid[i] = in.nextLine();
-                
+                //grid[i] = in.nextLine();
+                String temp = in.nextLine();
+                Array.set(grid,i,temp);
+
                 //This way wont work because it is only for a range or all elements but not idividual
                 //Arrays.fill(grid,temp);
             }
+            // more testing
+                Terminal.warpCursor(40,0);
+                System.out.print("The field grid in Room.java "+grid.toString()+"\n\r");
+                Terminal.pause(2);
+            
         }
     }
     
