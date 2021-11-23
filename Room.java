@@ -8,10 +8,14 @@ import java.util.Scanner;
 
 import ansi_terminal.Terminal;
 
+//Testing
+import java.util.Arrays;
+
 public class Room {
 
     // the grid holds the room geometry
-    private String[] grid;
+    //private String[] grid;
+    private String[] grid = new String[30];
 
     // the size of the room
     private int rows = 30;
@@ -25,7 +29,7 @@ public class Room {
         // the actual room geometry
         // the i cells refer to where an item should be placed at
         grid  = new String[] {
-            "##################                ######################    ",
+                "##################                ######################    ",
                 "##              ##                ##      i           ##    ",
                 "##  @           ###########       ##        *         ##    ",
                 "##                       ##       ##                  ##    ",
@@ -128,9 +132,6 @@ public class Room {
         Terminal.clear();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                Terminal.warpCursor(40,0);
-                System.out.print("The field grid in Room.java "+this.grid.toString()+"\n\r");
-                Terminal.pause(2);
                 char cell = grid[row].charAt(col);
                 if (cell == '#') {
                     // a unicode block symbol
@@ -159,13 +160,24 @@ public class Room {
     public Room(Scanner in) {
         grid = new String[rows];
         while (in.hasNext()) {
-            for (int i = 0; i < rows; i++) {
+            for (int i = 0; i < grid.length; i++) { // changed from i < rows
+                
+                //Test
+                // bad test will cause an infinite loop
+                //Terminal.warpCursor(40,0);
+                //System.out.print("The field grid in Room.java "+this.grid.toString()+"\n\r");
+                //Terminal.pause(2);
+                
                 grid[i] = in.nextLine();
+                
+                //This way wont work because it is only for a range or all elements but not idividual
+                //Arrays.fill(grid,temp);
             }
         }
     }
     
     //**** used for testing
+    // REMOVE BEFORE SUBMITTING
     public String toString() {
         for (int i = 0; i < grid.length; i++) {
             Terminal.warpCursor(40,0);
