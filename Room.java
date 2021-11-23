@@ -25,7 +25,7 @@ public class Room {
         // the actual room geometry
         // the i cells refer to where an item should be placed at
         grid  = new String[] {
-                "##################                ######################    ",
+            "##################                ######################    ",
                 "##              ##                ##      i           ##    ",
                 "##  @           ###########       ##        *         ##    ",
                 "##                       ##       ##                  ##    ",
@@ -128,6 +128,9 @@ public class Room {
         Terminal.clear();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
+                Terminal.warpCursor(40,0);
+                System.out.print("The field grid in Room.java "+this.grid.toString()+"\n\r");
+                Terminal.pause(2);
                 char cell = grid[row].charAt(col);
                 if (cell == '#') {
                     // a unicode block symbol
@@ -160,5 +163,15 @@ public class Room {
                 grid[i] = in.nextLine();
             }
         }
+    }
+    
+    //**** used for testing
+    public String toString() {
+        for (int i = 0; i < grid.length; i++) {
+            Terminal.warpCursor(40,0);
+            System.out.print(grid[i]);
+        }
+        String placeHolder = "";
+        return placeHolder;
     }
 }
