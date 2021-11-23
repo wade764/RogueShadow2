@@ -63,13 +63,19 @@ public class Room {
         };
 
         //TESTING
-        Terminal.warpCursor(40,0);
-        System.out.print(Arrays.toString(grid));
-        Terminal.pause(5);
+        //Terminal.warpCursor(40,0);
+        //System.out.print(Arrays.toString(grid));
+        //Terminal.pause(5);
     }
 
     // returns the player's starting location in this room
     public Position getPlayerStart() {
+        
+        //TESTING
+        Terminal.warpCursor(40,0);
+        System.out.print(Arrays.toString(grid));
+        Terminal.pause(5);
+        
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if ( grid[row].charAt(col) == '@') {
