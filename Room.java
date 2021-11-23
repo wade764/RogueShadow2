@@ -21,7 +21,7 @@ public class Room {
     // the size of the room
     private int rows = 30;
     private int cols = 60;
-    private static int index = 0;
+    //private static int index = 0;
 
     public Room() {
         // this initializes the room to one specific space
