@@ -337,6 +337,14 @@ public class Game {
                         room = new Room(in);
                         room.draw();
                     }
+                    else if (roomNumber == 2) {
+                        room2 = new Room2(in);
+                        room2.draw();
+                    }
+                    else if (roomNumber == 3) {
+                        room3 = new Room3(in);
+                        room3.draw();
+                    }
 
                         redrawMapAndHelp();
 
