@@ -3,11 +3,13 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Menu {
+
+    private static int loading = 0;
     // returned in Main class to start the game
-    private static Boolean playGame = false;
+    private static boolean playGame = false;
 
     // Used for printing the Title screen and creating a new game or loading
-    public static Boolean titleScreen() {
+    public static boolean titleScreen() {
 
         for (int i = 0; i < 100; i++) {
             Terminal.warpCursor(i, 0);
@@ -72,8 +74,7 @@ public class Menu {
         Terminal.warpCursor(17,40);
         System.out.print("<*|          _.._                                                       |*>\n\r");
         Terminal.warpCursor(18,40);
-        System.out.print("<*|        .' .-'`                                                      |*>\n\r");
-        //This line above would have the Load game print
+        System.out.print("<*|        .' .-'`            L: Load Game                              |*>\n\r");
         Terminal.warpCursor(19,40);
         System.out.print("<*|       /  /                                                          |*>\n\r");
         Terminal.warpCursor(20,40);
@@ -130,17 +131,18 @@ public class Menu {
                 playGame = true;
             } 
             // DO NOT DELETE ME WORK IN PROGRESS
-            /*else if (response.equalsIgnoreCase("L")) {
-              correctAnswer = true;
-              playGame = true;*/
+            else if (response.equalsIgnoreCase("L")) {
+                correctAnswer = true;
+                playGame = true;
+                loading = 1;
 
-            // CANNOT Instantiate a new game here it has not asked for the players name or icon yet!
-            // Game g = new Game();
-            // This is further proof that  game needs to be a singleton, I need to call handleKey from here but
-            // need a game object that can be manipulated
-            // and not just call new games
-            //g.handleKey(Key.r);
-            //}
+                // CANNOT Instantiate a new game here it has not asked for the players name or icon yet!
+                // Game g = new Game();
+                // This is further proof that  game needs to be a singleton, I need to call handleKey from here but
+                // need a game object that can be manipulated
+                // and not just call new games
+                Game.instance().handleKey(Key.r);
+            }
             else {
                 //System.out.print("Please enter N or L: ");
                 System.out.print("Press N to start a new game: ");
@@ -208,5 +210,10 @@ public class Menu {
         System.out.print("<                                                                           >");
         Terminal.warpCursor(26, 36);
         System.out.print("*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*");
+    }
+
+    //getter for return status loading used to skip the storyPlot and setPlayerInfo in Main
+    public static int getLoadStatus() {
+        return loading;
     }
 }

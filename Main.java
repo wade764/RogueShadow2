@@ -9,20 +9,21 @@ public class Main {
         Terminal.rawMode();
 
         //prints the title screen and if returns true the game runs
-        Boolean playGame = Menu.titleScreen();
+        boolean playGame = Menu.titleScreen();
 
         if (playGame) {
-
+            int loading = Menu.getLoadStatus();
             // printing both the plot and setting the players name and icon
-            Menu.storyPlot();
-            Player.setPlayerInfo();
-
+            if (loading == 0) {
+                Menu.storyPlot();
+                Player.setPlayerInfo();
+            }
             //*** I am thinking that it would make sense for Game to be a singleton
 
             // make and run the Game
             // singleton testing
             //Game game = new Game();
-            
+
             Game.instance().run();
             //game.run();
 
