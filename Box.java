@@ -30,9 +30,11 @@ public class Box extends Entity {
     public Box(Scanner in) {
         super(in);
         //create while (!in.hasNext(".")) here
-        while (!in.hasNext(".")) {
+        /*while (!in.hasNext(".")) {
             item = new Item(in);
-        }
+            in.nextLine();
+        }*/
+        item = new Item(in);
         //skipping the delimiter after each box
         in.nextLine();
     }
