@@ -19,31 +19,61 @@ public class Entity {
     // adding the current map/room integer
     private int whatMap;
 
+    /** Creates an Entity object
+     *
+     * @param row the row the entity is in
+     * @param col the column the entity is in
+     * @param display the symbol used to display the entity
+     * @param color the entity's color
+     */
     public Entity(int row, int col, char display, Color color) {
         position = new Position(row, col);
         this.display = display;
         this.color = color;
     }
 
-    // move the entity to a new location
+    /** Moves the entity to a new location
+     *
+     * @param row the new row the entity will be moved to
+     * @param col the new column the entity will be moved to
+     */
     public void setPosition(int row, int col) {
         position = new Position(row, col);
     }
 
-    // get the position of this entity
+    /** Get the position of the entity
+     *
+     * @return the entity's position
+     */
     public Position getPosition() {
         return position;
     }
 
+    /** Gets the row of the entity
+     *
+     * @return the entity's row
+     */
     public int getRow() {
         return position.getRow();
     }
 
+    /** Gets the column of the entity
+     *
+     * @return the entity's column
+     */
     public int getCol() {
         return position.getCol();
     }
 
-    // translate the entity in space, unless it would hit a wall
+    /** Translate the entity in space, unless it would hit a wall
+     *
+     * @param rowChange the new row of the entity
+     * @param colChange the new column of the entity
+     * @param room the first room
+     * @param room2 the second room
+     * @param room3 the third room
+     * @return whether the enity successfully moved
+     */
     public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
         // find new position
         whatMap = World.instance().getRoom();
@@ -97,6 +127,10 @@ public class Entity {
     }
 
     // draw this entity to the screen
+
+    /** Draw the entity to the screen
+     *
+     */
     public void draw() {
         Terminal.warpCursor(position.getRow(), position.getCol());
         Terminal.setForeground(color);
@@ -104,6 +138,10 @@ public class Entity {
         Terminal.reset();
     }
 
+    /** Saves the entity to the save file
+     *
+     * @param out the printwriter
+     */
     public void save(PrintWriter out) {
         out.println("Entity");
         position.save(out);
@@ -111,6 +149,10 @@ public class Entity {
         out.println(color);
     }
 
+    /** Loads the entity from the save file
+     *
+     * @param in the scanner
+     */
     public Entity(Scanner in) {
         //skips line in file that says Entity
         in.nextLine(); 
