@@ -1,7 +1,7 @@
 // Warp.java
 // represents a warp point
 
-import ansi_terminal.*;
+import ansi_terminal.Color;
 
 public class Warp extends Entity {
 

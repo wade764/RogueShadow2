@@ -331,7 +331,7 @@ public class Game {
                     //    }
                     //}
 
-                    // Wade test
+                    // Wade test, this is replacing the commented code above
                     roomNumber = World.instance().getRoom();
                     if (roomNumber == 1) {
                         room = new Room(in);

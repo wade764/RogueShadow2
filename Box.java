@@ -30,6 +30,7 @@ public class Box extends Entity {
     public Box(Scanner in) {
         super(in);
         item = new Item(in);
-        in.nextLine(); //skipping the delimiter after each box
+        //skipping the delimiter after each box
+        in.nextLine();
     }
 }

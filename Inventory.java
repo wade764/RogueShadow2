@@ -228,4 +228,3 @@ public class Inventory {
         in.nextLine();
     }
 }
-

@@ -90,5 +90,4 @@ public class Enemy extends Character {
         protection = in.nextInt();
         in.nextLine();
     }
-
 }

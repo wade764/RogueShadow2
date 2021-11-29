@@ -12,6 +12,9 @@ public class World {
         }
         return theInstance;
     }
+    
+    //LOOK HERE
+    // this should be private but I was running into errors at one point
 
     public World() {
     }

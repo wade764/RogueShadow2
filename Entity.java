@@ -112,7 +112,8 @@ public class Entity {
     }
 
     public Entity(Scanner in) {
-        in.nextLine(); //skips line in file that says Entity
+        //skips line in file that says Entity
+        in.nextLine(); 
         position = new Position(in);
         display = in.nextLine().charAt(0);
         String c = in.nextLine();

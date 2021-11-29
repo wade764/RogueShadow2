@@ -21,10 +21,13 @@ public class ItemGenerator {
 
     public static Item generate() {
         int num;
+        //LOOK HERE, it may make sense to put this in the field
         Random rng= new Random();
         num = rng.nextInt(24);
 
         //creates a place to store the Item and return at the end
+        
+        // LOOK HERE, do we need the Stick item? What is this doing?
 
         // modified the initial value of temp to be a stick because this value can be selected
         new Item(ItemType.Weapon, "Stick", 1, 1, 1);
