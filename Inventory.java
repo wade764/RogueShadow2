@@ -218,8 +218,12 @@ public class Inventory {
         maxWeight = 100;
         Item weapon = new Item(in);
         addAndEquip(weapon);
+        System.out.print(equippedWeapon.toString());
+        Terminal.pause(2);
         Item armor = new Item(in);
         addAndEquip(armor);
+        System.out.print(equippedArmor.toString());
+        Terminal.pause(2);
 
         while (!in.hasNext(".")) {
             Item item = new Item(in);
