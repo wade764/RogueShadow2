@@ -65,19 +65,6 @@ public class Game {
 
     }
 
-    //public Game() {
-
-    //    room = new Room();
-    //    room2 = new Room2();
-    //    room3 = new Room3();
-    //    warpPosit = new Position();
-
-    //    player = new Player(room.getPlayerStart());
-    //    boxes = room.getBoxes();
-    //    enemies = room.getEnemies();
-    //    warps = room.getWarp();
-    //}
-
     //prints when the player wins the game
     private void playerWon() {
 

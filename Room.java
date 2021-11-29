@@ -7,62 +7,44 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import ansi_terminal.Terminal;
 
-//Testing
-// Delete this if not using testing stuff in Room(in)
-import java.util.Arrays;
-//import java.lang.reflect.Array;
-
 public class Room {
-
     // the grid holds the room geometry
-    //private String grid[];
     private String[] grid = new String[30];
-
     // the size of the room
     private int rows = 30;
     private int cols = 60;
-    //private static int index = 0;
 
     public Room() {
-        // this initializes the room to one specific space
-        //rows = 30;
-        //cols = 60;
-
-        // the actual room geometry
-        // the i cells refer to where an item should be placed at
-        //String[] grid = new String[30]; {
-               grid[0] = "##################                ######################    ";//,
-               grid[1] = "##              ##                ##      i           ##    ";//,
-               grid[2] = "##  @           ###########       ##        *         ##    ";//,
-               grid[3] = "##                       ##       ##                  ##    ";//,
-               grid[4] = "##              #######  ##       ##################  ##    ";//,
-               grid[5] = "##              ##   ##  ##                       ##  ##    ";//,
-               grid[6] = "##################   ##  ##################       ##  ##    ";//,
-               grid[7] = "                     ##                  ##       ##  ##    ";//,
-               grid[8] = "                     ##   *  i           ##       ##  ##    ";//,
-               grid[9] = "                     ##                  ##       ##  ##    ";//,
-               grid[10] = "                     ##############  ######       ##  ##    ";//,
-               grid[11] = "                                 ##  ##           ##  ##    ";//,
-               grid[12] = "                                 ##  ##           ##  ##    ";//,
-               grid[13] = "                       ############  ###############  ######";//,
-               grid[14] = "                       ##                                 ##";//,
-               grid[15] = "                       ##     *                           ##";//,
-               grid[16] = "    #####################                  *              ##";//,
-               grid[17] = "    ##                                                    ##";//,
-               grid[18] = "    ##  #################                          i      ##";//,
-               grid[19] = "    ##  ##             ##                                 ##";//,
-               grid[20] = "    ##  ##             #################  ##################";//,
-               grid[21] = "    ##  ##                            ##  ##                ";//,
-               grid[22] = "    ##  ##                            ##  ##                ";//,
-               grid[23] = "    ##  ##                       #######  #######           ";//,
-               grid[24] = "    ##  ##                       ##            ##           ";//,
-               grid[25] = "######  ####                     ##  i  *      ##           ";//,
-               grid[26] = "##        ##                     ##         &  ##           ";//,
-               grid[27] = "## i  *   ##                     ################           ";//,
-               grid[28] = "##        ##                                                ";//,
-               grid[29] = "############                                                ";//,
-        //};
-
+               grid[0] = "##################                ######################    ";
+               grid[1] = "##              ##                ##      i           ##    ";
+               grid[2] = "##  @           ###########       ##        *         ##    ";
+               grid[3] = "##                       ##       ##                  ##    ";
+               grid[4] = "##              #######  ##       ##################  ##    ";
+               grid[5] = "##              ##   ##  ##                       ##  ##    ";
+               grid[6] = "##################   ##  ##################       ##  ##    ";
+               grid[7] = "                     ##                  ##       ##  ##    ";
+               grid[8] = "                     ##   *  i           ##       ##  ##    ";
+               grid[9] = "                     ##                  ##       ##  ##    ";
+               grid[10] = "                     ##############  ######       ##  ##    ";
+               grid[11] = "                                 ##  ##           ##  ##    ";
+               grid[12] = "                                 ##  ##           ##  ##    ";
+               grid[13] = "                       ############  ###############  ######";
+               grid[14] = "                       ##                                 ##";
+               grid[15] = "                       ##     *                           ##";
+               grid[16] = "    #####################                  *              ##";
+               grid[17] = "    ##                                                    ##";
+               grid[18] = "    ##  #################                          i      ##";
+               grid[19] = "    ##  ##             ##                                 ##";
+               grid[20] = "    ##  ##             #################  ##################";
+               grid[21] = "    ##  ##                            ##  ##                ";
+               grid[22] = "    ##  ##                            ##  ##                ";
+               grid[23] = "    ##  ##                       #######  #######           ";
+               grid[24] = "    ##  ##                       ##            ##           ";
+               grid[25] = "######  ####                     ##  i  *      ##           ";
+               grid[26] = "##        ##                     ##         &  ##           ";
+               grid[27] = "## i  *   ##                     ################           ";
+               grid[28] = "##        ##                                                ";
+               grid[29] = "############                                                ";
     }
 
     // returns the player's starting location in this room
@@ -75,7 +57,6 @@ public class Room {
                 }
             }
         }
-
         return null;
     }
 
@@ -86,22 +67,10 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
-                    
-                    // this was pulled from Room 2, why were we not doing that here?!
-
-                    //singleton testing                                                                                                                           
                       boxes.add(new Box(row, col, ItemGenerator.instance().generate()));
-                      //boxes.add(new Box(row, col, ItemGenerator.generate()));
-
-                    // testing singleton
-                    //Item i = ItemGenerator.instance().generate();
-                    //Item i = ItemGenerator.generate();
-                    
-                    //boxes.add(new Box(row, col, i ));
                 }
             }
         }
-
         return boxes;
     }
 
@@ -111,8 +80,6 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == '*') {
-                    
-                    //changed this line for EnemyGenerator singleton
                     enemies.add(EnemyGenerator.instance().generate(row, col));
                 }
             }
@@ -173,22 +140,11 @@ public class Room {
     }
 
     public Room(Scanner in) {
-        //String[] grid = new String[30];
         while (in.hasNext()) {
-            for (int i = 0; i < grid.length; i++) { // changed from i < rows
+            for (int i = 0; i < grid.length; i++) {
                 
                 grid[i] = in.nextLine();
-                //String temp = in.nextLine();
-                //Array.set(grid,i,temp);
-
-                //This way wont work because it is only for a range or all elements but not idividual
-                //Arrays.fill(grid,temp);
             }
-            // more testing
-                //Terminal.warpCursor(40,0);
-                //System.out.print("The field grid in Room.java "+Arrays.toString(this.grid)+"\n\r");
-                //Terminal.pause(2);
-            
         }
     }
 }
