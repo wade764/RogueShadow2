@@ -29,7 +29,10 @@ public class Box extends Entity {
     // part of the item loading method
     public Box(Scanner in) {
         super(in);
-        item = new Item(in);
+        //create while (!in.hasNext(".")) here
+        while (!in.hasNext(".")) {
+            item = new Item(in);
+        }
         //skipping the delimiter after each box
         in.nextLine();
     }

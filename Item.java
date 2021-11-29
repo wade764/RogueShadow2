@@ -78,7 +78,7 @@ public class Item {
 
         String temp = "";
 
-        while (!in.hasNext(".")) {
+        //while (!in.hasNext(".")) { //might be the issue, reads in one item only, dont loop through
             name = in.nextLine();
 
             /*Terminal.warpCursor(10, 0);
@@ -128,6 +128,6 @@ public class Item {
               System.out.print("Strength: " + strength);
               Terminal.pause(2);*/
 
-        } 
+        //}
     }
 }
