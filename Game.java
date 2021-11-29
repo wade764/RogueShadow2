@@ -418,9 +418,9 @@ public class Game {
                 showHelp();
             } else if (roomNumber == 2) {
                 //Terminal.clear();
-                boxes = room2.getBoxes();
-                enemies = room2.getEnemies();
-                warps = room2.getWarp();
+                //boxes = room2.getBoxes();
+                //enemies = room2.getEnemies();
+                //warps = room2.getWarp();
                 room2.draw();
                 warpPosit = room2.getPlayerStart();
                 int row = warpPosit.getRow();

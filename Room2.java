@@ -1,6 +1,6 @@
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 import ansi_terminal.Terminal;
 
 public class Room2 {
@@ -212,8 +212,8 @@ public int getCols() {
 // draws the map to the screen
 public void draw() {
     Terminal.clear();
-    for (int row = 0; row < 30; row++) {//changed rows to 30
-        for (int col = 0; col < 60; col++) {//changed cols to 60
+    for (int row = 0; row < 30; row++) {
+        for (int col = 0; col < 60; col++) {
             char cell = grid[row].charAt(col);
             if (cell == '#') {
                 // a unicode block symbol
@@ -247,4 +247,4 @@ public Room2(Scanner in) {
         }
     }
 }
-}                        
+}
