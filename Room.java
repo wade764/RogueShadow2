@@ -5,10 +5,10 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import ansi_terminal.Terminal;
 
 //Testing
+// Delete this if not using testing stuff in Room(in)
 import java.util.Arrays;
 //import java.lang.reflect.Array;
 
@@ -111,7 +111,9 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == '*') {
-                    enemies.add(EnemyGenerator.generate(row, col));
+                    
+                    //changed this line for EnemyGenerator singleton
+                    enemies.add(EnemyGenerator.instance().generate(row, col));
                 }
             }
         }
