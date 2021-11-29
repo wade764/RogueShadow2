@@ -102,8 +102,11 @@ public class Player extends Character {
     public Player(Scanner in) {
         super(in);
         name = in.nextLine();
-        System.out.print(name);
-        Terminal.pause(2);
+        
+        //TESTING
+        //System.out.print(name);
+        //Terminal.pause(2);
+        
         items = new Inventory(in);
     }
 }
