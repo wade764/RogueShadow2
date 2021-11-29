@@ -5,26 +5,48 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import ansi_terminal.*;
 
+/** Manages Character-type entities
+ *
+ */
 public abstract class Character extends Entity {
 
     // the character's health points
     protected int hp;
 
+    /** Creates a Character object
+     *
+     * @param row the row the character is in
+     * @param col the column the character is in
+     * @param display the symbol used to display the character
+     * @param color the color of the character
+     * @param hp the character's hp
+     */
     public Character(int row, int col, char display, Color color, int hp) {
         super(row, col, display, color);
         this.hp = hp;
     }
 
     // get the hp, damage, protection and name of character
+
+    /** Gets the character's hp
+     *
+     * @return the character's hp
+     */
     public int getHealth() {
         return hp;
     }
 
+    //do these each need javadocs since theyre abstract?
     public abstract int getDamage();
     public abstract int getProtection();
     public abstract String getName();
 
-    // do damage to another player, returns if they died
+    /** Deal damage to another player
+     *
+     * @param other the character that is taking damage
+     * @param room the room the chracter is in
+     * @return a boolean stating whether the character is alive or dead
+     */
     private boolean dealDamage(Character other, Room room) {
         // this character does damage to the other character
         int damageDone = getDamage() - other.getProtection();
@@ -55,8 +77,13 @@ public abstract class Character extends Entity {
         }
     }
 
-    // this method performs one round of battle between two characters
-    // return false if the player has died as a result
+    /** Performs one round of battle between 2 characters
+     *
+     * @param other the character being fought
+     * @param room the room the character is in
+     * @param enemies the arraylist of enemies in the room
+     * @return the status of the player
+     */
     public boolean fight(Character other, Room room, ArrayList<Enemy> enemies) {
         // do damage to them first
         boolean killed = dealDamage(other, room);
@@ -80,18 +107,26 @@ public abstract class Character extends Entity {
         return true;
     }
 
-    //used to reset the player's hp when they move to the next floor
+    /** Resets the player's hp when they move to the next floor
+     *
+     */
     public void resetHP() {
         hp = 50;
     }
 
-    // part of the save method
+    /** Saves the character to the save file
+     *
+     * @param out the printwriter
+     */
     public void save(PrintWriter out) {
         super.save(out);
         out.println(hp);
     }
 
-    // part of the load method
+    /** Loads the character from the save file
+     *
+     * @param in the scanner
+     */
     public Character(Scanner in) {
         super(in);
         String temp = in.nextLine();

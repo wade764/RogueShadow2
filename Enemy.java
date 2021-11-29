@@ -8,6 +8,9 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
 
+/** Manages Enemy-type characters
+ *
+ */
 public class Enemy extends Character {
     private String name;
     private int damage;
@@ -15,6 +18,15 @@ public class Enemy extends Character {
     private static Random rng;
     private boolean battleActive;
 
+    /** Creates an Enemy object
+     *
+     * @param name the enemy's name
+     * @param row the row the enemy is in
+     * @param col the column the enemy is in
+     * @param hp the enemy's hp
+     * @param damage the enemy's strength
+     * @param protection the enemy's defense
+     */
     public Enemy(String name, int row, int col, int hp, int damage, int protection) {
         super(row, col, '*', Color.RED, hp);
         this.name = name;
@@ -24,26 +36,46 @@ public class Enemy extends Character {
         rng = new Random();
     }
 
+    /** Gets the enemy's strength
+     *
+     * @return the enemy's strength
+     */
     @Override
-        public int getDamage() {
+    public int getDamage() {
             return damage;
         }
 
+    /** Gets the enemy's defense
+     *
+     * @return the enemy's dense
+     */
     @Override
-        public int getProtection() {
+    public int getProtection() {
             return protection;
         }
 
+    /** Gets the enemy's name
+     *
+     * @return the enemy's name
+     */
     @Override
-        public String getName() {
+    public String getName() {
             return name;
         }
 
+    /** Sets the battle status of the enemy
+     *
+     */
     public void setBattleActive() {
         battleActive = true;
     }
 
-    // randomly move this enemy in the room
+    /** Randomly move the enemy in the room
+     *
+     * @param room the first room
+     * @param room2 the second room
+     * @param room3 the third room
+     */
     public void walk(Room room, Room2 room2, Room3 room3) {
         // if a battle is active with this enemy, they DON'T walk right after
         if (battleActive) {
@@ -72,7 +104,10 @@ public class Enemy extends Character {
         }
     }
 
-    // part of the save method
+    /** Saves the character to the save file
+     *
+     * @param out the printwriter
+     */
     public void save(PrintWriter out) {
         super.save(out);
         out.println(name);
@@ -80,7 +115,10 @@ public class Enemy extends Character {
         out.println(protection);
     }
 
-    // used for loading the enemy data
+    /** Loads the enemy from the save file
+     *
+     * @param in the scanner
+     */
     public Enemy(Scanner in) {
         super(in);
         name = in.nextLine();
