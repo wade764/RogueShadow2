@@ -86,9 +86,18 @@ public class Room {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
+                    
+                    // this was pulled from Room 2, why were we not doing that here?!
+
+                    //singleton testing                                                                                                                           
+                      boxes.add(new Box(row, col, ItemGenerator.instance().generate()));
+                      //boxes.add(new Box(row, col, ItemGenerator.generate()));
+
+                    // testing singleton
                     //Item i = ItemGenerator.instance().generate();
-                    Item i = ItemGenerator.generate();
-                    boxes.add(new Box(row, col, i ));
+                    //Item i = ItemGenerator.generate();
+                    
+                    //boxes.add(new Box(row, col, i ));
                 }
             }
         }
