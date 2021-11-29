@@ -403,11 +403,11 @@ public class Game {
             }
             roomNumber = World.instance().getRoom();
             if (roomNumber == 1) {
-                Terminal.clear();
+                //Terminal.clear();
                 room.draw();
                 showHelp();
             } else if (roomNumber == 2) {
-                Terminal.clear();
+                //Terminal.clear();
                 boxes = room2.getBoxes();
                 enemies = room2.getEnemies();
                 warps = room2.getWarp();
@@ -419,7 +419,7 @@ public class Game {
                 showHelp();
 
             } else if (roomNumber == 3) {
-                Terminal.clear();
+                //Terminal.clear();
                 endOfDungeon = true;
                 boxes = room3.getBoxes();
                 enemies = room3.getEnemies();
