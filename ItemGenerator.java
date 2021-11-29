@@ -30,7 +30,9 @@ public class ItemGenerator {
         // LOOK HERE, do we need the Stick item? What is this doing?
 
         // modified the initial value of temp to be a stick because this value can be selected
-        new Item(ItemType.Weapon, "Stick", 1, 1, 1);
+
+        //new Item(ItemType.Weapon, "Stick", 1, 1, 1);
+
         return switch (num) {
             case 0 -> new Item(ItemType.Weapon, "Gold Sword", 5, 24, 36);
             case 1 -> new Item(ItemType.Other, "Purple Amulet of Mystery", 1, 50, 0);
@@ -56,7 +58,7 @@ public class ItemGenerator {
             case 21 -> new Item(ItemType.Other, "Deja Vu Potion", 2, 15, 0);
             case 22 -> new Item(ItemType.Armor, "Super Strength Armor", 20, 35, 32);
             case 23 -> new Item(ItemType.Other, "Book of Spells", 2, 13, 0);
-                default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
+                //default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
         };
     }
 }

@@ -20,9 +20,11 @@ public class Main {
             //*** I am thinking that it would make sense for Game to be a singleton
 
             // make and run the Game
-            Game game = new Game();
-
-            game.run();
+            // singleton testing
+            //Game game = new Game();
+            
+            Game.instance().run();
+            //game.run();
 
             // returning the cursor to the bottom of the screen
             Terminal.warpCursor(40,0);

@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class Game {
+    // making game a singleton
+    private static Game theInstance;
 
     // creating an int field that is used to call the appropriate room
     // starts at room 1
@@ -42,8 +44,15 @@ public class Game {
     private int justOnce = 0;
     private int Foreground = 0;
 
-    public Game() {
-
+    // creating a singleton used for generating items
+      public static synchronized Game instance() {
+          if (theInstance == null) {
+              theInstance = new Game();
+          }
+          return theInstance;
+      }
+    
+    private Game() {
         room = new Room();
         room2 = new Room2();
         room3 = new Room3();
@@ -53,7 +62,21 @@ public class Game {
         boxes = room.getBoxes();
         enemies = room.getEnemies();
         warps = room.getWarp();
+
     }
+
+    //public Game() {
+
+    //    room = new Room();
+    //    room2 = new Room2();
+    //    room3 = new Room3();
+    //    warpPosit = new Position();
+
+    //    player = new Player(room.getPlayerStart());
+    //    boxes = room.getBoxes();
+    //    enemies = room.getEnemies();
+    //    warps = room.getWarp();
+    //}
 
     //prints when the player wins the game
     private void playerWon() {
