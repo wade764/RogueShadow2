@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
+/** Manages the Game object
+ *
+ */
 public class Game {
     // making game a singleton
     private static Game theInstance;
@@ -44,14 +47,20 @@ public class Game {
     private int justOnce = 0;
     private int Foreground = 0;
 
-    // creating a singleton used for generating items
-      public static synchronized Game instance() {
-          if (theInstance == null) {
-              theInstance = new Game();
-          }
-          return theInstance;
-      }
-    
+    /** Creates a singleton for creating an instance of the game
+     *
+     * @return the instance of the game
+     */
+    public static synchronized Game instance() {
+        if (theInstance == null) {
+            theInstance = new Game();
+        }
+        return theInstance;
+    }
+
+    /** Instantiates the Game object
+     *
+     */
     private Game() {
         room = new Room();
         room2 = new Room2();
@@ -65,13 +74,12 @@ public class Game {
 
     }
 
-    //prints when the player wins the game
+    /** Prints when the player wins the game
+     *
+     */
     private void playerWon() {
-
         Terminal.clear();
-
         Terminal.setForeground(Color.YELLOW);
-
         for (int i = 0; i < 40; i++) {
             Terminal.warpCursor(i, 82);
             System.out.print("                                                                                               ");
@@ -95,7 +103,9 @@ public class Game {
         Terminal.pause(5);
     }
 
-    //prints when the player loses the game
+    /** Prints when the player loses the game
+     *
+     */
     private void gameOver() {
 
         Terminal.clear();
@@ -154,7 +164,9 @@ public class Game {
         Terminal.getKey();
     }
 
-    // prints a help menu to the left of the map
+    /** Prints a help menu to the right side of the map
+     *
+     */
     private void showHelp() {
 
         //setting the color for help once per game
@@ -215,7 +227,10 @@ public class Game {
         Terminal.reset();
     }
 
-    // right under the map we keep a line for status messages
+    /** Prints a line at the bottom of the map with a given message
+     *
+     * @param mesg the message to be printed
+     */
     private void setStatus(String mesg) {
         // clear anything old first
         Terminal.warpCursor(room.getRows(), 0);
@@ -228,7 +243,9 @@ public class Game {
         System.out.print(mesg);
     }
 
-    // code for when the player tries to pickup an item
+    /** Adds an item on the map to a player's inventory if they have enough space
+     *
+     */
     private void pickup() {
         Box thing = checkForBox();
         if (thing == null) {
@@ -245,8 +262,9 @@ public class Game {
         }
     }
 
-
-    // code for when the player tries to drop an item
+    /** Drops an item and places it on the map
+     *
+     */
     private void drop() {
         if (checkForBox() == null) {
             Item dropped = player.getInventory().drop();
@@ -260,8 +278,11 @@ public class Game {
         }
     }
 
-    // Changed to protected because this method is called in the Menu class
-    // handle the key which was read - return false if we quit the game
+    /** Handles the key that was read
+     *
+     * @param key the player's input
+     * @return a false boolean for when the player quits the game
+     */
     protected boolean handleKey(Key key) {
         switch (key) {
             case p:
@@ -386,11 +407,46 @@ public class Game {
 
         // this is called when we need to redraw the room and help menu
         // this happens after going into a menu like for choosing items
-        private void redrawMapAndHelp() {
+    private void redrawMapAndHelp() {
+        //setting the color for the game once
+        if (justOnce == 0) {
+            justOnce++;
 
-            //setting the color for the game once
-            if (justOnce == 0) {
-                justOnce++;
+            // setting the color randomly
+            Random rng = new Random();
+            Foreground = rng.nextInt(6);
+        }
+        switch (Foreground) {
+            case 0: Terminal.setForeground(Color.CYAN);
+                    break;
+            case 1: Terminal.setForeground(Color.GREEN);
+                    break;
+            case 2: Terminal.setForeground(Color.MAGENTA);
+                    break;
+            case 3: Terminal.setForeground(Color.RED);
+                    break;
+            case 4: Terminal.setForeground(Color.WHITE);
+                    break;
+            case 5: Terminal.setForeground(Color.YELLOW);
+                    break;
+            default: Terminal.setForeground(Color.RED);
+        }
+        roomNumber = World.instance().getRoom();
+        if (roomNumber == 1) {
+            //Terminal.clear();
+            room.draw();
+            showHelp();
+        } else if (roomNumber == 2) {
+            //Terminal.clear();
+            boxes = room2.getBoxes();
+            enemies = room2.getEnemies();
+            warps = room2.getWarp();
+            room2.draw();
+            warpPosit = room2.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row, col);
+            showHelp();
 
                 // setting the color randomly
                 Random rng = new Random();
@@ -428,192 +484,177 @@ public class Game {
                 player.setPosition(row, col);
                 showHelp();
 
-            } else if (roomNumber == 3) {
-                //Terminal.clear();
-                endOfDungeon = true;
-                boxes = room3.getBoxes();
-                enemies = room3.getEnemies();
-                warps = room3.getWarp();
-                room3.draw();
-                warpPosit = room3.getPlayerStart();
-                int row = warpPosit.getRow();
-                int col = warpPosit.getCol();
-                player.setPosition(row, col);
-                showHelp();
+        } else {
+            //defaults to room 1 at the moment
+            room.draw();
+            showHelp();
+        }
+    }
 
-            } else {
-                //defaults to room 1 at the moment
-                room.draw();
-                showHelp();
+    // returns a Box if the player is on it -- otherwise null
+    private Box checkForBox() {
+        Position playerLocation = player.getPosition();
+
+        for (Box box : boxes) {
+            if (playerLocation.equals(box.getPosition())) {
+                return box;
             }
         }
+        return null;
+    }
 
-        // returns a Box if the player is on it -- otherwise null
-        private Box checkForBox() {
-            Position playerLocation = player.getPosition();
+    // returns a Warp if the player is on it -- otherwise null
+    private Warp checkForWarp() {
+        Position playerLocation = player.getPosition();
 
+        for (Warp warp : warps) {
+            if (playerLocation.equals(warp.getPosition())) {
+                return warp;
+            }
+        }
+        return null;
+    }
+
+    // check for battles and return false if player has died
+    private boolean checkBattles() {
+        Position playerLocation = player.getPosition();
+
+        // look for an enemy that is close
+        Enemy opponent = null;
+        for (Enemy enemy : enemies) {
+            if (playerLocation.isAdjacent(enemy.getPosition())) {
+                opponent = enemy;
+            }
+        }
+        // now do the battle
+        if (opponent != null) {
+            opponent.setBattleActive();
+            return player.fight(opponent, room, enemies);
+        }
+        return true;
+    }
+
+    public void run() {
+        // draw these for the first time now
+        redrawMapAndHelp();
+
+        boolean playing = true;
+        while (playing) {
+            // draw the entities
             for (Box box : boxes) {
-                if (playerLocation.equals(box.getPosition())) {
-                    return box;
-                }
+                box.draw();
             }
-            return null;
-        }
-
-        // returns a Warp if the player is on it -- otherwise null
-        private Warp checkForWarp() {
-            Position playerLocation = player.getPosition();
-
-            for (Warp warp : warps) {
-                if (playerLocation.equals(warp.getPosition())) {
-                    return warp;
-                }
-            }
-            return null;
-        }
-
-        // check for battles and return false if player has died
-        private boolean checkBattles() {
-            Position playerLocation = player.getPosition();
-
-            // look for an enemy that is close
-            Enemy opponent = null;
             for (Enemy enemy : enemies) {
-                if (playerLocation.isAdjacent(enemy.getPosition())) {
-                    opponent = enemy;
-                }
+                enemy.draw();
             }
-            // now do the battle
-            if (opponent != null) {
-                opponent.setBattleActive();
-                return player.fight(opponent, room, enemies);
+            for (Warp warp : warps) {
+                warp.draw();
             }
-            return true;
-        }
+            player.draw();
 
-        public void run() {
+            // read a key from the user
+            Terminal.warpCursor(room.getRows() + 1, 0);
+            Key key = Terminal.getKey();
+            playing = handleKey(key);
 
-            // draw these for the first time now
-            redrawMapAndHelp();
+            // clear status by default
+            setStatus("");
 
-            boolean playing = true;
-            while (playing) {
-                // draw the entities
-                for (Box box : boxes) {
-                    box.draw();
-                }
-                for (Enemy enemy : enemies) {
-                    enemy.draw();
-                }
-                for (Warp warp : warps) {
-                    warp.draw();
-                }
-                player.draw();
+            // move the enemies
+            for (Enemy enemy : enemies) {
+                enemy.walk(room, room2, room3);
+            }
 
-                // read a key from the user
-                Terminal.warpCursor(room.getRows() + 1, 0);
-                Key key = Terminal.getKey();
-                playing = handleKey(key);
+            // check for battles
+            if (!checkBattles()) {
+                setStatus("You have been killed :(\n\r");
+                gameOver();
+                playing = false;
+            }
+            if (playing) {
+                showHelp();
+            }
 
-                // clear status by default
-                setStatus("");
+            // check if we are on a box and print what's in it
+            Box thingHere = checkForBox();
+            if (thingHere != null) {
+                setStatus("Here you find: " + thingHere.getItem().getName() + " Weight: " + thingHere.getItem().getWeight() + " Value: " + thingHere.getItem().getValue() + " Strength: " + thingHere.getItem().getStrength());
+            }
 
-                // move the enemies
-                for (Enemy enemy : enemies) {
-                    enemy.walk(room, room2, room3);
-                }
-
-                // check for battles
-                if (!checkBattles()) {
-                    setStatus("You have been killed :(\n\r");
-                    gameOver();
-                    playing = false;
-                }
-                if (playing) {
-                    showHelp();
-                }
-
-                // check if we are on a box and print what's in it
-                Box thingHere = checkForBox();
-                if (thingHere != null) {
-                    setStatus("Here you find: " + thingHere.getItem().getName() + " Weight: " + thingHere.getItem().getWeight() + " Value: " + thingHere.getItem().getValue() + " Strength: " + thingHere.getItem().getStrength());
-                }
-
-                // copied the same idea as above however it may make sense to make this bit below its own method
-                // check if we are on a warp, print question, and store return response from user
-                Warp aWarp = checkForWarp();
-                if (aWarp != null) {
-                    if (enemies.size() == 0) {
-                        setStatus("The door unlocked");
-                        Terminal.pause(2);
-                        if (!endOfDungeon) {
-                            setStatus("Would you like to go to the next room? Y or N: ");
-                            // asking for the response
-                            Scanner response = new Scanner(System.in);
-                            String answer = response.next();
-                            if (answer.equalsIgnoreCase("Y")) {
-                                if (roomNumber < 3) {
-                                    roomNumber = World.instance().roomUpdate();
-                                    player.resetHP(); //resets player's hp when they go to the next floor
-                                    redrawMapAndHelp();
-                                    save();
-                                }
-                                else {
-                                    playing = false;
-                                }
+            // copied the same idea as above however it may make sense to make this bit below its own method
+            // check if we are on a warp, print question, and store return response from user
+            Warp aWarp = checkForWarp();
+            if (aWarp != null) {
+                if (enemies.size() == 0) {
+                    setStatus("The door unlocked");
+                    Terminal.pause(2);
+                    if (!endOfDungeon) {
+                        setStatus("Would you like to go to the next room? Y or N: ");
+                        // asking for the response
+                        Scanner response = new Scanner(System.in);
+                        String answer = response.next();
+                        if (answer.equalsIgnoreCase("Y")) {
+                            if (roomNumber < 3) {
+                                roomNumber = World.instance().roomUpdate();
+                                player.resetHP(); //resets player's hp when they go to the next floor
+                                redrawMapAndHelp();
+                                save();
                             }
-                        } else if (endOfDungeon) {
-                            // the game is over the player has won!
-                            playerWon();
-                            playing = false;
-
+                            else {
+                                playing = false;
+                            }
                         }
-                    } else if (enemies.size() > 0 ) { //if not all of the enemies in the room are dead yet
-                        setStatus("Door is locked! Rip and Tear!");
+                    } else if (endOfDungeon) {
+                        // the game is over the player has won!
+                        playerWon();
+                        playing = false;
                     }
+                } else if (enemies.size() > 0 ) { //if not all of the enemies in the room are dead yet
+                    setStatus("Door is locked! Rip and Tear!");
                 }
-            }
-        }
-
-        public void save() {
-            try {
-                PrintWriter pw = new PrintWriter("save.txt");
-                pw.println(roomNumber);
-                enemySize = enemies.size(); //helps with loading in save data
-                boxSize = boxes.size();
-                pw.println(enemySize);
-                pw.println(boxSize);
-                // Saves the player as an Entity
-                player.save(pw);
-                //info about enemies on the floor
-                for (Enemy enemy : enemies) {
-                    enemy.save(pw);
-                }
-                //info about items on the floor
-                for (Box box : boxes) {
-                    box.save(pw);
-                }
-                pw.println(".");
-                if (roomNumber == 1) {
-                    room.save(pw);
-                }
-                else if (roomNumber == 2) {
-                    room2.save(pw);
-                }
-                else {
-                    room3.save(pw);
-                }
-                pw.close(); //closes the printwriter
-
-                //Prints message to display
-                Terminal.warpCursor(40,0);
-                setStatus("Your game was saved");
-                Terminal.pause(2);
-
-            } catch (FileNotFoundException e) {
-                Terminal.warpCursor(40,0);
-                System.out.print("Could not save data");
-                Terminal.pause(2);
             }
         }
     }
+
+    public void save() {
+        try {
+            PrintWriter pw = new PrintWriter("save.txt");
+            pw.println(roomNumber);
+            enemySize = enemies.size(); //helps with loading in save data
+            boxSize = boxes.size();
+            pw.println(enemySize);
+            pw.println(boxSize);
+            // Saves the player as an Entity
+            player.save(pw);
+            //info about enemies on the floor
+            for (Enemy enemy : enemies) {
+                enemy.save(pw);
+            }
+            //info about items on the floor
+            for (Box box : boxes) {
+                box.save(pw);
+            }
+            pw.println(".");
+            if (roomNumber == 1) {
+                room.save(pw);
+            }
+            else if (roomNumber == 2) {
+                room2.save(pw);
+            }
+            else {
+                room3.save(pw);
+            }
+            pw.close(); //closes the printwriter
+
+            //Prints message to display
+            Terminal.warpCursor(40,0);
+            setStatus("Your game was saved");
+            Terminal.pause(2);
+
+        } catch (FileNotFoundException e) {
+            Terminal.warpCursor(40,0);
+            System.out.print("Could not save data");
+            Terminal.pause(2);
+        }
+    }
+}
