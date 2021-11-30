@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import ansi_terminal.Terminal;
 
+/** Creates and manages the layout, enemies, boxes, and player in the first room
+ *
+ */
 public class Room {
     // the grid holds the room geometry
     private String[] grid;
@@ -51,7 +54,6 @@ public class Room {
 
     // returns the player's starting location in this room
     public Position getPlayerStart() {
-
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if ( grid[row].charAt(col) == '@') {
@@ -135,7 +137,7 @@ public class Room {
         return grid[row].charAt(col) != '#';
     }
 
-    /** Writes the entire room to the save file
+    /** Writes the current room layout of Room 1 to the save file
      *
      * @param out the printwriter used to write data to a file
      */
@@ -145,7 +147,7 @@ public class Room {
         }
     }
 
-    /** A constructor used for reading in the row and column of the position from the save file
+    /** A constructor used for reading in the room layout of Room 1 from the save file
      *
      * @param in the scanner used to read in data from the file
      */

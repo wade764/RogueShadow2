@@ -3,7 +3,8 @@
 
 import java.util.Random;
 
-/** Randomly generates enemies
+/** This class randomly generates an enemy that is then placed on the map where a * is located. Enemies are generated
+ * only at the beginning of the map being loaded and the enemies retain the same data while they are alive
  *
  */
 public class EnemyGenerator {
@@ -26,7 +27,7 @@ public class EnemyGenerator {
 
      }
 
-    /** Generates a new Enemy object
+    /** Generates a new Enemy object based on a random number that is generated each time
      *
      * @param row the row the enemy is in
      * @param col the column the enemy is in

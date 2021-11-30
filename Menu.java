@@ -10,7 +10,7 @@ public class Menu {
 
     // Used for printing the Title screen and creating a new game or loading
 
-    /** The title screen of the game
+    /** Prints the game's title screen
      *
      * @return a boolean that tells Main to start the game
      */

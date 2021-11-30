@@ -3,6 +3,9 @@
 
 import java.util.Random;
 
+/** Generates a random item each time generate() is called
+ *
+ */
 public class ItemGenerator {
 
     private static ItemGenerator theInstance;

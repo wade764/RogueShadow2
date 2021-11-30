@@ -101,7 +101,7 @@ public class Entity {
         Terminal.reset();
     }
 
-    /** Saves the entity to the save file
+    /** Writes the entity's position, display, and color to the save file
      *
      * @param out the printwriter used to write data to a file
      */
@@ -112,7 +112,7 @@ public class Entity {
         out.println(color);
     }
 
-    /** Loads the entity from the save file
+    /** A constructor used for reading in data about the entity's position, display, and color from the save file
      *
      * @param in the scanner used to read in data from the file
      */

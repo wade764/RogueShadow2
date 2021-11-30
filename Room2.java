@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import ansi_terminal.Terminal;
 
+/** Creates and manages the layout, enemies, boxes, and player in the second room
+ *
+ */
 public class Room2 {
     // the grid holds the room geometry
     private String[] grid;
@@ -131,12 +134,20 @@ public class Room2 {
         return grid[row].charAt(col) != '#';
     }
 
+    /** Writes the current room layout of Room 2 to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         for (String s : grid) {
             out.println(s);
         }
     }
 
+    /** A constructor used for reading in the room layout of Room 2 from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Room2(Scanner in) {
         // we must initialize a new grid here prior to loading
         grid = new String[30];

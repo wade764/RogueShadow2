@@ -4,10 +4,6 @@
 import ansi_terminal.*;
 
 public class Main {
-    /**
-     *
-     * @param args the ansi_terminal.jar file
-     */
     public static void main(String[] args) {
         // put terminal in raw mode
         Terminal.rawMode();

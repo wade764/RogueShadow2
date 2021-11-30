@@ -72,9 +72,9 @@ public class Enemy extends Character {
         }
     }
 
-    /** Saves the character to the save file
+    /** Writes the enemy's Entity and Character data, along with its name, strength, and defense to the save file
      *
-     * @param out the printwriter
+     * @param out the printwriter used to write data to a file
      */
     public void save(PrintWriter out) {
         super.save(out);
@@ -83,9 +83,10 @@ public class Enemy extends Character {
         out.println(protection);
     }
 
-    /** Loads the enemy from the save file
+    /** A constructor used for reading in the enemy's Entity and Character data, along with its name, strength, and
+     * defense from the save file
      *
-     * @param in the scanner
+     * @param in the scanner used to read in data from the file
      */
     public Enemy(Scanner in) {
         super(in);

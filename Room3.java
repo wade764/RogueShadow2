@@ -4,6 +4,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/** Creates and manages the layout, enemies, boxes, and player in the third room
+ *
+ */
 public class Room3 {
     // the grid holds the room geometry
     private String[] grid;
@@ -129,12 +132,20 @@ public class Room3 {
         return grid[row].charAt(col) != '#';
     }
 
+    /** Writes the current room layout of Room 3 to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         for (String s : grid) {
             out.println(s);
         }
     }
 
+    /** A constructor used for reading in the room layout of Room 3 from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Room3(Scanner in) {
         // we must initialize a new grid here prior to loading
         grid = new String[30];

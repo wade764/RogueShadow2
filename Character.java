@@ -5,9 +5,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import ansi_terminal.*;
 
-/** Manages Character-type entities
- *
- */
 public abstract class Character extends Entity {
 
     // the character's health points
@@ -88,18 +85,18 @@ public abstract class Character extends Entity {
         hp = 50;
     }
 
-    /** Saves the character to the save file
+    /** Writes the character's Entity data and hp to the save file
      *
-     * @param out the printwriter
+     * @param out the printwriter used to write data to a file
      */
     public void save(PrintWriter out) {
         super.save(out);
         out.println(hp);
     }
 
-    /** Loads the character from the save file
+    /** A constructor used for reading in the character's Entity data and hp from the save file
      *
-     * @param in the scanner
+     * @param in the scanner used to read in data from the file
      */
     public Character(Scanner in) {
         super(in);

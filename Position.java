@@ -43,7 +43,7 @@ public class Position {
         return col;
     }
 
-    /** Writes the row and column of the position to the save file
+    /** Writes the row and column of the entity's position to the save file
      *
      * @param out the printwriter used to write data to a file
      */
@@ -52,7 +52,7 @@ public class Position {
         out.println(col);
     }
 
-    /** A constructor used for reading in the row and column of the position from the save file
+    /** A constructor used for reading in the row and column of the entity's position from the save file
      *
      * @param in the scanner used to read in data from the file
      */

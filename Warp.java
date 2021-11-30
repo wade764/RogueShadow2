@@ -3,6 +3,9 @@
 
 import ansi_terminal.Color;
 
+/** Manages a warp object that the player can use once they have defeated all the enemies in the current room
+ *
+ */
 public class Warp extends Entity {
     /** Creates a warp object on a given row and column
      *

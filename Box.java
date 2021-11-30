@@ -5,9 +5,6 @@ import ansi_terminal.Color;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-/** Manages Box-type entities which contain items scattered across rooms
- *
- */
 public class Box extends Entity {
     // the Item that is in the box
     private Item item;
@@ -22,9 +19,9 @@ public class Box extends Entity {
         return item;
     }
 
-    /** Saves the box to the save file
+    /** Writes the box's position and the item inside it to the save file
      *
-     * @param out the printwriter
+     * @param out the printwriter used to write data to a file
      */
     public void save(PrintWriter out) {
         super.save(out);
@@ -32,7 +29,7 @@ public class Box extends Entity {
         out.println(".");
     }
 
-    /** Loads the boxes from the ave file
+    /** A constructor used for reading in the box's position and item inside it from the save file
      *
      * @param in the scanner
      */

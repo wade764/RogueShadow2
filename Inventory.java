@@ -202,7 +202,8 @@ public class Inventory {
         return items;
     }
 
-    /** Writes each item in the inventory to the save file
+    /** Writes each item in the inventory, including the equipped weapon, armor, and other obtained items to the
+     * save file
      *
      * @param out the printwriter used to write data to a file
      */
@@ -217,7 +218,8 @@ public class Inventory {
         out.println(".");
     }
 
-    /** A constructor used for reading in data about the inventory from the save file
+    /** A constructor used for reading in the inventory, including the equipped weapon, armor, and other obtained items
+     * from the save file
      *
      * @param in the scanner used to read in data from the file
      */
