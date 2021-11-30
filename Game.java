@@ -58,9 +58,6 @@ public class Game {
         return theInstance;
     }
 
-    /** Instantiates the Game object
-     *
-     */
     private Game() {
         room = new Room();
         room2 = new Room2();
@@ -74,9 +71,6 @@ public class Game {
 
     }
 
-    /** Prints when the player wins the game
-     *
-     */
     private void playerWon() {
         Terminal.clear();
         Terminal.setForeground(Color.YELLOW);
@@ -103,9 +97,6 @@ public class Game {
         Terminal.pause(5);
     }
 
-    /** Prints when the player loses the game
-     *
-     */
     private void gameOver() {
 
         Terminal.clear();
@@ -164,9 +155,6 @@ public class Game {
         Terminal.getKey();
     }
 
-    /** Prints a help menu to the right side of the map
-     *
-     */
     private void showHelp() {
 
         //setting the color for help once per game
@@ -227,10 +215,6 @@ public class Game {
         Terminal.reset();
     }
 
-    /** Prints a line at the bottom of the map with a given message
-     *
-     * @param mesg the message to be printed
-     */
     private void setStatus(String mesg) {
         // clear anything old first
         Terminal.warpCursor(room.getRows(), 0);
@@ -243,9 +227,6 @@ public class Game {
         System.out.print(mesg);
     }
 
-    /** Adds an item on the map to a player's inventory if they have enough space
-     *
-     */
     private void pickup() {
         Box thing = checkForBox();
         if (thing == null) {
@@ -262,9 +243,6 @@ public class Game {
         }
     }
 
-    /** Drops an item and places it on the map
-     *
-     */
     private void drop() {
         if (checkForBox() == null) {
             Item dropped = player.getInventory().drop();
@@ -278,11 +256,6 @@ public class Game {
         }
     }
 
-    /** Handles the key that was read
-     *
-     * @param key the player's input
-     * @return a false boolean for when the player quits the game
-     */
     protected boolean handleKey(Key key) {
         switch (key) {
             case p:
@@ -616,6 +589,11 @@ public class Game {
         }
     }
 
+    /** Creates a text file that data from the game is written into with a printwriter. This file stores the number
+     * of the room that the player last saved in, along with the number of enemies and boxes in that room. The method
+     * also saves data about the player, the enemies and boxes on the map, and the map room layout itself to the file
+     *
+     */
     public void save() {
         try {
             PrintWriter pw = new PrintWriter("save.txt");

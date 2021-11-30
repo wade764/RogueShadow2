@@ -202,6 +202,10 @@ public class Inventory {
         return items;
     }
 
+    /** Writes each item in the inventory to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         equippedWeapon.save(out);
         equippedArmor.save(out);
@@ -213,6 +217,10 @@ public class Inventory {
         out.println(".");
     }
 
+    /** A constructor used for reading in data about the inventory from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Inventory(Scanner in) {
         items = new ArrayList<>();
         maxWeight = 100;

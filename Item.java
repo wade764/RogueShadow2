@@ -62,6 +62,10 @@ public class Item {
             return name + " " + weight + " " + value + " " + strength;
         }
 
+    /** Writes the item's info to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         //out.println("Item");
         out.println(name);
@@ -71,6 +75,10 @@ public class Item {
         out.println(strength);
     }
 
+    /** A constructor used for reading in data about the item from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Item(Scanner in) {
 
         //Wades attempt

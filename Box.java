@@ -12,22 +12,12 @@ public class Box extends Entity {
     // the Item that is in the box
     private Item item;
 
-    /** Creates a Box object with an Item in it
-     *
-     * @param row the row of the item
-     * @param col the column of the item
-     * @param item the item itself
-     */
     public Box(int row, int col, Item item) {
         super(row, col, 'i', Color.MAGENTA);
         this.item = item;
     }
     // returns the field item
 
-    /** Returns the item on the map
-     *
-     * @return the item at a given location
-     */
     public Item getItem() {
         return item;
     }

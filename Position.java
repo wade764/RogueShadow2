@@ -43,11 +43,19 @@ public class Position {
         return col;
     }
 
+    /** Writes the row and column of the position to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         out.println(row);
         out.println(col);
     }
 
+    /** A constructor used for reading in the row and column of the position from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Position(Scanner in) {
         row = in.nextInt();
         //skipping the rest of the line

@@ -11,7 +11,7 @@ public class EnemyGenerator {
     // DO NOT DELETE WORKING FOR NEXT PART
      private static EnemyGenerator theInstance;
 
-    /** A singleton for the enemy generator
+    /** A singleton that creates an enemy generator
      *
      * @return the EnemyGenerator instance
      */
@@ -22,10 +22,7 @@ public class EnemyGenerator {
          return theInstance;
      }
 
-    /** Part of the class's singleton
-     *
-     */
-    private EnemyGenerator() {
+     private EnemyGenerator() {
 
      }
 

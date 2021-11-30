@@ -9,8 +9,12 @@ public class Menu {
     private static boolean playGame = false;
 
     // Used for printing the Title screen and creating a new game or loading
-    public static boolean titleScreen() {
 
+    /** The title screen of the game
+     *
+     * @return a boolean that tells Main to start the game
+     */
+    public static boolean titleScreen() {
         for (int i = 0; i < 100; i++) {
             Terminal.warpCursor(i, 0);
             System.out.print("                                                                                                                                   ");
@@ -153,6 +157,10 @@ public class Menu {
 
     // Printing the games story to the screen
     // important that this comes before new Game() in main method
+
+    /** Prints the game's plot to the screen
+     *
+     */
     public static void storyPlot() {
 
         // clearing the terminal screen
@@ -213,6 +221,14 @@ public class Menu {
     }
 
     //getter for return status loading used to skip the storyPlot and setPlayerInfo in Main
+
+    /** Returns the status of the game that states whether the game is being loaded from a save file or if it is a new
+     * game
+     *
+     * @return an integer that tells Main if the player is loading a game from a save file when on the menu screen
+     * so that the plot and text for getting a player's info can be skipped if the player is continuing a game from
+     * a save file
+     */
     public static int getLoadStatus() {
         return loading;
     }
