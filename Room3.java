@@ -136,7 +136,8 @@ public class Room3 {
     }
 
     public Room3(Scanner in) {
-        //grid = new String[rows];
+        // we must initialize a new grid here prior to loading
+        grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) {
                 grid[i] = in.nextLine();

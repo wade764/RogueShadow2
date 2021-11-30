@@ -150,6 +150,8 @@ public class Room {
      * @param in the scanner used to read in data from the file
      */
     public Room(Scanner in) {
+        // we must initialize a new grid here prior to loading
+        grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) {
                 grid[i] = in.nextLine();

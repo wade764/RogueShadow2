@@ -138,6 +138,8 @@ public class Room2 {
     }
 
     public Room2(Scanner in) {
+        // we must initialize a new grid here prior to loading
+        grid = new String[30];
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) {
 
