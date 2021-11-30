@@ -447,43 +447,17 @@ public class Game {
             int col = warpPosit.getCol();
             player.setPosition(row, col);
             showHelp();
-
-                // setting the color randomly
-                Random rng = new Random();
-                Foreground = rng.nextInt(6);
-            }
-            switch (Foreground) {
-                case 0: Terminal.setForeground(Color.CYAN);
-                        break;
-                case 1: Terminal.setForeground(Color.GREEN);
-                        break;
-                case 2: Terminal.setForeground(Color.MAGENTA);
-                        break;
-                case 3: Terminal.setForeground(Color.RED);
-                        break;
-                case 4: Terminal.setForeground(Color.WHITE);
-                        break;
-                case 5: Terminal.setForeground(Color.YELLOW);
-                        break;
-                default: Terminal.setForeground(Color.RED);
-            }
-            roomNumber = World.instance().getRoom();
-            if (roomNumber == 1) {
-                //Terminal.clear();
-                room.draw();
-                showHelp();
-            } else if (roomNumber == 2) {
-                //Terminal.clear();
-                //boxes = room2.getBoxes();
-                //enemies = room2.getEnemies();
-                //warps = room2.getWarp();
-                room2.draw();
-                warpPosit = room2.getPlayerStart();
-                int row = warpPosit.getRow();
-                int col = warpPosit.getCol();
-                player.setPosition(row, col);
-                showHelp();
-
+        } else if (roomNumber == 3) {
+            //Terminal.clear();
+            boxes = room2.getBoxes();
+            enemies = room2.getEnemies();
+            warps = room2.getWarp();
+            room3.draw();
+            warpPosit = room2.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row, col);
+            showHelp();
         } else {
             //defaults to room 1 at the moment
             room.draw();
