@@ -390,20 +390,16 @@ public class Game {
                     break;
             default: Terminal.setForeground(Color.RED);
         }
-        //roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
-            //Terminal.clear();
             room.draw();
             showHelp();
         } else if (roomNumber == 2) {
-            //Terminal.clear();
             if (!room2Ready) {
                 initializeRoom2();
             }
             room2.draw();
             showHelp();
         } else if (roomNumber == 3) {
-            //Terminal.clear();
             if (!room3Ready) {
                 initializeRoom2();
             }
@@ -418,6 +414,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 2
     private boolean initializeRoom2() {
+            Terminal.clear();
             boxes = room2.getBoxes();
             enemies = room2.getEnemies();
             warps = room2.getWarp();
@@ -431,6 +428,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 3
     private boolean initializeRoom3() {
+            Terminal.clear();
             boxes = room3.getBoxes();
             enemies = room3.getEnemies();
             warps = room3.getWarp();
