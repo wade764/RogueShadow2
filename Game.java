@@ -15,7 +15,6 @@ import java.util.Random;
 public class Game {
     // making game a singleton
     private static Game theInstance;
-
     // creating an int field that is used to call the appropriate room
     // starts at room 1
     private int roomNumber = World.instance().getRoom();
@@ -31,22 +30,15 @@ public class Game {
     private int boxSize; 
     // used to save the size of enemies
     private int enemySize; 
-
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
     private String name;
-
-    // used if the player is on the final &
-    private Boolean endOfDungeon = false;
-
     // used in showHelp() to set the color randomly only once
     private int justOnceHelp = 0;
     private int helpForeground = 0;
-
-    // used in redrawMapAndHelp() to set the color randomly only once
+    // The ints and bools are used in redrawMapAndHelp() to set the color randomly only once
     private int justOnce = 0;
     private int Foreground = 0;
-
     private boolean room2Ready = false;
     private boolean room3Ready = false;
 
@@ -319,7 +311,7 @@ public class Game {
                     }
                     //consuming a delimeter
                     in.nextLine();
-                    
+
                     // redrawing the correct room
                     roomNumber = World.instance().getRoom();
                     if (roomNumber == 1) {
@@ -335,37 +327,37 @@ public class Game {
                         room3.draw();
                     }
 
-                        redrawMapAndHelp();
+                    redrawMapAndHelp();
 
-                    } catch (FileNotFoundException e) {
-                        Terminal.warpCursor(40,0);
-                        System.out.print("Save data does not exist"); //needs to be formatted
-                        Terminal.pause(2);
-                    }
-
-                    break;
-                    case LEFT:
-                    player.move(0, -1, room, room2, room3);
-                    break;
-                    case RIGHT:
-                    player.move(0, 1, room, room2, room3);
-                    break;
-                    case UP:
-                    player.move(-1, 0, room, room2, room3);
-                    break;
-                    case DOWN:
-                    player.move(1, 0, room, room2, room3);
-                    break;
-                    // and finally the quit command
-                    case q:
-                    return false;
+                } catch (FileNotFoundException e) {
+                    Terminal.warpCursor(40,0);
+                    System.out.print("Save data does not exist"); //needs to be formatted
+                    Terminal.pause(2);
                 }
 
-                return true;
+                break;
+            case LEFT:
+                player.move(0, -1, room, room2, room3);
+                break;
+            case RIGHT:
+                player.move(0, 1, room, room2, room3);
+                break;
+            case UP:
+                player.move(-1, 0, room, room2, room3);
+                break;
+            case DOWN:
+                player.move(1, 0, room, room2, room3);
+                break;
+                // and finally the quit command
+            case q:
+                return false;
         }
 
-        // this is called when we need to redraw the room and help menu
-        // this happens after going into a menu like for choosing items
+        return true;
+    }
+
+    // this is called when we need to redraw the room and help menu
+    // this happens after going into a menu like for choosing items
     private void redrawMapAndHelp() {
         //setting the color for the game once
         if (justOnce == 0) {
@@ -414,29 +406,29 @@ public class Game {
 
     // creating a method that will initialize the values for Room 2
     private boolean initializeRoom2() {
-            Terminal.clear();
-            boxes = room2.getBoxes();
-            enemies = room2.getEnemies();
-            warps = room2.getWarp();
-            warpPosit = room2.getPlayerStart();
-            int row = warpPosit.getRow();
-            int col = warpPosit.getCol();
-            player.setPosition(row, col);
-            room2Ready = true; 
+        Terminal.clear();
+        boxes = room2.getBoxes();
+        enemies = room2.getEnemies();
+        warps = room2.getWarp();
+        warpPosit = room2.getPlayerStart();
+        int row = warpPosit.getRow();
+        int col = warpPosit.getCol();
+        player.setPosition(row, col);
+        room2Ready = true; 
         return room2Ready;
     }
 
     // creating a method that will initialize the values for Room 3
     private boolean initializeRoom3() {
-            Terminal.clear();
-            boxes = room3.getBoxes();
-            enemies = room3.getEnemies();
-            warps = room3.getWarp();
-            warpPosit = room3.getPlayerStart();
-            int row = warpPosit.getRow();
-            int col = warpPosit.getCol();
-            player.setPosition(row, col);
-            room3Ready = true; 
+        Terminal.clear();
+        boxes = room3.getBoxes();
+        enemies = room3.getEnemies();
+        warps = room3.getWarp();
+        warpPosit = room3.getPlayerStart();
+        int row = warpPosit.getRow();
+        int col = warpPosit.getCol();
+        player.setPosition(row, col);
+        room3Ready = true; 
         return room3Ready;
     }
 
@@ -537,26 +529,21 @@ public class Game {
                 if (enemies.size() == 0) {
                     setStatus("The door unlocked");
                     Terminal.pause(2);
-                    if (!endOfDungeon) {
-                        setStatus("Would you like to go to the next room? Y or N: ");
-                        // asking for the response
-                        Scanner response = new Scanner(System.in);
-                        String answer = response.next();
-                        if (answer.equalsIgnoreCase("Y")) {
-                            if (roomNumber < 3) {
-                                roomNumber = World.instance().roomUpdate();
-                                player.resetHP(); //resets player's hp when they go to the next floor
-                                redrawMapAndHelp();
-                                save();
-                            }
-                            else {
-                                playing = false;
-                            }
+                    setStatus("Would you like to go to the next room? Y or N: ");
+                    // asking for the response
+                    Scanner response = new Scanner(System.in);
+                    String answer = response.next();
+                    if (answer.equalsIgnoreCase("Y")) {
+                        if (roomNumber < 3) {
+                            roomNumber = World.instance().roomUpdate();
+                            player.resetHP(); //resets player's hp when they go to the next floor
+                            redrawMapAndHelp();
+                            save();
                         }
-                    } else if (endOfDungeon) {
-                        // the game is over the player has won!
-                        playerWon();
-                        playing = false;
+                        else {
+                            playerWon();
+                            playing = false;
+                        }
                     }
                 } else if (enemies.size() > 0 ) { //if not all of the enemies in the room are dead yet
                     setStatus("Door is locked! Rip and Tear!");

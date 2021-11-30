@@ -22,14 +22,7 @@ public class Main {
                 Menu.storyPlot();
                 Player.setPlayerInfo();
             }
-            //*** I am thinking that it would make sense for Game to be a singleton
-
-            // make and run the Game
-            // singleton testing
-            //Game game = new Game();
-
             Game.instance().run();
-            //game.run();
 
             // returning the cursor to the bottom of the screen
             Terminal.warpCursor(40,0);
