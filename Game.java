@@ -404,7 +404,7 @@ public class Game {
                     break;
             default: Terminal.setForeground(Color.RED);
         }
-        roomNumber = World.instance().getRoom();
+        //roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
             //Terminal.clear();
             room.draw();

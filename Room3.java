@@ -7,21 +7,11 @@ import java.util.Scanner;
 public class Room3 {
     // the grid holds the room geometry
     private String[] grid;
-
     // the size of the room
     private int rows = 30;
     private int cols = 60;
 
     public Room3() {
-        // this initializes the room to one specific space
-        //rows = 30;
-        //cols = 60;
-
-        // the actual room geometry
-        // the i cells refer to where an item should be placed at
-        // & symbol is for the staircase
-        
-        // modifying the rooms to have the same amount of items and enemies
         grid  = new String[] {
                 "         ########################    ###################    ",
                 "         ##           *        ##    ##               ##    ",
@@ -75,10 +65,7 @@ public class Room3 {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'i') {
-                    
-                    //singleton testing
                     boxes.add(new Box(row, col, ItemGenerator.instance().generate()));
-                    //boxes.add(new Box(row, col, ItemGenerator.generate()));
                 }
             }
         }
@@ -149,9 +136,9 @@ public class Room3 {
     }
 
     public Room3(Scanner in) {
-        grid = new String[rows];
+        //grid = new String[rows];
         while (in.hasNext()) {
-            for (int i = 0; i < rows; i++) {
+            for (int i = 0; i < grid.length; i++) {
                 grid[i] = in.nextLine();
             }
         }
