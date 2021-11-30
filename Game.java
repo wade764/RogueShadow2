@@ -407,7 +407,7 @@ public class Game {
 
         // this is called when we need to redraw the room and help menu
         // this happens after going into a menu like for choosing items
-    private void redrawMapAndHelp() {
+    public void redrawMapAndHelp() {
         //setting the color for the game once
         if (justOnce == 0) {
             justOnce++;
@@ -449,11 +449,11 @@ public class Game {
             showHelp();
         } else if (roomNumber == 3) {
             //Terminal.clear();
-            boxes = room2.getBoxes();
-            enemies = room2.getEnemies();
-            warps = room2.getWarp();
+            boxes = room3.getBoxes();
+            enemies = room3.getEnemies();
+            warps = room3.getWarp();
             room3.draw();
-            warpPosit = room2.getPlayerStart();
+            warpPosit = room3.getPlayerStart();
             int row = warpPosit.getRow();
             int col = warpPosit.getCol();
             player.setPosition(row, col);
