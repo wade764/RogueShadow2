@@ -8,6 +8,11 @@ public class ItemGenerator {
     private static ItemGenerator theInstance;
 
     // creating a singleton used for generating items
+
+    /** A singleton that creates a single instance of the ItemGenerator
+     *
+     * @return the instance of the ItemGenerator
+     */
     public static synchronized ItemGenerator instance() {
         if (theInstance == null) {
             theInstance = new ItemGenerator();
@@ -19,10 +24,14 @@ public class ItemGenerator {
     private ItemGenerator() {
     }
 
+    /** Generates a random item by using a random number generator to determine which item gets generated
+     *
+     * @return an item that was generated
+     */
     public static Item generate() {
         int num;
         //LOOK HERE, it may make sense to put this in the field
-        Random rng= new Random();
+        Random rng = new Random();
         num = rng.nextInt(24);
 
         //creates a place to store the Item and return at the end

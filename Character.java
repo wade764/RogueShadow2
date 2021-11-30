@@ -13,40 +13,20 @@ public abstract class Character extends Entity {
     // the character's health points
     protected int hp;
 
-    /** Creates a Character object
-     *
-     * @param row the row the character is in
-     * @param col the column the character is in
-     * @param display the symbol used to display the character
-     * @param color the color of the character
-     * @param hp the character's hp
-     */
     public Character(int row, int col, char display, Color color, int hp) {
         super(row, col, display, color);
         this.hp = hp;
     }
 
     // get the hp, damage, protection and name of character
-
-    /** Gets the character's hp
-     *
-     * @return the character's hp
-     */
     public int getHealth() {
         return hp;
     }
-
-    //do these each need javadocs since theyre abstract?
     public abstract int getDamage();
     public abstract int getProtection();
     public abstract String getName();
 
-    /** Deal damage to another player
-     *
-     * @param other the character that is taking damage
-     * @param room the room the chracter is in
-     * @return a boolean stating whether the character is alive or dead
-     */
+    // damage to another player
     private boolean dealDamage(Character other, Room room) {
         // this character does damage to the other character
         int damageDone = getDamage() - other.getProtection();
@@ -77,13 +57,7 @@ public abstract class Character extends Entity {
         }
     }
 
-    /** Performs one round of battle between 2 characters
-     *
-     * @param other the character being fought
-     * @param room the room the character is in
-     * @param enemies the arraylist of enemies in the room
-     * @return the status of the player
-     */
+    // performs one round of battle between 2 characters
     public boolean fight(Character other, Room room, ArrayList<Enemy> enemies) {
         // do damage to them first
         boolean killed = dealDamage(other, room);

@@ -133,12 +133,20 @@ public class Room {
         return grid[row].charAt(col) != '#';
     }
 
+    /** Writes the entire room to the save file
+     *
+     * @param out the printwriter used to write data to a file
+     */
     public void save(PrintWriter out) {
         for (String s : grid) {
             out.println(s);
         }
     }
 
+    /** A constructor used for reading in the row and column of the position from the save file
+     *
+     * @param in the scanner used to read in data from the file
+     */
     public Room(Scanner in) {
         while (in.hasNext()) {
             for (int i = 0; i < grid.length; i++) {

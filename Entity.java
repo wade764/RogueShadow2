@@ -19,61 +19,29 @@ public class Entity {
     // adding the current map/room integer
     private int whatMap;
 
-    /** Creates an Entity object
-     *
-     * @param row the row the entity is in
-     * @param col the column the entity is in
-     * @param display the symbol used to display the entity
-     * @param color the entity's color
-     */
     public Entity(int row, int col, char display, Color color) {
         position = new Position(row, col);
         this.display = display;
         this.color = color;
     }
 
-    /** Moves the entity to a new location
-     *
-     * @param row the new row the entity will be moved to
-     * @param col the new column the entity will be moved to
-     */
     public void setPosition(int row, int col) {
         position = new Position(row, col);
     }
 
-    /** Get the position of the entity
-     *
-     * @return the entity's position
-     */
     public Position getPosition() {
         return position;
     }
 
-    /** Gets the row of the entity
-     *
-     * @return the entity's row
-     */
     public int getRow() {
         return position.getRow();
     }
 
-    /** Gets the column of the entity
-     *
-     * @return the entity's column
-     */
     public int getCol() {
         return position.getCol();
     }
 
-    /** Translate the entity in space, unless it would hit a wall
-     *
-     * @param rowChange the new row of the entity
-     * @param colChange the new column of the entity
-     * @param room the first room
-     * @param room2 the second room
-     * @param room3 the third room
-     * @return whether the enity successfully moved
-     */
+    // translate the entity in space, unless it would hit a wall
     public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
         // find new position
         whatMap = World.instance().getRoom();
@@ -126,11 +94,6 @@ public class Entity {
         return false;
     }
 
-    // draw this entity to the screen
-
-    /** Draw the entity to the screen
-     *
-     */
     public void draw() {
         Terminal.warpCursor(position.getRow(), position.getCol());
         Terminal.setForeground(color);
@@ -140,7 +103,7 @@ public class Entity {
 
     /** Saves the entity to the save file
      *
-     * @param out the printwriter
+     * @param out the printwriter used to write data to a file
      */
     public void save(PrintWriter out) {
         out.println("Entity");
@@ -151,7 +114,7 @@ public class Entity {
 
     /** Loads the entity from the save file
      *
-     * @param in the scanner
+     * @param in the scanner used to read in data from the file
      */
     public Entity(Scanner in) {
         //skips line in file that says Entity
