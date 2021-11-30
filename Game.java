@@ -47,6 +47,9 @@ public class Game {
     private int justOnce = 0;
     private int Foreground = 0;
 
+    private boolean room2Ready = false;
+    private boolean room3Ready = false;
+
     /** Creates a singleton for creating an instance of the game
      *
      * @return the instance of the game
@@ -317,24 +320,7 @@ public class Game {
                     //consuming a delimeter
                     in.nextLine();
                     
-                    // COMMENTING OUT FOR TESTING
-                    //for (int i = 0; i < 30; i++) {
-                    //    Terminal.warpCursor(i, 0);
-                    //    if (roomNumber == 1) {
-                    //        room = new Room(in);
-                    //        room.draw();
-                    //    }
-                    //    else if (roomNumber == 2) {
-                    //        room2 = new Room2(in);
-                    //        room2.draw();
-                    //    }
-                    //    else if (roomNumber == 3) {
-                    //        room3 = new Room3(in);
-                    //        room3.draw();
-                    //    }
-                    //}
-
-                    // Wade test, this is replacing the commented code above
+                    // redrawing the correct room
                     roomNumber = World.instance().getRoom();
                     if (roomNumber == 1) {
                         room = new Room(in);
@@ -411,31 +397,49 @@ public class Game {
             showHelp();
         } else if (roomNumber == 2) {
             //Terminal.clear();
-            boxes = room2.getBoxes();
-            enemies = room2.getEnemies();
-            warps = room2.getWarp();
+            if (!room2Ready) {
+                initializeRoom2();
+            }
             room2.draw();
-            warpPosit = room2.getPlayerStart();
-            int row = warpPosit.getRow();
-            int col = warpPosit.getCol();
-            player.setPosition(row, col);
             showHelp();
         } else if (roomNumber == 3) {
             //Terminal.clear();
-            boxes = room3.getBoxes();
-            enemies = room3.getEnemies();
-            warps = room3.getWarp();
+            if (!room3Ready) {
+                initializeRoom2();
+            }
             room3.draw();
-            warpPosit = room3.getPlayerStart();
-            int row = warpPosit.getRow();
-            int col = warpPosit.getCol();
-            player.setPosition(row, col);
             showHelp();
         } else {
             //defaults to room 1 at the moment
             room.draw();
             showHelp();
         }
+    }
+
+    // creating a method that will initialize the values for Room 2
+    private boolean initializeRoom2() {
+            boxes = room2.getBoxes();
+            enemies = room2.getEnemies();
+            warps = room2.getWarp();
+            warpPosit = room2.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row, col);
+            room2Ready = true; 
+        return room2Ready;
+    }
+
+    // creating a method that will initialize the values for Room 3
+    private boolean initializeRoom3() {
+            boxes = room3.getBoxes();
+            enemies = room3.getEnemies();
+            warps = room3.getWarp();
+            warpPosit = room3.getPlayerStart();
+            int row = warpPosit.getRow();
+            int col = warpPosit.getCol();
+            player.setPosition(row, col);
+            room3Ready = true; 
+        return room2Ready;
     }
 
     // returns a Box if the player is on it -- otherwise null
