@@ -407,7 +407,7 @@ public class Game {
 
         // this is called when we need to redraw the room and help menu
         // this happens after going into a menu like for choosing items
-    public void redrawMapAndHelp() {
+    private void redrawMapAndHelp() {
         //setting the color for the game once
         if (justOnce == 0) {
             justOnce++;
