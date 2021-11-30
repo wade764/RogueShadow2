@@ -401,7 +401,7 @@ public class Game {
             showHelp();
         } else if (roomNumber == 3) {
             if (!room3Ready) {
-                initializeRoom2();
+                initializeRoom3();
             }
             room3.draw();
             showHelp();
@@ -437,7 +437,7 @@ public class Game {
             int col = warpPosit.getCol();
             player.setPosition(row, col);
             room3Ready = true; 
-        return room2Ready;
+        return room3Ready;
     }
 
     // returns a Box if the player is on it -- otherwise null
