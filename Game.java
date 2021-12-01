@@ -22,6 +22,7 @@ public class Game {
     // new room objects below and Position used for warp
     private Room2 room2;
     private Room3 room3;
+    private Room4 room4;
     private Position warpPosit;
     private Player player;
     private ArrayList<Box> boxes;
@@ -41,6 +42,7 @@ public class Game {
     private int Foreground = 0;
     private boolean room2Ready = false;
     private boolean room3Ready = false;
+    private boolean room4Ready = false;
 
     /** Creates a singleton for creating an instance of the game
      *
@@ -57,6 +59,7 @@ public class Game {
         room = new Room();
         room2 = new Room2();
         room3 = new Room3();
+        room4 = new Room4();
         warpPosit = new Position();
 
         player = new Player(room.getPlayerStart());
@@ -326,6 +329,10 @@ public class Game {
                         room3 = new Room3(in);
                         room3.draw();
                     }
+                    else if (roomNumber == 4) {
+                        room4 = new Room4(in);
+                        room4.draw();
+                    }
 
                     redrawMapAndHelp();
 
@@ -337,16 +344,16 @@ public class Game {
 
                 break;
             case LEFT:
-                player.move(0, -1, room, room2, room3);
+                player.move(0, -1, room, room2, room3, room4);
                 break;
             case RIGHT:
-                player.move(0, 1, room, room2, room3);
+                player.move(0, 1, room, room2, room3, room4);
                 break;
             case UP:
-                player.move(-1, 0, room, room2, room3);
+                player.move(-1, 0, room, room2, room3, room4);
                 break;
             case DOWN:
-                player.move(1, 0, room, room2, room3);
+                player.move(1, 0, room, room2, room3, room4);
                 break;
                 // and finally the quit command
             case q:
@@ -397,6 +404,12 @@ public class Game {
             }
             room3.draw();
             showHelp();
+        } else if (roomNumber == 4) {
+            if (!room4Ready) {
+                initializeRoom4();
+            }
+            room4.draw();
+            showHelp();
         } else {
             //defaults to room 1 at the moment
             room.draw();
@@ -430,6 +443,20 @@ public class Game {
         player.setPosition(row, col);
         room3Ready = true; 
         return room3Ready;
+    }
+
+    // creating a method that will initialize the values for Room 4
+    private boolean initializeRoom4() {
+        Terminal.clear();
+        boxes = room4.getBoxes();
+        enemies = room4.getEnemies();
+        warps = room4.getWarp();
+        warpPosit = room4.getPlayerStart();
+        int row = warpPosit.getRow();
+        int col = warpPosit.getCol();
+        player.setPosition(row, col);
+        room4Ready = true; 
+        return room4Ready;
     }
 
     // returns a Box if the player is on it -- otherwise null
@@ -503,7 +530,7 @@ public class Game {
 
             // move the enemies
             for (Enemy enemy : enemies) {
-                enemy.walk(room, room2, room3);
+                enemy.walk(room, room2, room3, room4);
             }
 
             // check for battles
@@ -534,7 +561,7 @@ public class Game {
                     Scanner response = new Scanner(System.in);
                     String answer = response.next();
                     if (answer.equalsIgnoreCase("Y")) {
-                        if (roomNumber < 3) {
+                        if (roomNumber < 4) {
                             roomNumber = World.instance().roomUpdate();
                             player.resetHP(); //resets player's hp when they go to the next floor
                             redrawMapAndHelp();
@@ -582,8 +609,11 @@ public class Game {
             else if (roomNumber == 2) {
                 room2.save(pw);
             }
-            else {
+            else if (roomNumber == 3) {
                 room3.save(pw);
+            }
+            else {
+                room4.save(pw);
             }
             pw.close(); //closes the printwriter
 

@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/** Creates and manages the layout, enemies, boxes, and player in the third room
+/** Creates and manages the layout, enemies, boxes, and player in the boss room
  *
  */
 public class Room4 {
@@ -132,7 +132,7 @@ public class Room4 {
         return grid[row].charAt(col) != '#';
     }
 
-    /** Writes the current room layout of Room 3 to the save file
+    /** Writes the current room layout of Room 4 to the save file
      *
      * @param out the printwriter used to write data to a file
      */
@@ -142,7 +142,7 @@ public class Room4 {
         }
     }
 
-    /** A constructor used for reading in the room layout of Room 3 from the save file
+    /** A constructor used for reading in the room layout of Room 4 from the save file
      *
      * @param in the scanner used to read in data from the file
      */

@@ -42,7 +42,7 @@ public class Entity {
     }
 
     // translate the entity in space, unless it would hit a wall
-    public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3) {
+    public boolean move(int rowChange, int colChange, Room room, Room2 room2, Room3 room3, Room4 room4) {
         // find new position
         whatMap = World.instance().getRoom();
         int newRow = position.getRow() + rowChange;
@@ -78,6 +78,20 @@ public class Entity {
             }
         } else if (whatMap == 3) {
             if (room3.canGo(newRow, newCol)) {
+                // draw a space where it currently is
+                Terminal.warpCursor(position.getRow(), position.getCol());
+                System.out.print(" ");
+                //eliminating flash
+                Terminal.warpCursor(40,0);
+
+                // and then move it
+                position = new Position(newRow, newCol);
+                return true;
+            } else {
+                return false;
+            }
+        } else if (whatMap == 4) {
+            if (room4.canGo(newRow, newCol)) {
                 // draw a space where it currently is
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");

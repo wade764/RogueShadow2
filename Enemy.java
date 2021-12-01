@@ -44,7 +44,7 @@ public class Enemy extends Character {
     }
 
     // randomly move the enemy in the room
-    public void walk(Room room, Room2 room2, Room3 room3) {
+    public void walk(Room room, Room2 room2, Room3 room3, Room4 room4) {
         // if a battle is active with this enemy, they DON'T walk right after
         if (battleActive) {
             battleActive = false;
@@ -56,16 +56,16 @@ public class Enemy extends Character {
             int choice = rng.nextInt(4);
             switch (choice) {
                 case 0:
-                    if (move(0, 1, room, room2, room3)) return;
+                    if (move(0, 1, room, room2, room3, room4)) return;
                     break;
                 case 1:
-                    if (move(0, -1, room, room2, room3)) return;
+                    if (move(0, -1, room, room2, room3, room4)) return;
                     break;
                 case 2:
-                    if (move(1, 0, room, room2, room3)) return;
+                    if (move(1, 0, room, room2, room3, room4)) return;
                     break;
                 case 3:
-                    if (move(-1, 0, room, room2, room3)) return;
+                    if (move(-1, 0, room, room2, room3, room4)) return;
                     break;
             }
 
