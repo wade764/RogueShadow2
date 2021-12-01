@@ -542,9 +542,14 @@ public class Game {
     }
 
     // creating a method that will initialize the values for Room 4
+
+    /** Initializes the enemies, warp, and the player's starting position in Room 4. Room 4 does not have any boxes,
+     * and so the boxes for this room do not need to be initialized
+     *
+     * @return a boolean that tells the game that Room 4 has been initialized and is ready to use
+     */
     private boolean initializeRoom4() {
         Terminal.clear();
-        boxes = room4.getBoxes();
         enemies = room4.getEnemies();
         warps = room4.getWarp();
         warpPosit = room4.getPlayerStart();
