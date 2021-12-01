@@ -2,8 +2,6 @@
 
 import ansi_terminal.*;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.io.File;
 import java.util.Scanner;
 
 public class Player extends Character {

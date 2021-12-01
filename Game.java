@@ -37,7 +37,6 @@ public class Game {
     private int enemySize; 
     // warps is instantiated in to Room class
     private ArrayList<Warp> warps;
-    private String name;
     // used in showHelp() to set the color randomly only once
     private int justOnceHelp = 0;
     private int helpForeground = 0;
@@ -80,7 +79,6 @@ public class Game {
         Terminal.warpCursor(12, 30);
         System.out.print("");
         Terminal.warpCursor(13, 30);
-
         System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗██╗");
         Terminal.warpCursor(14, 30);
         System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██╔═══██╗████╗  ██║██║");
@@ -97,11 +95,8 @@ public class Game {
     }
 
     private void gameOver() {
-
         Terminal.clear();
-
         Terminal.setForeground(Color.RED);
-
         for (int i = 0; i < 40; i++) {
             Terminal.warpCursor(i, 82);
             System.out.print("                                                                                               ");
@@ -109,7 +104,6 @@ public class Game {
         Terminal.warpCursor(12, 30);
         System.out.print("");
         Terminal.warpCursor(13, 30);
-
         System.out.print("██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ ");
         Terminal.warpCursor(14, 30);
         System.out.print("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗");
@@ -127,7 +121,6 @@ public class Game {
 
     private void debugMenu() {
         Terminal.clear();
-
         //title prompt for information
         Terminal.warpCursor(1, 1);
         System.out.print("");
@@ -545,12 +538,6 @@ public class Game {
     }
 
     // creating a method that will initialize the values for Room 4
-
-    /** Initializes the enemies, warp, and the player's starting position in Room 4. Room 4 does not have any boxes,
-     * and so the boxes for this room do not need to be initialized
-     *
-     * @return a boolean that tells the game that Room 4 has been initialized and is ready to use
-     */
     private void initializeRoom4() {
         Terminal.clear();
         enemies = room4.getEnemies();
