@@ -34,7 +34,7 @@ public class Room4 {
                 "^~~~~~####                                        ####^~~~~~",
                 "~~~~^~####                                        ####~~~~^~",
                 "~^~~~~####                                        ####~^~~~~",
-                "~~~^~~####       i                     *          ####~~~^~~",
+                "~~~^~~####       i                     B          ####~~~^~~",
                 "^~~~~~####                                        ####^~~~~~",
                 "~~~~^~####                                  &     ####~~~~^~",
                 "~^~~~~####                                        ####~^~~~~",
@@ -80,8 +80,8 @@ public class Room4 {
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (grid[row].charAt(col) == '*') {
-                    enemies.add(new Enemy("Ian Finalyson", row, col, 125, 40, 25));
+                if (grid[row].charAt(col) == 'B') {
+                    enemies.add(new Enemy("Ian Finalyson", row, col, 100, 30, 20));
                 }
             }
         }

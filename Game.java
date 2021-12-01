@@ -441,6 +441,7 @@ public class Game {
                     initializeRoom4();
                 }
             }
+
             // needed because calling nextInt() leaves the cursor on the same line
             in.nextLine();
 
@@ -488,7 +489,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 2
     private void initializeRoom() {
-        Terminal.clear();
+        //Terminal.clear();
         boxes = room.getBoxes();
         enemies = room.getEnemies();
         warps = room.getWarp();
@@ -501,7 +502,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 2
     private void initializeRoom2() {
-        Terminal.clear();
+        //Terminal.clear();
         boxes = room2.getBoxes();
         enemies = room2.getEnemies();
         warps = room2.getWarp();
@@ -514,7 +515,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 3
     private void initializeRoom3() {
-        Terminal.clear();
+        //Terminal.clear();
         boxes = room3.getBoxes();
         enemies = room3.getEnemies();
         warps = room3.getWarp();
@@ -527,7 +528,7 @@ public class Game {
 
     // creating a method that will initialize the values for Room 4
     private void initializeRoom4() {
-        Terminal.clear();
+        //Terminal.clear();
         boxes = room4.getBoxes();
         enemies = room4.getEnemies();
         warps = room4.getWarp();
