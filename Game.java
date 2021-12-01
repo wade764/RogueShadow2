@@ -17,7 +17,11 @@ public class Game {
     private static Game theInstance;
     // creating an int field that is used to call the appropriate room
     // starts at room 1
-    private int roomNumber = World.instance().getRoom();
+
+    //Changed for TESTING
+    private int roomNumber;
+    //private int roomNumber = World.instance().getRoom();
+
     private Room room;
     // new room objects below and Position used for warp
     private Room2 room2;
@@ -318,7 +322,10 @@ public class Game {
                     in.nextLine();
 
                     // redrawing the correct room
-                    roomNumber = World.instance().getRoom();
+
+                    // REMOVE ME
+                    //roomNumber = World.instance().getRoom();
+
                     if (roomNumber == 1) {
                         room = new Room(in);
                         room.draw();
@@ -391,6 +398,7 @@ public class Game {
                     break;
             default: Terminal.setForeground(Color.RED);
         }
+        roomNumber = World.instance().getRoom();
         if (roomNumber == 1) {
             if (!roomReady) {
                 initializeRoom();
@@ -471,7 +479,10 @@ public class Game {
             in.nextLine();
 
             // redrawing the correct room
-            roomNumber = World.instance().getRoom();
+
+            // REMOVE ME
+            //roomNumber = World.instance().getRoom();
+
             if (roomNumber == 1) {
                 room = new Room(in);
                 room.draw();
