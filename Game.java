@@ -540,6 +540,7 @@ public class Game {
     // creating a method that will initialize the values for Room 4
     private void initializeRoom4() {
         Terminal.clear();
+        boxes = room4.getBoxes();
         enemies = room4.getEnemies();
         warps = room4.getWarp();
         warpPosit = room4.getPlayerStart();

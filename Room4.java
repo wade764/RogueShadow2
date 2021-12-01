@@ -34,7 +34,7 @@ public class Room4 {
                 "^~~~~~####                                        ####^~~~~~",
                 "~~~~^~####                                        ####~~~~^~",
                 "~^~~~~####                                        ####~^~~~~",
-                "~~~^~~####                             *          ####~~~^~~",
+                "~~~^~~####       i                     *          ####~~~^~~",
                 "^~~~~~####                                        ####^~~~~~",
                 "~~~~^~####                                  &     ####~~~~^~",
                 "~^~~~~####                                        ####~^~~~~",
@@ -59,6 +59,20 @@ public class Room4 {
             }
         }
         return null;
+    }
+
+    // returns a set of item boxes for this map, this is here because it depends on
+    // the room geometry for where the boxes make sense to be
+    public ArrayList<Box> getBoxes() {
+        ArrayList<Box> boxes = new ArrayList<>();
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (grid[row].charAt(col) == 'i') {
+                    boxes.add(new Box(row, col, ItemGenerator.instance().generate()));
+                }
+            }
+        }
+        return boxes;
     }
 
     // returns a set of enemies from this map, similarly to the boxes above
