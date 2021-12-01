@@ -289,6 +289,8 @@ public class Game {
                 save();
                 break;
             case r:
+                
+                // RIGHT NOW THIS BREAKS THE restore from a running game
                 // intializing all of the rooms, because we are loading from the menu
                 initializeRoom();
                 initializeRoom2();
