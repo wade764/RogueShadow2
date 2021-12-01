@@ -670,7 +670,12 @@ public class Game {
                     if (answer.equalsIgnoreCase("Y")) {
                         if (roomNumber < 4) {
                             roomNumber = World.instance().roomUpdate();
-                            player.resetHP(); //resets player's hp when they go to the next floor
+                            if (roomNumber <= 3) {
+                                player.resetHP();
+                            }
+                            else {
+                                player.resetHPBossFight();
+                            }
                             redrawMapAndHelp();
                             save();
                         }

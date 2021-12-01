@@ -93,6 +93,20 @@ public class Player extends Character {
         return items;
     }
 
+    /** Resets the player's hp when they go from rooms 1-3
+     *
+     */
+    public void resetHP() {
+        hp = 50;
+    }
+
+    /** Resets the player's hp and gives them extra hp for the boss fight
+     *
+     */
+    public void resetHPBossFight() {
+        hp = 100;
+    }
+
     /** Writes the player's info and their inventory to the save file
      *
      * @param out the printwriter used to write data to a file
