@@ -16,12 +16,7 @@ public class Game {
     // making game a singleton
     private static Game theInstance;
     // creating an int field that is used to call the appropriate room
-    // starts at room 1
-
-    //Changed for TESTING
     private int roomNumber;
-    //private int roomNumber = World.instance().getRoom();
-
     private Room room;
     // new room objects below and Position used for warp
     private Room2 room2;
@@ -313,22 +308,18 @@ public class Game {
                     if (roomNumber == 1) {
                         World.instance().setRoom(roomNumber);
                         room = new Room(in);
-                        //room.draw();
                     }
                     else if (roomNumber == 2) {
                         World.instance().setRoom(roomNumber);
                         room2 = new Room2(in);
-                        //room2.draw();
                     }
                     else if (roomNumber == 3) {
                         World.instance().setRoom(roomNumber);
                         room3 = new Room3(in);
-                        //room3.draw();
                     }
                     else if (roomNumber == 4) {
                         World.instance().setRoom(roomNumber);
                         room4 = new Room4(in);
-                        //room4.draw();
                     }
 
                     redrawMapAndHelp();
@@ -467,10 +458,6 @@ public class Game {
             in.nextLine();
 
             // redrawing the correct room
-
-            // REMOVE ME
-            //roomNumber = World.instance().getRoom();
-
             if (roomNumber == 1) {
                 room = new Room(in);
                 room.draw();
@@ -488,7 +475,8 @@ public class Game {
                 room4.draw();
             }
 
-            redrawMapAndHelp();
+            // This may not be needed here
+            //redrawMapAndHelp();
 
         } catch (FileNotFoundException e) {
             Terminal.warpCursor(40,0);
