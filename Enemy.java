@@ -1,12 +1,9 @@
 // Enemy.java
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.io.File;
-import java.util.ArrayList;
 
 public class Enemy extends Character {
     private String name;
