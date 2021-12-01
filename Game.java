@@ -68,11 +68,6 @@ public class Game {
         room4 = new Room4();
         warpPosit = new Position();
         player = new Player(room.getPlayerStart());
-
-        //TESTING
-        //boxes = room.getBoxes();
-        //enemies = room.getEnemies();
-        //warps = room.getWarp();
     }
 
     private void playerWon() {
@@ -294,8 +289,7 @@ public class Game {
                 save();
                 break;
             case r:
-
-                //restore save data from file
+                //restore save data from file while the game is running
                 File file = new File("save.txt");
                 try {
 
@@ -323,25 +317,25 @@ public class Game {
                     in.nextLine();
 
                     // redrawing the correct room
-
-                    // REMOVE ME
-                    //roomNumber = World.instance().getRoom();
-
                     if (roomNumber == 1) {
+                        World.instance().setRoom(roomNumber);
                         room = new Room(in);
-                        room.draw();
+                        //room.draw();
                     }
                     else if (roomNumber == 2) {
+                        World.instance().setRoom(roomNumber);
                         room2 = new Room2(in);
-                        room2.draw();
+                        //room2.draw();
                     }
                     else if (roomNumber == 3) {
+                        World.instance().setRoom(roomNumber);
                         room3 = new Room3(in);
-                        room3.draw();
+                        //room3.draw();
                     }
                     else if (roomNumber == 4) {
+                        World.instance().setRoom(roomNumber);
                         room4 = new Room4(in);
-                        room4.draw();
+                        //room4.draw();
                     }
 
                     redrawMapAndHelp();

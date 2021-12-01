@@ -35,4 +35,8 @@ public class World {
     public int getRoom() {
         return room;
     }
+    
+    public void setRoom(int room) {
+        this.room = room;
+    }
 }
