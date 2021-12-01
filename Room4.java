@@ -81,7 +81,7 @@ public class Room4 {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == '*') {
-                    enemies.add(EnemyGenerator.instance().generate(row, col));
+                    enemies.add(new Enemy("Ian Finalyson", row, col, 125, 40, 25));
                 }
             }
         }
