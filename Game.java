@@ -448,18 +448,22 @@ public class Game {
             if (roomNumber == 1) {
                 if (!roomReady) {
                     initializeRoom();
+                    roomReady = true;
                 }
             } else if (roomNumber == 2) {
                 if (!room2Ready) {
                     initializeRoom2();
+                    room2Ready = true;
                 }
             } else if (roomNumber == 3) {
                 if (!room3Ready) {
                     initializeRoom3();
+                    room3Ready = true;
                 }
             } else if (roomNumber == 4) {
                 if (!room4Ready) {
                     initializeRoom4();
+                    room4Ready = true;
                 }
             }
             // needed because calling nextInt() leaves the cursor on the same line
