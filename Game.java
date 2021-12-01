@@ -41,9 +41,10 @@ public class Game {
     // used in showHelp() to set the color randomly only once
     private int justOnceHelp = 0;
     private int helpForeground = 0;
-    // The ints and bools are used in redrawMapAndHelp() to set the color randomly only once
+    // The ints are used in redrawMapAndHelp() to set the color randomly only once
     private int justOnce = 0;
     private int Foreground = 0;
+    // used to initialize the room variables once per game
     private boolean roomReady = false;
     private boolean room2Ready = false;
     private boolean room3Ready = false;
@@ -511,7 +512,7 @@ public class Game {
     }
 
     // creating a method that will initialize the values for Room 2
-    private boolean initializeRoom() {
+    private void initializeRoom() {
         Terminal.clear();
         boxes = room.getBoxes();
         enemies = room.getEnemies();
@@ -521,11 +522,10 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         roomReady = true; 
-        return roomReady;
     }
 
     // creating a method that will initialize the values for Room 2
-    private boolean initializeRoom2() {
+    private void initializeRoom2() {
         Terminal.clear();
         boxes = room2.getBoxes();
         enemies = room2.getEnemies();
@@ -535,11 +535,10 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room2Ready = true; 
-        return room2Ready;
     }
 
     // creating a method that will initialize the values for Room 3
-    private boolean initializeRoom3() {
+    private void initializeRoom3() {
         Terminal.clear();
         boxes = room3.getBoxes();
         enemies = room3.getEnemies();
@@ -549,7 +548,6 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room3Ready = true; 
-        return room3Ready;
     }
 
     // creating a method that will initialize the values for Room 4
@@ -559,7 +557,7 @@ public class Game {
      *
      * @return a boolean that tells the game that Room 4 has been initialized and is ready to use
      */
-    private boolean initializeRoom4() {
+    private void initializeRoom4() {
         Terminal.clear();
         enemies = room4.getEnemies();
         warps = room4.getWarp();
@@ -568,7 +566,6 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room4Ready = true; 
-        return room4Ready;
     }
 
     // returns a Box if the player is on it -- otherwise null
