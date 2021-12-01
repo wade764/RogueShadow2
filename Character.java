@@ -78,13 +78,6 @@ public abstract class Character extends Entity {
         return true;
     }
 
-    /** Resets the player's hp when they move to the next floor
-     *
-     */
-    public void resetHP() {
-        hp = 50;
-    }
-
     /** Writes the character's Entity data and hp to the save file
      *
      * @param out the printwriter used to write data to a file
