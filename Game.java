@@ -289,13 +289,6 @@ public class Game {
                 save();
                 break;
             case r:
-                
-                // RIGHT NOW THIS BREAKS THE restore from a running game
-                // intializing all of the rooms, because we are loading from the menu
-                initializeRoom();
-                initializeRoom2();
-                initializeRoom3();
-                initializeRoom4();
 
                 //restore save data from file
                 File file = new File("save.txt");
@@ -427,6 +420,83 @@ public class Game {
             room.draw();
             showHelp();
         }
+    }
+
+    // This method is used to load the game from the Main menu
+    protected void loadGameFromMenu() {
+
+        //restore save data from file
+        File file = new File("save.txt");
+        try {
+
+            Terminal.clear();
+
+            Scanner in = new Scanner(file);
+            roomNumber = in.nextInt();
+            enemySize = in.nextInt();
+            boxSize = in.nextInt();
+
+            // intializing all of the rooms, because we are loading from the menu
+            if (roomNumber == 1) {
+                if (!roomReady) {
+                    initializeRoom();
+                }
+            } else if (roomNumber == 2) {
+                if (!room2Ready) {
+                    initializeRoom2();
+                }
+            } else if (roomNumber == 3) {
+                if (!room3Ready) {
+                    initializeRoom3();
+                }
+            } else if (roomNumber == 4) {
+                if (!room4Ready) {
+                    initializeRoom4();
+                }
+            }
+            // needed because calling nextInt() leaves the cursor on the same line
+            in.nextLine();
+
+            player = new Player(in);
+
+            //read in enemies on current floor
+            for (int i = 0; i < enemySize; i++) { 
+                enemies.set(i, new Enemy(in));
+            }
+            //read in items on current floor
+            for (int i = 0; i < boxSize; i++) { 
+                boxes.set(i, new Box(in));
+            }
+            //consuming a delimeter
+            in.nextLine();
+
+            // redrawing the correct room
+            roomNumber = World.instance().getRoom();
+            if (roomNumber == 1) {
+                room = new Room(in);
+                room.draw();
+            }
+            else if (roomNumber == 2) {
+                room2 = new Room2(in);
+                room2.draw();
+            }
+            else if (roomNumber == 3) {
+                room3 = new Room3(in);
+                room3.draw();
+            }
+            else if (roomNumber == 4) {
+                room4 = new Room4(in);
+                room4.draw();
+            }
+
+            redrawMapAndHelp();
+
+        } catch (FileNotFoundException e) {
+            Terminal.warpCursor(40,0);
+            System.out.print("Save data does not exist"); //needs to be formatted
+            Terminal.pause(2);
+        }
+
     }
 
     // creating a method that will initialize the values for Room 2

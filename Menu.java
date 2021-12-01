@@ -145,7 +145,7 @@ public class Menu {
                 // This is further proof that  game needs to be a singleton, I need to call handleKey from here but
                 // need a game object that can be manipulated
                 // and not just call new games
-                Game.instance().handleKey(Key.r);
+                Game.instance().loadGameFromMenu();
             }
             else {
                 //System.out.print("Please enter N or L: ");
