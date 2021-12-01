@@ -40,6 +40,7 @@ public class Game {
     // The ints and bools are used in redrawMapAndHelp() to set the color randomly only once
     private int justOnce = 0;
     private int Foreground = 0;
+    private boolean roomReady = false;
     private boolean room2Ready = false;
     private boolean room3Ready = false;
     private boolean room4Ready = false;
@@ -61,12 +62,12 @@ public class Game {
         room3 = new Room3();
         room4 = new Room4();
         warpPosit = new Position();
-
         player = new Player(room.getPlayerStart());
-        boxes = room.getBoxes();
-        enemies = room.getEnemies();
-        warps = room.getWarp();
 
+        //TESTING
+        //boxes = room.getBoxes();
+        //enemies = room.getEnemies();
+        //warps = room.getWarp();
     }
 
     private void playerWon() {
@@ -288,6 +289,12 @@ public class Game {
                 save();
                 break;
             case r:
+                // intializing all of the rooms, because we are loading from the menu
+                initializeRoom();
+                initializeRoom2();
+                initializeRoom3();
+                initializeRoom4();
+
                 //restore save data from file
                 File file = new File("save.txt");
                 try {
@@ -390,6 +397,9 @@ public class Game {
             default: Terminal.setForeground(Color.RED);
         }
         if (roomNumber == 1) {
+            if (!roomReady) {
+                initializeRoom();
+            }
             room.draw();
             showHelp();
         } else if (roomNumber == 2) {
@@ -415,6 +425,20 @@ public class Game {
             room.draw();
             showHelp();
         }
+    }
+
+    // creating a method that will initialize the values for Room 2
+    private boolean initializeRoom() {
+        Terminal.clear();
+        boxes = room.getBoxes();
+        enemies = room.getEnemies();
+        warps = room.getWarp();
+        warpPosit = room.getPlayerStart();
+        int row = warpPosit.getRow();
+        int col = warpPosit.getCol();
+        player.setPosition(row, col);
+        roomReady = true; 
+        return roomReady;
     }
 
     // creating a method that will initialize the values for Room 2

@@ -9,7 +9,6 @@ import java.util.Random;
  */
 public class EnemyGenerator {
 
-    // DO NOT DELETE WORKING FOR NEXT PART
      private static EnemyGenerator theInstance;
 
     /** A singleton that creates an enemy generator
