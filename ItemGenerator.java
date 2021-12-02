@@ -9,6 +9,7 @@ import java.util.Random;
 public class ItemGenerator {
 
     private static ItemGenerator theInstance;
+    private static Random rng = new Random();
 
     // creating a singleton used for generating items
 
@@ -32,19 +33,9 @@ public class ItemGenerator {
      * @return an item that was generated
      */
     public static Item generate() {
-        int num;
-        //LOOK HERE, it may make sense to put this in the field
-        Random rng = new Random();
-        num = rng.nextInt(24);
+        int num = rng.nextInt(24);
 
         //creates a place to store the Item and return at the end
-        
-        // LOOK HERE, do we need the Stick item? What is this doing?
-
-        // modified the initial value of temp to be a stick because this value can be selected
-
-        //new Item(ItemType.Weapon, "Stick", 1, 1, 1);
-
         return switch (num) {
             case 0 -> new Item(ItemType.Weapon, "Gold Sword", 5, 24, 36);
             case 1 -> new Item(ItemType.Other, "Purple Amulet of Mystery", 1, 50, 8);
@@ -69,8 +60,8 @@ public class ItemGenerator {
             case 20 -> new Item(ItemType.Weapon, "Infinity Sword", 3, 12, 30);
             case 21 -> new Item(ItemType.Other, "Deja Vu Potion", 2, 15, 15);
             case 22 -> new Item(ItemType.Armor, "Super Strength Armor", 20, 35, 32);
-            case 23 -> new Item(ItemType.Other, "Book of Spells", 2, 13, 5;
-	`   case 24 -> new Item(ItemType.Other, "Healing Potion", 3, 12,20);
+            case 23 -> new Item(ItemType.Other, "Book of Spells", 2, 13, 5);
+	        case 24 -> new Item(ItemType.Other, "Healing Potion", 3, 12,20);
                 default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
         };
     }

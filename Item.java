@@ -26,9 +26,6 @@ public class Item {
     // for armor, it's protection
     private int strength;
 
-    // TESTING FOR LOAD
-    protected static int counter = 0;
-
     public Item(ItemType type, String name, int weight, int value, int strength) {
         this.type = type;
         this.name = name;
@@ -67,7 +64,6 @@ public class Item {
      * @param out the printwriter used to write data to a file
      */
     public void save(PrintWriter out) {
-        //out.println("Item");
         out.println(name);
         out.println(type);
         out.println(weight);
@@ -82,19 +78,10 @@ public class Item {
      */
     public Item(Scanner in) {
 
-        //Wades attempt
         Terminal.clear();
-
         String temp = "";
-
-        //while (!in.hasNext(".")) { //might be the issue, reads in one item only, dont loop through
         name = in.nextLine();
 
-        /*Terminal.warpCursor(10, 0);
-        System.out.print("Item's name is: " + name);
-        Terminal.pause(2);*/
-
-        // changed from String t to temp
         String t = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
@@ -106,35 +93,11 @@ public class Item {
             type = ItemType.Other;
         }
 
-        /*Terminal.warpCursor(11, 0);
-        System.out.print("Item's type is: " + type); // changed to t from type
-        Terminal.pause(2);*/
-
         temp = in.nextLine();
         weight = Integer.parseInt(temp);
-
-        /*Terminal.warpCursor(12, 0);
-        System.out.print("Weight: " + weight);
-        Terminal.pause(2);*/
-
-        // PUTTING the try catch in here screwed up the order
-        // Throwing a java.lang.NumberFormatException here when reading the 'i' NOT TOTALLY SURE WHY
-        //try {
         temp = in.nextLine();
         value = Integer.parseInt(temp);
-        //} catch (java.lang.NumberFormatException e) {
-        //for now do nothing we may need to change code
-        //}
-
-        /*Terminal.warpCursor(13, 0);
-        System.out.print("Value: " + value);
-        Terminal.pause(2);*/
-
         temp = in.nextLine();
         strength = Integer.parseInt(temp);
-
-        /*Terminal.warpCursor(14, 0);
-        System.out.print("Strength: " + strength);
-        Terminal.pause(2);*/
     }
 }
