@@ -469,7 +469,7 @@ public class Game {
             }
 
             // This may not be needed here
-            redrawMapAndHelp();
+            //redrawMapAndHelp();
 
         } catch (FileNotFoundException e) {
             Terminal.warpCursor(40,0);
