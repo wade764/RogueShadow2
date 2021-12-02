@@ -35,7 +35,7 @@ public class Player extends Character {
 
     public Player(Position start) {
 
-        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 50);
+        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 100);
 
         // we can carry 100 pounds of items
         items = new Inventory(100);
@@ -95,7 +95,7 @@ public class Player extends Character {
      *
      */
     public void resetHP() {
-        hp = 50;
+        hp = 100;
     }
 
     /** Resets the player's hp and gives them extra hp for the boss fight

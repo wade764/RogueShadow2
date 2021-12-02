@@ -81,7 +81,7 @@ public class Room4 {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'B') {
-                    enemies.add(new Enemy("Ian Finalyson", row, col, 100, 30, 20));
+                    enemies.add(new Enemy("Ian Finalyson", row, col, 150, 30, 20));
                 }
             }
         }
@@ -118,11 +118,11 @@ public class Room4 {
                 if (cell == '#') {
                     // a unicode block symbol
                     System.out.print('\u2588');
-                } else if (cell == '~') {
+                } /*else if (cell == '~') {
                     System.out.print('~');
                 } else if (cell == '^') {
                     System.out.print('^');
-                } else {
+                }*/ else {
                     // whatever else, just draw a blank (we DON'T draw starting items from map)
                     System.out.print(' ');
                 }
