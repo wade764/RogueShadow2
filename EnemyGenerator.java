@@ -37,16 +37,16 @@ public class EnemyGenerator {
         int num = rng.nextInt(4);
         Enemy enemy;
         if (num == 0) {
-            enemy = new Enemy("Goblin", row, col, 28, 15, 10);
+            enemy = new Enemy("Goblin", row, col, 28, 18, 10);
         }
         else if (num == 1) {
-            enemy = new Enemy("Dragon", row, col, 43, 22, 13);
+            enemy = new Enemy("Dragon", row, col, 43, 23, 13);
         }
         else if (num == 2) {
-            enemy = new Enemy("Zombie", row, col, 26, 18, 8);
+            enemy = new Enemy("Zombie", row, col, 26, 20, 8);
         }
         else {
-            enemy = new Enemy("Wolf", row, col, 32, 18, 8);
+            enemy = new Enemy("Wolf", row, col, 32, 21, 8);
         }
         return enemy;
     }

@@ -19,7 +19,7 @@ public class Player extends Character {
         items = new Inventory(100);
 
         // give them some basic stuff to start with
-        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 23));
+        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 27));
         items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 17));
     }
 
