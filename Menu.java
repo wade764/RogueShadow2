@@ -140,7 +140,8 @@ public class Menu {
                 Game.instance().loadGameFromMenu();
             }
             else {
-                //System.out.print("Please enter N or L: ");
+                Terminal.warpCursor(20, 75);
+                System.out.print("                             ");
                 System.out.print("Press N to start a new game: ");
             }
         }
