@@ -642,13 +642,14 @@ public class Game {
                     String answer = response.next();
                     if (answer.equalsIgnoreCase("Y")) {
                         if (roomNumber < 4) {
+                            player.resetHP();
                             roomNumber = World.instance().roomUpdate();
-                            if (roomNumber <= 3) {
+                            /*if (roomNumber <= 3) {
                                 player.resetHP();
                             }
                             else {
                                 player.resetHPBossFight();
-                            }
+                            }*/
                             redrawMapAndHelp();
                             save();
                         }
