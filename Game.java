@@ -411,9 +411,7 @@ public class Game {
         //restore save data from file
         File file = new File("save.txt");
         try {
-
             Terminal.clear();
-
             Scanner in = new Scanner(file);
             roomNumber = in.nextInt();
             enemySize = in.nextInt();
@@ -471,7 +469,7 @@ public class Game {
             }
 
             // This may not be needed here
-            //redrawMapAndHelp();
+            redrawMapAndHelp();
 
         } catch (FileNotFoundException e) {
             Terminal.warpCursor(40,0);
