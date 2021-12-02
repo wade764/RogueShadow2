@@ -40,7 +40,7 @@ public class EnemyGenerator {
             enemy = new Enemy("Goblin", row, col, 28, 18, 10);
         }
         else if (num == 1) {
-            enemy = new Enemy("Dragon", row, col, 43, 23, 13);
+            enemy = new Enemy("Dragon", row, col, 39, 23, 13);
         }
         else if (num == 2) {
             enemy = new Enemy("Zombie", row, col, 26, 20, 8);

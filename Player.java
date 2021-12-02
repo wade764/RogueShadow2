@@ -50,7 +50,7 @@ public class Player extends Character {
 
     @Override
     public int getHealth() {
-        return super.hp;
+        return hp;
     }
 
     @Override
