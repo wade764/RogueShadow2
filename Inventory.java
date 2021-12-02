@@ -54,7 +54,7 @@ public class Inventory {
         return equippedArmor;
     }
 
-    public ItemgetEquippedOther(){
+    public Item getEquippedOther(){
 	    return equippedOther;
     }
 
