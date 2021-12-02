@@ -13,6 +13,7 @@ public class Inventory {
     // which item is equipped, if any
     private Item equippedArmor;
     private Item equippedWeapon;
+    private Item equippedOther;
 
     // the max weight limit for the player here
     private int maxWeight;
@@ -51,6 +52,10 @@ public class Inventory {
 
     public Item getEquippedArmor() {
         return equippedArmor;
+    }
+
+    public ItemgetEquippedOther(){
+	    return equippedOther
     }
 
     // returns the total weight of all items stored
@@ -151,6 +156,11 @@ public class Inventory {
     // equip a piece of armor
     public void equipArmor() {
         equippedArmor = equip(ItemType.Armor);
+    }
+
+    //equip a piece of other
+    public void equipOther(){
+	    equippedOther = equip(ItemType.Other);
     }
 
     // a method which allows users to choose an item
