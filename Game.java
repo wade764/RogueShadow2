@@ -174,6 +174,7 @@ public class Game {
             "List items: l",
             "Equip weapon: w",
             "Equip armor: a",
+	    "Equip other: o",
             "Save: s",
             "Restore: r",
             "Quit: q"
