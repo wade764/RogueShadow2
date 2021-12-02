@@ -476,12 +476,10 @@ public class Game {
             System.out.print("Save data does not exist"); //needs to be formatted
             Terminal.pause(2);
         }
-
     }
 
-    // creating a method that will initialize the values for Room 2
+    // creating a method that will initialize the values for Room 1
     private void initializeRoom() {
-        //Terminal.clear();
         boxes = room.getBoxes();
         enemies = room.getEnemies();
         warps = room.getWarp();
@@ -489,12 +487,13 @@ public class Game {
         int row = warpPosit.getRow();
         int col = warpPosit.getCol();
         player.setPosition(row, col);
-        roomReady = true; 
+        roomReady = true;
+        World.instance().setRoom(1);
+        roomNumber = World.instance().getRoom();
     }
 
     // creating a method that will initialize the values for Room 2
     private void initializeRoom2() {
-        //Terminal.clear();
         boxes = room2.getBoxes();
         enemies = room2.getEnemies();
         warps = room2.getWarp();
@@ -503,11 +502,12 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room2Ready = true; 
+        World.instance().setRoom(2);
+        roomNumber = World.instance().getRoom();
     }
 
     // creating a method that will initialize the values for Room 3
     private void initializeRoom3() {
-        //Terminal.clear();
         boxes = room3.getBoxes();
         enemies = room3.getEnemies();
         warps = room3.getWarp();
@@ -516,11 +516,12 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room3Ready = true; 
+        World.instance().setRoom(3);
+        roomNumber = World.instance().getRoom();
     }
 
     // creating a method that will initialize the values for Room 4
     private void initializeRoom4() {
-        //Terminal.clear();
         boxes = room4.getBoxes();
         enemies = room4.getEnemies();
         warps = room4.getWarp();
@@ -529,6 +530,8 @@ public class Game {
         int col = warpPosit.getCol();
         player.setPosition(row, col);
         room4Ready = true; 
+        World.instance().setRoom(4);
+        roomNumber = World.instance().getRoom();
     }
 
     // returns a Box if the player is on it -- otherwise null
