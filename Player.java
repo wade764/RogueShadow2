@@ -58,19 +58,24 @@ public class Player extends Character {
             Item weapon = items.getEquippedWeapon();
             Item other = items.getEquippedOther();
             if (weapon != null && other != null) {
-                other.getStrength();
-                weapon.getStrength();
-                return totalDamage
+                totalDamage = other.getStrength() +  weapon.getStrength();
+                return totalDamage;
                     //weapon.getStrength();
-            } else if {
+            } else if (weapon == null && other != null){
+		totalDamage = other.getStrength();
                 // if we have no weapon, our fists are pretty weak...
-                return 1;
-            } else {
+                return totalDamage;
+            } else if(weapon != null && other == null){
                 // if we have no weapon, our fists are pretty weak...
+		   totalDamage= weapon.getStrength();
+		   return totalDamage;
+	    }
+		   
+		 else{
                 return 1;
             }
-            return totalDamage;
-        }
+           
+	}
 
     @Override
         public String getName() {
