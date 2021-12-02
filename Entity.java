@@ -54,8 +54,7 @@ public class Entity {
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
                 // eliminating flash
-                Terminal.warpCursor(40,0);
-
+                Terminal.reset();
                 // and then move it
                 position = new Position(newRow, newCol);
                 return true;
@@ -68,8 +67,7 @@ public class Entity {
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
                 //eliminating flash
-                Terminal.warpCursor(40,0);
-
+                Terminal.reset();
                 // and then move it
                 position = new Position(newRow, newCol);
                 return true;
@@ -82,8 +80,7 @@ public class Entity {
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
                 //eliminating flash
-                Terminal.warpCursor(40,0);
-
+                Terminal.reset();
                 // and then move it
                 position = new Position(newRow, newCol);
                 return true;
@@ -96,8 +93,7 @@ public class Entity {
                 Terminal.warpCursor(position.getRow(), position.getCol());
                 System.out.print(" ");
                 //eliminating flash
-                Terminal.warpCursor(40,0);
-
+                Terminal.reset();
                 // and then move it
                 position = new Position(newRow, newCol);
                 return true;
