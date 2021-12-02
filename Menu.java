@@ -32,11 +32,9 @@ public class Menu {
                     break;
             case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.RED);
+            case 3: Terminal.setForeground(Color.WHITE);
                     break;
-            case 4: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 5: Terminal.setForeground(Color.YELLOW);
+            case 4: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }

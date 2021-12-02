@@ -159,11 +159,9 @@ public class Game {
                     break;
             case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.RED);
+            case 3: Terminal.setForeground(Color.WHITE);
                     break;
-            case 4: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 5: Terminal.setForeground(Color.YELLOW);
+            case 4: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }
@@ -369,11 +367,9 @@ public class Game {
                     break;
             case 2: Terminal.setForeground(Color.MAGENTA);
                     break;
-            case 3: Terminal.setForeground(Color.RED);
+            case 3: Terminal.setForeground(Color.WHITE);
                     break;
-            case 4: Terminal.setForeground(Color.WHITE);
-                    break;
-            case 5: Terminal.setForeground(Color.YELLOW);
+            case 4: Terminal.setForeground(Color.YELLOW);
                     break;
             default: Terminal.setForeground(Color.RED);
         }
@@ -402,11 +398,11 @@ public class Game {
             }
             room4.draw();
             showHelp();
-        } else {
+        } /*else {
             //defaults to room 1 at the moment
             room.draw();
             showHelp();
-        }
+        }*/
     }
 
     // This method is used to load the game from the Main menu
@@ -441,10 +437,8 @@ public class Game {
                     initializeRoom4();
                 }
             }
-
             // needed because calling nextInt() leaves the cursor on the same line
             in.nextLine();
-
             player = new Player(in);
 
             //read in enemies on current floor

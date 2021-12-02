@@ -11,7 +11,21 @@ public class Player extends Character {
     private static String name = "Hero";
     private static char playerIcon = '@';
 
-    // Creating a static method that stores the name and icon of the player, it needs to be called before instantiating a player
+    public Player(Position start) {
+        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 50);
+
+        // we can carry 100 pounds of items
+        items = new Inventory(100);
+
+        // give them some basic stuff to start with
+        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 56));
+        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 15));
+    }
+
+    /** Creating a static method that stores the name and icon of the player, it needs to be called before
+     * instantiating a player
+     *
+     */
     public static void setPlayerInfo() {
         //setting the players name
         Terminal.warpCursor(28, 58);
@@ -33,22 +47,10 @@ public class Player extends Character {
         Player.playerIcon = in.next().charAt(0);
     }
 
-    public Player(Position start) {
-
-        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 50);
-
-        // we can carry 100 pounds of items
-        items = new Inventory(100);
-
-        // give them some basic stuff to start with
-        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 56));
-        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 15));
-    }
-
     @Override
     public int getHealth() {
             return super.hp;
-        }
+    }
 
     @Override
     public int getDamage() {
@@ -64,7 +66,7 @@ public class Player extends Character {
     @Override
     public String getName() {
             return name;
-        }
+    }
 
     @Override
     public int getProtection() {
@@ -91,7 +93,7 @@ public class Player extends Character {
         return items;
     }
 
-    /** Resets the player's hp when they go from rooms 1-3
+    /** Resets the player's hp when they move to the next room
      *
      */
     public void resetHP() {
