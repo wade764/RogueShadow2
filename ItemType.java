@@ -1,7 +1,6 @@
-// ItemType.java
-// an enum for specifying what type an item is
-// this is important when it comes to equipping
-
+/** An enum that specifies what type an item is
+ *
+ */
 public enum ItemType {
     Weapon,
     Armor,

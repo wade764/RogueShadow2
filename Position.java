@@ -1,8 +1,9 @@
-// Position.java
-// represents a simple row/col position in the world
 import java.util.Scanner;
 import java.io.PrintWriter;
 
+/** Represents a location determined by a row and column on the map
+ *
+ */
 public class Position {
     private int row;
     private int col;
@@ -18,11 +19,11 @@ public class Position {
     }
 
     @Override
-        public boolean equals(Object other) {
-            Position op = (Position) other;
-            // they are equal when both coordinates match
-            return this.row == op.row && this.col == op.col;
-        }
+    public boolean equals(Object other) {
+        Position op = (Position) other;
+        // they are equal when both coordinates match
+        return this.row == op.row && this.col == op.col;
+    }
 
     // returns whether a position is adjacent to another (or equal)
     public boolean isAdjacent(Position other) {

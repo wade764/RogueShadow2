@@ -1,7 +1,3 @@
-// Room.java
-// provides code for the drawing of a room
-// also provides starting locations for the player, boxes, and enemies
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;

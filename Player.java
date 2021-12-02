@@ -1,8 +1,10 @@
-// Player.java
 import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/** This class creates a Player object and gives them a weapon and armor to start the game with
+ *
+ */
 public class Player extends Character {
     private Inventory items;
 
@@ -17,8 +19,8 @@ public class Player extends Character {
         items = new Inventory(100);
 
         // give them some basic stuff to start with
-        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 56));
-        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 15));
+        items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 23));
+        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 10));
     }
 
     /** Creating a static method that stores the name and icon of the player, it needs to be called before
@@ -47,59 +49,47 @@ public class Player extends Character {
     }
 
     @Override
-        public int getHealth() {
-            return super.hp;
-        }
+    public int getHealth() {
+        return super.hp;
+    }
 
     @Override
-        public int getDamage() {
-            int totalDamage;
-            Item weapon = items.getEquippedWeapon();
-            Item other = items.getEquippedOther();
-            if (weapon != null && other != null) {
-                totalDamage = other.getStrength() +  weapon.getStrength();
-                return totalDamage;
-                //weapon.getStrength();
-            } else if (weapon == null && other != null){
-                totalDamage = other.getStrength();
-                // if we have no weapon, our fists are pretty weak...
-                return totalDamage;
-            } else if(weapon != null && other == null){
-                // if we have no weapon, our fists are pretty weak...
-                totalDamage= weapon.getStrength();
-                return totalDamage;
-            }
-
-            else{
-                return 1;
-            }
-
+    public int getDamage() {
+        int totalDamage;
+        Item weapon = items.getEquippedWeapon();
+        Item other = items.getEquippedOther();
+        if (weapon != null && other != null) {
+            totalDamage = other.getStrength() +  weapon.getStrength();
+            return totalDamage;
+            //weapon.getStrength();
+        } else if (weapon == null && other != null){
+            totalDamage = other.getStrength();
+            // if we have no weapon, our fists are pretty weak...
+            return totalDamage;
+        } else if(weapon != null && other == null){
+            // if we have no weapon, our fists are pretty weak...
+            totalDamage= weapon.getStrength();
+            return totalDamage;
         }
+        else {
+            return 1;
+        }
+    }
 
     @Override
-        public String getName() {
+    public String getName() {
             return name;
         }
 
     @Override
-        public int getProtection() {
-            Item armor = items.getEquippedArmor();
-            if (armor != null) {
-                return armor.getStrength();
-            } else {
-                // without armor, we have no protection
-                return 0;
-            }
+    public int getProtection() {
+        Item armor = items.getEquippedArmor();
+        if (armor != null) {
+            return armor.getStrength();
+        } else {
+            // without armor, we have no protection
+            return 0;
         }
-
-    //used for saving the player's current weapon
-    public Item getWeapon() {
-        return items.getEquippedWeapon();
-    }
-
-    //used for saving the player's current armor
-    public Item getArmor() {
-        return items.getEquippedArmor();
     }
 
     public Inventory getInventory() {

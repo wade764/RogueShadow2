@@ -1,11 +1,11 @@
-// Inventory.java
-// allows for storing some number of items for the player
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import ansi_terminal.Terminal;
 
+/** Creates an inventory object that stores the items of the player and also keeps track of which items are equipped
+ *
+ */
 public class Inventory {
     // the actual list of items
     private ArrayList<Item> items;

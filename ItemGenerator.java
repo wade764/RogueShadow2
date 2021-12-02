@@ -1,17 +1,11 @@
-// ItemGenerator.java
-// this class contains a static method for creating items randomly
-
 import java.util.Random;
 
 /** Generates a random item each time generate() is called
  *
  */
 public class ItemGenerator {
-
     private static ItemGenerator theInstance;
     private static Random rng = new Random();
-
-    // creating a singleton used for generating items
 
     /** A singleton that creates a single instance of the ItemGenerator
      *

@@ -5,6 +5,9 @@ import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/** Creates an enemy object that can walk around the room
+ *
+ */
 public class Enemy extends Character {
     private String name;
     private int damage;

@@ -1,10 +1,10 @@
-// Entity.java
-// this class represents one moveable, drawable thing in the game
-
 import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/** Represents a drawable object(Box, Enemy, Player) on the map
+ *
+ */
 public class Entity {
 
     // the location of the entity in space

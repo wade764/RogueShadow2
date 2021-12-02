@@ -2,13 +2,14 @@ import ansi_terminal.*;
 import java.util.Scanner;
 import java.util.Random;
 
+/** This class is the menu screen of the game and also prints the game's story when the user starts a new game
+ *
+ */
 public class Menu {
 
     private static int loading = 0;
     // returned in Main class to start the game
     private static boolean playGame = false;
-
-    // Used for printing the Title screen and creating a new game or loading
 
     /** Prints the game's title screen
      *
@@ -24,8 +25,6 @@ public class Menu {
         Random rng = new Random();
         int fg = rng.nextInt(6);
         switch (fg) {
-            //case 0: Terminal.setForeground(Color.BLUE);
-            //break;
             case 0: Terminal.setForeground(Color.CYAN);
                     break;
             case 1: Terminal.setForeground(Color.GREEN);

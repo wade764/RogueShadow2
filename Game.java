@@ -1,6 +1,3 @@
-// Game.java
-// contains logic for running the Game
-
 import java.util.ArrayList;
 import ansi_terminal.*;
 import java.util.Scanner;
@@ -9,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
-/** Manages the Game object
+/** Creates the Game object a d contains logic for running it
  *
  */
 public class Game {
@@ -143,7 +140,6 @@ public class Game {
     }
 
     private void showHelp() {
-
         //setting the color for help once per game
         if (justOnceHelp == 0) {
             justOnceHelp++;
@@ -333,7 +329,6 @@ public class Game {
                     System.out.print("Save data does not exist"); //needs to be formatted
                     Terminal.pause(2);
                 }
-
                 break;
             case LEFT:
                 player.move(0, -1, room, room2, room3, room4);
@@ -351,7 +346,6 @@ public class Game {
             case q:
                 return false;
         }
-
         return true;
     }
 
@@ -361,7 +355,6 @@ public class Game {
         //setting the color for the game once
         if (justOnce == 0) {
             justOnce++;
-
             // setting the color randomly
             Random rng = new Random();
             Foreground = rng.nextInt(6);
@@ -409,7 +402,6 @@ public class Game {
 
     // This method is used to load the game from the Main menu
     protected void loadGameFromMenu() {
-
         //restore save data from file
         File file = new File("save.txt");
         try {

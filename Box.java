@@ -1,10 +1,10 @@
-// Box.java
-// represents a pickup-able item
-
 import ansi_terminal.Color;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/** Creates a box object that represents an item on the map that can be picked up
+ *
+ */
 public class Box extends Entity {
     // the Item that is in the box
     private Item item;
@@ -13,8 +13,8 @@ public class Box extends Entity {
         super(row, col, 'i', Color.MAGENTA);
         this.item = item;
     }
-    // returns the field item
 
+    // returns the field item
     public Item getItem() {
         return item;
     }

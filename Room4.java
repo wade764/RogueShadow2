@@ -80,7 +80,7 @@ public class Room4 {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row].charAt(col) == 'B') {
-                    enemies.add(new Enemy("Ian Finalyson", row, col, 100, 30, 20));
+                    enemies.add(new Enemy("Ian Finalyson", row, col, 75, 23, 14));
                 }
             }
         }
@@ -98,14 +98,6 @@ public class Room4 {
             }
         }
         return warps;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
     }
 
     // draws the map to the screen

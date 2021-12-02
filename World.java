@@ -1,3 +1,6 @@
+/** Creates a World object that manages the room the Player is in
+ *
+ */
 public class World {
     private int room = 1;
     private static World theInstance;

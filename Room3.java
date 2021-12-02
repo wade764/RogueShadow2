@@ -100,14 +100,6 @@ public class Room3 {
         return warps;
     }
 
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
-    }
-
     // draws the map to the screen
     public void draw() {
         Terminal.clear();

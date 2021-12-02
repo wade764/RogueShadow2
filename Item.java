@@ -1,11 +1,10 @@
-// Item.java
-// this class represents a single item, it could be an equippable
-// thing like weapon or ring, or something generic
-
 import ansi_terminal.Terminal;
 import java.util.Scanner;
 import java.io.PrintWriter;
 
+/** Represents a single item that can be equipped
+ *
+ */
 public class Item {
 
     // what sort of item it is
@@ -77,11 +76,9 @@ public class Item {
      * @param in the scanner used to read in data from the file
      */
     public Item(Scanner in) {
-
         Terminal.clear();
-        String temp = "";
+        String temp;
         name = in.nextLine();
-
         String t = in.nextLine();
         if (t.equals("Weapon")) {
             type = ItemType.Weapon;
@@ -92,7 +89,6 @@ public class Item {
         else if (t.equals("Other")) {
             type = ItemType.Other;
         }
-
         temp = in.nextLine();
         weight = Integer.parseInt(temp);
         temp = in.nextLine();

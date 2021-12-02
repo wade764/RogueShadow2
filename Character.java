@@ -1,10 +1,11 @@
-// Character.java
-
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.ArrayList;
 import ansi_terminal.*;
 
+/** Represents a Player or Enemy object and creates some abstract methods that the subclasses can use
+ *
+ */
 public abstract class Character extends Entity {
 
     // the character's health points
