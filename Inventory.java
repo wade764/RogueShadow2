@@ -42,6 +42,8 @@ public class Inventory {
             equippedWeapon = item;
         } else if (item.getType() == ItemType.Armor) {
             equippedArmor = item;
+        } else if (item.getType() == ItemType.Other) {
+            equippedOther = item;
         }
     }
 
@@ -90,6 +92,8 @@ public class Inventory {
                     System.out.print(" (equipped armor)");
                 } else if (i == equippedWeapon) {
                     System.out.print(" (equipped weapon)");
+                } else if (i == equippedOther) {
+                    System.out.print(" (equipped other)");
                 }
                 System.out.print("\n\r");
 
