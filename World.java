@@ -1,5 +1,4 @@
 public class World {
-
     private int room = 1;
     private static World theInstance;
 
@@ -13,7 +12,7 @@ public class World {
         }
         return theInstance;
     }
-    
+
     private World() {
     }
 
@@ -35,7 +34,7 @@ public class World {
     public int getRoom() {
         return room;
     }
-    
+
     public void setRoom(int room) {
         this.room = room;
     }

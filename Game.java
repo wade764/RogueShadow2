@@ -174,7 +174,7 @@ public class Game {
             "List items: l",
             "Equip weapon: w",
             "Equip armor: a",
-	    "Equip other: o",
+            "Equip other: o",
             "Save: s",
             "Restore: r",
             "Quit: q"
@@ -271,10 +271,10 @@ public class Game {
                 redrawMapAndHelp();
                 break;
 
-	    case o:
-		player.getInventory().equipOther();
-		redrawMapAndHelp();
-		break;
+            case o:
+                player.getInventory().equipOther();
+                redrawMapAndHelp();
+                break;
 
             case s:
                 //saves the current game info to a file
@@ -404,11 +404,7 @@ public class Game {
             }
             room4.draw();
             showHelp();
-        } /*else {
-            //defaults to room 1 at the moment
-            room.draw();
-            showHelp();
-        }*/
+        }
     }
 
     // This method is used to load the game from the Main menu
@@ -473,9 +469,6 @@ public class Game {
                 room4 = new Room4(in);
                 room4.draw();
             }
-
-            // This may not be needed here
-            //redrawMapAndHelp();
 
         } catch (FileNotFoundException e) {
             Terminal.warpCursor(40,0);

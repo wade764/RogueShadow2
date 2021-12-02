@@ -57,7 +57,7 @@ public class Inventory {
     }
 
     public Item getEquippedOther(){
-	    return equippedOther;
+        return equippedOther;
     }
 
     // returns the total weight of all items stored
@@ -77,7 +77,6 @@ public class Inventory {
 
         // print a heading row
         // the numbers and junk are to make it print in nice columns
-
         System.out.printf("%-4s %-40s %-8s %-8s %-8s\n\r", "No.", "Name", "Weight", "Value", "Strength");
         Terminal.reset();
 
@@ -96,11 +95,9 @@ public class Inventory {
                     System.out.print(" (equipped other)");
                 }
                 System.out.print("\n\r");
-
                 num++;
             }
         }
-
         return num;
     }
 
@@ -126,7 +123,6 @@ public class Inventory {
             } else if (equippedArmor == toDrop) {
                 equippedArmor = null;
             }
-
             items.remove(toDrop);
         }
 
@@ -135,7 +131,6 @@ public class Inventory {
         } else {
             System.out.print("You dropped nothing...\n\r");
         }
-
         pressAnyKey();
         return toDrop;
     }
@@ -164,7 +159,7 @@ public class Inventory {
 
     //equip a piece of other
     public void equipOther(){
-	    equippedOther = equip(ItemType.Other);
+        equippedOther = equip(ItemType.Other);
     }
 
     // a method which allows users to choose an item

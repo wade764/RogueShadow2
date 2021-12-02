@@ -61,7 +61,7 @@ public class ItemGenerator {
             case 21 -> new Item(ItemType.Other, "Deja Vu Potion", 2, 15, 15);
             case 22 -> new Item(ItemType.Armor, "Super Strength Armor", 20, 35, 32);
             case 23 -> new Item(ItemType.Other, "Book of Spells", 2, 13, 5);
-	        case 24 -> new Item(ItemType.Other, "Healing Potion", 3, 12,20);
+            case 24 -> new Item(ItemType.Other, "Healing Potion", 3, 12,20);
                 default -> new Item(ItemType.Weapon, "Stick", 1, 1, 1);
         };
     }

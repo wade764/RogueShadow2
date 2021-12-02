@@ -1,6 +1,5 @@
 // Warp.java
 // represents a warp point
-
 import ansi_terminal.Color;
 
 /** Manages a warp object that the player can use once they have defeated all the enemies in the current room

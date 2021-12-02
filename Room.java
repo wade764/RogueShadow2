@@ -104,7 +104,6 @@ public class Room {
         return warps;
     }
 
-
     public int getRows() {
         return rows;
     }

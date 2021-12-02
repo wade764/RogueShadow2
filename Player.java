@@ -1,5 +1,4 @@
 // Player.java
-
 import ansi_terminal.*;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -60,22 +59,22 @@ public class Player extends Character {
             if (weapon != null && other != null) {
                 totalDamage = other.getStrength() +  weapon.getStrength();
                 return totalDamage;
-                    //weapon.getStrength();
+                //weapon.getStrength();
             } else if (weapon == null && other != null){
-		totalDamage = other.getStrength();
+                totalDamage = other.getStrength();
                 // if we have no weapon, our fists are pretty weak...
                 return totalDamage;
             } else if(weapon != null && other == null){
                 // if we have no weapon, our fists are pretty weak...
-		   totalDamage= weapon.getStrength();
-		   return totalDamage;
-	    }
-		   
-		 else{
+                totalDamage= weapon.getStrength();
+                return totalDamage;
+            }
+
+            else{
                 return 1;
             }
-           
-	}
+
+        }
 
     @Override
         public String getName() {

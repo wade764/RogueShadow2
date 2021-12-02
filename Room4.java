@@ -1,5 +1,4 @@
 import ansi_terminal.Terminal;
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
