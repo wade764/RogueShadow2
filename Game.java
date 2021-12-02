@@ -270,6 +270,11 @@ public class Game {
                 redrawMapAndHelp();
                 break;
 
+	    case o:
+		player.getInventory().equipOther();
+		redrawMapAndHelp();
+		break;
+
             case s:
                 //saves the current game info to a file
                 save();
