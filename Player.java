@@ -20,7 +20,7 @@ public class Player extends Character {
 
         // give them some basic stuff to start with
         items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 23));
-        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 10));
+        items.addAndEquip(new Item(ItemType.Armor, "Silver Shield", 15, 18, 17));
     }
 
     /** Creating a static method that stores the name and icon of the player, it needs to be called before
