@@ -13,7 +13,7 @@ public class Player extends Character {
     private static char playerIcon = '@';
 
     public Player(Position start) {
-        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 50);
+        super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 200);
 
         // we can carry 100 pounds of items
         items = new Inventory(100);

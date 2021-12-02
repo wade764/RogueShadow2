@@ -629,7 +629,7 @@ public class Game {
                     if (answer.equalsIgnoreCase("Y")) {
                         if (roomNumber < 4) {
                             roomNumber = World.instance().roomUpdate();
-                            player.resetHP();
+                            //player.resetHP();
                             redrawMapAndHelp();
                             save();
                         }
