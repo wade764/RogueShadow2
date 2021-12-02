@@ -55,7 +55,7 @@ public class Inventory {
     }
 
     public ItemgetEquippedOther(){
-	    return equippedOther
+	    return equippedOther;
     }
 
     // returns the total weight of all items stored
