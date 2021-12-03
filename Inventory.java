@@ -234,7 +234,7 @@ public class Inventory {
      */
     public Inventory(Scanner in) {
         items = new ArrayList<>();
-        maxWeight = 100;
+        maxWeight = 80;
         Item weapon = new Item(in);
         addAndEquip(weapon);
         Item armor = new Item(in);

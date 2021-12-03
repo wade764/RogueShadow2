@@ -15,8 +15,8 @@ public class Player extends Character {
     public Player(Position start) {
         super(start.getRow(), start.getCol(), playerIcon, Color.CYAN, 160);
 
-        // we can carry 100 pounds of items
-        items = new Inventory(100);
+        // we can carry 80 pounds of items
+        items = new Inventory(80);
 
         // give them some basic stuff to start with
         items.addAndEquip(new Item(ItemType.Weapon, "Orb of Destruction", 3, 34, 24));
